@@ -9920,23 +9920,23 @@ const views = {
     render: () => [renderPortalWorkspace()],
   },
   staff: {
-    title: "Staff And Responsibilities",
+    title: "Staff Room",
     render: () => [renderStaffWorkspace()],
   },
   development: {
-    title: "Practice And Development",
+    title: "Development Centre",
     render: () => [renderDevelopmentWorkspace()],
   },
   schedule: {
-    title: "Schedule / Opponent Intel",
+    title: "Schedule",
     render: () => [renderScheduleWorkspace()],
   },
   rankings: {
-    title: "Rankings / Conference / CFP",
+    title: "Rankings",
     render: () => [renderRankingsWorkspace()],
   },
   finance: {
-    title: "Finances / NIL / Benefits",
+    title: "Finance Office",
     render: () => [renderFinanceWorkspace()],
   },
   facilities: {
@@ -9944,7 +9944,7 @@ const views = {
     render: () => [renderFacilitiesWorkspace()],
   },
   history: {
-    title: "History / Trophy Room",
+    title: "Program History",
     render: () => [renderHistoryWorkspace()],
   },
   analytics: {
