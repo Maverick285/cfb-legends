@@ -7990,11 +7990,11 @@ function renderScheduleWorkspace() {
 
   let bodyHtml;
   if (state.tab === "boxscores") {
-    bodyHtml = `<div style="padding:var(--space-4)">${table(recentBoxScoresRows())}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="schedule">${renderSimpleWorkspaceTable(recentBoxScoresRows(), { keyPrefix: "boxscores", emptyMessage: "No box scores yet." })}</button></div>`;
   } else if (state.tab === "drives") {
-    bodyHtml = `<div style="padding:var(--space-4)">${table(driveSummaryRows())}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="schedule">${renderSimpleWorkspaceTable(driveSummaryRows(), { keyPrefix: "drives", emptyMessage: "No drive data yet." })}</button></div>`;
   } else if (state.tab === "why") {
-    bodyHtml = `<div style="padding:var(--space-4)">${whyPanel()}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="analytics">${whyPanel()}</button></div>`;
   } else {
     // Wave 19: sort by canonical season-week ordinal so Aug→Sep→Oct→Nov,
     // not alphabetical (which puts Aug, Nov, Oct, Sep — broken).
@@ -8025,9 +8025,9 @@ function renderScheduleWorkspace() {
     title: "Schedule",
     sub: `${myProgram.shortName} · ${currentSeasonYear()} ${phaseLabel}`,
     meta: [
-      { label: "Games", value: String(games) },
-      { label: "Played", value: String(played) },
-      { label: "Record", value: career.record },
+      { label: "Games", value: String(games), openView: "schedule" },
+      { label: "Played", value: String(played), openView: "schedule" },
+      { label: "Record", value: career.record, openView: "rankings" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: SCHEDULE_TABS, activeId: state.tab, dataAttr: "schedule-tab" });
@@ -8040,8 +8040,8 @@ function renderScheduleWorkspace() {
     title: "Opponent Scout",
     sub: data.seasonState && data.seasonState.lastResultSummary || "No result yet",
     sections: [
-      { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<div class="data-row"><span>${r[0]}</span><span class="rating">${r[1]}</span></div>`).join("")}</div>` },
-      { label: "Last Box", html: `<div class="data-list">${recentBoxScoresRows().slice(1, 4).map((r) => `<div class="data-row"><span>${r[0]}</span><span class="rating">${r[1]}</span></div>`).join("")}</div>` },
+      { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+      { label: "Last Box", html: `<div class="data-list">${recentBoxScoresRows().slice(1, 4).map((r) => `<button class="data-row clickable-row" data-open-view="schedule"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
     ],
   });
   const status = `${games} games · ${played} played · ${state.tab}`;
@@ -8081,9 +8081,9 @@ function renderRankingsWorkspace() {
     ];
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, sort: state.sort, dataAttr: "rankings-row" });
   } else if (state.tab === "cfp") {
-    bodyHtml = `<div style="padding:var(--space-4)">${table(cfpBracketRows())}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="rankings">${renderSimpleWorkspaceTable(cfpBracketRows(), { keyPrefix: "cfp", emptyMessage: "No CFP bracket yet." })}</button></div>`;
   } else if (state.tab === "resume") {
-    bodyHtml = `<div style="padding:var(--space-4)">${meters(vm("selectionResume"))}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="rankings">${meters(vm("selectionResume"))}</button></div>`;
   } else {
     const top25 = vm("nationalTop10").slice(1);
     const rows = top25.map((r, i) => ({ _id: `n${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4] }));
@@ -8101,8 +8101,8 @@ function renderRankingsWorkspace() {
     title: "Rankings",
     sub: `${myProgram.shortName} · ${currentSeasonYear()}`,
     meta: [
-      { label: "Conference", value: ((world.conferences && world.conferences[myProgram.conference] && world.conferences[myProgram.conference].short) || (myProgram.conference || "—").toUpperCase()) },
-      { label: "Record", value: career.record },
+      { label: "Conference", value: ((world.conferences && world.conferences[myProgram.conference] && world.conferences[myProgram.conference].short) || (myProgram.conference || "—").toUpperCase()), openView: "rankings" },
+      { label: "Record", value: career.record, openView: "schedule" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: RANKINGS_TABS, activeId: state.tab, dataAttr: "rankings-tab" });
@@ -8111,7 +8111,7 @@ function renderRankingsWorkspace() {
     title: "Selection Resume",
     sub: "Year-end CFP profile",
     sections: [
-      { label: "Profile", html: `<div class="data-list">${vm("selectionResume").map((r) => `<div class="data-row"><span>${r[0]}</span><span class="rating">${r[1]}</span></div>`).join("")}</div>` },
+      { label: "Profile", html: `<div class="data-list">${vm("selectionResume").map((r) => `<button class="data-row clickable-row" data-open-view="rankings"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
     ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: bodyHtml, inspector, status: `${state.tab} view` });
@@ -8238,9 +8238,9 @@ function renderHistoryWorkspace() {
   if (state.tab === "scrapbook") {
     bodyHtml = `<div style="padding:var(--space-4)">${scrapbookPanel()}</div>`;
   } else if (state.tab === "draft") {
-    bodyHtml = `<div style="padding:var(--space-4)">${draftClassPanel()}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="history">${draftClassPanel()}</button></div>`;
   } else if (state.tab === "rivalry") {
-    bodyHtml = `<div style="padding:var(--space-4)">${table(vm("rivalryLedger"))}</div>`;
+    bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="history">${renderSimpleWorkspaceTable(vm("rivalryLedger"), { keyPrefix: "rivalry", emptyMessage: "No rivalry ledger yet." })}</button></div>`;
   } else if (state.tab === "realignment") {
     bodyHtml = `<div style="padding:var(--space-4)">${realignmentPanel()}</div>`;
   } else if (state.tab === "awards") {
@@ -8263,8 +8263,8 @@ function renderHistoryWorkspace() {
     title: "Program History",
     sub: `${myProgram.shortName} · ${myProgram.nickname || ""}`,
     meta: [
-      { label: "Seasons Logged", value: String((data.history || []).length) },
-      { label: "Draft Classes", value: String((data.draftClasses || []).length) },
+      { label: "Seasons Logged", value: String((data.history || []).length), openView: "history" },
+      { label: "Draft Classes", value: String((data.draftClasses || []).length), openView: "history" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: HISTORY_TABS, activeId: state.tab, dataAttr: "history-tab" });
@@ -8273,7 +8273,7 @@ function renderHistoryWorkspace() {
     title: "Memory Hooks",
     sub: "Stories worth telling",
     sections: [
-      { label: "Recent Hooks", html: `<div class="data-list">${vm("memoryHooks").slice(0, 4).map((r) => `<div class="data-row"><span><strong>${r[0]}</strong> ${r[1]}</span></div>`).join("") || '<p style="color:var(--text-muted)">No hooks yet.</p>'}</div>` },
+      { label: "Recent Hooks", html: `<div class="data-list">${vm("memoryHooks").slice(0, 4).map((r) => `<button class="data-row clickable-row" data-open-view="history"><span><strong>${r[0]}</strong> ${r[1]}</span></button>`).join("") || '<p style="color:var(--text-muted)">No hooks yet.</p>'}</div>` },
     ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: bodyHtml, inspector, status: `${state.tab} view` });
