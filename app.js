@@ -7324,15 +7324,28 @@ function renderDepthWorkspace() {
     title: "Depth Planner",
     sub: `${programById(career.programId).shortName} · two-deep and succession`,
     meta: [
-      { label: "Slots", value: String(Object.keys(DEPTH_SLOT_POSITION || {}).length) },
-      { label: "Future Holes", value: String(Math.max(0, (vm("futureHoles") || []).length - 1)) },
+      { label: "Slots", value: String(Object.keys(DEPTH_SLOT_POSITION || {}).length), openView: "depth" },
+      { label: "Future Holes", value: String(Math.max(0, (vm("futureHoles") || []).length - 1)), openView: "recruiting" },
     ],
   });
-  const dataGrid = wrapLegacyPanels([
-    panel("Depth Assignments", "Starter shell with validation", "span-7", depthPlannerPanel()),
-    panel("Two-Deep", "Key roles", "span-5", rosterRows(vm("depthTwoDeep"))),
-    panel("Future Holes", "Push needs to recruiting or portal", "span-12", table(vm("futureHoles"))),
-  ]);
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card">
+        <h3>Depth Assignments</h3>
+        <p class="workspace-card-sub">Starter shell with validation</p>
+        ${depthPlannerPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Two-Deep</h3>
+        <p class="workspace-card-sub">Key roles</p>
+        ${rosterRows(vm("depthTwoDeep"), { targetView: "roster" })}
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Future Holes</h3>
+        <p class="workspace-card-sub">Push needs to recruiting or portal</p>
+        <button class="clickable-card" data-open-view="recruiting">${renderSimpleWorkspaceTable(vm("futureHoles"), { keyPrefix: "depth-holes", emptyMessage: "No future holes flagged." })}</button>
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Depth Notes",
     sub: "Roster planning",
@@ -7354,10 +7367,10 @@ function renderProspectWorkspace() {
     title: prospect.name,
     sub: `${prospect.position} · ${prospect.stars} · ${prospect.classYear || "HS"}`,
     meta: [
-      { label: "Grade", value: String(prospect.grade || "—") },
-      { label: "Need Fit", value: String(prospect.needFit || "—") },
-      { label: "Pipeline", value: String(prospect.pipeline || "—") },
-      { label: "Status", value: String(prospect.commitmentStatus || "Open") },
+      { label: "Grade", value: String(prospect.grade || "—"), openView: "recruiting" },
+      { label: "Need Fit", value: String(prospect.needFit || "—"), openView: "recruiting" },
+      { label: "Pipeline", value: String(prospect.pipeline || "—"), openView: "recruiting" },
+      { label: "Status", value: String(prospect.commitmentStatus || "Open"), openView: "recruiting" },
     ],
   });
   const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="recruiting">Back to Recruiting</button>', '<button data-insp-action="contact-prospect">Contact</button>', '<button data-insp-action="offer-prospect">Offer</button>'] }] });
@@ -11200,11 +11213,24 @@ function prospectSnapshot(prospect) {
 }
 
 function prospectBoardTable(prospect) {
-  const rows = prospects()
+  const board = prospects()
     .filter((entry) => entry.position === prospect.position)
-    .slice(0, 8)
-    .map((entry) => [entry.position, entry.name, entry.stars, `${entry.scoutConfidence}%`, `${entry.commitChance}%`]);
-  return table([["Pos", "Prospect", "Stars", "Scout", "Commit"], ...rows]);
+    .slice(0, 8);
+  if (!board.length) return "<p>No position board data.</p>";
+  const rows = board.map((entry) => {
+    const active = entry.id === prospect.id;
+    return `<button class="table-row selectable${active ? " active" : ""}" data-select-prospect="${entry.id}">
+      <span>${entry.position}</span>
+      <strong>${entry.name}</strong>
+      <span>${entry.stars}</span>
+      <span>${entry.scoutConfidence}%</span>
+      <span>${entry.commitChance}%</span>
+    </button>`;
+  }).join("");
+  return `<div class="table-list">
+    <div class="table-row header"><span>Pos</span><span>Prospect</span><span>Stars</span><span>Scout</span><span>Commit</span></div>
+    ${rows}
+  </div>`;
 }
 
 // ── Grounded Report Payload Builder ──────────────────────────────────────
