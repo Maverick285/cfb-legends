@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Gridiron Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <div class="club-lockup">
+          <div class="crest" aria-hidden="true">
+            <span id="crestLabel">LC</span>
+          </div>
+          <div>
+            <p class="eyebrow">Campus Gridiron</p>
+            <h1 id="programNameLabel">Lakeview College</h1>
+          </div>
+        </div>
+
+        <nav class="main-nav" id="mainNav"></nav>
+
+        <div class="sidebar-card">
+          <p class="label">Next Kickoff</p>
+          <strong id="nextKickoffOpponent">—</strong>
+          <span id="nextKickoffWhen">Schedule loading…</span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="topbar-navcluster" aria-label="Navigation controls">
+            <button class="icon-button" id="backButton" title="Back" aria-label="Back">
+              <span class="top-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M15 18 9 12l6-6"></path>
+                </svg>
+              </span>
+            </button>
+            <button class="icon-button" id="forwardButton" title="Forward" aria-label="Forward">
+              <span class="top-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m9 18 6-6-6-6"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="topbar-summary" aria-label="Current career status">
+            <div class="topbar-dateblock">
+              <p class="eyebrow">Career Date</p>
+              <strong id="careerDate">Monday, Aug 25, 2028</strong>
+            </div>
+            <div class="topbar-pill-row">
+              <span id="weekLabel">Week 1</span>
+              <span id="phaseLabel">Preseason Setup</span>
+              <span id="recordLabel">Lakeview 0-0</span>
+              <span id="coachLabel">Coach: Unassigned</span>
+              <span>Blockers <strong id="urgentCount">2</strong></span>
+              <span id="saveStateLabel">Unsaved</span>
+            </div>
+          </div>
+          <div class="topbar-actions" aria-label="Game actions">
+            <div class="topbar-search-wrap">
+              <span class="topbar-search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m16 16 5 5"></path>
+                </svg>
+              </span>
+              <input id="globalSearchInput" type="search" placeholder="Search players, recruits, staff" aria-label="Global search" />
+            </div>
+            <button class="icon-button" id="bookmarkButton" title="Bookmarks" aria-label="Bookmarks">
+              <span class="top-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 3h12v18l-6-4-6 4z"></path>
+                </svg>
+              </span>
+            </button>
+            <button class="icon-button" id="saveButton" title="Save Game" aria-label="Save Game">
+              <span class="top-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 3h12l2 2v16H5z"></path>
+                  <path d="M8 3v6h8"></path>
+                  <path d="M8 18h8"></path>
+                </svg>
+              </span>
+            </button>
+            <button class="ghost-action" id="careerButton">Main Menu</button>
+            <button class="ghost-action" id="skipButton" title="Fast-forward to the next blocker, decision, or game day">Skip ▸</button>
+            <button class="primary-action" id="continueButton">Continue</button>
+          </div>
+        </header>
+
+        <section class="workspace-area">
+          <section class="content-grid" id="content" aria-live="polite"></section>
+        </section>
+      </main>
+    </div>
+
+    <div class="bootstrap-screen" id="bootstrapScreen" hidden>
+      <section class="bootstrap-panel" aria-labelledby="bootstrapTitle">
+        <div class="bootstrap-hero">
+          <div>
+            <p class="eyebrow">Main Menu</p>
+            <h2 id="bootstrapTitle">Campus Gridiron Manager</h2>
+            <p class="bootstrap-lead">Start a career, resume your save, or open advanced tools without dragging sandbox controls into the normal flow.</p>
+          </div>
+          <div class="bootstrap-hero-meta">
+            <span>Professional FM-style shell</span>
+            <span>Real state, no mock desk</span>
+          </div>
+        </div>
+
+        <div class="bootstrap-primary-grid">
+          <button class="bootstrap-primary-tile accent" id="continueCareerTile" type="button">
+            <span class="tile-eyebrow">Primary</span>
+            <strong>Continue Career</strong>
+            <small>Resume the latest local save</small>
+          </button>
+          <button class="bootstrap-primary-tile" id="newCareerTile" type="button">
+            <span class="tile-eyebrow">Primary</span>
+            <strong>Start New Career</strong>
+            <small>Pick a school, coach identity, and rules preset</small>
+          </button>
+          <button class="bootstrap-primary-tile" id="loadCareerButton" type="button">
+            <span class="tile-eyebrow">Primary</span>
+            <strong>Load Career</strong>
+            <small>Load your most recent local save file</small>
+          </button>
+          <button class="bootstrap-primary-tile" id="dataLabTile" type="button">
+            <span class="tile-eyebrow">Tools</span>
+            <strong>Data Lab</strong>
+            <small>Jump into analytics and validation tools</small>
+          </button>
+          <button class="bootstrap-primary-tile" id="settingsTile" type="button">
+            <span class="tile-eyebrow">System</span>
+            <strong>Settings</strong>
+            <small>Content pack and service configuration</small>
+          </button>
+        </div>
+
+        <div class="bootstrap-secondary-row">
+          <button class="ghost-action" id="favoriteTeamTile" type="button">Favorite Team</button>
+          <button class="ghost-action" id="advancedSetupToggle" type="button" aria-expanded="false">Advanced Setup</button>
+          <button class="ghost-action" id="aiServicesTile" type="button">AI Services</button>
+          <button class="ghost-action" id="creditsTile" type="button">Credits / Sources</button>
+          <button class="ghost-action" id="closeBootstrapButton" type="button">Close</button>
+        </div>
+
+        <section class="bootstrap-setup" id="bootstrapSetupPanel">
+          <div class="bootstrap-setup-header">
+            <h3>New Career Setup</h3>
+            <p>Core setup only. Sandbox tuning lives under Advanced Setup.</p>
+          </div>
+          <div class="bootstrap-grid">
+            <label>
+              <span>Coach Name</span>
+              <input id="coachNameInput" type="text" value="Alex Carter" maxlength="32" />
+            </label>
+            <label>
+              <span>Experience Mode</span>
+              <select id="experienceModeSelect">
+                <option value="Sandbox">Sandbox</option>
+                <option value="Career">Career</option>
+              </select>
+            </label>
+            <label>
+              <span>Program</span>
+              <select id="programSelect"></select>
+            </label>
+            <label>
+              <span>Rules Preset</span>
+              <select id="rulesPresetSelect"></select>
+            </label>
+            <label>
+              <span>World Seed</span>
+              <input id="seedInput" type="text" value="lakeview-2028-demo" maxlength="40" />
+            </label>
+            <label>
+              <span>Start Year</span>
+              <input id="startYearInput" type="number" min="2010" max="2035" step="1" value="2028" />
+            </label>
+          </div>
+          <div class="bootstrap-actions">
+            <button class="primary-action" id="startCareerButton">Start New Career</button>
+          </div>
+        </section>
+
+        <details class="bootstrap-advanced" id="bootstrapAdvancedPanel">
+          <summary>Advanced Setup</summary>
+          <div class="bootstrap-advanced-stack">
+            <div class="bootstrap-grid">
+              <label>
+                <span>Content Pack</span>
+                <select id="contentPackSelect">
+                  <option value="fbs">FBS 2026 (Real Schools)</option>
+                  <option value="demo">Lakeview Demo (Fictional)</option>
+                </select>
+              </label>
+            </div>
+            <div class="bootstrap-grid">
+              <label title="Action Points spent on recruit interactions per week. Higher = touch more prospects.">
+                <span>Recruiting AP <strong id="recruitingApValue">7</strong></span>
+                <input id="recruitingApInput" type="range" min="4" max="14" value="7" />
+              </label>
+              <label title="Action Points for retention meetings (talking down players who might transfer).">
+                <span>Retention AP <strong id="retentionApValue">4</strong></span>
+                <input id="retentionApInput" type="range" min="2" max="10" value="4" />
+              </label>
+              <label title="How many free portal pickups you get during a coaching-change window.">
+                <span>Portal Exception Advances <strong id="portalExceptionValue">2</strong></span>
+                <input id="portalExceptionInput" type="range" min="0" max="5" value="2" />
+              </label>
+              <label title="Scales overall scoring up/down. 100 = real CFB ~28pts/team. 130 = arcade.">
+                <span>Scoring Environment % <strong id="scoringEnvValue">100</strong></span>
+                <input id="scoringEnvInput" type="range" min="70" max="150" step="5" value="100" />
+              </label>
+              <label title="How wild upset/blowout swings can be. 100 = balanced. 150 = chaos.">
+                <span>Volatility % <strong id="volatilityValue">100</strong></span>
+                <input id="volatilityInput" type="range" min="70" max="150" step="5" value="100" />
+              </label>
+              <label title="How much tactical profile (Aggressive/Conservative) shifts results.">
+                <span>Tactical Impact % <strong id="tacticalImpactValue">100</strong></span>
+                <input id="tacticalImpactInput" type="range" min="70" max="150" step="5" value="100" />
+              </label>
+              <label title="How often players get injured. 100 = ~1-3 per game. 70 = rare.">
+                <span>Injury Cadence % <strong id="injuryCadenceValue">100</strong></span>
+                <input id="injuryCadenceInput" type="range" min="70" max="160" step="5" value="100" />
+              </label>
+              <label title="How much NIL pool fluctuates week-to-week.">
+                <span>NIL Volatility % <strong id="nilVolatilityValue">100</strong></span>
+                <input id="nilVolatilityInput" type="range" min="70" max="160" step="5" value="100" />
+              </label>
+              <label title="How fast players grow each week (development engine speed).">
+                <span>Progression Pace % <strong id="progressionPaceValue">100</strong></span>
+                <input id="progressionPaceInput" type="range" min="70" max="160" step="5" value="100" />
+              </label>
+              <label title="Size of the transfer portal pool. 180 = ~80% more entrants than baseline.">
+                <span>Transfer Population % <strong id="transferPopulationValue">100</strong></span>
+                <input id="transferPopulationInput" type="range" min="60" max="180" step="5" value="100" />
+              </label>
+              <label title="How tightly results stay glued to real-world program prestige. 100 = closely. 60 = anything can happen.">
+                <span>Reality Anchor % <strong id="realityAnchorValue">100</strong></span>
+                <input id="realityAnchorInput" type="range" min="60" max="140" step="5" value="100" />
+              </label>
+            </div>
+          </div>
+        </details>
+
+        <p class="bootstrap-status" id="bootstrapStatus">No local save loaded.</p>
+      </section>
+    </div>
+
+    <template id="cardTemplate">
+      <article class="panel"></article>
+    </template>
+
+    <script src="data/demo-world.js?v=wave19"></script>
+    <script src="data/fbs-world.js?v=wave20c"></script>
+    <!-- js/sim modules: ordered so each consumer loads after its dependencies. -->
+    <script src="js/ui/datagrid.js?v=wave20"></script>
+    <script src="js/sim/test-runner.js"></script>
+    <script src="js/sim/matchup/attribute-registry.js"></script>
+    <script src="js/sim/matchup/matchup.js"></script>
+    <script src="js/sim/events/play-event.js"></script>
+    <script src="js/sim/dev/dev-engine.js"></script>
+    <script src="js/sim/persistence/event-log.js?v=wave19"></script>
+    <script src="js/sim/persistence/action-log.js"></script>
+    <script src="js/sim/persistence/state-hash.js"></script>
+    <script src="js/sim/persistence/replay.js"></script>
+    <script src="js/sim/persistence/reducers.js"></script>
+    <script src="js/sim/staff/coaching-carousel.js"></script>
+    <script src="js/sim/portal/portal-v2.js"></script>
+    <script src="js/sim/media/voices-engine.js"></script>
+    <script src="js/sim/ai/ai-school.js"></script>
+    <script src="js/sim/ai/ai-nil-bidding.js"></script>
+    <script src="js/sim/qc/invariants.js"></script>
+    <script src="js/sim/recruiting/recruiting-v2.js"></script>
+    <script src="js/sim/recruiting/ai-recruiting.js"></script>
+    <script src="js/sim/pulse/campus-pulse.js"></script>
+    <script src="js/sim/nil/nil-engine.js"></script>
+    <script src="js/sim/draft/draft-engine.js"></script>
+    <script src="js/sim/stats/stat-taxonomy.js"></script>
+    <script src="js/sim/stats/stat-accumulator.js"></script>
+    <script src="js/sim/stats/player-stat-accumulator.js"></script>
+    <script src="js/sim/playgen/game-state.js?v=wave12"></script>
+    <script src="js/sim/playgen/play-selector.js?v=wave12"></script>
+    <script src="js/sim/playgen/play-resolver.js?v=wave12"></script>
+    <script src="js/sim/playgen/drive-engine.js?v=wave12"></script>
+    <script src="js/sim/playgen/game-engine.js?v=wave12"></script>
+    <script src="js/sim/playgen/extras-engine.js?v=wave12"></script>
+    <script src="js/sim/scrapbook/scrapbook-engine.js"></script>
+    <script src="js/sim/injury/injury-engine.js"></script>
+    <script src="js/sim/realignment/realignment-engine.js"></script>
+    <script src="js/sim/awards/awards-engine.js"></script>
+    <script src="js/sim/archive/alumni-archive.js"></script>
+    <script src="js/sim/tests/matchup-tests.js"></script>
+    <script src="js/sim/tests/play-event-tests.js"></script>
+    <script src="js/sim/tests/dev-engine-tests.js"></script>
+    <script src="js/sim/tests/stat-tests.js"></script>
+    <script src="js/sim/tests/playgen-tests.js"></script>
+    <script src="js/sim/tests/player-stat-tests.js"></script>
+    <script src="js/sim/tests/persistence-tests.js"></script>
+    <script src="js/sim/tests/persist2-tests.js"></script>
+    <script src="js/sim/tests/coaching-carousel-tests.js"></script>
+    <script src="js/sim/tests/portal-v2-tests.js"></script>
+    <script src="js/sim/tests/voices-tests.js"></script>
+    <script src="js/sim/tests/extras-tests.js"></script>
+    <script src="js/sim/tests/scrapbook-tests.js"></script>
+    <script src="js/sim/tests/reducers-tests.js"></script>
+    <script src="js/sim/tests/ai-nil-tests.js"></script>
+    <script src="js/sim/tests/injury-tests.js"></script>
+    <script src="js/sim/tests/realignment-tests.js"></script>
+    <script src="js/sim/tests/awards-tests.js"></script>
+    <script src="js/sim/tests/alumni-tests.js"></script>
+    <script src="js/sim/tests/ai-school-tests.js"></script>
+    <script src="js/sim/tests/invariants-tests.js"></script>
+    <script src="js/sim/tests/m18-tests.js"></script>
+    <script src="runtime/sim-core.js?v=wave18"></script>
+    <script src="runtime/hardening-core.js"></script>
+    <script src="app.js?v=wave23-ai-carousel-schedule"></script>
+  </body>
+</html>
