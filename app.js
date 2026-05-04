@@ -6014,6 +6014,10 @@ function saveCurrentView(state, name, keys) {
 }
 
 function renderSimpleWorkspaceTable(rows, options = {}) {
+  const helper = window.CGM_WORKSPACE_TABLE;
+  if (helper && typeof helper.renderSimpleWorkspaceTable === "function") {
+    return helper.renderSimpleWorkspaceTable(rows, options);
+  }
   const DG = window.CGM_DATAGRID;
   if (!DG) return table(rows || []);
   const source = Array.isArray(rows) ? rows : [];
@@ -9780,29 +9784,33 @@ function localStore() {
   }
 }
 
-const UI_PREFS_KEY = "cgm.uiPrefs.v1";
-
 function readUiPrefs() {
+  const helper = window.CGM_UI_PREFS;
+  if (helper && typeof helper.readUiPrefs === "function") return helper.readUiPrefs();
   const store = localStore();
   if (!store) return {};
   try {
-    return JSON.parse(store.getItem(UI_PREFS_KEY) || "{}") || {};
+    return JSON.parse(store.getItem("cgm.uiPrefs.v1") || "{}") || {};
   } catch (error) {
     return {};
   }
 }
 
 function writeUiPrefs(prefs) {
+  const helper = window.CGM_UI_PREFS;
+  if (helper && typeof helper.writeUiPrefs === "function") return helper.writeUiPrefs(prefs);
   const store = localStore();
   if (!store) return;
   try {
-    store.setItem(UI_PREFS_KEY, JSON.stringify(prefs || {}));
+    store.setItem("cgm.uiPrefs.v1", JSON.stringify(prefs || {}));
   } catch (error) {
     // noop
   }
 }
 
 function loadUiStateFromPrefs() {
+  const helper = window.CGM_UI_PREFS;
+  if (helper && typeof helper.loadUiStateFromPrefs === "function") return helper.loadUiStateFromPrefs();
   const prefs = readUiPrefs();
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (isRecord(prefs.roster)) window.CGM_UI_STATE.roster = { ...prefs.roster };
@@ -9811,6 +9819,8 @@ function loadUiStateFromPrefs() {
 }
 
 function persistUiState() {
+  const helper = window.CGM_UI_PREFS;
+  if (helper && typeof helper.persistUiState === "function") return helper.persistUiState();
   if (!isRecord(window.CGM_UI_STATE)) return;
   const roster = isRecord(window.CGM_UI_STATE.roster) ? window.CGM_UI_STATE.roster : {};
   const recruiting = isRecord(window.CGM_UI_STATE.recruiting) ? window.CGM_UI_STATE.recruiting : {};
