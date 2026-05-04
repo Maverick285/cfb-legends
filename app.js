@@ -5960,6 +5960,14 @@ const ROSTER_VIEWS = [
   { id: "development", label: "Development" },
 ];
 
+const ROSTER_VIEW_PRESETS = {
+  general: ["name", "position", "year", "ovr", "pot", "morale", "transferRisk", "redshirtIntent", "devCurve"],
+  attributes: ["name", "position", "year", "ovr", "pot", "throwing", "decisions", "pace", "strength", "agility", "tackling", "coverage"],
+  eligibility: ["name", "position", "year", "ovr", "seasonsPlayed", "remaining", "redshirt", "academic"],
+  nil: ["name", "position", "year", "ovr", "morale", "transferRisk"],
+  development: ["name", "position", "year", "ovr", "pot", "devCurve", "potentialGrade", "developmentFocus"],
+};
+
 function ensureRosterUiState() {
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   const ui = window.CGM_UI_STATE;
@@ -5970,7 +5978,66 @@ function ensureRosterUiState() {
   if (!ui.roster.classFilter) ui.roster.classFilter = "all";
   if (typeof ui.roster.search !== "string") ui.roster.search = "";
   if (!Array.isArray(ui.roster.sort)) ui.roster.sort = [{ colId: "ovr", direction: "desc" }];
+  if (!Array.isArray(ui.roster.visibleColumns) || !ui.roster.visibleColumns.length) ui.roster.visibleColumns = (ROSTER_VIEW_PRESETS[ui.roster.view] || []).slice();
+  if (!Array.isArray(ui.roster.savedViews)) ui.roster.savedViews = [];
   return ui.roster;
+}
+
+function applyVisibleColumns(columns, visibleColumns) {
+  if (!Array.isArray(visibleColumns) || !visibleColumns.length) return columns;
+  const allowed = new Set(visibleColumns);
+  const filtered = columns.filter((col) => allowed.has(col.id));
+  return filtered.length ? filtered : columns;
+}
+
+function cycleVisibleColumns(state, presetsMap) {
+  const presets = Object.values(presetsMap).filter(Array.isArray);
+  const current = JSON.stringify(state.visibleColumns || []);
+  const idx = presets.findIndex((p) => JSON.stringify(p) == current);
+  state.visibleColumns = (presets[(idx + 1) % presets.length] || presets[0] || []).slice();
+  persistUiState();
+}
+
+function saveCurrentView(state, name, keys) {
+  if (!Array.isArray(state.savedViews)) state.savedViews = [];
+  const safeName = (name || '').trim().slice(0, 40);
+  if (!safeName) return false;
+  const record = {};
+  keys.forEach((key) => {
+    const value = state[key];
+    record[key] = Array.isArray(value) ? value.slice() : value;
+  });
+  record.name = safeName;
+  state.savedViews = [record, ...state.savedViews.filter((v) => v.name !== safeName)].slice(0, 8);
+  persistUiState();
+  return true;
+}
+
+function renderSimpleWorkspaceTable(rows, options = {}) {
+  const DG = window.CGM_DATAGRID;
+  if (!DG) return table(rows || []);
+  const source = Array.isArray(rows) ? rows : [];
+  if (!source.length || source.length < 2) return `<div class="table-list"><div class="table-row"><span>${options.emptyMessage || "No data"}</span></div></div>`;
+  const [headerRow, ...bodyRows] = source;
+  const columns = headerRow.map((label, index) => ({
+    id: `c${index}`,
+    label: String(label),
+    accessor: (row) => row[`c${index}`],
+    sortable: false,
+  }));
+  const dataRows = bodyRows.map((row, rowIndex) => {
+    const record = { _id: `${options.keyPrefix || "row"}-${rowIndex}` };
+    headerRow.forEach((_, cellIndex) => {
+      record[`c${cellIndex}`] = Array.isArray(row) ? (row[cellIndex] ?? "") : "";
+    });
+    return record;
+  });
+  return DG.renderDataGrid({
+    columns,
+    rows: dataRows,
+    rowKey: (row) => row._id,
+    emptyMessage: options.emptyMessage || "No data",
+  });
 }
 
 function rosterColumnsForView(view) {
@@ -6132,7 +6199,7 @@ function renderRosterWorkspace() {
   if (!DG) return '<div style="padding:24px">DataGrid module not loaded.</div>';
   const state = ensureRosterUiState();
   const allPlayers = players();
-  const cols = rosterColumnsForView(state.view);
+  const cols = applyVisibleColumns(rosterColumnsForView(state.view), state.visibleColumns);
   // Filter data per state.
   const filters = [];
   if (state.posFilter && state.posFilter !== "all") filters.push({ colId: "position", value: state.posFilter });
@@ -6199,6 +6266,12 @@ const RECRUITING_TABS = [
   { id: "committed", label: "Committed" },
   { id: "pipeline", label: "Pipeline" },
 ];
+const RECRUITING_VIEW_PRESETS = {
+  board: ["name", "position", "state", "stars", "rank", "yourEval", "confidence", "interest", "relationship", "nil", "risk"],
+  fit: ["name", "position", "stars", "interest", "playingTimeFit", "developmentFit", "schemeFit", "staff"],
+  contact: ["name", "position", "stars", "interest", "relationship", "staff", "lastContact", "status", "risk"],
+};
+
 function ensureRecruitingUiState() {
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   const ui = window.CGM_UI_STATE;
@@ -6209,6 +6282,8 @@ function ensureRecruitingUiState() {
   if (!ui.recruiting.statusFilter) ui.recruiting.statusFilter = "all";
   if (typeof ui.recruiting.search !== "string") ui.recruiting.search = "";
   if (!Array.isArray(ui.recruiting.sort)) ui.recruiting.sort = [{ colId: "interest", direction: "desc" }];
+  if (!Array.isArray(ui.recruiting.visibleColumns) || !ui.recruiting.visibleColumns.length) ui.recruiting.visibleColumns = RECRUITING_VIEW_PRESETS.board.slice();
+  if (!Array.isArray(ui.recruiting.savedViews)) ui.recruiting.savedViews = [];
   return ui.recruiting;
 }
 
@@ -6329,7 +6404,7 @@ function renderRecruitingWorkspace() {
     visible = visible.filter((p) => (p.name || "").toLowerCase().includes(q) || (p.position || "").toLowerCase().includes(q));
   }
 
-  const cols = [
+  const cols = applyVisibleColumns([
     { id: "name", label: "Name", accessor: (r) => r.name, width: 180 },
     { id: "position", label: "Pos", accessor: (r) => r.position, width: 56, align: "center" },
     { id: "state", label: "State", accessor: (r) => r.homeState || r.pipeline || "—", width: 90 },
@@ -6354,7 +6429,7 @@ function renderRecruitingWorkspace() {
     { id: "staff", label: "Staff", accessor: (r) => r.staffLead || "Board", width: 90 },
     { id: "lastContact", label: "Last Contact", accessor: (r) => r.lastContact || "—", width: 110 },
     { id: "risk", label: "Risk", accessor: (r) => r.flipRisk || "—", width: 70 },
-  ];
+  ], state.visibleColumns);
 
   const ap = recruitingActionPoints();
   const maxAp = data.recruitingState && data.recruitingState.maxActionPoints || 7;
@@ -7311,16 +7386,49 @@ function renderDevelopmentWorkspace() {
       { label: "Future Holes", value: String(Math.max(0, (vm("futureHoles") || []).length - 1)) },
     ],
   });
-  const dataGrid = wrapLegacyPanels([
-    panel("Practice Emphasis", "Choose this week's focus", "span-5", practiceEmphasisPanel()),
-    panel("Individual Plans", "Player growth targets", "span-7", table(vm("individualPlans"))),
-    panel("Dev Report", "Weekly breakouts and regressions", "span-5", devReportPanel()),
-    panel("This Week Agenda", "Calendar items", "span-4", agendaList(data.agenda)),
-    panel("Load Management", "Fatigue and injury signals", "span-3", meters(vm("loadManagement"))),
-    panel("Eligibility Watch", "Redshirt, portal and academic flags", "span-6", table(vm("eligibilityWatch"))),
-    panel("Two-Deep Snapshot", "Top starters by position", "span-6", table(vm("depthTwoDeep"))),
-    panel("Future Holes", "Succession gaps needing action", "span-12", table(vm("futureHoles"))),
-  ]);
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card">
+        <h3>Practice Emphasis</h3>
+        <p class="workspace-card-sub">Choose this week's focus</p>
+        ${practiceEmphasisPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Individual Plans</h3>
+        <p class="workspace-card-sub">Player growth targets</p>
+        ${renderSimpleWorkspaceTable(vm("individualPlans"), { keyPrefix: "dev-plans", emptyMessage: "No development plans yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Dev Report</h3>
+        <p class="workspace-card-sub">Weekly breakouts and regressions</p>
+        ${devReportPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>This Week Agenda</h3>
+        <p class="workspace-card-sub">Calendar items</p>
+        ${agendaList(data.agenda)}
+      </section>
+      <section class="workspace-card">
+        <h3>Load Management</h3>
+        <p class="workspace-card-sub">Fatigue and injury signals</p>
+        ${meters(vm("loadManagement"))}
+      </section>
+      <section class="workspace-card">
+        <h3>Eligibility Watch</h3>
+        <p class="workspace-card-sub">Redshirt, portal and academic flags</p>
+        ${renderSimpleWorkspaceTable(vm("eligibilityWatch"), { keyPrefix: "eligibility", emptyMessage: "No eligibility issues." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Two-Deep Snapshot</h3>
+        <p class="workspace-card-sub">Top starters by position</p>
+        ${renderSimpleWorkspaceTable(vm("depthTwoDeep"), { keyPrefix: "twodeep", emptyMessage: "No two-deep data." })}
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Future Holes</h3>
+        <p class="workspace-card-sub">Succession gaps needing action</p>
+        ${renderSimpleWorkspaceTable(vm("futureHoles"), { keyPrefix: "holes", emptyMessage: "No future holes flagged." })}
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Weekly Focus",
     sub: "Player development",
@@ -7344,12 +7452,29 @@ function renderFinanceWorkspace() {
       { label: "NIL Volatility", value: `${ruleValue("nilVolatilityPercent", 100)}%` },
     ],
   });
-  const dataGrid = wrapLegacyPanels([
-    panel("NIL Pool", "Booster collective + season spend", "span-12", nilPoolPanel()),
-    panel("Budget Overview", `Benefit pool ${benefitPoolRemaining()} left`, "span-8", benefitBudgetTable()),
-    panel("Market Pressure", "Retention and acquisition", "span-4", benefitPressureMeters()),
-    panel("Benefit Allocation", "Adjust committed amounts by bucket", "span-12", benefitAllocationPanel()),
-  ]);
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card workspace-card-span-2">
+        <h3>NIL Pool</h3>
+        <p class="workspace-card-sub">Booster collective and season spend</p>
+        ${nilPoolPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Budget Overview</h3>
+        <p class="workspace-card-sub">Benefit pool $${benefitPoolRemaining()}k remaining</p>
+        ${renderSimpleWorkspaceTable(benefitBudgetRows(), { keyPrefix: "budget" })}
+      </section>
+      <section class="workspace-card">
+        <h3>Market Pressure</h3>
+        <p class="workspace-card-sub">Retention and acquisition climate</p>
+        ${benefitPressureMeters()}
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Benefit Allocation</h3>
+        <p class="workspace-card-sub">Adjust committed amounts by bucket</p>
+        ${benefitAllocationPanel()}
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Budget Notes",
     sub: "Current market climate",
@@ -7373,15 +7498,45 @@ function renderFacilitiesWorkspace() {
       { label: "Objectives", value: String(Math.max(0, (vm("objectives") || []).length - 1)) },
     ],
   });
-  const dataGrid = wrapLegacyPanels([
-    panel("Facility Requests", "Approve or defer live requests", "span-7", facilitiesRequestPanel()),
-    panel("AD Confidence", "Job and politics", "span-5", meters(vm("adConfidence"))),
-    panel("School DNA", "Institution profile (1-20)", "span-6", schoolProfilePanel()),
-    panel("Stadium Builder", `${(data.facilitiesState && data.facilitiesState.stadiumUpgradePoints) || 0} upgrade pts · 2 pts per attr`, "span-6", stadiumProfilePanel()),
-    panel("Objectives", "Season expectations", "span-6", table(vm("objectives"))),
-    panel("Facility Impact Log", "Upgrade history", "span-6", table(facilityImpactRows())),
-    panel("Pressure Events", "Traceable objective pressure", "span-12", table(pressureTraceRows())),
-  ]);
+  const upgradePts = (data.facilitiesState && data.facilitiesState.stadiumUpgradePoints) || 0;
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card">
+        <h3>Facility Requests</h3>
+        <p class="workspace-card-sub">Approve or defer live requests</p>
+        ${facilitiesRequestPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>AD Confidence</h3>
+        <p class="workspace-card-sub">Job and politics</p>
+        ${meters(vm("adConfidence"))}
+      </section>
+      <section class="workspace-card">
+        <h3>School DNA</h3>
+        <p class="workspace-card-sub">Institution profile</p>
+        ${schoolProfilePanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Stadium Builder</h3>
+        <p class="workspace-card-sub">${upgradePts} upgrade pts, 2 pts per attribute</p>
+        ${stadiumProfilePanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Objectives</h3>
+        <p class="workspace-card-sub">Season expectations</p>
+        ${renderSimpleWorkspaceTable(vm("objectives"), { keyPrefix: "objectives", emptyMessage: "No objectives loaded." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Facility Impact Log</h3>
+        <p class="workspace-card-sub">Upgrade history</p>
+        ${renderSimpleWorkspaceTable(facilityImpactRows(), { keyPrefix: "facility-impact", emptyMessage: "No facility impact history yet." })}
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Pressure Events</h3>
+        <p class="workspace-card-sub">Traceable objective pressure</p>
+        ${renderSimpleWorkspaceTable(pressureTraceRows(), { keyPrefix: "pressure-trace", emptyMessage: "No pressure events logged." })}
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Stewardship",
     sub: "AD relationship",
@@ -7404,25 +7559,94 @@ function renderAnalyticsWorkspace() {
       { label: "Race Rows", value: String(Math.max(0, (aiProgramRaceRows() || []).length - 1)) },
     ],
   });
-  const dataGrid = wrapLegacyPanels([
-    panel("Stat Leaders", "Top players this season", "span-12", statLeadersPanel()),
-    panel("Recent Events", "World events log (game results, breakouts, milestones)", "span-6", recentEventsPanel()),
-    panel("Recent Actions", "Decisions log (what you / staff chose)", "span-3", recentActionsPanel()),
-    panel("Validation Harness", "HARNESS-1: structural invariants", "span-3", validationPanel()),
-    panel("Pinned Reports", "Unlocks more after games", "span-4", table(vm("analyticsReports"))),
-    panel("Key Findings", "Decision support", "span-4", agendaList(vm("analyticsFindings"))),
-    panel("Balance Snapshot", "Sanity bands for quick tuning", "span-4", table(vm("balanceSnapshot"))),
-    panel("World Model Signals", "Entity-linked live simulation state", "span-6", table(worldModelSnapshotRows())),
-    panel("Relationship Trace", "Deterministic causal log", "span-6", table(worldRelationshipTraceRows())),
-    panel("Reality Projection", "Five-year calibration against anchor bands", "span-6", realismProjectionPanel()),
-    panel("Projection Table", "Year-over-year target-gap estimate", "span-6", table(realismProjectionRows())),
-    panel("AI Program Race", "Rival ecosystem progression", "span-6", table(aiProgramRaceRows())),
-    panel("Advanced Data Hub", "Efficiency, success, and tactical signals", "span-12", table(vm("advancedDataHub"))),
-    panel("Alpha Hardening", "M9 calibration and runtime checks", "span-6", alphaHardeningPanel()),
-    panel("Hardening Results", "Most recent check summary", "span-6", table(alphaHardeningRows())),
-    panel("Morale / Promise Trace", "Usage and promise reaction log", "span-6", table(moraleTraceRows())),
-    panel("Facility Impact Log", "Long-term stewardship effects", "span-6", table(facilityImpactRows())),
-  ]);
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Stat Leaders</h3>
+        <p class="workspace-card-sub">Top players this season</p>
+        ${statLeadersPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Recent Events</h3>
+        <p class="workspace-card-sub">World events log</p>
+        ${recentEventsPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Recent Actions</h3>
+        <p class="workspace-card-sub">Decision log</p>
+        ${recentActionsPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Validation Harness</h3>
+        <p class="workspace-card-sub">Structural invariants</p>
+        ${validationPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Pinned Reports</h3>
+        <p class="workspace-card-sub">Unlocks more after games</p>
+        ${renderSimpleWorkspaceTable(vm("analyticsReports"), { keyPrefix: "analytics-reports", emptyMessage: "No reports unlocked yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Key Findings</h3>
+        <p class="workspace-card-sub">Decision support</p>
+        ${agendaList(vm("analyticsFindings"))}
+      </section>
+      <section class="workspace-card">
+        <h3>Balance Snapshot</h3>
+        <p class="workspace-card-sub">Sanity bands for quick tuning</p>
+        ${renderSimpleWorkspaceTable(vm("balanceSnapshot"), { keyPrefix: "balance-snapshot", emptyMessage: "No balance snapshot available." })}
+      </section>
+      <section class="workspace-card">
+        <h3>World Model Signals</h3>
+        <p class="workspace-card-sub">Entity-linked live simulation state</p>
+        ${renderSimpleWorkspaceTable(worldModelSnapshotRows(), { keyPrefix: "world-model", emptyMessage: "No world model signals yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Relationship Trace</h3>
+        <p class="workspace-card-sub">Deterministic causal log</p>
+        ${renderSimpleWorkspaceTable(worldRelationshipTraceRows(), { keyPrefix: "relationship-trace", emptyMessage: "No relationship trace yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Reality Projection</h3>
+        <p class="workspace-card-sub">Five-year calibration against anchor bands</p>
+        ${realismProjectionPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Projection Table</h3>
+        <p class="workspace-card-sub">Year-over-year target gap estimate</p>
+        ${renderSimpleWorkspaceTable(realismProjectionRows(), { keyPrefix: "projection-table", emptyMessage: "No projection table yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>AI Program Race</h3>
+        <p class="workspace-card-sub">Rival ecosystem progression</p>
+        ${renderSimpleWorkspaceTable(aiProgramRaceRows(), { keyPrefix: "ai-race", emptyMessage: "No race data yet." })}
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Advanced Data Hub</h3>
+        <p class="workspace-card-sub">Efficiency, success, and tactical signals</p>
+        ${renderSimpleWorkspaceTable(vm("advancedDataHub"), { keyPrefix: "advanced-hub", emptyMessage: "No advanced hub rows yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Alpha Hardening</h3>
+        <p class="workspace-card-sub">Calibration and runtime checks</p>
+        ${alphaHardeningPanel()}
+      </section>
+      <section class="workspace-card">
+        <h3>Hardening Results</h3>
+        <p class="workspace-card-sub">Most recent check summary</p>
+        ${renderSimpleWorkspaceTable(alphaHardeningRows(), { keyPrefix: "hardening-results", emptyMessage: "No hardening results yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Morale / Promise Trace</h3>
+        <p class="workspace-card-sub">Usage and promise reaction log</p>
+        ${renderSimpleWorkspaceTable(moraleTraceRows(), { keyPrefix: "morale-trace", emptyMessage: "No morale trace yet." })}
+      </section>
+      <section class="workspace-card">
+        <h3>Facility Impact Log</h3>
+        <p class="workspace-card-sub">Long-term stewardship effects</p>
+        ${renderSimpleWorkspaceTable(facilityImpactRows(), { keyPrefix: "facility-impact-analytics", emptyMessage: "No facility impact history yet." })}
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Lab Notes",
     sub: "Calibration and signal review",
@@ -9524,6 +9748,49 @@ function localStore() {
   }
 }
 
+const UI_PREFS_KEY = "cgm.uiPrefs.v1";
+
+function readUiPrefs() {
+  const store = localStore();
+  if (!store) return {};
+  try {
+    return JSON.parse(store.getItem(UI_PREFS_KEY) || "{}") || {};
+  } catch (error) {
+    return {};
+  }
+}
+
+function writeUiPrefs(prefs) {
+  const store = localStore();
+  if (!store) return;
+  try {
+    store.setItem(UI_PREFS_KEY, JSON.stringify(prefs || {}));
+  } catch (error) {
+    // noop
+  }
+}
+
+function loadUiStateFromPrefs() {
+  const prefs = readUiPrefs();
+  if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
+  if (isRecord(prefs.roster)) window.CGM_UI_STATE.roster = { ...prefs.roster };
+  if (isRecord(prefs.recruiting)) window.CGM_UI_STATE.recruiting = { ...prefs.recruiting };
+  if (Array.isArray(prefs.bookmarks)) window.CGM_UI_STATE.bookmarks = prefs.bookmarks.slice(0, 12);
+}
+
+function persistUiState() {
+  if (!isRecord(window.CGM_UI_STATE)) return;
+  const roster = isRecord(window.CGM_UI_STATE.roster) ? window.CGM_UI_STATE.roster : {};
+  const recruiting = isRecord(window.CGM_UI_STATE.recruiting) ? window.CGM_UI_STATE.recruiting : {};
+  const bookmarks = Array.isArray(window.CGM_UI_STATE.bookmarks) ? window.CGM_UI_STATE.bookmarks.slice(0, 12) : [];
+  writeUiPrefs({ roster, recruiting, bookmarks });
+}
+
+function currentViewLabel() {
+  const view = views[activeView];
+  return view ? (typeof view.title === "function" ? view.title() : view.title) : activeView;
+}
+
 function readSavedCareer() {
   const store = localStore();
   if (!store) return null;
@@ -9989,6 +10256,7 @@ const backButton = document.querySelector("#backButton");
 const forwardButton = document.querySelector("#forwardButton");
 const globalSearchInput = document.querySelector("#globalSearchInput");
 const bookmarkButton = document.querySelector("#bookmarkButton");
+loadUiStateFromPrefs();
 const urgentCount = document.querySelector("#urgentCount");
 const careerDate = document.querySelector("#careerDate");
 const recordLabel = document.querySelector("#recordLabel");
@@ -10795,7 +11063,7 @@ function prospectProfilePanel(prospect) {
   const lockText = locked ? `<div class="profile-warning">Recruitment closed: ${prospect.status}</div>` : "";
 
   const scoutedStr = prospect.scoutedLow && prospect.scoutedHigh
-    ? `${prospect.scoutedLow}–${prospect.scoutedHigh} (±${Math.round((prospect.scoutedHigh - prospect.scoutedLow) / 2)})`
+    ? `${prospect.scoutedLow}-${prospect.scoutedHigh} (±${Math.round((prospect.scoutedHigh - prospect.scoutedLow) / 2)})`
     : "Unknown";
 
   const prefs = prospect.preferences || {};
@@ -10805,14 +11073,14 @@ function prospectProfilePanel(prospect) {
 
   const promiseList = (prospect.promisesMade || []).join(", ") || "None";
 
-  // Trait clusters — depth derived from scouting progress
+  // Trait clusters, depth derived from scouting progress
   const scoutDepth = prospectScoutingDepth(prospect);
   const clusters = deriveTraitClusters(prospect, scoutDepth);
   const traitSection = clusters.length
     ? `<div class="prospect-traits"><p class="label" style="margin-bottom:6px">Scout Labels <span style="font-size:0.72rem;color:var(--quiet)">(${Math.round(scoutDepth * 100)}% scouted)</span></p>${traitClustersGrouped(clusters)}</div>`
     : `<div class="prospect-traits"><p class="label">Scout Labels</p><span class="trait-empty">Scout further to reveal traits.</span></div>`;
 
-  // Attribute panel — uses uncertainty bars based on scouted range
+  // Attribute panel, uses uncertainty bars based on scouted range
   const posSpec = POSITION_ATTRS_SPEC[prospect.position];
   const prospecPosAttrs = prospect.posAttrs || (posSpec ? playerDefaultPosAttrs(prospect.position, prospect.ovr || 72, createSeededRandom(`prospect:attrs:${prospect.id}`)) : {});
   const prospectAttrHtml = posSpec
@@ -11564,9 +11832,10 @@ content.addEventListener("click", (event) => {
   const rosterActionBtn = event.target.closest("[data-roster-action]");
   if (rosterActionBtn) {
     const action = rosterActionBtn.dataset.rosterAction;
+    const ui = ensureRosterUiState();
     if (action === "compare") setBootstrapStatus("Roster compare tray is planned but not fully implemented yet.");
-    else if (action === "columns") setBootstrapStatus("Column visibility controls are planned for the next DataGrid pass.");
-    else if (action === "save-view") setBootstrapStatus("Saved views are now part of the canonical UI target and still need implementation.");
+    else if (action === "columns") { cycleVisibleColumns(ui, ROSTER_VIEW_PRESETS); renderView("roster"); }
+    else if (action === "save-view") { const ok = saveCurrentView(ui, `Roster ${ui.view} ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`, ["tab", "view", "posFilter", "classFilter", "search", "sort", "visibleColumns"]); setBootstrapStatus(ok ? "Saved current roster view." : "Could not save roster view."); persistUiState(); }
     else if (action === "ask-staff") setBootstrapStatus("Staff recommendation digest for roster review is still a placeholder.");
     else if (action === "export") setBootstrapStatus("Export flow is not fully implemented yet.");
     return;
@@ -11574,9 +11843,10 @@ content.addEventListener("click", (event) => {
   const recruitingActionBtn = event.target.closest("[data-recruiting-action]");
   if (recruitingActionBtn) {
     const action = recruitingActionBtn.dataset.recruitingAction;
+    const ui = ensureRecruitingUiState();
     if (action === "assign-scout") setBootstrapStatus("Scout assignment UI is not fully wired yet.");
-    else if (action === "columns") setBootstrapStatus("Column visibility controls are planned for the next Recruiting/DataGrid pass.");
-    else if (action === "save-view") setBootstrapStatus("Recruiting saved views are still pending implementation.");
+    else if (action === "columns") { cycleVisibleColumns(ui, RECRUITING_VIEW_PRESETS); renderView("recruiting"); }
+    else if (action === "save-view") { const ok = saveCurrentView(ui, `Recruiting ${ui.tab} ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`, ["tab", "posFilter", "starsFilter", "statusFilter", "search", "sort", "visibleColumns"]); setBootstrapStatus(ok ? "Saved current recruiting view." : "Could not save recruiting view."); persistUiState(); }
     else if (action === "ask-staff") setBootstrapStatus("Recruiting staff digest is still a placeholder surface.");
     return;
   }
@@ -11585,6 +11855,7 @@ content.addEventListener("click", (event) => {
   if (rosterTabBtn) {
     const ui = ensureRosterUiState();
     ui.tab = rosterTabBtn.dataset.rosterTab;
+    persistUiState();
     renderView("roster");
     return;
   }
@@ -11599,6 +11870,7 @@ content.addEventListener("click", (event) => {
   if (recruitingTabBtn) {
     const ui = ensureRecruitingUiState();
     ui.tab = recruitingTabBtn.dataset.recruitingTab;
+    persistUiState();
     renderView("recruiting");
     return;
   }
@@ -12188,6 +12460,7 @@ content.addEventListener("input", (event) => {
   if (rosterSearch) {
     const ui = ensureRosterUiState();
     ui.search = rosterSearch.value;
+    persistUiState();
     renderView("roster");
     return;
   }
@@ -12195,6 +12468,7 @@ content.addEventListener("input", (event) => {
   if (recSearch) {
     const ui = ensureRecruitingUiState();
     ui.search = recSearch.value;
+    persistUiState();
     renderView("recruiting");
   }
 });
@@ -12206,10 +12480,11 @@ content.addEventListener("change", (event) => {
     const ui = ensureRosterUiState();
     const key = rosterControl.dataset.rosterControl;
     const v = rosterControl.value;
-    if (key === "view") ui.view = v;
+    if (key === "view") { ui.view = v; ui.visibleColumns = (ROSTER_VIEW_PRESETS[v] || []).slice(); }
     else if (key === "pos") ui.posFilter = v;
     else if (key === "class") ui.classFilter = v;
     else if (key === "search") ui.search = v;
+    persistUiState();
     renderView("roster");
     return;
   }
@@ -12223,6 +12498,7 @@ content.addEventListener("change", (event) => {
     else if (key === "stars") ui.starsFilter = v;
     else if (key === "status") ui.statusFilter = v;
     else if (key === "search") ui.search = v;
+    persistUiState();
     renderView("recruiting");
     return;
   }
@@ -12346,15 +12622,20 @@ if (globalSearchInput) {
     if (!query) return;
     const ui = ensureRosterUiState();
     ui.search = query;
+    persistUiState();
     renderView("roster");
   });
 }
 
 if (bookmarkButton) {
   bookmarkButton.addEventListener("click", () => {
-    const view = views[activeView];
-    const label = view ? (typeof view.title === "function" ? view.title() : view.title) : activeView;
-    setBootstrapStatus(`Bookmark placeholder: ${label}`);
+    if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
+    if (!Array.isArray(window.CGM_UI_STATE.bookmarks)) window.CGM_UI_STATE.bookmarks = [];
+    const label = currentViewLabel();
+    const bookmark = { viewId: activeView, label };
+    window.CGM_UI_STATE.bookmarks = [bookmark, ...window.CGM_UI_STATE.bookmarks.filter((b) => b.viewId !== activeView)].slice(0, 12);
+    persistUiState();
+    setBootstrapStatus(`Bookmarked ${label}.`);
   });
 }
 
@@ -12401,10 +12682,10 @@ if (skipButton) {
     if (blockingItems().length) {
       renderView("desk");
       skipButton.textContent = `Blocked (${blockingItems().length})`;
-      window.setTimeout(() => { skipButton.textContent = "Skip ▸"; }, 1500);
+      window.setTimeout(() => { skipButton.textContent = "Skip Time"; }, 1500);
       return;
     }
-    skipButton.textContent = "Skipping…";
+    skipButton.textContent = "Skipping...";
     window.setTimeout(() => {
       const result = skipToNextEvent();
       markDirty();
@@ -12415,7 +12696,7 @@ if (skipButton) {
                       : result.reason === "game" ? "Game played"
                       : result.reason === "season_complete" ? "Season complete"
                       : result.reason === "max" ? "Skipped 60 days" : "Nothing to skip";
-      skipButton.textContent = `Skip ▸`;
+      skipButton.textContent = `Skip Time`;
       // Always go to Desk so the player sees what's pending.
       renderView("desk");
       // Brief toast via topbar coach label

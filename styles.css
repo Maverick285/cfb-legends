@@ -1881,6 +1881,42 @@ body[data-active-view="desk"] .fm-desk-workspace {
 }
 .fm-workspace-status strong { color: var(--text-secondary); }
 
+.workspace-grid {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+.workspace-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.workspace-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.workspace-card h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+
+.workspace-card-sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.workspace-card-span-2 {
+  grid-column: span 2;
+}
+
 /* DataGrid per spec 06 */
 .dg {
   width: 100%;
