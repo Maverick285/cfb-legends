@@ -6172,7 +6172,7 @@ function renderRosterWorkspace() {
   const actions = DG.renderActionBar({
     groups: [
       { controls: rosterFilterControls(state) },
-      { controls: ['<button data-roster-action="ask-staff">Ask Staff</button>', '<button data-roster-action="export">Export</button>'] },
+      { controls: ['<button data-roster-action="compare">Compare</button>', '<button data-roster-action="columns">Columns</button>', '<button data-roster-action="save-view">Save View</button>', '<button data-roster-action="ask-staff">Ask Staff</button>', '<button data-roster-action="export">Export</button>'] },
     ],
   });
   const dgHtml = DG.renderDataGrid({
@@ -6391,7 +6391,7 @@ function renderRecruitingWorkspace() {
   const actions = DG.renderActionBar({
     groups: [
       { controls: recruitingControls(state) },
-      { controls: ['<button data-recruiting-action="ask-staff">Ask Staff</button>'] },
+      { controls: ['<button data-recruiting-action="assign-scout">Assign Scout</button>', '<button data-recruiting-action="columns">Columns</button>', '<button data-recruiting-action="save-view">Save View</button>', '<button data-recruiting-action="ask-staff">Ask Staff</button>'] },
     ],
   });
   const dgHtml = DG.renderDataGrid({
@@ -11561,6 +11561,25 @@ nav.addEventListener("click", (event) => {
 });
 
 content.addEventListener("click", (event) => {
+  const rosterActionBtn = event.target.closest("[data-roster-action]");
+  if (rosterActionBtn) {
+    const action = rosterActionBtn.dataset.rosterAction;
+    if (action === "compare") setBootstrapStatus("Roster compare tray is planned but not fully implemented yet.");
+    else if (action === "columns") setBootstrapStatus("Column visibility controls are planned for the next DataGrid pass.");
+    else if (action === "save-view") setBootstrapStatus("Saved views are now part of the canonical UI target and still need implementation.");
+    else if (action === "ask-staff") setBootstrapStatus("Staff recommendation digest for roster review is still a placeholder.");
+    else if (action === "export") setBootstrapStatus("Export flow is not fully implemented yet.");
+    return;
+  }
+  const recruitingActionBtn = event.target.closest("[data-recruiting-action]");
+  if (recruitingActionBtn) {
+    const action = recruitingActionBtn.dataset.recruitingAction;
+    if (action === "assign-scout") setBootstrapStatus("Scout assignment UI is not fully wired yet.");
+    else if (action === "columns") setBootstrapStatus("Column visibility controls are planned for the next Recruiting/DataGrid pass.");
+    else if (action === "save-view") setBootstrapStatus("Recruiting saved views are still pending implementation.");
+    else if (action === "ask-staff") setBootstrapStatus("Recruiting staff digest is still a placeholder surface.");
+    return;
+  }
   // UI-RESCUE-1: Roster workspace interactions ──────────────────────────
   const rosterTabBtn = event.target.closest("[data-roster-tab]");
   if (rosterTabBtn) {
@@ -11695,7 +11714,19 @@ content.addEventListener("click", (event) => {
       if (typeof applyRecruitAction === "function") applyRecruitAction(selectedProspectId, "offer");
       renderView("recruiting");
     } else if (action === "compare-player") {
-      console.log("[CGM] Compare flow pending");
+      setBootstrapStatus("Compare flow is not fully built yet. Use roster filters and inspector review for now.");
+    } else if (action === "meet-player") {
+      setBootstrapStatus("Meeting flow placeholder: player meeting UI is not fully wired yet.");
+    } else if (action === "view-stats") {
+      setBootstrapStatus("Stats view is integrated into the player profile and analytics surfaces.");
+    } else if (action === "schedule-visit") {
+      setBootstrapStatus("Visit scheduling placeholder: recruiting visit planner is not fully wired yet.");
+    } else if (action === "make-pitch") {
+      setBootstrapStatus("Pitch flow placeholder: recruiting pitch UI is not fully wired yet.");
+    } else if (action === "compare-prospect") {
+      setBootstrapStatus("Prospect compare flow is not fully built yet.");
+    } else if (action === "watch-prospect") {
+      setBootstrapStatus("Watchlist flow placeholder: deeper watchlist management is still pending.");
     }
     return;
   }
