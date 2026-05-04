@@ -873,6 +873,21 @@ body[data-active-view="desk"] .fm-desk-workspace {
   border-bottom: 1px solid var(--line-soft);
 }
 
+.clickable-row {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.clickable-row:hover,
+.clickable-row:focus-visible {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
 .data-row:last-child {
   border-bottom: 0;
 }
@@ -970,6 +985,20 @@ body[data-active-view="desk"] .fm-desk-workspace {
   border: 1px solid var(--line-soft);
   border-radius: 7px;
   background: rgba(255, 255, 255, 0.025);
+}
+
+button.agenda-item {
+  width: 100%;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.agenda-item:hover,
+button.agenda-item:focus-visible {
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+  outline: none;
 }
 
 .agenda-item time {
@@ -1900,6 +1929,17 @@ body[data-active-view="desk"] .fm-desk-workspace {
   background: var(--bg-surface);
 }
 
+.obj-meta-link {
+  cursor: pointer;
+}
+
+.obj-meta-link:hover,
+.obj-meta-link:focus-visible {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .workspace-card h3 {
   margin: 0;
   font-size: var(--text-lg);
@@ -2228,6 +2268,20 @@ body[data-active-view="desk"] .fm-desk-workspace {
   background: var(--bg-surface);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   margin-bottom: var(--space-2);
+}
+
+.clickable-card {
+  width: 100%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  cursor: pointer;
+}
+
+.clickable-card:hover,
+.clickable-card:focus-visible {
+  border-color: var(--border-strong);
+  background: var(--bg-surface-2);
+  outline: none;
 }
 .media-clipping .source {
   font-size: var(--text-xxs);

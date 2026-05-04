@@ -6220,10 +6220,10 @@ function renderRosterWorkspace() {
     title: "Roster Room",
     sub: `${myProgram.shortName} · ${seasonYear} ${phaseLabel}`,
     meta: [
-      { label: "Players", value: String(totalPlayers) },
-      { label: "Transfer Watch", value: String(highRisk) },
-      { label: "Team Vibe", value: moraleLabel },
-      { label: "Injuries", value: String(injuries) },
+      { label: "Players", value: String(totalPlayers), openView: "roster" },
+      { label: "Transfer Watch", value: String(highRisk), openView: "portal" },
+      { label: "Team Vibe", value: moraleLabel, openView: "home" },
+      { label: "Injuries", value: String(injuries), openView: "schedule" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: [
@@ -6446,10 +6446,10 @@ function renderRecruitingWorkspace() {
     title: "Recruiting Room",
     sub: `${seasonYear + 4} Class · ${myProgram.shortName}`,
     meta: [
-      { label: "Targets", value: String(onBoard) },
-      { label: "Action Pts", value: `${ap}/${maxAp}` },
-      { label: "Class Rank", value: `#${career.generatedProfile && career.generatedProfile.recruitingClass || "—"}` },
-      { label: "Visits", value: String(visitsScheduled) },
+      { label: "Targets", value: String(onBoard), openView: "recruiting" },
+      { label: "Action Pts", value: `${ap}/${maxAp}`, openView: "recruiting" },
+      { label: "Class Rank", value: `#${career.generatedProfile && career.generatedProfile.recruitingClass || "—"}`, openView: "home" },
+      { label: "Visits", value: String(visitsScheduled), openView: "recruiting" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: [
@@ -7667,10 +7667,10 @@ function renderProgramHomeWorkspace() {
     title: "Program Home",
     sub: `${myProgram.shortName} · Executive overview`,
     meta: [
-      { label: "Record", value: career.record },
-      { label: "Prestige", value: String(career.generatedProfile.prestige) },
-      { label: "Recruiting Class", value: `#${career.generatedProfile.recruitingClass}` },
-      { label: "Program Temperature", value: tempLabel },
+      { label: "Record", value: career.record, openView: "schedule" },
+      { label: "Prestige", value: String(career.generatedProfile.prestige), openView: "history" },
+      { label: "Recruiting Class", value: `#${career.generatedProfile.recruitingClass}`, openView: "recruiting" },
+      { label: "Program Temperature", value: tempLabel, openView: "desk" },
     ],
   });
   const tabs = DG.renderTabBar({
@@ -7691,20 +7691,20 @@ function renderProgramHomeWorkspace() {
     ],
   });
   const contentHtml = `<div class="content-grid" style="padding:var(--space-4)">
-    ${panel("Campus Pulse", "Program temperature + 8 component scores", "span-12", campusPulsePanel())}
-    ${panel("Program Health", "Current pressure points", "span-4", meters(programHealthMetrics()))}
-    ${panel("Season Objectives", "Athletic department goals", "span-4", table(vm("seasonObjectives")))}
-    ${panel("Pressure Trace", "Why pressure moved", "span-4", table(pressureTraceRows()))}
-    ${panel("Program Identity", "Derived from roster, staff, and culture", "span-12", programIdentityPanel())}
-    ${panel("Roster Snapshot", "Projected core", "span-6", rosterRows(data.roster.slice(0, 5)))}
-    ${panel("Conference Table", "Current league view", "span-6", standingsTable(data.standings))}
+    ${panel("Campus Pulse", "Program temperature + 8 component scores", "span-12", `<button class="clickable-card" data-open-view="desk">${campusPulsePanel()}</button>`)}
+    ${panel("Program Health", "Current pressure points", "span-4", `<button class="clickable-card" data-open-view="desk">${meters(programHealthMetrics())}</button>`)}
+    ${panel("Season Objectives", "Athletic department goals", "span-4", `<button class="clickable-card" data-open-view="facilities">${renderSimpleWorkspaceTable(vm("seasonObjectives"), { keyPrefix: "season-objectives", emptyMessage: "No objectives loaded." })}</button>`)}
+    ${panel("Pressure Trace", "Why pressure moved", "span-4", `<button class="clickable-card" data-open-view="facilities">${renderSimpleWorkspaceTable(pressureTraceRows(), { keyPrefix: "pressure-home", emptyMessage: "No pressure trace yet." })}</button>`)}
+    ${panel("Program Identity", "Derived from roster, staff, and culture", "span-12", `<button class="clickable-card" data-open-view="home">${programIdentityPanel()}</button>`)}
+    ${panel("Roster Snapshot", "Projected core", "span-6", rosterRows(data.roster.slice(0, 5), { targetView: "roster" }))}
+    ${panel("Conference Table", "Current league view", "span-6", `<button class="clickable-card" data-open-view="rankings">${standingsTable(data.standings)}</button>`)}
   </div>`;
   const inspector = DG.renderInspector({
     title: "Executive Notes",
     sub: "Program summary",
     sections: [
-      { label: "Next Kickoff", html: `<p>${document.getElementById("nextKickoffOpponent") ? document.getElementById("nextKickoffOpponent").textContent : "—"}</p>` },
-      { label: "Watch Items", html: `<p>${blockingItems().length} blocker(s) · ${(data.notifications || []).filter((n) => !n.resolved).length} open items</p>` },
+      { label: "Next Kickoff", html: `<button class="data-row clickable-row" data-open-view="schedule"><span>${document.getElementById("nextKickoffOpponent") ? document.getElementById("nextKickoffOpponent").textContent : "—"}</span><span class="rating">Open</span></button>` },
+      { label: "Watch Items", html: `<button class="data-row clickable-row" data-open-view="desk"><span>${blockingItems().length} blocker(s) · ${(data.notifications || []).filter((n) => !n.resolved).length} open items</span><span class="rating">Desk</span></button>` },
     ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: contentHtml, inspector, status: `Home overview · ${career.record}` });
@@ -7722,7 +7722,8 @@ function programItemHtml(n, selectedId) {
   const meta = `${(n.department || "general").toUpperCase()} · ${n.deadline || "No deadline"}`;
   const sel = n.id === selectedId ? "selected" : "";
   const action = n.targetView ? `<button class="primary" data-desk-open="${n.targetView}" data-desk-item="${n.id}">Open</button>` : "";
-  return `<div class="program-item severity-${sev} ${sel}" data-desk-item="${n.id}">
+  const openAttr = n.targetView ? ` data-desk-open="${n.targetView}"` : "";
+  return `<div class="program-item severity-${sev} ${sel}" data-desk-item="${n.id}"${openAttr}>
     <div class="program-item-stripe"></div>
     <div class="program-item-body">
       <div class="program-item-title">${n.title || "Item"}</div>
@@ -7778,20 +7779,20 @@ function deskMediaClippings() {
       let s = 1; for (let k = 0; k < (e.id || `${i}`).length; k++) s = (s * 31 + (e.id || `${i}`).charCodeAt(k)) >>> 0;
       const rand = () => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 4294967296; };
       const c = VOICES.generateClipping({ pulseScore, recentEvents: [e], random: rand });
-      return `<div class="media-clipping">
+      return `<button class="media-clipping clickable-card" data-open-view="history">
         <div class="source">${c.sourceLabel} · ${weekLabelOf(e)}</div>
         <p class="headline">${c.headline}</p>
         <p class="body">${c.body}</p>
-      </div>`;
+      </button>`;
     }
     const src = e.actorName || "Wire Report";
     const headline = e.summary || e.category;
     const body = `${eventCategoryLabel(e.category)} · ${(e.reasonCodes || []).slice(0,2).join(" · ") || "—"}`;
-    return `<div class="media-clipping">
+    return `<button class="media-clipping clickable-card" data-open-view="history">
       <div class="source">${src} · ${weekLabelOf(e)}</div>
       <p class="headline">${headline}</p>
       <p class="body">${body}</p>
-    </div>`;
+    </button>`;
   }).join("");
 }
 
@@ -7813,7 +7814,7 @@ function deskVoicesPanel() {
     random: rand,
   });
   return r.voices.map((v) =>
-    `<div class="voice-row"><span class="voice-tag">${v.perspective}</span><span class="voice-line">${v.line}</span></div>`
+    `<button class="voice-row clickable-row" data-open-view="desk"><span class="voice-tag">${v.perspective}</span><span class="voice-line">${v.line}</span></button>`
   ).join("");
 }
 
@@ -7821,7 +7822,7 @@ function deskWatchlist() {
   const highRisk = players().filter((p) => p.transferRisk === "High").slice(0, 5);
   if (!highRisk.length) return '<p style="color:var(--text-muted);font-size:var(--text-sm)">No watchlist concerns.</p>';
   return `<div class="data-list">${highRisk.map((p) =>
-    `<div class="data-row"><span><strong>${p.position} ${p.name}</strong></span><span class="inspector-badge danger">High</span></div>`
+    `<button class="data-row clickable-row" data-select-player="${p.id}"><span><strong>${p.position} ${p.name}</strong></span><span class="inspector-badge danger">High</span></button>`
   ).join("")}</div>`;
 }
 
@@ -10688,30 +10689,32 @@ function readinessPanel() {
   </div>`;
 }
 
-function agendaList(items) {
+function agendaList(items, options = {}) {
+  const targetView = options.targetView || "desk";
   return `<div class="agenda-list">${items
     .map(
-      ([time, title, body]) => `<div class="agenda-item">
+      ([time, title, body], index) => `<button class="agenda-item clickable-card" data-open-view="${targetView}" data-agenda-index="${index}">
         <time>${time}</time>
         <strong>${title}</strong>
         <p>${body}</p>
-      </div>`,
+      </button>`,
     )
     .join("")}</div>`;
 }
 
-function rosterRows(items) {
+function rosterRows(items, options = {}) {
+  const targetView = options.targetView || "player";
   return `<div class="data-list">${items
     .map(([role, name, rating, note]) => {
       const meta = note || rating;
       const score = note ? rating : "";
-      return `<div class="data-row">
+      return `<button class="data-row clickable-row" data-open-view="${targetView}">
         <div>
           <strong>${role} - ${name}</strong>
           <span>${meta}</span>
         </div>
         ${score ? `<span class="rating">${score}</span>` : ""}
-      </div>`;
+      </button>`;
     })
     .join("")}</div>`;
 }
@@ -12414,7 +12417,10 @@ content.addEventListener("click", (event) => {
 
   const openButton = event.target.closest("[data-open-view]");
   if (openButton) {
-    renderView(openButton.dataset.openView);
+    const viewId = openButton.dataset.openView;
+    if (viewId === "player" && selectedPlayerId) renderView("player");
+    else if (viewId === "prospect" && selectedProspectId) renderView("prospect");
+    else renderView(viewId);
     return;
   }
 

@@ -156,9 +156,11 @@
    * @param {object} args { title, sub, meta: [{label, value}], actions: [{label, action}] }
    */
   function renderObjectHeader(args) {
-    const meta = (args.meta || []).map((m) =>
-      `<span><strong>${escapeHtml(m.label)}</strong> ${escapeHtml(m.value)}</span>`
-    ).join("");
+    const meta = (args.meta || []).map((m) => {
+      const openAttr = m.openView ? ` data-open-view="${escapeHtml(m.openView)}"` : "";
+      const cls = m.openView ? "obj-meta-link" : "";
+      return `<span class="${cls}"${openAttr}><strong>${escapeHtml(m.label)}</strong> ${escapeHtml(m.value)}</span>`;
+    }).join("");
     const actions = (args.actions || []).map((a) =>
       `<button class="${a.primary ? "primary" : ""}" data-obj-action="${escapeHtml(a.action)}">${escapeHtml(a.label)}</button>`
     ).join("");
