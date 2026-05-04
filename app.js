@@ -6549,9 +6549,9 @@ function renderPortalWorkspace() {
     title: "Transfer Portal",
     sub: `${myProgram.shortName} · ${phaseLabel}`,
     meta: [
-      { label: "Window", value: portalWindowLabel() },
-      { label: "Pending", value: String((data.portalState && data.portalState.pendingAdds && data.portalState.pendingAdds.length) || 0) },
-      { label: "Roster Cap", value: String((data.portalState && data.portalState.rosterLimit) || "—") },
+      { label: "Window", value: portalWindowLabel(), openView: "portal" },
+      { label: "Pending", value: String((data.portalState && data.portalState.pendingAdds && data.portalState.pendingAdds.length) || 0), openView: "portal" },
+      { label: "Roster Cap", value: String((data.portalState && data.portalState.rosterLimit) || "—"), openView: "roster" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: PORTAL_TABS, activeId: state.tab, dataAttr: "portal-tab" });
@@ -6570,6 +6570,7 @@ function renderPortalWorkspace() {
     sub: state.tab === "outgoing" ? "Pick a player to dig into" : portalWindowLabel(),
     sections: [
       { label: "Strategy", html: portalStrategyMeters() },
+      { label: "Fast Links", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="roster"><span>Open roster for cap and risk context</span><span class="rating">Roster</span></button><button class="data-row clickable-row" data-open-view="finance"><span>Open finance for retention pressure</span><span class="rating">NIL</span></button></div>` },
     ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: dgHtml, inspector, status: statusText });
@@ -6641,9 +6642,9 @@ function renderStaffWorkspace() {
     title: "Staff Room",
     sub: `${myProgram.shortName} · Coaching staff overview`,
     meta: [
-      { label: "Coaches", value: String((data.staff || []).length) },
-      { label: "Position", value: String((data.positionCoaches || []).filter((c) => c.programId === myProgram.id).length) },
-      { label: "Open Roles", value: String((data.staffOpenings || []).length) },
+      { label: "Coaches", value: String((data.staff || []).length), openView: "staff" },
+      { label: "Position", value: String((data.positionCoaches || []).filter((c) => c.programId === myProgram.id).length), openView: "staff" },
+      { label: "Open Roles", value: String((data.staffOpenings || []).length), openView: "staff" },
     ],
   });
   const tabs = DG.renderTabBar({ tabs: STAFF_TABS, activeId: state.tab, dataAttr: "staff-tab" });
@@ -6671,6 +6672,7 @@ function renderStaffWorkspace() {
     sections: [
       ...(hotSeatHtml ? [{ label: "Job Security", html: hotSeatHtml }] : []),
       { label: "Profile", html: coachProfilePanel() },
+      { label: "Fast Links", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="development"><span>Open development plans</span><span class="rating">Dev</span></button><button class="data-row clickable-row" data-open-view="recruiting"><span>Open recruiting for staffing impact</span><span class="rating">Rec</span></button></div>` },
     ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: dgHtml, inspector, status: `${rows.length} in view · ${state.tab}` });
@@ -11984,11 +11986,19 @@ content.addEventListener("click", (event) => {
   }
   const dgSort = event.target.closest("[data-dg-sort]");
   if (dgSort) {
-    const ui = ensureRosterUiState();
+    let ui = null;
+    if (activeView === "roster") ui = ensureRosterUiState();
+    else if (activeView === "recruiting") ui = ensureRecruitingUiState();
+    else if (activeView === "portal") ui = ensurePortalUiState();
+    else if (activeView === "staff") ui = ensureStaffUiState();
+    else if (activeView === "schedule") ui = ensureScheduleUiState();
+    else if (activeView === "rankings") ui = ensureRankingsUiState();
+    if (!ui) return;
     const colId = dgSort.dataset.dgSort;
     const cur = ui.sort && ui.sort[0];
     const dir = cur && cur.colId === colId && cur.direction === "asc" ? "desc" : (cur && cur.colId === colId ? "asc" : "desc");
     ui.sort = [{ colId, direction: dir }];
+    if (activeView === "roster" || activeView === "recruiting") persistUiState();
     renderView(activeView);
     return;
   }
