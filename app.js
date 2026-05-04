@@ -7841,9 +7841,10 @@ function renderProgramDeskWorkspace() {
   const state = window.CGM_UI_STATE.desk;
   const myProgram = programById(career.programId);
   const event = currentEvent();
-  const blockers = (data.notifications || []).filter((n) => n.blocking && !n.resolved);
-  const decisions = (data.notifications || []).filter((n) => !n.blocking && !n.resolved && (n.severity === "Action Recommended" || n.severity === "Decision"));
-  const fyi = (data.notifications || []).filter((n) => !n.blocking && !n.resolved && n.severity !== "Action Recommended" && n.severity !== "Decision").slice(0, 4);
+  const readiness = continueReadinessSnapshot();
+  const blockers = readiness.blockers;
+  const decisions = readiness.decisions;
+  const fyi = readiness.unresolved.filter((n) => !n.blocking && n.severity !== "Action Recommended" && n.severity !== "Decision").slice(0, 4);
   const pulse = ensurePulseState().snapshot;
   const tempLabel = pulse ? `${pulse.temperature.label} · ${pulse.temperature.score}` : "—";
 
@@ -7862,10 +7863,24 @@ function renderProgramDeskWorkspace() {
     </div>
   </header>`;
 
-  const nextDeadline = [...blockers, ...decisions, ...fyi].find((n) => n.deadline);
+  const nextDeadline = readiness.nextDeadline || [...blockers, ...decisions, ...fyi].find((n) => n.deadline);
+  const continueCard = `<div class="fm-desk-continue-card ${readiness.ready ? "ready" : "blocked"}" data-open-view="desk">
+    <div>
+      <p class="label" style="margin:0 0 4px">Continue Gate</p>
+      <strong>${readiness.ready ? "Ready to advance" : `${blockers.length} blocker(s) before continue`}</strong>
+      <p style="margin:6px 0 0;color:var(--text-secondary);font-size:var(--text-xs)">${readiness.ready
+        ? (decisions.length ? `${decisions.length} decision item(s) are still on the desk, but time can move.` : "No blockers remain. Continue will move to the next meaningful event.")
+        : "Resolve all blocker-tagged items in the left column before the topbar Continue action will fire."}</p>
+    </div>
+    <div class="fm-desk-continue-actions">
+      <button class="primary" data-continue-from-desk="now" ${readiness.ready ? "" : "disabled"}>Continue</button>
+      <button data-open-view="schedule">Calendar</button>
+    </div>
+  </div>`;
   const primaryHtml = `<header class="obj-header" style="border:0;background:transparent;padding:0">
     <h2 style="font-size:var(--text-md);margin:0">Triage</h2>
   </header>
+  ${continueCard}
   <div class="fm-desk-section">
     <div class="fm-desk-section-header"><h3>Must Fix Before Continue</h3><span class="count">${blockers.length}</span></div>
     ${blockers.length ? blockers.map((n) => programItemHtml(n, state.selectedItemId)).join("")
@@ -7932,7 +7947,8 @@ function renderProgramDeskWorkspace() {
       sections: [
         { label: "Status", html: blockers.length
           ? `<span class="inspector-badge danger">Blocked</span><p style="margin-top:var(--space-2)">Resolve all blockers above before pressing Continue.</p>`
-          : `<span class="inspector-badge good">Ready</span><p style="margin-top:var(--space-2)">No blockers. Press Continue in the topbar to advance time.</p>` },
+          : `<span class="inspector-badge good">Ready</span><p style="margin-top:var(--space-2)">${decisions.length ? `${decisions.length} decision item(s) remain, but Continue can still advance time.` : "No blockers. Press Continue in the topbar or here on the desk to advance time."}</p>` },
+        { label: "Advance", html: `<div class="data-list"><button class="data-row clickable-row" data-continue-from-desk="now" ${blockers.length ? "disabled" : ""}><span>${blockers.length ? "Blocked until triage is clear" : "Advance to next meaningful event"}</span><span class="rating">Go</span></button></div>` },
         { label: "Today's Agenda", html: `<div class="data-list">${(data.agenda || []).slice(0, 4).map((a) =>
           `<div class="data-row"><span>${a[0]}</span><span style="color:var(--text-secondary)">${a[1]}</span></div>`
         ).join("") || '<p style="color:var(--text-muted);font-size:var(--text-sm)">No items scheduled.</p>'}</div>` },
@@ -10381,8 +10397,23 @@ function renderView(viewId, options) {
   updateTopbarControls();
 }
 
+function continueReadinessSnapshot() {
+  const blockers = blockingItems();
+  const unresolved = (data.notifications || []).filter((item) => !item.resolved);
+  const decisions = unresolved.filter((item) => !item.blocking && (item.severity === "Action Recommended" || item.severity === "Decision"));
+  const nextDeadline = unresolved.find((item) => item.deadline && item.deadline !== "No deadline");
+  return {
+    blockers,
+    unresolved,
+    decisions,
+    nextDeadline,
+    ready: blockers.length === 0,
+  };
+}
+
 function renderCareerChrome() {
-  const blockers = blockingItems().length;
+  const readiness = continueReadinessSnapshot();
+  const blockers = readiness.blockers.length;
   const event = currentEvent();
   const program = programById(career.programId);
   careerDate.textContent = event.dateLabel;
@@ -10394,7 +10425,12 @@ function renderCareerChrome() {
   phaseLabel.textContent = event.phase;
   saveStateLabel.textContent = isDirty ? "Unsaved" : "Saved";
   urgentCount.textContent = String(blockers);
-  continueButton.textContent = blockers ? `Blocked (${blockers})` : "Continue";
+  continueButton.textContent = blockers ? `Blocked (${blockers})` : readiness.decisions.length ? `Continue (${readiness.decisions.length})` : "Continue";
+  continueButton.title = blockers
+    ? "Resolve blockers in Program Desk before advancing."
+    : readiness.decisions.length
+      ? `${readiness.decisions.length} decision item(s) are waiting, but time can advance.`
+      : "Advance to the next meaningful event.";
   saveButton.disabled = !careerStarted;
   // Sidebar "Next Kickoff" — pull from the canonical-sorted schedule using
   // currentGameIndex as the played-cursor.
@@ -12412,6 +12448,16 @@ content.addEventListener("click", (event) => {
     markDirty();
     autoSaveCareer();
     renderView(activeView);
+    return;
+  }
+
+  const continueFromDesk = event.target.closest("[data-continue-from-desk]");
+  if (continueFromDesk) {
+    if (blockingItems().length) {
+      renderView("desk");
+      return;
+    }
+    continueButton.click();
     return;
   }
 

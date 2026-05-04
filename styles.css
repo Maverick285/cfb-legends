@@ -2231,6 +2231,54 @@ button.agenda-item:focus-visible {
 .program-item-action button:hover { border-color: var(--accent); }
 .program-item-action button.primary { background: var(--accent); color: var(--bg-app); border-color: var(--accent); font-weight: 600; }
 
+.fm-desk-continue-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+}
+
+.fm-desk-continue-card.ready {
+  border-color: rgba(116, 166, 106, 0.45);
+}
+
+.fm-desk-continue-card.blocked {
+  border-color: rgba(201, 107, 95, 0.45);
+}
+
+.fm-desk-continue-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.fm-desk-continue-actions button {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.fm-desk-continue-actions button.primary {
+  background: var(--accent);
+  color: var(--bg-app);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.fm-desk-continue-actions button:disabled,
+.data-row.clickable-row:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
 .pulse-summary {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
