@@ -6393,7 +6393,9 @@ function renderRecruitingWorkspace() {
   ensureProspectSuitors && ensureProspectSuitors();
   const state = ensureRecruitingUiState();
   const myProgram = programById(career.programId);
-  const allProspects = data.prospectProfiles || [];
+  const phaseLabel = (currentEvent() && currentEvent().phase) || "Preseason";
+  const recruitingOpen = !/preseason/i.test(phaseLabel);
+  const allProspects = recruitingOpen ? (data.prospectProfiles || []) : [];
 
   // Filter: tab + UI controls
   let visible = allProspects.slice();
@@ -6443,7 +6445,6 @@ function renderRecruitingWorkspace() {
     const us = (p.suitors || []).find((s) => s.schoolId === career.programId);
     return us && us.interest >= 30;
   }).length;
-  const phaseLabel = (currentEvent() && currentEvent().phase) || "Preseason";
   const seasonYear = currentSeasonYear();
 
   const visitsScheduled = visible.filter((p) => p.visitScheduled || p.officialVisitScheduled).length;
@@ -6477,12 +6478,16 @@ function renderRecruitingWorkspace() {
   const dgHtml = DG.renderDataGrid({
     columns: cols, rows: visible, rowKey: (r) => r.id,
     selectedId: selectedProspectId, sort: state.sort,
-    emptyMessage: "No prospects match the current filters.",
+    emptyMessage: recruitingOpen
+      ? "No prospects match the current filters."
+      : "Recruiting board opens after preseason. Use this time to review roster needs, portal risk, and staff priorities.",
     dataAttr: "recruiting-row",
   });
   const selected = selectedProspectId ? findProspect(selectedProspectId) : null;
   const inspector = recruitingProspectInspector(selected);
-  const status = `<strong>${visible.length}</strong> shown · <strong>${onBoard}</strong> on board · <strong>${committed}</strong> committed · <strong>${selected ? selected.name : "none"}</strong> selected`;
+  const status = recruitingOpen
+    ? `<strong>${visible.length}</strong> shown · <strong>${onBoard}</strong> on board · <strong>${committed}</strong> committed · <strong>${selected ? selected.name : "none"}</strong> selected`
+    : `<strong>Preseason hold</strong> · Recruiting board is intentionally blank before in-season scouting opens`;
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: dgHtml, inspector, status });
 }
 
@@ -6545,9 +6550,13 @@ function renderPortalWorkspace() {
       { id: "rating", label: "OVR", accessor: (r) => Number(r[3]), cellType: "rating", width: 70 },
       { id: "status", label: "Status", accessor: (r) => r[4], width: 240, sortable: false },
     ];
-    rows = (data.portal || []).map((r, i) => ({ _id: `p${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4] }));
+    rows = isPortalWindowOpen()
+      ? (data.portal || []).map((r, i) => ({ _id: `p${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4] }))
+      : [];
     rowKey = (r) => r._id;
-    statusText = `<strong>${rows.length}</strong> in portal · ${portalWindowLabel()}`;
+    statusText = isPortalWindowOpen()
+      ? `<strong>${rows.length}</strong> in portal · ${portalWindowLabel()}`
+      : `<strong>Window closed</strong> · Preseason should not show a fresh incoming portal board`;
   }
 
   const header = DG.renderObjectHeader({
@@ -6567,7 +6576,9 @@ function renderPortalWorkspace() {
   });
   const dgHtml = DG.renderDataGrid({
     columns: cols, rows, rowKey, sort: state.sort,
-    emptyMessage: "No entries.",
+    emptyMessage: state.tab === "incoming" && !isPortalWindowOpen()
+      ? "Portal window is closed. Prior spring/summer transfers should already be on your roster."
+      : "No entries.",
     dataAttr: "portal-row",
   });
   const inspector = DG.renderInspector({
