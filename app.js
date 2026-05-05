@@ -8443,6 +8443,7 @@ function renderRankingsWorkspace() {
   if (!DG) return '<div style="padding:24px">DataGrid module not loaded.</div>';
   const state = ensureRankingsUiState();
   const myProgram = programById(career.programId);
+  const helper = window.CGM_RANKINGS_WORKSPACE;
 
   let bodyHtml;
   let selectedRow = null;
@@ -8455,8 +8456,16 @@ function renderRankingsWorkspace() {
       { id: "rating", label: "Rating", accessor: (r) => Number(r[3]), cellType: "rating", width: 90 },
       { id: "grade", label: "Grade", accessor: (r) => r[4], width: 80 },
     ];
-    selectedRow = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
-    if (selectedRow) state.selectedRowId = selectedRow._id;
+    if (helper && typeof helper.buildSelectedRankingsRow === "function") {
+      const selection = helper.buildSelectedRankingsRow(state, rows);
+      if (selection) {
+        state.selectedRowId = selection.selectedRowId;
+        selectedRow = selection.row;
+      }
+    } else {
+      selectedRow = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+      if (selectedRow) state.selectedRowId = selectedRow._id;
+    }
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, sort: state.sort, dataAttr: "rankings-row" });
   } else if (state.tab === "cfp") {
     bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="rankings">${renderSimpleWorkspaceTable(cfpBracketRows(), { keyPrefix: "cfp", emptyMessage: "No CFP bracket yet." })}</button></div>`;
@@ -8472,8 +8481,16 @@ function renderRankingsWorkspace() {
       { id: "rating", label: "Rating", accessor: (r) => Number(r[3]), cellType: "rating", width: 90 },
       { id: "trend", label: "Trend", accessor: (r) => r[4], width: 80, align: "center" },
     ];
-    selectedRow = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
-    if (selectedRow) state.selectedRowId = selectedRow._id;
+    if (helper && typeof helper.buildSelectedRankingsRow === "function") {
+      const selection = helper.buildSelectedRankingsRow(state, rows);
+      if (selection) {
+        state.selectedRowId = selection.selectedRowId;
+        selectedRow = selection.row;
+      }
+    } else {
+      selectedRow = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+      if (selectedRow) state.selectedRowId = selectedRow._id;
+    }
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, sort: state.sort, dataAttr: "rankings-row" });
   }
 
@@ -8487,14 +8504,19 @@ function renderRankingsWorkspace() {
   });
   const tabs = DG.renderTabBar({ tabs: RANKINGS_TABS, activeId: state.tab, dataAttr: "rankings-tab" });
   const actions = DG.renderActionBar({ groups: [{ controls: [] }] });
+  const inspectorConfig = selectedRow && helper && typeof helper.buildRankingsSelectedInspector === "function"
+    ? helper.buildRankingsSelectedInspector(selectedRow, state.tab)
+    : !selectedRow && helper && typeof helper.buildRankingsResumeInspector === "function"
+      ? helper.buildRankingsResumeInspector(vm("selectionResume"))
+      : null;
   const inspector = DG.renderInspector({
-    title: selectedRow ? selectedRow[1] : "Selection Resume",
-    sub: selectedRow
+    title: inspectorConfig ? inspectorConfig.title : selectedRow ? selectedRow[1] : "Selection Resume",
+    sub: inspectorConfig ? inspectorConfig.sub : selectedRow
       ? state.tab === "conference"
         ? `${selectedRow[2]} · Rating ${selectedRow[3]} · ${selectedRow[4]}`
         : `${selectedRow[2]} · Rating ${selectedRow[3]} · Trend ${selectedRow[4]}`
       : "Year-end CFP profile",
-    sections: selectedRow
+    sections: inspectorConfig ? inspectorConfig.sections : selectedRow
       ? [
           { label: "Ranking Snapshot", html: `<div class="data-list"><div class="data-row"><span>Rank</span><span>${selectedRow[0]}</span></div><div class="data-row"><span>Program</span><span>${selectedRow[1]}</span></div><div class="data-row"><span>Record</span><span>${selectedRow[2]}</span></div><div class="data-row"><span>Rating</span><span class="rating">${selectedRow[3]}</span></div><div class="data-row"><span>${state.tab === "conference" ? "Grade" : "Trend"}</span><span>${selectedRow[4]}</span></div></div>` },
           { label: "Next Step", html: `<div class="decision-actions"><button data-rankings-tab="resume">Open Resume</button><button data-open-view="schedule">Open Schedule</button><button data-open-view="history">Open History</button></div>` },
