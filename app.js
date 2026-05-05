@@ -10374,7 +10374,9 @@ const continueButton = document.querySelector("#continueButton");
 const backButton = document.querySelector("#backButton");
 const forwardButton = document.querySelector("#forwardButton");
 const globalSearchInput = document.querySelector("#globalSearchInput");
+const globalSearchPanel = document.querySelector("#globalSearchPanel");
 const bookmarkButton = document.querySelector("#bookmarkButton");
+const bookmarkMenu = document.querySelector("#bookmarkMenu");
 loadUiStateFromPrefs();
 const urgentCount = document.querySelector("#urgentCount");
 const careerDate = document.querySelector("#careerDate");
@@ -10443,6 +10445,8 @@ const bootstrapStatus = document.querySelector("#bootstrapStatus");
 let activeView = "desk";
 let viewHistory = ["desk"];
 let viewHistoryIndex = 0;
+let globalSearchState = { query: "", results: [], selectedIndex: 0, open: false };
+let bookmarkMenuOpen = false;
 
 function blockingItems() {
   return data.notifications.filter((item) => item.blocking && !item.resolved);
@@ -10497,6 +10501,8 @@ function renderView(viewId, options) {
   document.body.setAttribute("data-active-view", nextView);
   content.innerHTML = view.render().join("");
   updateTopbarControls();
+  hideGlobalSearchPanel();
+  hideBookmarkMenu();
 }
 
 function continueReadinessSnapshot() {
@@ -10561,6 +10567,170 @@ function renderCareerChrome() {
 function updateTopbarControls() {
   if (backButton) backButton.disabled = viewHistoryIndex <= 0;
   if (forwardButton) forwardButton.disabled = viewHistoryIndex >= viewHistory.length - 1;
+}
+
+function hideGlobalSearchPanel() {
+  globalSearchState.open = false;
+  if (globalSearchPanel) {
+    globalSearchPanel.hidden = true;
+    globalSearchPanel.innerHTML = "";
+  }
+}
+
+function hideBookmarkMenu() {
+  bookmarkMenuOpen = false;
+  if (bookmarkMenu) {
+    bookmarkMenu.hidden = true;
+    bookmarkMenu.innerHTML = "";
+  }
+}
+
+function scoreSearchMatch(query, text) {
+  const q = String(query || "").toLowerCase();
+  const hay = String(text || "").toLowerCase();
+  if (!q || !hay) return -1;
+  if (hay === q) return 200;
+  if (hay.startsWith(q)) return 120;
+  const at = hay.indexOf(q);
+  if (at >= 0) return 80 - Math.min(at, 40);
+  const tokens = q.split(/\s+/).filter(Boolean);
+  const matched = tokens.filter((token) => hay.includes(token)).length;
+  return matched ? matched * 20 : -1;
+}
+
+function buildGlobalSearchResults(query) {
+  const q = String(query || "").trim().toLowerCase();
+  if (!q) return [];
+  const results = [];
+  navItems.forEach((item) => {
+    const score = Math.max(scoreSearchMatch(q, item.label), scoreSearchMatch(q, item.id));
+    if (score >= 0) {
+      results.push({
+        id: `view:${item.id}`,
+        kind: "view",
+        title: item.label,
+        meta: "Open room",
+        tag: "Room",
+        viewId: item.id,
+        score,
+      });
+    }
+  });
+  players().forEach((player) => {
+    const score = Math.max(scoreSearchMatch(q, `${player.name} ${player.position} ${player.year}`), scoreSearchMatch(q, player.name));
+    if (score >= 0) {
+      results.push({
+        id: `player:${player.id}`,
+        kind: "player",
+        title: player.name,
+        meta: `${player.position} · ${player.year} · OVR ${player.ovr}`,
+        tag: "Player",
+        playerId: player.id,
+        score: score + 8,
+      });
+    }
+  });
+  prospects().forEach((prospect) => {
+    const score = Math.max(scoreSearchMatch(q, `${prospect.name} ${prospect.position} ${prospect.classYear || ""}`), scoreSearchMatch(q, prospect.name));
+    if (score >= 0) {
+      results.push({
+        id: `prospect:${prospect.id}`,
+        kind: "prospect",
+        title: prospect.name,
+        meta: `${prospect.position} · ${prospect.stars || "?"}★ · ${prospect.commitmentStatus || "Open"}`,
+        tag: "Recruit",
+        prospectId: prospect.id,
+        score: score + 6,
+      });
+    }
+  });
+  (data.staff || []).forEach((entry, index) => {
+    const name = entry && entry[1];
+    const role = entry && entry[0];
+    const score = Math.max(scoreSearchMatch(q, `${name} ${role}`), scoreSearchMatch(q, name));
+    if (score >= 0) {
+      results.push({
+        id: `staff:${index}`,
+        kind: "staff",
+        title: name,
+        meta: `${role} · ${entry[2] || "Generalist"} · ${entry[3] || "—"}`,
+        tag: "Staff",
+        viewId: "staff",
+        score: score + 4,
+      });
+    }
+  });
+  const bookmarks = isRecord(window.CGM_UI_STATE) && Array.isArray(window.CGM_UI_STATE.bookmarks)
+    ? window.CGM_UI_STATE.bookmarks
+    : [];
+  bookmarks.forEach((bookmark, index) => {
+    const score = Math.max(scoreSearchMatch(q, `${bookmark.label} ${bookmark.viewId}`), scoreSearchMatch(q, bookmark.label));
+    if (score >= 0) {
+      results.push({
+        id: `bookmark:${index}`,
+        kind: "bookmark",
+        title: bookmark.label,
+        meta: `Bookmarked ${bookmark.viewId}`,
+        tag: "Saved",
+        viewId: bookmark.viewId,
+        score: score + 2,
+      });
+    }
+  });
+  return results
+    .sort((a, b) => (b.score - a.score) || String(a.title).localeCompare(String(b.title)))
+    .slice(0, 12);
+}
+
+function renderGlobalSearchPanel() {
+  if (!globalSearchPanel) return;
+  const helper = window.CGM_TOPBAR_TOOLS;
+  if (!helper || typeof helper.renderQuickOpenPanel !== "function") return;
+  globalSearchPanel.innerHTML = helper.renderQuickOpenPanel(globalSearchState);
+  globalSearchPanel.hidden = false;
+  globalSearchState.open = true;
+}
+
+function refreshGlobalSearch(query) {
+  globalSearchState.query = String(query || "").trim();
+  globalSearchState.results = buildGlobalSearchResults(globalSearchState.query);
+  globalSearchState.selectedIndex = 0;
+  if (!globalSearchState.query) {
+    hideGlobalSearchPanel();
+    return;
+  }
+  hideBookmarkMenu();
+  renderGlobalSearchPanel();
+}
+
+function openSearchResult(result) {
+  if (!result) return;
+  if (result.kind === "player") {
+    selectedPlayerId = result.playerId;
+    hideGlobalSearchPanel();
+    renderView("player");
+    return;
+  }
+  if (result.kind === "prospect") {
+    selectedProspectId = result.prospectId;
+    hideGlobalSearchPanel();
+    renderView("recruiting");
+    return;
+  }
+  hideGlobalSearchPanel();
+  renderView(result.viewId || "desk");
+}
+
+function renderBookmarkMenuPanel() {
+  if (!bookmarkMenu) return;
+  const helper = window.CGM_TOPBAR_TOOLS;
+  const bookmarks = isRecord(window.CGM_UI_STATE) && Array.isArray(window.CGM_UI_STATE.bookmarks)
+    ? window.CGM_UI_STATE.bookmarks
+    : [];
+  if (!helper || typeof helper.renderBookmarkMenu !== "function") return;
+  bookmarkMenu.innerHTML = helper.renderBookmarkMenu(bookmarks, activeView);
+  bookmarkMenu.hidden = false;
+  bookmarkMenuOpen = true;
 }
 
 function readBootstrapRulesProfile() {
@@ -12876,28 +13046,97 @@ if (forwardButton) {
 }
 
 if (globalSearchInput) {
+  globalSearchInput.addEventListener("input", () => {
+    refreshGlobalSearch(globalSearchInput.value || "");
+  });
+  globalSearchInput.addEventListener("focus", () => {
+    if ((globalSearchInput.value || "").trim()) refreshGlobalSearch(globalSearchInput.value || "");
+  });
   globalSearchInput.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown") {
+      if (!globalSearchState.results.length) return;
+      event.preventDefault();
+      globalSearchState.selectedIndex = Math.min(globalSearchState.selectedIndex + 1, globalSearchState.results.length - 1);
+      renderGlobalSearchPanel();
+      return;
+    }
+    if (event.key === "ArrowUp") {
+      if (!globalSearchState.results.length) return;
+      event.preventDefault();
+      globalSearchState.selectedIndex = Math.max(globalSearchState.selectedIndex - 1, 0);
+      renderGlobalSearchPanel();
+      return;
+    }
+    if (event.key === "Escape") {
+      hideGlobalSearchPanel();
+      return;
+    }
     if (event.key !== "Enter") return;
     const query = (globalSearchInput.value || "").trim();
     if (!query) return;
-    const ui = ensureRosterUiState();
-    ui.search = query;
-    persistUiState();
-    renderView("roster");
+    if (!globalSearchState.open) refreshGlobalSearch(query);
+    const result = globalSearchState.results[globalSearchState.selectedIndex] || globalSearchState.results[0];
+    if (result) {
+      event.preventDefault();
+      openSearchResult(result);
+    }
   });
 }
 
 if (bookmarkButton) {
-  bookmarkButton.addEventListener("click", () => {
+  bookmarkButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
     if (!Array.isArray(window.CGM_UI_STATE.bookmarks)) window.CGM_UI_STATE.bookmarks = [];
     const label = currentViewLabel();
-    const bookmark = { viewId: activeView, label };
-    window.CGM_UI_STATE.bookmarks = [bookmark, ...window.CGM_UI_STATE.bookmarks.filter((b) => b.viewId !== activeView)].slice(0, 12);
-    persistUiState();
-    setBootstrapStatus(`Bookmarked ${label}.`);
+    const existing = window.CGM_UI_STATE.bookmarks.find((b) => b.viewId === activeView);
+    if (!existing) {
+      const bookmark = { viewId: activeView, label };
+      window.CGM_UI_STATE.bookmarks = [bookmark, ...window.CGM_UI_STATE.bookmarks].slice(0, 12);
+      persistUiState();
+      setBootstrapStatus(`Bookmarked ${label}.`);
+    }
+    if (bookmarkMenuOpen) hideBookmarkMenu();
+    else {
+      hideGlobalSearchPanel();
+      renderBookmarkMenuPanel();
+    }
   });
 }
+
+document.addEventListener("click", (event) => {
+  const resultBtn = event.target.closest("[data-global-result]");
+  if (resultBtn) {
+    const result = globalSearchState.results.find((entry) => entry.id === resultBtn.dataset.globalResult);
+    if (result) openSearchResult(result);
+    return;
+  }
+  const bookmarkOpenBtn = event.target.closest("[data-bookmark-open]");
+  if (bookmarkOpenBtn) {
+    const bookmarks = isRecord(window.CGM_UI_STATE) && Array.isArray(window.CGM_UI_STATE.bookmarks)
+      ? window.CGM_UI_STATE.bookmarks
+      : [];
+    const bookmark = bookmarks[Number(bookmarkOpenBtn.dataset.bookmarkOpen)];
+    if (bookmark) {
+      hideBookmarkMenu();
+      renderView(bookmark.viewId || "desk");
+    }
+    return;
+  }
+  const bookmarkRemoveBtn = event.target.closest("[data-bookmark-remove]");
+  if (bookmarkRemoveBtn) {
+    if (isRecord(window.CGM_UI_STATE) && Array.isArray(window.CGM_UI_STATE.bookmarks)) {
+      window.CGM_UI_STATE.bookmarks.splice(Number(bookmarkRemoveBtn.dataset.bookmarkRemove), 1);
+      persistUiState();
+      renderBookmarkMenuPanel();
+      setBootstrapStatus("Bookmark removed.");
+    }
+    return;
+  }
+  if (!event.target.closest(".topbar-search-wrap")) hideGlobalSearchPanel();
+  if (!event.target.closest("#bookmarkButton") && !event.target.closest("#bookmarkMenu")) hideBookmarkMenu();
+});
 
 if (rulesPresetSelect) {
   rulesPresetSelect.addEventListener("change", () => {
