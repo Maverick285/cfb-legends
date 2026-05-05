@@ -7298,24 +7298,41 @@ function renderPlayerWorkspace() {
     title: player.name,
     sub: `${player.position} · ${player.year} · ${player.archetype || "Player"}`,
     meta: [
-      { label: "OVR", value: String(player.ovr || "—") },
-      { label: "Morale", value: String(player.morale || "—") },
-      { label: "Transfer Risk", value: String(player.transferRisk || "—") },
-      { label: "Dev Focus", value: String(player.developmentFocus || "—") },
+      { label: "OVR", value: String(player.ovr || "—"), openView: "roster" },
+      { label: "Morale", value: String(player.morale || "—"), openView: "desk" },
+      { label: "Transfer Risk", value: String(player.transferRisk || "—"), openView: "portal" },
+      { label: "Dev Focus", value: String(player.developmentFocus || "—"), openView: "development" },
     ],
   });
-  const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="roster">Back to Roster</button>', '<button data-insp-action="view-stats">View Stats</button>'] }] });
-  const dataGrid = wrapLegacyPanels([
-    panel("Player Profile", `${player.position} - ${player.year}`, "span-8", playerProfilePanel(player)),
-    panel("Eligibility Snapshot", "Rules-data shell", "span-4", eligibilitySnapshot(player)),
-    panel("Season Stats", "Per-game and accumulated stat lines", "span-6", playerStatsPanel(player)),
-    panel("Peer Comparison", "Nearby depth at same position", "span-6", peerComparisonTable(player)),
-  ]);
+  const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="roster">Back to Roster</button>', '<button data-open-view="development">Development</button>', '<button data-insp-action="view-stats">View Stats</button>'] }] });
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Player Profile</h3>
+        <p class="workspace-card-sub">${player.position} · ${player.year}</p>
+        ${playerProfilePanel(player)}
+      </section>
+      <section class="workspace-card">
+        <h3>Eligibility Snapshot</h3>
+        <p class="workspace-card-sub">Rules and availability</p>
+        ${eligibilitySnapshot(player)}
+      </section>
+      <section class="workspace-card">
+        <h3>Peer Comparison</h3>
+        <p class="workspace-card-sub">Nearby depth at the same position</p>
+        ${peerComparisonTable(player)}
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Season Stats</h3>
+        <p class="workspace-card-sub">Per-game and accumulated stat lines</p>
+        <button class="clickable-card" data-open-view="analytics">${playerStatsPanel(player)}</button>
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Player Snapshot",
     sub: `${player.position} room`,
     sections: [
-      { label: "Status", html: `<div class="data-list"><div class="data-row"><span>Usage Promise</span><span>${(data.cultureState && data.cultureState.promiseLedger && data.cultureState.promiseLedger[player.id]) || "Rotation"}</span></div><div class="data-row"><span>Academic</span><span>${player.academicStatus || "—"}</span></div><div class="data-row"><span>Scheme Fit</span><span>${player.schemeFit || "—"}</span></div></div>` },
+      { label: "Status", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="desk"><span>Usage Promise</span><span>${(data.cultureState && data.cultureState.promiseLedger && data.cultureState.promiseLedger[player.id]) || "Rotation"}</span></button><button class="data-row clickable-row" data-open-view="development"><span>Academic</span><span>${player.academicStatus || "—"}</span></button><button class="data-row clickable-row" data-open-view="analytics"><span>Scheme Fit</span><span>${player.schemeFit || "—"}</span></button></div>` },
     ],
   });
   return DG.renderTableWorkspace({ header, actions, dataGrid, inspector, status: `${player.name} profile` });
@@ -7378,16 +7395,29 @@ function renderProspectWorkspace() {
     ],
   });
   const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="recruiting">Back to Recruiting</button>', '<button data-insp-action="contact-prospect">Contact</button>', '<button data-insp-action="offer-prospect">Offer</button>'] }] });
-  const dataGrid = wrapLegacyPanels([
-    panel("Prospect Profile", `${prospect.position} - ${prospect.stars}`, "span-8", prospectProfilePanel(prospect)),
-    panel("Recruiting Snapshot", "Decision support shell", "span-4", prospectSnapshot(prospect)),
-    panel("Position Board", "Current board at this position", "span-12", prospectBoardTable(prospect)),
-  ]);
+  const dataGrid = `
+    <div class="workspace-grid workspace-grid-2">
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Prospect Profile</h3>
+        <p class="workspace-card-sub">${prospect.position} · ${prospect.stars}</p>
+        ${prospectProfilePanel(prospect)}
+      </section>
+      <section class="workspace-card">
+        <h3>Recruiting Snapshot</h3>
+        <p class="workspace-card-sub">Decision support shell</p>
+        ${prospectSnapshot(prospect)}
+      </section>
+      <section class="workspace-card">
+        <h3>Position Board</h3>
+        <p class="workspace-card-sub">Current board at this position</p>
+        ${prospectBoardTable(prospect)}
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Recruiting Intel",
     sub: prospect.name,
     sections: [
-      { label: "Staff Summary", html: `<p>${prospect.staffRecommendation || "Keep pressure on if your relationship score is still moving."}</p>` },
+      { label: "Staff Summary", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="recruiting"><span>${prospect.staffRecommendation || "Keep pressure on if your relationship score is still moving."}</span><span class="rating">Board</span></button></div>` },
     ],
   });
   return DG.renderTableWorkspace({ header, actions, dataGrid, inspector, status: `${prospect.name} profile` });
