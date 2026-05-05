@@ -6130,8 +6130,13 @@ function rosterPlayerInspector(player) {
   const DG = window.CGM_DATAGRID;
   if (!player) {
     const bench = players().filter((p) => p.transferRisk === "High").slice(0, 3);
-    const watchList = bench.length
-      ? bench.map((p) => `<div class="data-row"><span>${p.position} ${p.name}</span><span class="inspector-badge danger">High</span></div>`).join("")
+    const manualWatch = ensurePlayerWatchlistState().slice(0, 4);
+    const watchRows = [
+      ...manualWatch.map((entry) => `<div class="data-row"><span>${entry.position} ${entry.name}</span><span class="inspector-badge info">Watch</span></div>`),
+      ...bench.filter((p) => !manualWatch.some((entry) => entry.playerId === p.id)).slice(0, Math.max(0, 4 - manualWatch.length)).map((p) => `<div class="data-row"><span>${p.position} ${p.name}</span><span class="inspector-badge danger">High</span></div>`),
+    ];
+    const watchList = watchRows.length
+      ? watchRows.join("")
       : `<p style="color:var(--text-muted);font-size:var(--text-sm)">No high-risk players right now.</p>`;
     return DG.renderInspector({
       title: "Roster Snapshot",
@@ -6193,7 +6198,7 @@ function rosterPlayerInspector(player) {
       { label: "Compare", action: "compare-player" },
       { label: "Meet With Player", action: "meet-player" },
       { label: "Set Dev Focus", action: "set-dev" },
-      { label: "Add Watch", action: "add-watch" },
+      { label: isPlayerWatched(player.id) ? "Remove Watch" : "Add Watch", action: "add-watch" },
       { label: "View Stats", action: "view-stats" },
     ],
   });
@@ -9910,6 +9915,38 @@ function currentViewLabel() {
   return view ? (typeof view.title === "function" ? view.title() : view.title) : activeView;
 }
 
+function ensurePlayerWatchlistState() {
+  if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
+  if (!Array.isArray(window.CGM_UI_STATE.playerWatchlist)) window.CGM_UI_STATE.playerWatchlist = [];
+  return window.CGM_UI_STATE.playerWatchlist;
+}
+
+function isPlayerWatched(playerId) {
+  return ensurePlayerWatchlistState().some((entry) => entry && entry.playerId === playerId);
+}
+
+function togglePlayerWatch(player) {
+  if (!player || !player.id) return false;
+  const watchlist = ensurePlayerWatchlistState();
+  const index = watchlist.findIndex((entry) => entry && entry.playerId === player.id);
+  if (index >= 0) {
+    watchlist.splice(index, 1);
+    persistUiState();
+    return false;
+  }
+  watchlist.unshift({
+    playerId: player.id,
+    name: player.name,
+    position: player.position,
+    risk: player.transferRisk || "Low",
+    morale: player.morale || "Stable",
+    note: `${player.developmentFocus || "Balanced"} focus`,
+  });
+  window.CGM_UI_STATE.playerWatchlist = watchlist.slice(0, 24);
+  persistUiState();
+  return true;
+}
+
 function readSavedCareer() {
   const store = localStore();
   if (!store) return null;
@@ -12390,8 +12427,11 @@ content.addEventListener("click", (event) => {
     } else if (action === "add-watch") {
       const player = findPlayer(selectedPlayerId);
       if (player) {
-        player.transferRisk = player.transferRisk === "Low" ? "Medium" : player.transferRisk;
-        setBootstrapStatus(`Added ${player.name} to your mental watchlist. Check portal risk and morale weekly.`);
+        const added = togglePlayerWatch(player);
+        if (added && player.transferRisk === "Low") player.transferRisk = "Medium";
+        setBootstrapStatus(added
+          ? `Added ${player.name} to the watchlist. They now show up in roster snapshots and bookmarks survive reloads.`
+          : `Removed ${player.name} from the watchlist.`);
         renderView("player");
       } else setBootstrapStatus("Select a player first to add a watch note.");
     } else if (action === "schedule-visit") {
