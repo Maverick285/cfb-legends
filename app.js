@@ -10515,9 +10515,9 @@ function renderCareerChrome() {
   phaseLabel.textContent = event.phase;
   saveStateLabel.textContent = isDirty ? "Unsaved" : "Saved";
   urgentCount.textContent = String(blockers);
-  continueButton.textContent = blockers ? `Blocked (${blockers})` : readiness.decisions.length ? `Continue (${readiness.decisions.length})` : "Continue";
+  continueButton.textContent = blockers ? `Needs Attention (${blockers})` : readiness.decisions.length ? `Continue (${readiness.decisions.length})` : "Continue";
   continueButton.title = blockers
-    ? "Resolve blockers in Program Desk before advancing."
+    ? "Open Program Desk to resolve must-respond items before advancing."
     : readiness.decisions.length
       ? `${readiness.decisions.length} decision item(s) are waiting, but time can advance.`
       : "Advance to the next meaningful event.";
@@ -10799,7 +10799,7 @@ function readinessPanel() {
   const blockers = blockingItems();
   const event = currentEvent();
   const status = blockers.length
-    ? ["Blocked", "Resolve all Must Respond and Deadline items before advancing."]
+    ? ["Needs Attention", "Open Program Desk and clear Must Respond or Deadline items before advancing."]
     : ["Ready", "No blockers remain. Continue will move to the next meaningful event."];
   return `<div class="agenda-list">
     <div class="agenda-item">
@@ -12907,8 +12907,9 @@ continueButton.addEventListener("click", () => {
     return;
   }
   if (blockingItems().length) {
+    setBootstrapStatus(`Continue is waiting on ${blockingItems().length} must-respond item(s). Review Program Desk to clear them.`);
     renderView("desk");
-    continueButton.textContent = `Blocked (${blockingItems().length})`;
+    continueButton.textContent = `Needs Attention (${blockingItems().length})`;
     return;
   }
   continueButton.textContent = "Advancing...";
@@ -12928,8 +12929,9 @@ if (skipButton) {
       return;
     }
     if (blockingItems().length) {
+      setBootstrapStatus(`Skip is waiting on ${blockingItems().length} must-respond item(s). Review Program Desk first.`);
       renderView("desk");
-      skipButton.textContent = `Blocked (${blockingItems().length})`;
+      skipButton.textContent = `Needs Attention (${blockingItems().length})`;
       window.setTimeout(() => { skipButton.textContent = "Skip Time"; }, 1500);
       return;
     }

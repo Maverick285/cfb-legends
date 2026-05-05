@@ -514,14 +514,23 @@ button {
   text-align: left;
 }
 
-.bootstrap-primary-tile:hover {
+.bootstrap-primary-tile:hover,
+.bootstrap-primary-tile:focus-visible,
+.bootstrap-primary-tile:active {
   border-color: var(--border-strong);
   background: var(--bg-surface-2);
+  transform: translateY(-1px);
 }
 
 .bootstrap-primary-tile.accent {
   border-color: color-mix(in srgb, var(--accent) 50%, var(--border-strong));
   background: linear-gradient(180deg, rgba(199, 164, 91, 0.12), transparent), var(--bg-elevated);
+}
+
+.bootstrap-primary-tile.accent strong,
+.bootstrap-primary-tile.accent small,
+.bootstrap-primary-tile.accent .tile-eyebrow {
+  color: var(--text-primary);
 }
 
 .bootstrap-primary-tile strong {
