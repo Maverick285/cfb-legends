@@ -7776,6 +7776,11 @@ function renderProgramHomeWorkspace() {
         <p class="workspace-card-sub">Current league view</p>
         <button class="clickable-card" data-open-view="rankings">${standingsTable(data.standings)}</button>
       </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Bookmarks</h3>
+        <p class="workspace-card-sub">Pinned rooms for quick return</p>
+        ${bookmarkListPanel()}
+      </section>
     </div>`;
   const inspector = DG.renderInspector({
     title: "Executive Notes",
@@ -7783,6 +7788,7 @@ function renderProgramHomeWorkspace() {
     sections: [
       { label: "Next Kickoff", html: `<button class="data-row clickable-row" data-open-view="schedule"><span>${document.getElementById("nextKickoffOpponent") ? document.getElementById("nextKickoffOpponent").textContent : "—"}</span><span class="rating">Open</span></button>` },
       { label: "Watch Items", html: `<button class="data-row clickable-row" data-open-view="desk"><span>${blockingItems().length} blocker(s) · ${(data.notifications || []).filter((n) => !n.resolved).length} open items</span><span class="rating">Desk</span></button>` },
+      { label: "Bookmarks", html: bookmarkListPanel() },
     ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: contentHtml, inspector, status: `Home overview · ${career.record}` });
@@ -10820,6 +10826,16 @@ function agendaList(items, options = {}) {
       </button>`,
     )
     .join("")}</div>`;
+}
+
+function bookmarkListPanel() {
+  const bookmarks = isRecord(window.CGM_UI_STATE) && Array.isArray(window.CGM_UI_STATE.bookmarks)
+    ? window.CGM_UI_STATE.bookmarks
+    : [];
+  if (!bookmarks.length) {
+    return '<p style="color:var(--text-muted);font-size:var(--text-sm)">No bookmarks yet. Save a room from the top bar to pin it here.</p>';
+  }
+  return `<div class="data-list">${bookmarks.map((bookmark) => `<button class="data-row clickable-row" data-open-view="${bookmark.viewId}"><span>${bookmark.label}</span><span class="rating">Open</span></button>`).join("")}</div>`;
 }
 
 function rosterRows(items, options = {}) {
