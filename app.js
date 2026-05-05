@@ -12148,29 +12148,58 @@ content.addEventListener("click", (event) => {
     if (action === "open-player" && selectedPlayerId) renderView("player");
     else if (action === "open-prospect" && selectedProspectId) renderView("prospect");
     else if (action === "scout-prospect" && selectedProspectId) {
-      // Reuse the existing scout action handler if available.
-      if (typeof applyRecruitAction === "function") applyRecruitAction(selectedProspectId, "scout");
+      const prospect = findProspect(selectedProspectId);
+      if (prospect && applyRecruitingAction("scout", prospect)) setBootstrapStatus(`Scouted ${prospect.name}. Confidence ${Math.round(prospect.scoutConfidence || 0)}%, interest ${Math.round(prospect.interest || 0)}%.`);
+      else setBootstrapStatus("Could not scout this prospect right now.");
       renderView("recruiting");
     } else if (action === "contact-prospect" && selectedProspectId) {
-      if (typeof applyRecruitAction === "function") applyRecruitAction(selectedProspectId, "contact");
+      const prospect = findProspect(selectedProspectId);
+      if (prospect && applyRecruitingAction("contact", prospect)) setBootstrapStatus(`Reached out to ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`);
+      else setBootstrapStatus("Could not contact this prospect right now.");
       renderView("recruiting");
     } else if (action === "offer-prospect" && selectedProspectId) {
-      if (typeof applyRecruitAction === "function") applyRecruitAction(selectedProspectId, "offer");
+      const prospect = findProspect(selectedProspectId);
+      if (prospect && applyRecruitingAction("offer", prospect)) setBootstrapStatus(`Offer sent to ${prospect.name}. Commit chance ${Math.round(prospect.commitChance || 0)}%.`);
+      else setBootstrapStatus("Could not make an offer right now.");
       renderView("recruiting");
     } else if (action === "compare-player") {
-      setBootstrapStatus("Compare flow is not fully built yet. Use roster filters and inspector review for now.");
+      if (selectedPlayerId) renderView("player");
+      else setBootstrapStatus("Pick a player first, then use the peer comparison section from the player room.");
     } else if (action === "meet-player") {
-      setBootstrapStatus("Meeting flow placeholder: player meeting UI is not fully wired yet.");
+      const player = findPlayer(selectedPlayerId);
+      if (player) {
+        player.morale = Math.min(99, Number(player.morale || 50) + 3);
+        player.transferRisk = player.morale >= 75 ? "Low" : player.transferRisk;
+        markDirty();
+        autoSaveCareer();
+        setBootstrapStatus(`Met with ${player.name}. Morale is now ${player.morale}.`);
+        renderView("player");
+      } else setBootstrapStatus("Select a player first to hold a meeting.");
     } else if (action === "view-stats") {
-      setBootstrapStatus("Stats view is integrated into the player profile and analytics surfaces.");
+      if (selectedPlayerId) renderView("player");
+      else setBootstrapStatus("Select a player first to inspect stats.");
     } else if (action === "schedule-visit") {
-      setBootstrapStatus("Visit scheduling placeholder: recruiting visit planner is not fully wired yet.");
+      const prospect = findProspect(selectedProspectId);
+      if (prospect && applyRecruitingAction("visit", prospect)) setBootstrapStatus(`Visit scheduled for ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`);
+      else setBootstrapStatus("Could not schedule a visit. Make sure the player has an offer and you still have AP.");
+      renderView(prospect ? "prospect" : "recruiting");
     } else if (action === "make-pitch") {
-      setBootstrapStatus("Pitch flow placeholder: recruiting pitch UI is not fully wired yet.");
+      const prospect = findProspect(selectedProspectId);
+      if (prospect && applyRecruitingAction(prospect.offered ? "contact" : "offer", prospect)) {
+        setBootstrapStatus(prospect.offered
+          ? `Made another push with ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`
+          : `Pitch escalated into an offer for ${prospect.name}. Commit chance ${Math.round(prospect.commitChance || 0)}%.`);
+      } else setBootstrapStatus("Could not make a pitch right now.");
+      renderView(prospect ? "prospect" : "recruiting");
     } else if (action === "compare-prospect") {
-      setBootstrapStatus("Prospect compare flow is not fully built yet.");
+      if (selectedProspectId) renderView("prospect");
+      else setBootstrapStatus("Pick a prospect first, then compare from the position board in the prospect room.");
     } else if (action === "watch-prospect") {
-      setBootstrapStatus("Watchlist flow placeholder: deeper watchlist management is still pending.");
+      const ui = ensureRecruitingUiState();
+      ui.tab = "watchlist";
+      persistUiState();
+      renderView("recruiting");
+      setBootstrapStatus("Switched to the recruiting watchlist so you can review your top priority board.");
     }
     return;
   }
