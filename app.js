@@ -11969,21 +11969,43 @@ content.addEventListener("click", (event) => {
   if (rosterActionBtn) {
     const action = rosterActionBtn.dataset.rosterAction;
     const ui = ensureRosterUiState();
-    if (action === "compare") setBootstrapStatus("Roster compare tray is planned but not fully implemented yet.");
+    if (action === "compare") {
+      if (selectedPlayerId) renderView("player");
+      else setBootstrapStatus("Pick a player first, then compare from the player profile's peer section.");
+    }
     else if (action === "columns") { cycleVisibleColumns(ui, ROSTER_VIEW_PRESETS); renderView("roster"); }
     else if (action === "save-view") { const ok = saveCurrentView(ui, `Roster ${ui.view} ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`, ["tab", "view", "posFilter", "classFilter", "search", "sort", "visibleColumns"]); setBootstrapStatus(ok ? "Saved current roster view." : "Could not save roster view."); persistUiState(); }
-    else if (action === "ask-staff") setBootstrapStatus("Staff recommendation digest for roster review is still a placeholder.");
-    else if (action === "export") setBootstrapStatus("Export flow is not fully implemented yet.");
+    else if (action === "ask-staff") {
+      const player = findPlayer(selectedPlayerId);
+      setBootstrapStatus(player
+        ? `${player.position} ${player.name}: ${player.transferRisk === "High" ? "Retention risk is high, protect morale and usage." : "Stable enough to keep developing."} Focus: ${player.developmentFocus || "Balanced reps"}.`
+        : "Select a player to get a staff read on fit, risk, and development focus.");
+    }
+    else if (action === "export") setBootstrapStatus("Export is not wired yet, but saved views and bookmarks now preserve your working setup.");
     return;
   }
   const recruitingActionBtn = event.target.closest("[data-recruiting-action]");
   if (recruitingActionBtn) {
     const action = recruitingActionBtn.dataset.recruitingAction;
     const ui = ensureRecruitingUiState();
-    if (action === "assign-scout") setBootstrapStatus("Scout assignment UI is not fully wired yet.");
+    if (action === "assign-scout") {
+      const prospect = findProspect(selectedProspectId);
+      if (!prospect) setBootstrapStatus("Select a prospect first, then assign scouting pressure.");
+      else if (applyRecruitingAction("scout", prospect)) {
+        setBootstrapStatus(`Scouting assigned to ${prospect.name}. Confidence ${Math.round(prospect.scoutConfidence || 0)}%, interest ${Math.round(prospect.interest || 0)}%.`);
+        renderView("recruiting");
+      } else {
+        setBootstrapStatus(`Could not scout ${prospect.name}. Check AP, portal status, or whether recruitment is still open.`);
+      }
+    }
     else if (action === "columns") { cycleVisibleColumns(ui, RECRUITING_VIEW_PRESETS); renderView("recruiting"); }
     else if (action === "save-view") { const ok = saveCurrentView(ui, `Recruiting ${ui.tab} ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`, ["tab", "posFilter", "starsFilter", "statusFilter", "search", "sort", "visibleColumns"]); setBootstrapStatus(ok ? "Saved current recruiting view." : "Could not save recruiting view."); persistUiState(); }
-    else if (action === "ask-staff") setBootstrapStatus("Recruiting staff digest is still a placeholder surface.");
+    else if (action === "ask-staff") {
+      const prospect = findProspect(selectedProspectId);
+      setBootstrapStatus(prospect
+        ? `${prospect.name}: ${prospect.staffRecommendation || "Stay involved while momentum is moving."} Commit ${prospect.commitChance || 0}%, interest ${prospect.interest || 0}%, need fit ${prospect.needFit || 0}%.`
+        : "Select a prospect to get a staff recruiting read.");
+    }
     return;
   }
   // UI-RESCUE-1: Roster workspace interactions ──────────────────────────
