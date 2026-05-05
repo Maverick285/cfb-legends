@@ -7573,6 +7573,11 @@ function renderProspectWorkspace() {
 function renderDevelopmentWorkspace() {
   const DG = window.CGM_DATAGRID;
   if (!DG) return '<div style="padding:24px">DataGrid module not loaded.</div>';
+  const focus = developmentFocusContext();
+  const focusHelper = window.CGM_DEVELOPMENT_FOCUS;
+  const focusSummary = focusHelper && typeof focusHelper.renderFocusSummary === "function"
+    ? focusHelper.renderFocusSummary(focus)
+    : "";
   const header = DG.renderObjectHeader({
     title: "Development Centre",
     sub: `${programById(career.programId).shortName} · practice and player growth`,
@@ -7584,6 +7589,16 @@ function renderDevelopmentWorkspace() {
   });
   const dataGrid = `
     <div class="workspace-grid workspace-grid-2">
+      ${focus ? `<section class="workspace-card workspace-card-span-2">
+        <h3>Focused Development Plan</h3>
+        <p class="workspace-card-sub">Context carried in from the player room</p>
+        ${focusSummary}
+        <div style="margin-top:12px">${playerProfilePanel(focus.entity)}</div>
+        <div class="chip-row" style="margin-top:12px">
+          <button class="small-action secondary" data-insp-action="clear-development-focus">Clear Focus</button>
+          <button class="small-action" data-open-view="player">Back to Player</button>
+        </div>
+      </section>` : ""}
       <section class="workspace-card">
         <h3>Practice Emphasis</h3>
         <p class="workspace-card-sub">Choose this week's focus</p>
@@ -10109,6 +10124,36 @@ function analyticsFocusContext() {
     };
   }
   return null;
+}
+
+function ensureDevelopmentUiState() {
+  if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
+  if (!isRecord(window.CGM_UI_STATE.development)) window.CGM_UI_STATE.development = {};
+  if (!isRecord(window.CGM_UI_STATE.development.focus)) window.CGM_UI_STATE.development.focus = { playerId: null };
+  return window.CGM_UI_STATE.development;
+}
+
+function setDevelopmentFocus(playerId) {
+  const ui = ensureDevelopmentUiState();
+  ui.focus = { playerId: playerId || null };
+  persistUiState();
+}
+
+function clearDevelopmentFocus() {
+  const ui = ensureDevelopmentUiState();
+  ui.focus = { playerId: null };
+  persistUiState();
+}
+
+function developmentFocusContext() {
+  const ui = ensureDevelopmentUiState();
+  const player = findPlayer(ui.focus && ui.focus.playerId);
+  if (!player) return null;
+  return {
+    entity: player,
+    name: player.name,
+    meta: [player.position, player.year, player.developmentFocus || "Balanced", `OVR ${player.ovr || "—"}`],
+  };
 }
 
 function isPlayerWatched(playerId) {
@@ -12657,8 +12702,9 @@ content.addEventListener("click", (event) => {
         player.developmentFocus = options[(currentIndex + 1) % options.length];
         markDirty();
         autoSaveCareer();
-        setBootstrapStatus(`${player.name} development focus set to ${player.developmentFocus}.`);
-        renderView("player");
+        setDevelopmentFocus(player.id);
+        setBootstrapStatus(`${player.name} development focus set to ${player.developmentFocus}. Opened Development Centre on their plan.`);
+        renderView("development");
       } else setBootstrapStatus("Select a player first to set a development focus.");
     } else if (action === "add-watch") {
       const player = findPlayer(selectedPlayerId);
@@ -12700,6 +12746,10 @@ content.addEventListener("click", (event) => {
       clearAnalyticsFocus();
       renderView("analytics");
       setBootstrapStatus("Cleared analytics focus.");
+    } else if (action === "clear-development-focus") {
+      clearDevelopmentFocus();
+      renderView("development");
+      setBootstrapStatus("Cleared development focus.");
     } else if (action === "watch-prospect") {
       const prospect = findProspect(selectedProspectId);
       const ui = ensureRecruitingUiState();
