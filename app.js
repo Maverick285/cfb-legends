@@ -6156,6 +6156,10 @@ function focusRecruitingForProspectCompare(prospect) {
   renderView("recruiting");
 }
 
+function recruitingReturnViewForProspectWorkflow() {
+  return activeView === "prospect" ? "prospect" : "recruiting";
+}
+
 function renderSimpleWorkspaceTable(rows, options = {}) {
   const helper = window.CGM_WORKSPACE_TABLE;
   if (helper && typeof helper.renderSimpleWorkspaceTable === "function") {
@@ -12498,7 +12502,7 @@ content.addEventListener("click", (event) => {
       if (!prospect) setBootstrapStatus("Select a prospect first, then assign scouting pressure.");
       else if (applyRecruitingAction("scout", prospect)) {
         setBootstrapStatus(`Scouting assigned to ${prospect.name}. Confidence ${Math.round(prospect.scoutConfidence || 0)}%, interest ${Math.round(prospect.interest || 0)}%.`);
-        renderView("recruiting");
+        renderView(recruitingReturnViewForProspectWorkflow());
       } else {
         setBootstrapStatus(`Could not scout ${prospect.name}. Check AP, portal status, or whether recruitment is still open.`);
       }
@@ -12660,17 +12664,17 @@ content.addEventListener("click", (event) => {
       const prospect = findProspect(selectedProspectId);
       if (prospect && applyRecruitingAction("scout", prospect)) setBootstrapStatus(`Scouted ${prospect.name}. Confidence ${Math.round(prospect.scoutConfidence || 0)}%, interest ${Math.round(prospect.interest || 0)}%.`);
       else setBootstrapStatus("Could not scout this prospect right now.");
-      renderView("recruiting");
+      renderView(recruitingReturnViewForProspectWorkflow());
     } else if (action === "contact-prospect" && selectedProspectId) {
       const prospect = findProspect(selectedProspectId);
       if (prospect && applyRecruitingAction("contact", prospect)) setBootstrapStatus(`Reached out to ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`);
       else setBootstrapStatus("Could not contact this prospect right now.");
-      renderView("recruiting");
+      renderView(recruitingReturnViewForProspectWorkflow());
     } else if (action === "offer-prospect" && selectedProspectId) {
       const prospect = findProspect(selectedProspectId);
       if (prospect && applyRecruitingAction("offer", prospect)) setBootstrapStatus(`Offer sent to ${prospect.name}. Commit chance ${Math.round(prospect.commitChance || 0)}%.`);
       else setBootstrapStatus("Could not make an offer right now.");
-      renderView("recruiting");
+      renderView(recruitingReturnViewForProspectWorkflow());
     } else if (action === "compare-player") {
       const player = findPlayer(selectedPlayerId);
       if (player) {
@@ -12727,7 +12731,7 @@ content.addEventListener("click", (event) => {
       const prospect = findProspect(selectedProspectId);
       if (prospect && applyRecruitingAction("visit", prospect)) setBootstrapStatus(`Visit scheduled for ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`);
       else setBootstrapStatus("Could not schedule a visit. Make sure the player has an offer and you still have AP.");
-      renderView(prospect ? "prospect" : "recruiting");
+      renderView(prospect ? recruitingReturnViewForProspectWorkflow() : "recruiting");
     } else if (action === "make-pitch") {
       const prospect = findProspect(selectedProspectId);
       if (prospect && applyRecruitingAction(prospect.offered ? "contact" : "offer", prospect)) {
@@ -12735,7 +12739,7 @@ content.addEventListener("click", (event) => {
           ? `Made another push with ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`
           : `Pitch escalated into an offer for ${prospect.name}. Commit chance ${Math.round(prospect.commitChance || 0)}%.`);
       } else setBootstrapStatus("Could not make a pitch right now.");
-      renderView(prospect ? "prospect" : "recruiting");
+      renderView(prospect ? recruitingReturnViewForProspectWorkflow() : "recruiting");
     } else if (action === "compare-prospect") {
       const prospect = findProspect(selectedProspectId);
       if (prospect) {
