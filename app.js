@@ -8297,12 +8297,16 @@ function renderProgramDeskWorkspace() {
 // ── UI-RESCUE wave 2: Schedule workspace ───────────────────────────────────
 function ensureScheduleUiState() {
   const helper = window.CGM_WORKSPACE_UI_STATE;
+  const defaults = { tab: "fixtures", sort: [{ colId: "date", direction: "asc" }], selectedGameId: null };
   if (helper && typeof helper.ensureWorkspaceUiState === "function") {
-    return helper.ensureWorkspaceUiState("schedule", { tab: "fixtures", sort: [{ colId: "date", direction: "asc" }] });
+    return helper.ensureWorkspaceUiState("schedule", defaults);
   }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.schedule)) {
-    window.CGM_UI_STATE.schedule = { tab: "fixtures", sort: [{ colId: "date", direction: "asc" }] };
+    window.CGM_UI_STATE.schedule = defaults;
+  }
+  if (!Object.prototype.hasOwnProperty.call(window.CGM_UI_STATE.schedule, "selectedGameId")) {
+    window.CGM_UI_STATE.schedule.selectedGameId = null;
   }
   return window.CGM_UI_STATE.schedule;
 }
@@ -8320,8 +8324,11 @@ function renderScheduleWorkspace() {
   const state = ensureScheduleUiState();
   const myProgram = programById(career.programId);
   const phaseLabel = (currentEvent() && currentEvent().phase) || "Preseason";
+  const games = (data.schedule || []).length;
+  const played = (data.seasonState && data.seasonState.currentGameIndex) || 0;
 
   let bodyHtml;
+  let selectedGame = null;
   if (state.tab === "boxscores") {
     bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="schedule">${renderSimpleWorkspaceTable(recentBoxScoresRows(), { keyPrefix: "boxscores", emptyMessage: "No box scores yet." })}</button></div>`;
   } else if (state.tab === "drives") {
@@ -8345,6 +8352,15 @@ function renderScheduleWorkspace() {
       _id: `g${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4],
       _dateOrdinal: SEASON_DATE_LABELS.indexOf(r[0]) >= 0 ? SEASON_DATE_LABELS.indexOf(r[0]) : 99,
     }));
+    const selectedRow = rows.find((row) => row._id === state.selectedGameId) || rows[0] || null;
+    if (selectedRow) {
+      state.selectedGameId = selectedRow._id;
+      selectedGame = {
+        row: selectedRow,
+        context: scheduleRowToGameContext([selectedRow[0], selectedRow[1], selectedRow[2], selectedRow[3], selectedRow[4]], Number(String(selectedRow._id).replace("g", "")) || 0),
+        played: (Number(String(selectedRow._id).replace("g", "")) || 0) < played,
+      };
+    }
     bodyHtml = DG.renderDataGrid({
       columns: cols, rows, rowKey: (r) => r._id, sort: state.sort,
       emptyMessage: "Schedule is empty.",
@@ -8352,8 +8368,6 @@ function renderScheduleWorkspace() {
     });
   }
 
-  const games = (data.schedule || []).length;
-  const played = (data.seasonState && data.seasonState.currentGameIndex) || 0;
   const header = DG.renderObjectHeader({
     title: "Schedule",
     sub: `${myProgram.shortName} · ${currentSeasonYear()} ${phaseLabel}`,
@@ -8370,12 +8384,20 @@ function renderScheduleWorkspace() {
     ],
   });
   const inspector = DG.renderInspector({
-    title: "Opponent Scout",
-    sub: data.seasonState && data.seasonState.lastResultSummary || "No result yet",
-    sections: [
-      { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
-      { label: "Last Box", html: `<div class="data-list">${recentBoxScoresRows().slice(1, 4).map((r) => `<button class="data-row clickable-row" data-open-view="schedule"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
-    ],
+    title: selectedGame ? selectedGame.context.opponent : "Opponent Scout",
+    sub: selectedGame
+      ? `${selectedGame.context.weekLabel} · ${selectedGame.context.away ? "Away" : "Home"} · ${selectedGame.played ? "Played" : "Upcoming"}`
+      : data.seasonState && data.seasonState.lastResultSummary || "No result yet",
+    sections: selectedGame
+      ? [
+          { label: "Game Context", html: `<div class="data-list"><div class="data-row"><span>Week</span><span>${selectedGame.context.weekLabel}</span></div><div class="data-row"><span>Opponent</span><span>${selectedGame.context.opponent}</span></div><div class="data-row"><span>Site</span><span>${selectedGame.context.away ? "Away" : "Home"}</span></div><div class="data-row"><span>Opponent quality</span><span class="rating">${selectedGame.context.opponentQuality}</span></div><div class="data-row"><span>Status</span><span>${selectedGame.played ? selectedGame.row[4] || "Played" : selectedGame.row[4] || "Scheduled"}</span></div></div>` },
+          { label: "Next Step", html: `<div class="decision-actions"><button data-schedule-tab="why">Open Why View</button><button data-open-view="analytics">Open Analytics</button><button data-open-view="rankings">Open Rankings</button></div>` },
+          { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+        ]
+      : [
+          { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+          { label: "Last Box", html: `<div class="data-list">${recentBoxScoresRows().slice(1, 4).map((r) => `<button class="data-row clickable-row" data-open-view="schedule"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+        ],
   });
   const status = `${games} games · ${played} played · ${state.tab}`;
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: bodyHtml, inspector, status });
@@ -12697,6 +12719,13 @@ content.addEventListener("click", (event) => {
   if (scheduleTabBtn) {
     const ui = ensureScheduleUiState();
     ui.tab = scheduleTabBtn.dataset.scheduleTab;
+    renderView("schedule");
+    return;
+  }
+  const scheduleRow = event.target.closest("[data-schedule-row]");
+  if (scheduleRow) {
+    const ui = ensureScheduleUiState();
+    ui.selectedGameId = scheduleRow.dataset.scheduleRow;
     renderView("schedule");
     return;
   }
