@@ -7745,6 +7745,11 @@ function renderFacilitiesWorkspace() {
 function renderAnalyticsWorkspace() {
   const DG = window.CGM_DATAGRID;
   if (!DG) return '<div style="padding:24px">DataGrid module not loaded.</div>';
+  const focus = analyticsFocusContext();
+  const focusHelper = window.CGM_ANALYTICS_FOCUS;
+  const focusSummary = focusHelper && typeof focusHelper.renderFocusSummary === "function"
+    ? focusHelper.renderFocusSummary(focus)
+    : "";
   const header = DG.renderObjectHeader({
     title: "Analytics Lab",
     sub: `${programById(career.programId).shortName} · reports and model checks`,
@@ -7756,6 +7761,16 @@ function renderAnalyticsWorkspace() {
   });
   const dataGrid = `
     <div class="workspace-grid workspace-grid-2">
+      ${focus ? `<section class="workspace-card workspace-card-span-2">
+        <h3>${focus.type === "player" ? "Focused Player Analysis" : "Focused Prospect Analysis"}</h3>
+        <p class="workspace-card-sub">Context carried in from the profile room</p>
+        ${focusSummary}
+        <div style="margin-top:12px">${focus.type === "player" ? playerStatsPanel(focus.entity) : prospectSnapshot(focus.entity)}</div>
+        <div class="chip-row" style="margin-top:12px">
+          <button class="small-action secondary" data-insp-action="clear-analytics-focus">Clear Focus</button>
+          <button class="small-action" data-open-view="${focus.type === "player" ? "player" : "prospect"}">Back to ${focus.type === "player" ? "Player" : "Prospect"}</button>
+        </div>
+      </section>` : ""}
       <section class="workspace-card workspace-card-span-2">
         <h3>Stat Leaders</h3>
         <p class="workspace-card-sub">Top players this season</p>
@@ -10048,6 +10063,51 @@ function ensurePlayerWatchlistState() {
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!Array.isArray(window.CGM_UI_STATE.playerWatchlist)) window.CGM_UI_STATE.playerWatchlist = [];
   return window.CGM_UI_STATE.playerWatchlist;
+}
+
+function ensureAnalyticsUiState() {
+  if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
+  if (!isRecord(window.CGM_UI_STATE.analytics)) window.CGM_UI_STATE.analytics = {};
+  if (!isRecord(window.CGM_UI_STATE.analytics.focus)) window.CGM_UI_STATE.analytics.focus = { type: null, id: null };
+  return window.CGM_UI_STATE.analytics;
+}
+
+function setAnalyticsFocus(type, id) {
+  const ui = ensureAnalyticsUiState();
+  ui.focus = { type: type || null, id: id || null };
+  persistUiState();
+}
+
+function clearAnalyticsFocus() {
+  const ui = ensureAnalyticsUiState();
+  ui.focus = { type: null, id: null };
+  persistUiState();
+}
+
+function analyticsFocusContext() {
+  const ui = ensureAnalyticsUiState();
+  const focus = ui.focus || {};
+  if (focus.type === "player") {
+    const player = findPlayer(focus.id);
+    if (!player) return null;
+    return {
+      type: "player",
+      entity: player,
+      name: player.name,
+      meta: [player.position, player.year, `OVR ${player.ovr || "—"}`],
+    };
+  }
+  if (focus.type === "prospect") {
+    const prospect = findProspect(focus.id);
+    if (!prospect) return null;
+    return {
+      type: "prospect",
+      entity: prospect,
+      name: prospect.name,
+      meta: [prospect.position, String(prospect.stars || "—"), prospect.commitmentStatus || "Open"],
+    };
+  }
+  return null;
 }
 
 function isPlayerWatched(playerId) {
@@ -12582,8 +12642,12 @@ content.addEventListener("click", (event) => {
         renderView("player");
       } else setBootstrapStatus("Select a player first to hold a meeting.");
     } else if (action === "view-stats") {
-      if (selectedPlayerId) renderView("player");
-      else setBootstrapStatus("Select a player first to inspect stats.");
+      const player = findPlayer(selectedPlayerId);
+      if (player) {
+        setAnalyticsFocus("player", player.id);
+        renderView("analytics");
+        setBootstrapStatus(`Opened Analytics Lab focused on ${player.name}.`);
+      } else setBootstrapStatus("Select a player first to inspect stats.");
     } else if (action === "set-dev") {
       const player = findPlayer(selectedPlayerId);
       if (player) {
@@ -12624,6 +12688,10 @@ content.addEventListener("click", (event) => {
         focusRecruitingForProspectCompare(prospect);
         setBootstrapStatus(`Focused the recruiting room on ${prospect.position} targets around ${prospect.name}.`);
       } else setBootstrapStatus("Pick a prospect first, then compare from the position board in the prospect room.");
+    } else if (action === "clear-analytics-focus") {
+      clearAnalyticsFocus();
+      renderView("analytics");
+      setBootstrapStatus("Cleared analytics focus.");
     } else if (action === "watch-prospect") {
       const prospect = findProspect(selectedProspectId);
       const ui = ensureRecruitingUiState();
