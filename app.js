@@ -6779,12 +6779,14 @@ const STAFF_TABS = [
 ];
 function ensureStaffUiState() {
   const helper = window.CGM_WORKSPACE_UI_STATE;
+  const defaults = { tab: "coordinators", sort: [{ colId: "grade", direction: "desc" }], selectedRowId: null };
   if (helper && typeof helper.ensureWorkspaceUiState === "function") {
-    return helper.ensureWorkspaceUiState("staff", { tab: "coordinators", sort: [{ colId: "grade", direction: "desc" }] });
+    return helper.ensureWorkspaceUiState("staff", defaults);
   }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   const ui = window.CGM_UI_STATE;
-  if (!isRecord(ui.staff)) ui.staff = { tab: "coordinators", sort: [{ colId: "grade", direction: "desc" }] };
+  if (!isRecord(ui.staff)) ui.staff = defaults;
+  if (!Object.prototype.hasOwnProperty.call(ui.staff, "selectedRowId")) ui.staff.selectedRowId = null;
   return ui.staff;
 }
 
@@ -6794,7 +6796,7 @@ function renderStaffWorkspace() {
   const state = ensureStaffUiState();
   const myProgram = programById(career.programId);
 
-  let cols, rows, rowKey;
+  let cols, rows, rowKey, inspectorTitle, inspectorSub, inspectorSections;
   if (state.tab === "position") {
     const pcs = (data.positionCoaches || []).filter((c) => c.programId === myProgram.id);
     cols = [
@@ -6807,6 +6809,14 @@ function renderStaffWorkspace() {
     ];
     rows = pcs;
     rowKey = (r) => r.id;
+    const selectedCoach = rows.find((row) => row.id === state.selectedRowId) || rows[0] || null;
+    if (selectedCoach) state.selectedRowId = selectedCoach.id;
+    inspectorTitle = selectedCoach ? selectedCoach.name : "Position Coach Inspector";
+    inspectorSub = selectedCoach ? `${selectedCoach.role} · ${(selectedCoach.devGroups || []).join(", ") || "No groups assigned"}` : "Pick a coach to inspect staff impact.";
+    inspectorSections = [
+      { label: "Profile", html: selectedCoach ? coachDetailCard(selectedCoach) : "<p>No position coach selected.</p>" },
+      { label: "Actions", html: selectedCoach ? `<div class="decision-actions"><button data-staff-action="fire" data-staff-role="${selectedCoach.role}">Open Role</button><button data-open-view="development">Open Development</button></div>` : "<p>Select a coach row to manage this slot.</p>" },
+    ];
   } else if (state.tab === "openings") {
     const openings = data.staffOpenings || [];
     cols = [
@@ -6817,12 +6827,33 @@ function renderStaffWorkspace() {
     cols[0].accessor = (r) => r.role;
     cols[1].accessor = (r) => (data.staffCandidates && data.staffCandidates[r.role] || []).length;
     rowKey = (r) => r._id;
+    const selectedOpening = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+    if (selectedOpening) state.selectedRowId = selectedOpening._id;
+    const candidates = selectedOpening && data.staffCandidates ? (data.staffCandidates[selectedOpening.role] || []) : [];
+    inspectorTitle = selectedOpening ? selectedOpening.role : "Open Roles";
+    inspectorSub = selectedOpening ? `${candidates.length} candidate(s) ready` : "Pick an open role to review candidates.";
+    inspectorSections = [
+      { label: "Candidates", html: selectedOpening
+        ? (candidates.length
+          ? `<div class="decision-list">${candidates.map(([name, specialty, grade]) => `<div class="decision-item"><div><strong>${name}</strong><p>${specialty}</p><div class="decision-meta"><span>${selectedOpening.role}</span><span>Grade ${grade}</span></div></div><div class="decision-actions"><button class="small-action" data-staff-action="hire" data-staff-role="${selectedOpening.role}" data-staff-name="${name}" data-staff-specialty="${specialty}" data-staff-grade="${grade}">Hire</button></div></div>`).join("")}</div>`
+          : `<p>No candidates generated for ${selectedOpening.role} yet.</p>`)
+        : "<p>Select an open role to review its hiring board.</p>" },
+      { label: "Fast Links", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="recruiting"><span>Open recruiting to judge recruiting staff impact</span><span class="rating">Rec</span></button><button class="data-row clickable-row" data-open-view="development"><span>Open development to assess coaching load</span><span class="rating">Dev</span></button></div>` },
+    ];
   } else if (state.tab === "delegation") {
     const delegationRows = staffDelegationRows();
     const header = delegationRows[0];
     cols = header.map((h, i) => ({ id: `c${i}`, label: h, accessor: (r) => r[i], width: i === 0 ? 130 : 140, sortable: false }));
     rows = delegationRows.slice(1).map((r, i) => ({ _id: `d${i}`, ...r }));
     rowKey = (r) => r._id;
+    const selectedDelegation = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+    if (selectedDelegation) state.selectedRowId = selectedDelegation._id;
+    inspectorTitle = selectedDelegation ? selectedDelegation[0] : "Delegation";
+    inspectorSub = selectedDelegation ? `${selectedDelegation[1]} · ${selectedDelegation[2]} load · ${selectedDelegation[3]} risk` : "Pick an area to review delegation pressure.";
+    inspectorSections = [
+      { label: "Recommendation", html: selectedDelegation ? `<div class="data-list"><div class="data-row"><span>Owner</span><span>${selectedDelegation[1]}</span></div><div class="data-row"><span>Load</span><span>${selectedDelegation[2]}</span></div><div class="data-row"><span>Risk</span><span>${selectedDelegation[3]}</span></div><div class="data-row"><span>Staff recommendation</span><span>${selectedDelegation[4]}</span></div></div>` : "<p>No delegation area selected.</p>" },
+      { label: "Fast Links", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="staff"><span>Stay in staff room to review another lane</span><span class="rating">Staff</span></button></div>` },
+    ];
   } else {
     // coordinators
     cols = [
@@ -6834,6 +6865,14 @@ function renderStaffWorkspace() {
     ];
     rows = (data.staff || []).map((r, i) => ({ _id: `s${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3] }));
     rowKey = (r) => r._id;
+    const selectedCoordinator = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+    if (selectedCoordinator) state.selectedRowId = selectedCoordinator._id;
+    inspectorTitle = selectedCoordinator ? selectedCoordinator[1] : "Coordinator Inspector";
+    inspectorSub = selectedCoordinator ? `${selectedCoordinator[0]} · ${selectedCoordinator[2]} · Grade ${selectedCoordinator[3]}` : "Pick a coordinator to inspect their slot.";
+    inspectorSections = [
+      { label: "Selected Coach", html: selectedCoordinator ? `<div class="data-list"><div class="data-row"><span>Role</span><span>${selectedCoordinator[0]}</span></div><div class="data-row"><span>Specialty</span><span>${selectedCoordinator[2]}</span></div><div class="data-row"><span>Grade</span><span>${selectedCoordinator[3]}</span></div></div>` : "<p>No coordinator selected.</p>" },
+      { label: "Actions", html: selectedCoordinator ? `<div class="decision-actions"><button data-staff-action="fire" data-staff-role="${selectedCoordinator[0]}">Open Role</button><button data-open-view="development">Open Development</button></div>` : "<p>Select a coach row to manage this slot.</p>" },
+    ];
   }
 
   const header = DG.renderObjectHeader({
@@ -6865,9 +6904,9 @@ function renderStaffWorkspace() {
   </div>` : "";
 
   const inspector = DG.renderInspector({
-    title: "Head Coach DNA",
-    sub: career.coachName || "Coach",
-    sections: [
+    title: inspectorTitle || "Head Coach DNA",
+    sub: inspectorSub || career.coachName || "Coach",
+    sections: inspectorSections || [
       ...(hotSeatHtml ? [{ label: "Job Security", html: hotSeatHtml }] : []),
       { label: "Profile", html: coachProfilePanel() },
       { label: "Fast Links", html: `<div class="data-list"><button class="data-row clickable-row" data-open-view="development"><span>Open development plans</span><span class="rating">Dev</span></button><button class="data-row clickable-row" data-open-view="recruiting"><span>Open recruiting for staffing impact</span><span class="rating">Rec</span></button></div>` },
@@ -12629,6 +12668,14 @@ content.addEventListener("click", (event) => {
   if (staffTabBtn) {
     const ui = ensureStaffUiState();
     ui.tab = staffTabBtn.dataset.staffTab;
+    ui.selectedRowId = null;
+    renderView("staff");
+    return;
+  }
+  const staffRow = event.target.closest("[data-staff-row]");
+  if (staffRow) {
+    const ui = ensureStaffUiState();
+    ui.selectedRowId = staffRow.dataset.staffRow;
     renderView("staff");
     return;
   }
