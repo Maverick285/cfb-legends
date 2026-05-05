@@ -12178,6 +12178,24 @@ content.addEventListener("click", (event) => {
     } else if (action === "view-stats") {
       if (selectedPlayerId) renderView("player");
       else setBootstrapStatus("Select a player first to inspect stats.");
+    } else if (action === "set-dev") {
+      const player = findPlayer(selectedPlayerId);
+      if (player) {
+        const options = ["Strength", "Technique", "Conditioning", "Film Study", "Leadership"];
+        const currentIndex = Math.max(0, options.indexOf(player.developmentFocus || ""));
+        player.developmentFocus = options[(currentIndex + 1) % options.length];
+        markDirty();
+        autoSaveCareer();
+        setBootstrapStatus(`${player.name} development focus set to ${player.developmentFocus}.`);
+        renderView("player");
+      } else setBootstrapStatus("Select a player first to set a development focus.");
+    } else if (action === "add-watch") {
+      const player = findPlayer(selectedPlayerId);
+      if (player) {
+        player.transferRisk = player.transferRisk === "Low" ? "Medium" : player.transferRisk;
+        setBootstrapStatus(`Added ${player.name} to your mental watchlist. Check portal risk and morale weekly.`);
+        renderView("player");
+      } else setBootstrapStatus("Select a player first to add a watch note.");
     } else if (action === "schedule-visit") {
       const prospect = findProspect(selectedProspectId);
       if (prospect && applyRecruitingAction("visit", prospect)) setBootstrapStatus(`Visit scheduled for ${prospect.name}. Interest ${Math.round(prospect.interest || 0)}%.`);
