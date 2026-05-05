@@ -6523,6 +6523,7 @@ function recruitingProspectInspector(prospect) {
       { label: "Schedule Visit", action: "schedule-visit" },
       { label: "Make Pitch", action: "make-pitch" },
       { label: "Compare", action: "compare-prospect" },
+      { label: "Open Analytics", action: "view-prospect-analytics" },
       { label: isProspectWatched(prospect.id) ? "Remove Watch" : "Add Watch", action: "watch-prospect" },
     ],
   });
@@ -7540,7 +7541,7 @@ function renderProspectWorkspace() {
       { label: "Status", value: String(prospect.commitmentStatus || "Open"), openView: "recruiting" },
     ],
   });
-  const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="recruiting">Back to Recruiting</button>', '<button data-insp-action="contact-prospect">Contact</button>', '<button data-insp-action="offer-prospect">Offer</button>'] }] });
+  const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="recruiting">Back to Recruiting</button>', '<button data-insp-action="contact-prospect">Contact</button>', '<button data-insp-action="offer-prospect">Offer</button>', '<button data-insp-action="view-prospect-analytics">Open Analytics</button>'] }] });
   const dataGrid = `
     <div class="workspace-grid workspace-grid-2">
       <section class="workspace-card workspace-card-span-2">
@@ -12688,6 +12689,13 @@ content.addEventListener("click", (event) => {
         focusRecruitingForProspectCompare(prospect);
         setBootstrapStatus(`Focused the recruiting room on ${prospect.position} targets around ${prospect.name}.`);
       } else setBootstrapStatus("Pick a prospect first, then compare from the position board in the prospect room.");
+    } else if (action === "view-prospect-analytics") {
+      const prospect = findProspect(selectedProspectId);
+      if (prospect) {
+        setAnalyticsFocus("prospect", prospect.id);
+        renderView("analytics");
+        setBootstrapStatus(`Opened Analytics Lab focused on ${prospect.name}.`);
+      } else setBootstrapStatus("Select a prospect first to inspect recruiting analytics.");
     } else if (action === "clear-analytics-focus") {
       clearAnalyticsFocus();
       renderView("analytics");
