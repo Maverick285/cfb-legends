@@ -6420,11 +6420,14 @@ function recruitingProspectInspector(prospect) {
   const DG = window.CGM_DATAGRID;
   const REC = window.CGM_RECRUITING_V2;
   if (!prospect) {
-    const board = (data.prospectProfiles || []).filter((p) => (p.classYear === "HS_SR" || p.classYear === "HS SR"));
-    const top = board.sort((a, b) => (b.interest || 0) - (a.interest || 0)).slice(0, 4);
-    const list = top.map((p) =>
-      `<div class="data-row"><span>${p.position} ${p.name}</span><span class="inspector-badge info">${p.interest || 0}</span></div>`
-    ).join("") || `<p style="color:var(--text-muted);font-size:var(--text-sm)">No HS seniors on the board.</p>`;
+    const savedWatch = ensureProspectWatchlistState().slice(0, 4);
+    const board = savedWatch.length
+      ? savedWatch.map((p) => `<div class="data-row"><span>${p.position} ${p.name}</span><span class="inspector-badge warning">Watch</span></div>`).join("")
+      : (data.prospectProfiles || []).filter((p) => (p.classYear === "HS_SR" || p.classYear === "HS SR"))
+          .sort((a, b) => (b.interest || 0) - (a.interest || 0))
+          .slice(0, 4)
+          .map((p) => `<div class="data-row"><span>${p.position} ${p.name}</span><span class="inspector-badge info">${p.interest || 0}</span></div>`).join("");
+    const list = board || `<p style="color:var(--text-muted);font-size:var(--text-sm)">No HS seniors on the board.</p>`;
     return DG.renderInspector({
       title: "Recruiting Snapshot",
       sub: "No prospect selected",
@@ -6477,7 +6480,7 @@ function recruitingProspectInspector(prospect) {
       { label: "Schedule Visit", action: "schedule-visit" },
       { label: "Make Pitch", action: "make-pitch" },
       { label: "Compare", action: "compare-prospect" },
-      { label: "Add Watch", action: "watch-prospect" },
+      { label: isProspectWatched(prospect.id) ? "Remove Watch" : "Add Watch", action: "watch-prospect" },
     ],
   });
 }
@@ -6508,7 +6511,10 @@ function renderRecruitingWorkspace() {
 
   // Filter: tab + UI controls
   let visible = allProspects.slice();
-  if (state.tab === "watchlist") visible = visible.filter((p) => p.priority === "Tier 1");
+  if (state.tab === "watchlist") {
+    const watched = new Set(ensureProspectWatchlistState().map((entry) => entry && entry.prospectId).filter(Boolean));
+    visible = visible.filter((p) => watched.has(p.id) || p.priority === "Tier 1");
+  }
   else if (state.tab === "committed") visible = visible.filter((p) => p.commitmentStatus && p.commitmentStatus.startsWith("Committed"));
   else if (state.tab === "pipeline") visible = visible.filter((p) => p.classYear !== "HS_SR" && p.classYear !== "HS SR");
   // board / search default: keep all
@@ -10041,6 +10047,38 @@ function togglePlayerWatch(player) {
   return true;
 }
 
+function ensureProspectWatchlistState() {
+  if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
+  if (!Array.isArray(window.CGM_UI_STATE.prospectWatchlist)) window.CGM_UI_STATE.prospectWatchlist = [];
+  return window.CGM_UI_STATE.prospectWatchlist;
+}
+
+function isProspectWatched(prospectId) {
+  return ensureProspectWatchlistState().some((entry) => entry && entry.prospectId === prospectId);
+}
+
+function toggleProspectWatch(prospect) {
+  if (!prospect || !prospect.id) return false;
+  const watchlist = ensureProspectWatchlistState();
+  const index = watchlist.findIndex((entry) => entry && entry.prospectId === prospect.id);
+  if (index >= 0) {
+    watchlist.splice(index, 1);
+    persistUiState();
+    return false;
+  }
+  watchlist.unshift({
+    prospectId: prospect.id,
+    name: prospect.name,
+    position: prospect.position,
+    stars: prospect.stars || "?",
+    status: prospect.commitmentStatus || "Open",
+    note: prospect.staffRecommendation || prospect.pipeline || "Board target",
+  });
+  window.CGM_UI_STATE.prospectWatchlist = watchlist.slice(0, 32);
+  persistUiState();
+  return true;
+}
+
 function readSavedCareer() {
   const store = localStore();
   if (!store) return null;
@@ -12552,11 +12590,22 @@ content.addEventListener("click", (event) => {
       if (selectedProspectId) renderView("prospect");
       else setBootstrapStatus("Pick a prospect first, then compare from the position board in the prospect room.");
     } else if (action === "watch-prospect") {
+      const prospect = findProspect(selectedProspectId);
       const ui = ensureRecruitingUiState();
-      ui.tab = "watchlist";
-      persistUiState();
-      renderView("recruiting");
-      setBootstrapStatus("Switched to the recruiting watchlist so you can review your top priority board.");
+      if (prospect) {
+        const added = toggleProspectWatch(prospect);
+        ui.tab = "watchlist";
+        persistUiState();
+        renderView("recruiting");
+        setBootstrapStatus(added
+          ? `Added ${prospect.name} to the recruiting watchlist.`
+          : `Removed ${prospect.name} from the recruiting watchlist.`);
+      } else {
+        ui.tab = "watchlist";
+        persistUiState();
+        renderView("recruiting");
+        setBootstrapStatus("Switched to the recruiting watchlist so you can review your top priority board.");
+      }
     }
     return;
   }
