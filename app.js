@@ -7618,12 +7618,12 @@ function renderAnalyticsWorkspace() {
       <section class="workspace-card">
         <h3>Recent Events</h3>
         <p class="workspace-card-sub">World events log</p>
-        ${recentEventsPanel()}
+        <button class="clickable-card" data-open-view="history">${recentEventsPanel()}</button>
       </section>
       <section class="workspace-card">
         <h3>Recent Actions</h3>
         <p class="workspace-card-sub">Decision log</p>
-        ${recentActionsPanel()}
+        <button class="clickable-card" data-open-view="desk">${recentActionsPanel()}</button>
       </section>
       <section class="workspace-card">
         <h3>Validation Harness</h3>
@@ -7633,22 +7633,22 @@ function renderAnalyticsWorkspace() {
       <section class="workspace-card">
         <h3>Pinned Reports</h3>
         <p class="workspace-card-sub">Unlocks more after games</p>
-        ${renderSimpleWorkspaceTable(vm("analyticsReports"), { keyPrefix: "analytics-reports", emptyMessage: "No reports unlocked yet." })}
+        <button class="clickable-card" data-open-view="analytics">${renderSimpleWorkspaceTable(vm("analyticsReports"), { keyPrefix: "analytics-reports", emptyMessage: "No reports unlocked yet." })}</button>
       </section>
       <section class="workspace-card">
         <h3>Key Findings</h3>
         <p class="workspace-card-sub">Decision support</p>
-        ${agendaList(vm("analyticsFindings"))}
+        ${agendaList(vm("analyticsFindings"), { targetView: "analytics" })}
       </section>
       <section class="workspace-card">
         <h3>Balance Snapshot</h3>
         <p class="workspace-card-sub">Sanity bands for quick tuning</p>
-        ${renderSimpleWorkspaceTable(vm("balanceSnapshot"), { keyPrefix: "balance-snapshot", emptyMessage: "No balance snapshot available." })}
+        <button class="clickable-card" data-open-view="analytics">${renderSimpleWorkspaceTable(vm("balanceSnapshot"), { keyPrefix: "balance-snapshot", emptyMessage: "No balance snapshot available." })}</button>
       </section>
       <section class="workspace-card">
         <h3>World Model Signals</h3>
         <p class="workspace-card-sub">Entity-linked live simulation state</p>
-        ${renderSimpleWorkspaceTable(worldModelSnapshotRows(), { keyPrefix: "world-model", emptyMessage: "No world model signals yet." })}
+        <button class="clickable-card" data-open-view="analytics">${renderSimpleWorkspaceTable(worldModelSnapshotRows(), { keyPrefix: "world-model", emptyMessage: "No world model signals yet." })}</button>
       </section>
       <section class="workspace-card">
         <h3>Relationship Trace</h3>
