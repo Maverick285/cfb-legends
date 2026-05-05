@@ -7451,7 +7451,7 @@ function renderPlayerWorkspace() {
       { label: "Dev Focus", value: String(player.developmentFocus || "—"), openView: "development" },
     ],
   });
-  const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="roster">Back to Roster</button>', '<button data-open-view="development">Development</button>', '<button data-insp-action="view-stats">View Stats</button>'] }] });
+  const actions = DG.renderActionBar({ groups: [{ controls: ['<button data-open-view="roster">Back to Roster</button>', '<button data-insp-action="open-development-focus">Development</button>', '<button data-insp-action="view-stats">View Stats</button>'] }] });
   const dataGrid = `
     <div class="workspace-grid workspace-grid-2">
       <section class="workspace-card workspace-card-span-2">
@@ -7472,7 +7472,7 @@ function renderPlayerWorkspace() {
       <section class="workspace-card workspace-card-span-2">
         <h3>Season Stats</h3>
         <p class="workspace-card-sub">Per-game and accumulated stat lines</p>
-        <button class="clickable-card" data-open-view="analytics">${playerStatsPanel(player)}</button>
+        <button class="clickable-card" data-insp-action="view-stats">${playerStatsPanel(player)}</button>
       </section>
     </div>`;
   const inspector = DG.renderInspector({
@@ -7552,7 +7552,7 @@ function renderProspectWorkspace() {
       <section class="workspace-card">
         <h3>Recruiting Snapshot</h3>
         <p class="workspace-card-sub">Decision support shell</p>
-        ${prospectSnapshot(prospect)}
+        <button class="clickable-card" data-insp-action="view-prospect-analytics">${prospectSnapshot(prospect)}</button>
       </section>
       <section class="workspace-card">
         <h3>Position Board</h3>
@@ -12694,6 +12694,13 @@ content.addEventListener("click", (event) => {
         renderView("analytics");
         setBootstrapStatus(`Opened Analytics Lab focused on ${player.name}.`);
       } else setBootstrapStatus("Select a player first to inspect stats.");
+    } else if (action === "open-development-focus") {
+      const player = findPlayer(selectedPlayerId);
+      if (player) {
+        setDevelopmentFocus(player.id);
+        renderView("development");
+        setBootstrapStatus(`Opened Development Centre focused on ${player.name}.`);
+      } else setBootstrapStatus("Select a player first to open a focused development plan.");
     } else if (action === "set-dev") {
       const player = findPlayer(selectedPlayerId);
       if (player) {
