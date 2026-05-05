@@ -6092,11 +6092,13 @@ function recruitingColumnsForView() {
   ];
 }
 
-function buildRecruitingExportRows() {
-  const state = ensureRecruitingUiState();
-  const recruitingOpen = !/preseason/i.test(((currentEvent() && currentEvent().phase) || "Preseason"));
+function filteredRecruitingRows(state, options = {}) {
+  const recruitingOpen = Boolean(options.recruitingOpen);
   let visible = recruitingOpen ? prospects().slice() : [];
-  if (state.tab === "watchlist") visible = visible.filter((p) => p.priority === "Tier 1");
+  if (state.tab === "watchlist") {
+    const watched = new Set(ensureProspectWatchlistState().map((entry) => entry && entry.prospectId).filter(Boolean));
+    visible = visible.filter((p) => watched.has(p.id) || p.priority === "Tier 1");
+  }
   else if (state.tab === "committed") visible = visible.filter((p) => p.commitmentStatus && p.commitmentStatus.startsWith("Committed"));
   else if (state.tab === "pipeline") visible = visible.filter((p) => p.classYear !== "HS_SR" && p.classYear !== "HS SR");
   if (state.posFilter !== "all") visible = visible.filter((p) => p.position === state.posFilter);
@@ -6106,11 +6108,52 @@ function buildRecruitingExportRows() {
     const q = state.search.toLowerCase();
     visible = visible.filter((p) => (`${p.name || ""} ${p.position || ""}`).toLowerCase().includes(q));
   }
+  return visible;
+}
+
+function buildRecruitingExportRows() {
+  const state = ensureRecruitingUiState();
+  const recruitingOpen = !/preseason/i.test(((currentEvent() && currentEvent().phase) || "Preseason"));
+  const visible = filteredRecruitingRows(state, { recruitingOpen });
   const columns = applyVisibleColumns(recruitingColumnsForView(), state.visibleColumns);
   return [
     columns.map((column) => column.label || column.id),
     ...visible.map((row) => columns.map((column) => columnValueForExport(column, row))),
   ];
+}
+
+function focusRosterForPlayerCompare(player) {
+  const helper = window.CGM_ROOM_FOCUS;
+  const ui = ensureRosterUiState();
+  const ok = helper && typeof helper.focusRosterForPlayer === "function"
+    ? helper.focusRosterForPlayer(ui, player)
+    : false;
+  if (!ok && player) {
+    ui.tab = "players";
+    ui.view = "general";
+    ui.posFilter = player.position || "all";
+    ui.classFilter = player.year || "all";
+    ui.search = player.name || "";
+  }
+  persistUiState();
+  renderView("roster");
+}
+
+function focusRecruitingForProspectCompare(prospect) {
+  const helper = window.CGM_ROOM_FOCUS;
+  const ui = ensureRecruitingUiState();
+  const ok = helper && typeof helper.focusRecruitingForProspect === "function"
+    ? helper.focusRecruitingForProspect(ui, prospect)
+    : false;
+  if (!ok && prospect) {
+    ui.tab = "search";
+    ui.posFilter = prospect.position || "all";
+    ui.starsFilter = String(prospect.stars || "all").charAt(0) || "all";
+    ui.statusFilter = "all";
+    ui.search = prospect.name || "";
+  }
+  persistUiState();
+  renderView("recruiting");
 }
 
 function renderSimpleWorkspaceTable(rows, options = {}) {
@@ -6510,21 +6553,7 @@ function renderRecruitingWorkspace() {
   const allProspects = recruitingOpen ? (data.prospectProfiles || []) : [];
 
   // Filter: tab + UI controls
-  let visible = allProspects.slice();
-  if (state.tab === "watchlist") {
-    const watched = new Set(ensureProspectWatchlistState().map((entry) => entry && entry.prospectId).filter(Boolean));
-    visible = visible.filter((p) => watched.has(p.id) || p.priority === "Tier 1");
-  }
-  else if (state.tab === "committed") visible = visible.filter((p) => p.commitmentStatus && p.commitmentStatus.startsWith("Committed"));
-  else if (state.tab === "pipeline") visible = visible.filter((p) => p.classYear !== "HS_SR" && p.classYear !== "HS SR");
-  // board / search default: keep all
-  if (state.posFilter !== "all") visible = visible.filter((p) => p.position === state.posFilter);
-  if (state.starsFilter !== "all") visible = visible.filter((p) => String(p.stars || "").charAt(0) === state.starsFilter);
-  if (state.statusFilter !== "all") visible = visible.filter((p) => (p.commitmentStatus || "Open") === state.statusFilter);
-  if (state.search) {
-    const q = state.search.toLowerCase();
-    visible = visible.filter((p) => (p.name || "").toLowerCase().includes(q) || (p.position || "").toLowerCase().includes(q));
-  }
+  let visible = filteredRecruitingRows(state, { recruitingOpen });
 
   const cols = applyVisibleColumns(recruitingColumnsForView().map((column) => {
     if (column.id === "stars") {
@@ -12537,8 +12566,11 @@ content.addEventListener("click", (event) => {
       else setBootstrapStatus("Could not make an offer right now.");
       renderView("recruiting");
     } else if (action === "compare-player") {
-      if (selectedPlayerId) renderView("player");
-      else setBootstrapStatus("Pick a player first, then use the peer comparison section from the player room.");
+      const player = findPlayer(selectedPlayerId);
+      if (player) {
+        focusRosterForPlayerCompare(player);
+        setBootstrapStatus(`Focused the roster room on ${player.position} ${player.name} for direct comparison.`);
+      } else setBootstrapStatus("Pick a player first, then use the peer comparison section from the player room.");
     } else if (action === "meet-player") {
       const player = findPlayer(selectedPlayerId);
       if (player) {
@@ -12587,8 +12619,11 @@ content.addEventListener("click", (event) => {
       } else setBootstrapStatus("Could not make a pitch right now.");
       renderView(prospect ? "prospect" : "recruiting");
     } else if (action === "compare-prospect") {
-      if (selectedProspectId) renderView("prospect");
-      else setBootstrapStatus("Pick a prospect first, then compare from the position board in the prospect room.");
+      const prospect = findProspect(selectedProspectId);
+      if (prospect) {
+        focusRecruitingForProspectCompare(prospect);
+        setBootstrapStatus(`Focused the recruiting room on ${prospect.position} targets around ${prospect.name}.`);
+      } else setBootstrapStatus("Pick a prospect first, then compare from the position board in the prospect room.");
     } else if (action === "watch-prospect") {
       const prospect = findProspect(selectedProspectId);
       const ui = ensureRecruitingUiState();
