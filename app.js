@@ -8612,6 +8612,7 @@ function renderHistoryWorkspace() {
   if (!DG) return '<div style="padding:24px">DataGrid module not loaded.</div>';
   const state = ensureHistoryUiState();
   const myProgram = programById(career.programId);
+  const helper = window.CGM_HISTORY_WORKSPACE;
 
   let bodyHtml;
   let selectedSeason = null;
@@ -8636,10 +8637,18 @@ function renderHistoryWorkspace() {
       { id: "memory", label: "Memory", accessor: (r) => r[4], width: 360, sortable: false },
     ];
     const rows = (data.history || []).map((r, i) => ({ _id: `h${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4] }));
-    const selectedRow = rows.find((row) => row._id === state.selectedSeasonId) || rows[0] || null;
-    if (selectedRow) {
-      state.selectedSeasonId = selectedRow._id;
-      selectedSeason = selectedRow;
+    if (helper && typeof helper.buildSelectedHistorySeason === "function") {
+      const selection = helper.buildSelectedHistorySeason(state, rows);
+      if (selection) {
+        state.selectedSeasonId = selection.selectedSeasonId;
+        selectedSeason = selection.season;
+      }
+    } else {
+      const selectedRow = rows.find((row) => row._id === state.selectedSeasonId) || rows[0] || null;
+      if (selectedRow) {
+        state.selectedSeasonId = selectedRow._id;
+        selectedSeason = selectedRow;
+      }
     }
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, dataAttr: "history-row", emptyMessage: "Play a season for the archive to populate." });
   }
@@ -8654,10 +8663,15 @@ function renderHistoryWorkspace() {
   });
   const tabs = DG.renderTabBar({ tabs: HISTORY_TABS, activeId: state.tab, dataAttr: "history-tab" });
   const actions = DG.renderActionBar({ groups: [{ controls: [] }] });
+  const inspectorConfig = selectedSeason && helper && typeof helper.buildSelectedHistoryInspector === "function"
+    ? helper.buildSelectedHistoryInspector(selectedSeason)
+    : !selectedSeason && helper && typeof helper.buildHistoryHooksInspector === "function"
+      ? helper.buildHistoryHooksInspector(vm("memoryHooks"))
+      : null;
   const inspector = DG.renderInspector({
-    title: selectedSeason ? `Season ${selectedSeason[0]}` : "Memory Hooks",
-    sub: selectedSeason ? `${selectedSeason[1]} · ${selectedSeason[2]} · Final rank ${selectedSeason[3]}` : "Stories worth telling",
-    sections: selectedSeason
+    title: inspectorConfig ? inspectorConfig.title : selectedSeason ? `Season ${selectedSeason[0]}` : "Memory Hooks",
+    sub: inspectorConfig ? inspectorConfig.sub : selectedSeason ? `${selectedSeason[1]} · ${selectedSeason[2]} · Final rank ${selectedSeason[3]}` : "Stories worth telling",
+    sections: inspectorConfig ? inspectorConfig.sections : selectedSeason
       ? [
           { label: "Season Snapshot", html: `<div class="data-list"><div class="data-row"><span>Record</span><span>${selectedSeason[1]}</span></div><div class="data-row"><span>Postseason</span><span>${selectedSeason[2]}</span></div><div class="data-row"><span>Final Rank</span><span>${selectedSeason[3]}</span></div><div class="data-row"><span>Memory</span><span>${selectedSeason[4]}</span></div></div>` },
           { label: "Next Step", html: `<div class="decision-actions"><button data-history-tab="scrapbook">Open Scrapbook</button><button data-history-tab="awards">Open Awards</button><button data-history-tab="draft">Open NFL Pipeline</button></div>` },
