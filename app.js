@@ -8418,12 +8418,16 @@ function renderScheduleWorkspace() {
 // ── UI-RESCUE wave 2: Rankings workspace ───────────────────────────────────
 function ensureRankingsUiState() {
   const helper = window.CGM_WORKSPACE_UI_STATE;
+  const defaults = { tab: "national", sort: [{ colId: "rating", direction: "desc" }], selectedRowId: null };
   if (helper && typeof helper.ensureWorkspaceUiState === "function") {
-    return helper.ensureWorkspaceUiState("rankings", { tab: "national", sort: [{ colId: "rating", direction: "desc" }] });
+    return helper.ensureWorkspaceUiState("rankings", defaults);
   }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.rankings)) {
-    window.CGM_UI_STATE.rankings = { tab: "national", sort: [{ colId: "rating", direction: "desc" }] };
+    window.CGM_UI_STATE.rankings = defaults;
+  }
+  if (!Object.prototype.hasOwnProperty.call(window.CGM_UI_STATE.rankings, "selectedRowId")) {
+    window.CGM_UI_STATE.rankings.selectedRowId = null;
   }
   return window.CGM_UI_STATE.rankings;
 }
@@ -8441,6 +8445,7 @@ function renderRankingsWorkspace() {
   const myProgram = programById(career.programId);
 
   let bodyHtml;
+  let selectedRow = null;
   if (state.tab === "conference") {
     const rows = (data.standings || []).map((r, i) => ({ _id: `c${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4] }));
     const cols = [
@@ -8450,6 +8455,8 @@ function renderRankingsWorkspace() {
       { id: "rating", label: "Rating", accessor: (r) => Number(r[3]), cellType: "rating", width: 90 },
       { id: "grade", label: "Grade", accessor: (r) => r[4], width: 80 },
     ];
+    selectedRow = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+    if (selectedRow) state.selectedRowId = selectedRow._id;
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, sort: state.sort, dataAttr: "rankings-row" });
   } else if (state.tab === "cfp") {
     bodyHtml = `<div style="padding:var(--space-4)"><button class="clickable-card" data-open-view="rankings">${renderSimpleWorkspaceTable(cfpBracketRows(), { keyPrefix: "cfp", emptyMessage: "No CFP bracket yet." })}</button></div>`;
@@ -8465,6 +8472,8 @@ function renderRankingsWorkspace() {
       { id: "rating", label: "Rating", accessor: (r) => Number(r[3]), cellType: "rating", width: 90 },
       { id: "trend", label: "Trend", accessor: (r) => r[4], width: 80, align: "center" },
     ];
+    selectedRow = rows.find((row) => row._id === state.selectedRowId) || rows[0] || null;
+    if (selectedRow) state.selectedRowId = selectedRow._id;
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, sort: state.sort, dataAttr: "rankings-row" });
   }
 
@@ -8479,11 +8488,20 @@ function renderRankingsWorkspace() {
   const tabs = DG.renderTabBar({ tabs: RANKINGS_TABS, activeId: state.tab, dataAttr: "rankings-tab" });
   const actions = DG.renderActionBar({ groups: [{ controls: [] }] });
   const inspector = DG.renderInspector({
-    title: "Selection Resume",
-    sub: "Year-end CFP profile",
-    sections: [
-      { label: "Profile", html: `<div class="data-list">${vm("selectionResume").map((r) => `<button class="data-row clickable-row" data-open-view="rankings"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
-    ],
+    title: selectedRow ? selectedRow[1] : "Selection Resume",
+    sub: selectedRow
+      ? state.tab === "conference"
+        ? `${selectedRow[2]} · Rating ${selectedRow[3]} · ${selectedRow[4]}`
+        : `${selectedRow[2]} · Rating ${selectedRow[3]} · Trend ${selectedRow[4]}`
+      : "Year-end CFP profile",
+    sections: selectedRow
+      ? [
+          { label: "Ranking Snapshot", html: `<div class="data-list"><div class="data-row"><span>Rank</span><span>${selectedRow[0]}</span></div><div class="data-row"><span>Program</span><span>${selectedRow[1]}</span></div><div class="data-row"><span>Record</span><span>${selectedRow[2]}</span></div><div class="data-row"><span>Rating</span><span class="rating">${selectedRow[3]}</span></div><div class="data-row"><span>${state.tab === "conference" ? "Grade" : "Trend"}</span><span>${selectedRow[4]}</span></div></div>` },
+          { label: "Next Step", html: `<div class="decision-actions"><button data-rankings-tab="resume">Open Resume</button><button data-open-view="schedule">Open Schedule</button><button data-open-view="history">Open History</button></div>` },
+        ]
+      : [
+          { label: "Profile", html: `<div class="data-list">${vm("selectionResume").map((r) => `<button class="data-row clickable-row" data-open-view="rankings"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+        ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: bodyHtml, inspector, status: `${state.tab} view` });
 }
@@ -12774,6 +12792,13 @@ content.addEventListener("click", (event) => {
   if (rankingsTabBtn) {
     const ui = ensureRankingsUiState();
     ui.tab = rankingsTabBtn.dataset.rankingsTab;
+    renderView("rankings");
+    return;
+  }
+  const rankingsRow = event.target.closest("[data-rankings-row]");
+  if (rankingsRow) {
+    const ui = ensureRankingsUiState();
+    ui.selectedRowId = rankingsRow.dataset.rankingsRow;
     renderView("rankings");
     return;
   }
