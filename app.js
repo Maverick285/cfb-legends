@@ -8491,11 +8491,15 @@ function renderRankingsWorkspace() {
 // ── UI-RESCUE wave 2: History/Scrapbook workspace ─────────────────────────
 function ensureHistoryUiState() {
   const helper = window.CGM_WORKSPACE_UI_STATE;
+  const defaults = { tab: "archive", selectedSeasonId: null };
   if (helper && typeof helper.ensureWorkspaceUiState === "function") {
-    return helper.ensureWorkspaceUiState("history", { tab: "archive" });
+    return helper.ensureWorkspaceUiState("history", defaults);
   }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
-  if (!isRecord(window.CGM_UI_STATE.history)) window.CGM_UI_STATE.history = { tab: "archive" };
+  if (!isRecord(window.CGM_UI_STATE.history)) window.CGM_UI_STATE.history = defaults;
+  if (!Object.prototype.hasOwnProperty.call(window.CGM_UI_STATE.history, "selectedSeasonId")) {
+    window.CGM_UI_STATE.history.selectedSeasonId = null;
+  }
   return window.CGM_UI_STATE.history;
 }
 const HISTORY_TABS = [
@@ -8610,6 +8614,7 @@ function renderHistoryWorkspace() {
   const myProgram = programById(career.programId);
 
   let bodyHtml;
+  let selectedSeason = null;
   if (state.tab === "scrapbook") {
     bodyHtml = `<div style="padding:var(--space-4)">${scrapbookPanel()}</div>`;
   } else if (state.tab === "draft") {
@@ -8631,6 +8636,11 @@ function renderHistoryWorkspace() {
       { id: "memory", label: "Memory", accessor: (r) => r[4], width: 360, sortable: false },
     ];
     const rows = (data.history || []).map((r, i) => ({ _id: `h${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4] }));
+    const selectedRow = rows.find((row) => row._id === state.selectedSeasonId) || rows[0] || null;
+    if (selectedRow) {
+      state.selectedSeasonId = selectedRow._id;
+      selectedSeason = selectedRow;
+    }
     bodyHtml = DG.renderDataGrid({ columns: cols, rows, rowKey: (r) => r._id, dataAttr: "history-row", emptyMessage: "Play a season for the archive to populate." });
   }
 
@@ -8645,11 +8655,16 @@ function renderHistoryWorkspace() {
   const tabs = DG.renderTabBar({ tabs: HISTORY_TABS, activeId: state.tab, dataAttr: "history-tab" });
   const actions = DG.renderActionBar({ groups: [{ controls: [] }] });
   const inspector = DG.renderInspector({
-    title: "Memory Hooks",
-    sub: "Stories worth telling",
-    sections: [
-      { label: "Recent Hooks", html: `<div class="data-list">${vm("memoryHooks").slice(0, 4).map((r) => `<button class="data-row clickable-row" data-open-view="history"><span><strong>${r[0]}</strong> ${r[1]}</span></button>`).join("") || '<p style="color:var(--text-muted)">No hooks yet.</p>'}</div>` },
-    ],
+    title: selectedSeason ? `Season ${selectedSeason[0]}` : "Memory Hooks",
+    sub: selectedSeason ? `${selectedSeason[1]} · ${selectedSeason[2]} · Final rank ${selectedSeason[3]}` : "Stories worth telling",
+    sections: selectedSeason
+      ? [
+          { label: "Season Snapshot", html: `<div class="data-list"><div class="data-row"><span>Record</span><span>${selectedSeason[1]}</span></div><div class="data-row"><span>Postseason</span><span>${selectedSeason[2]}</span></div><div class="data-row"><span>Final Rank</span><span>${selectedSeason[3]}</span></div><div class="data-row"><span>Memory</span><span>${selectedSeason[4]}</span></div></div>` },
+          { label: "Next Step", html: `<div class="decision-actions"><button data-history-tab="scrapbook">Open Scrapbook</button><button data-history-tab="awards">Open Awards</button><button data-history-tab="draft">Open NFL Pipeline</button></div>` },
+        ]
+      : [
+          { label: "Recent Hooks", html: `<div class="data-list">${vm("memoryHooks").slice(0, 4).map((r) => `<button class="data-row clickable-row" data-open-view="history"><span><strong>${r[0]}</strong> ${r[1]}</span></button>`).join("") || '<p style="color:var(--text-muted)">No hooks yet.</p>'}</div>` },
+        ],
   });
   return DG.renderTableWorkspace({ header, tabs, actions, dataGrid: bodyHtml, inspector, status: `${state.tab} view` });
 }
@@ -12752,6 +12767,13 @@ content.addEventListener("click", (event) => {
   if (historyTabBtn) {
     const ui = ensureHistoryUiState();
     ui.tab = historyTabBtn.dataset.historyTab;
+    renderView("history");
+    return;
+  }
+  const historyRow = event.target.closest("[data-history-row]");
+  if (historyRow) {
+    const ui = ensureHistoryUiState();
+    ui.selectedSeasonId = historyRow.dataset.historyRow;
     renderView("history");
     return;
   }
