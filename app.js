@@ -11999,6 +11999,12 @@ content.addEventListener("click", (event) => {
     return;
   }
   // Schedule / Rankings / History tab switches
+  const homeJumpBtn = event.target.closest("[data-home-jump]");
+  if (homeJumpBtn) {
+    const viewId = homeJumpBtn.dataset.homeJump;
+    if (viewId && views[viewId]) renderView(viewId);
+    return;
+  }
   const scheduleTabBtn = event.target.closest("[data-schedule-tab]");
   if (scheduleTabBtn) {
     const ui = ensureScheduleUiState();
