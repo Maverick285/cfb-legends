@@ -6637,6 +6637,10 @@ const PORTAL_TABS = [
   { id: "compliance", label: "Compliance" },
 ];
 function ensurePortalUiState() {
+  const helper = window.CGM_WORKSPACE_UI_STATE;
+  if (helper && typeof helper.ensureWorkspaceUiState === "function") {
+    return helper.ensureWorkspaceUiState("portal", { tab: "incoming", sort: [{ colId: "rating", direction: "desc" }] });
+  }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   const ui = window.CGM_UI_STATE;
   if (!isRecord(ui.portal)) ui.portal = { tab: "incoming", sort: [{ colId: "rating", direction: "desc" }] };
@@ -6739,6 +6743,10 @@ const STAFF_TABS = [
   { id: "delegation", label: "Delegation" },
 ];
 function ensureStaffUiState() {
+  const helper = window.CGM_WORKSPACE_UI_STATE;
+  if (helper && typeof helper.ensureWorkspaceUiState === "function") {
+    return helper.ensureWorkspaceUiState("staff", { tab: "coordinators", sort: [{ colId: "grade", direction: "desc" }] });
+  }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   const ui = window.CGM_UI_STATE;
   if (!isRecord(ui.staff)) ui.staff = { tab: "coordinators", sort: [{ colId: "grade", direction: "desc" }] };
@@ -7429,6 +7437,10 @@ function computeHcHotSeat() {
 
 // ── UI-RESCUE wave 2: Program Desk command center per spec 08 ──────────────
 function ensureDeskUiState() {
+  const helper = window.CGM_WORKSPACE_UI_STATE;
+  if (helper && typeof helper.ensureWorkspaceUiState === "function") {
+    return helper.ensureWorkspaceUiState("desk", { selectedItemId: null });
+  }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.desk)) window.CGM_UI_STATE.desk = { selectedItemId: null };
   return window.CGM_UI_STATE.desk;
@@ -8230,6 +8242,10 @@ function renderProgramDeskWorkspace() {
 
 // ── UI-RESCUE wave 2: Schedule workspace ───────────────────────────────────
 function ensureScheduleUiState() {
+  const helper = window.CGM_WORKSPACE_UI_STATE;
+  if (helper && typeof helper.ensureWorkspaceUiState === "function") {
+    return helper.ensureWorkspaceUiState("schedule", { tab: "fixtures", sort: [{ colId: "date", direction: "asc" }] });
+  }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.schedule)) {
     window.CGM_UI_STATE.schedule = { tab: "fixtures", sort: [{ colId: "date", direction: "asc" }] };
@@ -8313,6 +8329,10 @@ function renderScheduleWorkspace() {
 
 // ── UI-RESCUE wave 2: Rankings workspace ───────────────────────────────────
 function ensureRankingsUiState() {
+  const helper = window.CGM_WORKSPACE_UI_STATE;
+  if (helper && typeof helper.ensureWorkspaceUiState === "function") {
+    return helper.ensureWorkspaceUiState("rankings", { tab: "national", sort: [{ colId: "rating", direction: "desc" }] });
+  }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.rankings)) {
     window.CGM_UI_STATE.rankings = { tab: "national", sort: [{ colId: "rating", direction: "desc" }] };
@@ -8382,6 +8402,10 @@ function renderRankingsWorkspace() {
 
 // ── UI-RESCUE wave 2: History/Scrapbook workspace ─────────────────────────
 function ensureHistoryUiState() {
+  const helper = window.CGM_WORKSPACE_UI_STATE;
+  if (helper && typeof helper.ensureWorkspaceUiState === "function") {
+    return helper.ensureWorkspaceUiState("history", { tab: "archive" });
+  }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.history)) window.CGM_UI_STATE.history = { tab: "archive" };
   return window.CGM_UI_STATE.history;
