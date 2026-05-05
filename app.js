@@ -7739,15 +7739,44 @@ function renderProgramHomeWorkspace() {
       { controls: ['<button data-view="desk" class="primary">Open Program Desk</button>', '<button data-view="roster">Roster</button>', '<button data-view="recruiting">Recruiting</button>', '<button data-view="schedule">Schedule</button>'] },
     ],
   });
-  const contentHtml = `<div class="content-grid" style="padding:var(--space-4)">
-    ${panel("Campus Pulse", "Program temperature + 8 component scores", "span-12", `<button class="clickable-card" data-open-view="desk">${campusPulsePanel()}</button>`)}
-    ${panel("Program Health", "Current pressure points", "span-4", `<button class="clickable-card" data-open-view="desk">${meters(programHealthMetrics())}</button>`)}
-    ${panel("Season Objectives", "Athletic department goals", "span-4", `<button class="clickable-card" data-open-view="facilities">${renderSimpleWorkspaceTable(vm("seasonObjectives"), { keyPrefix: "season-objectives", emptyMessage: "No objectives loaded." })}</button>`)}
-    ${panel("Pressure Trace", "Why pressure moved", "span-4", `<button class="clickable-card" data-open-view="facilities">${renderSimpleWorkspaceTable(pressureTraceRows(), { keyPrefix: "pressure-home", emptyMessage: "No pressure trace yet." })}</button>`)}
-    ${panel("Program Identity", "Derived from roster, staff, and culture", "span-12", `<button class="clickable-card" data-open-view="home">${programIdentityPanel()}</button>`)}
-    ${panel("Roster Snapshot", "Projected core", "span-6", rosterRows(data.roster.slice(0, 5), { targetView: "roster" }))}
-    ${panel("Conference Table", "Current league view", "span-6", `<button class="clickable-card" data-open-view="rankings">${standingsTable(data.standings)}</button>`)}
-  </div>`;
+  const contentHtml = `
+    <div class="workspace-grid workspace-grid-2" style="padding:var(--space-4)">
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Campus Pulse</h3>
+        <p class="workspace-card-sub">Program temperature and component scores</p>
+        <button class="clickable-card" data-open-view="desk">${campusPulsePanel()}</button>
+      </section>
+      <section class="workspace-card">
+        <h3>Program Health</h3>
+        <p class="workspace-card-sub">Current pressure points</p>
+        <button class="clickable-card" data-open-view="desk">${meters(programHealthMetrics())}</button>
+      </section>
+      <section class="workspace-card">
+        <h3>Season Objectives</h3>
+        <p class="workspace-card-sub">Athletic department goals</p>
+        <button class="clickable-card" data-open-view="facilities">${renderSimpleWorkspaceTable(vm("seasonObjectives"), { keyPrefix: "season-objectives", emptyMessage: "No objectives loaded." })}</button>
+      </section>
+      <section class="workspace-card">
+        <h3>Pressure Trace</h3>
+        <p class="workspace-card-sub">Why pressure moved</p>
+        <button class="clickable-card" data-open-view="facilities">${renderSimpleWorkspaceTable(pressureTraceRows(), { keyPrefix: "pressure-home", emptyMessage: "No pressure trace yet." })}</button>
+      </section>
+      <section class="workspace-card workspace-card-span-2">
+        <h3>Program Identity</h3>
+        <p class="workspace-card-sub">Derived from roster, staff, and culture</p>
+        <button class="clickable-card" data-open-view="home">${programIdentityPanel()}</button>
+      </section>
+      <section class="workspace-card">
+        <h3>Roster Snapshot</h3>
+        <p class="workspace-card-sub">Projected core</p>
+        ${rosterRows(data.roster.slice(0, 5), { targetView: "roster" })}
+      </section>
+      <section class="workspace-card">
+        <h3>Conference Table</h3>
+        <p class="workspace-card-sub">Current league view</p>
+        <button class="clickable-card" data-open-view="rankings">${standingsTable(data.standings)}</button>
+      </section>
+    </div>`;
   const inspector = DG.renderInspector({
     title: "Executive Notes",
     sub: "Program summary",
