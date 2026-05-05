@@ -6038,6 +6038,81 @@ function applySavedViewState(targetState, savedView) {
   return true;
 }
 
+function downloadCsvExport(filename, rows) {
+  const helper = window.CGM_EXPORT_TOOLS;
+  if (!helper || typeof helper.toCsv !== "function" || typeof helper.downloadTextFile !== "function") return false;
+  const csv = helper.toCsv(rows);
+  return helper.downloadTextFile(filename, csv, "text/csv;charset=utf-8");
+}
+
+function columnValueForExport(column, row) {
+  if (!column || typeof column.accessor !== "function") return "";
+  const value = column.accessor(row);
+  if (value == null) return "";
+  if (Array.isArray(value)) return value.join(" | ");
+  if (isRecord(value)) return JSON.stringify(value);
+  return String(value);
+}
+
+function buildRosterExportRows() {
+  const state = ensureRosterUiState();
+  const columns = applyVisibleColumns(rosterColumnsForView(state.view), state.visibleColumns);
+  let visible = players().slice();
+  if (state.posFilter && state.posFilter !== "all") visible = visible.filter((p) => p.position === state.posFilter);
+  if (state.classFilter && state.classFilter !== "all") visible = visible.filter((p) => p.year === state.classFilter);
+  if (state.search) {
+    const q = state.search.toLowerCase();
+    visible = visible.filter((p) => (`${p.name || ""} ${p.position || ""} ${p.year || ""}`).toLowerCase().includes(q));
+  }
+  return [
+    columns.map((column) => column.label || column.id),
+    ...visible.map((row) => columns.map((column) => columnValueForExport(column, row))),
+  ];
+}
+
+function recruitingColumnsForView() {
+  return [
+    { id: "name", label: "Name", accessor: (r) => r.name, width: 180 },
+    { id: "position", label: "Pos", accessor: (r) => r.position, width: 56, align: "center" },
+    { id: "state", label: "State", accessor: (r) => r.homeState || r.pipeline || "—", width: 90 },
+    { id: "stars", label: "Stars", accessor: (r) => r.stars, width: 70 },
+    { id: "rank", label: "Rank", accessor: (r) => r.nationalRank || r.rank || "—", width: 70 },
+    { id: "yourEval", label: "Eval", accessor: (r) => r.scoutTag || r.evaluation || "—", width: 90 },
+    { id: "confidence", label: "Conf", accessor: (r) => Math.round(r.scoutConfidence || 0), width: 70 },
+    { id: "interest", label: "Interest", accessor: (r) => Math.round(r.interest || 0), width: 84 },
+    { id: "relationship", label: "Relationship", accessor: (r) => r.relationshipLabel || r.relationship || "—", width: 110 },
+    { id: "nil", label: "NIL", accessor: (r) => r.nilDemand ? `$${Number(r.nilDemand).toFixed(1)}M` : (r.nilValue ? `$${Number(r.nilValue).toFixed(1)}M` : "—"), width: 90 },
+    { id: "risk", label: "Risk", accessor: (r) => r.flipRisk || r.risk || "—", width: 80 },
+    { id: "playingTimeFit", label: "PT Fit", accessor: (r) => r.playingTimeFit || "—", width: 90 },
+    { id: "developmentFit", label: "Dev Fit", accessor: (r) => r.developmentFit || "—", width: 90 },
+    { id: "schemeFit", label: "Scheme", accessor: (r) => r.schemeFit || "—", width: 90 },
+    { id: "staff", label: "Staff", accessor: (r) => r.staffRecommendation || r.staffLead || "—", width: 120 },
+    { id: "lastContact", label: "Last Contact", accessor: (r) => r.lastContactWeek || r.lastContact || "—", width: 120 },
+    { id: "status", label: "Status", accessor: (r) => r.commitmentStatus || r.status || "Open", width: 120 },
+  ];
+}
+
+function buildRecruitingExportRows() {
+  const state = ensureRecruitingUiState();
+  const recruitingOpen = !/preseason/i.test(((currentEvent() && currentEvent().phase) || "Preseason"));
+  let visible = recruitingOpen ? prospects().slice() : [];
+  if (state.tab === "watchlist") visible = visible.filter((p) => p.priority === "Tier 1");
+  else if (state.tab === "committed") visible = visible.filter((p) => p.commitmentStatus && p.commitmentStatus.startsWith("Committed"));
+  else if (state.tab === "pipeline") visible = visible.filter((p) => p.classYear !== "HS_SR" && p.classYear !== "HS SR");
+  if (state.posFilter !== "all") visible = visible.filter((p) => p.position === state.posFilter);
+  if (state.starsFilter !== "all") visible = visible.filter((p) => String(p.stars || "").charAt(0) === state.starsFilter);
+  if (state.statusFilter !== "all") visible = visible.filter((p) => (p.commitmentStatus || "Open") === state.statusFilter);
+  if (state.search) {
+    const q = state.search.toLowerCase();
+    visible = visible.filter((p) => (`${p.name || ""} ${p.position || ""}`).toLowerCase().includes(q));
+  }
+  const columns = applyVisibleColumns(recruitingColumnsForView(), state.visibleColumns);
+  return [
+    columns.map((column) => column.label || column.id),
+    ...visible.map((row) => columns.map((column) => columnValueForExport(column, row))),
+  ];
+}
+
 function renderSimpleWorkspaceTable(rows, options = {}) {
   const helper = window.CGM_WORKSPACE_TABLE;
   if (helper && typeof helper.renderSimpleWorkspaceTable === "function") {
@@ -6445,32 +6520,22 @@ function renderRecruitingWorkspace() {
     visible = visible.filter((p) => (p.name || "").toLowerCase().includes(q) || (p.position || "").toLowerCase().includes(q));
   }
 
-  const cols = applyVisibleColumns([
-    { id: "name", label: "Name", accessor: (r) => r.name, width: 180 },
-    { id: "position", label: "Pos", accessor: (r) => r.position, width: 56, align: "center" },
-    { id: "state", label: "State", accessor: (r) => r.homeState || r.pipeline || "—", width: 90 },
-    { id: "stars", label: "Stars", accessor: (r) => r.stars, width: 70,
-      formatter: (v) => {
-        const n = parseInt(String(v).replace(/[^0-9]/g, ""), 10);
-        if (!n) return v || "—";
-        return `<span style="color:var(--accent);letter-spacing:1px">${"★".repeat(n)}</span><span style="color:var(--text-muted);letter-spacing:1px">${"☆".repeat(Math.max(0, 5 - n))}</span>`;
-      } },
-    { id: "rank", label: "Rank", accessor: (r) => r.rank || r.grade || "—", width: 70 },
-    { id: "yourEval", label: "Your Eval", accessor: (r) => r.grade, cellType: "rating", width: 70 },
-    { id: "confidence", label: "Confidence", accessor: (r) => r.scoutedHigh && r.scoutedLow ? Math.max(1, 100 - ((r.scoutedHigh - r.scoutedLow) * 7)) : 20, cellType: "rating", width: 90 },
-    { id: "interest", label: "Interest", accessor: (r) => {
-        const us = (r.suitors || []).find((s) => s.schoolId === career.programId);
-        return us ? us.interest : (r.interest || 0);
-      }, cellType: "rating", width: 80 },
-    { id: "relationship", label: "Relationship", accessor: (r) => r.relationship || r.needFit || "—", width: 100 },
-    { id: "nil", label: "NIL", accessor: (r) => r.nilPriority || r.nilAsk || "—", width: 80 },
-    { id: "playingTimeFit", label: "PT Fit", accessor: (r) => r.playingTimeFit || r.needFit || "—", width: 80 },
-    { id: "developmentFit", label: "Dev Fit", accessor: (r) => r.developmentFit || "—", width: 80 },
-    { id: "schemeFit", label: "Scheme", accessor: (r) => r.schemeFit || "—", width: 90 },
-    { id: "staff", label: "Staff", accessor: (r) => r.staffLead || "Board", width: 90 },
-    { id: "lastContact", label: "Last Contact", accessor: (r) => r.lastContact || "—", width: 110 },
-    { id: "risk", label: "Risk", accessor: (r) => r.flipRisk || "—", width: 70 },
-  ], state.visibleColumns);
+  const cols = applyVisibleColumns(recruitingColumnsForView().map((column) => {
+    if (column.id === "stars") {
+      return {
+        ...column,
+        formatter: (v) => {
+          const n = parseInt(String(v).replace(/[^0-9]/g, ""), 10);
+          if (!n) return v || "—";
+          return `<span style="color:var(--accent);letter-spacing:1px">${"★".repeat(n)}</span><span style="color:var(--text-muted);letter-spacing:1px">${"☆".repeat(Math.max(0, 5 - n))}</span>`;
+        },
+      };
+    }
+    if (column.id === "yourEval" || column.id === "confidence" || column.id === "interest") {
+      return { ...column, cellType: "rating" };
+    }
+    return column;
+  }), state.visibleColumns);
 
   const ap = recruitingActionPoints();
   const maxAp = data.recruitingState && data.recruitingState.maxActionPoints || 7;
@@ -6506,7 +6571,7 @@ function renderRecruitingWorkspace() {
   const actions = DG.renderActionBar({
     groups: [
       { controls: recruitingControls(state) },
-      { controls: ['<button data-recruiting-action="assign-scout">Assign Scout</button>', '<button data-recruiting-action="columns">Columns</button>', '<button data-recruiting-action="save-view">Save View</button>', '<button data-recruiting-action="ask-staff">Ask Staff</button>'] },
+      { controls: ['<button data-recruiting-action="assign-scout">Assign Scout</button>', '<button data-recruiting-action="columns">Columns</button>', '<button data-recruiting-action="save-view">Save View</button>', '<button data-recruiting-action="ask-staff">Ask Staff</button>', '<button data-recruiting-action="export">Export</button>'] },
     ],
   });
   const dgHtml = DG.renderDataGrid({
@@ -12245,7 +12310,10 @@ content.addEventListener("click", (event) => {
         ? `${player.position} ${player.name}: ${player.transferRisk === "High" ? "Retention risk is high, protect morale and usage." : "Stable enough to keep developing."} Focus: ${player.developmentFocus || "Balanced reps"}.`
         : "Select a player to get a staff read on fit, risk, and development focus.");
     }
-    else if (action === "export") setBootstrapStatus("Export is not wired yet, but saved views and bookmarks now preserve your working setup.");
+    else if (action === "export") {
+      const ok = downloadCsvExport(`cgm-roster-${currentSeasonYear()}-${ensureRosterUiState().view}.csv`, buildRosterExportRows());
+      setBootstrapStatus(ok ? "Exported current roster view to CSV." : "Roster export failed in this browser.");
+    }
     return;
   }
   const recruitingActionBtn = event.target.closest("[data-recruiting-action]");
@@ -12269,6 +12337,10 @@ content.addEventListener("click", (event) => {
       setBootstrapStatus(prospect
         ? `${prospect.name}: ${prospect.staffRecommendation || "Stay involved while momentum is moving."} Commit ${prospect.commitChance || 0}%, interest ${prospect.interest || 0}%, need fit ${prospect.needFit || 0}%.`
         : "Select a prospect to get a staff recruiting read.");
+    }
+    else if (action === "export") {
+      const ok = downloadCsvExport(`cgm-recruiting-${currentSeasonYear()}-${ensureRecruitingUiState().tab}.csv`, buildRecruitingExportRows());
+      setBootstrapStatus(ok ? "Exported current recruiting view to CSV." : "Recruiting export failed in this browser.");
     }
     return;
   }
