@@ -8326,6 +8326,10 @@ function renderScheduleWorkspace() {
   const phaseLabel = (currentEvent() && currentEvent().phase) || "Preseason";
   const games = (data.schedule || []).length;
   const played = (data.seasonState && data.seasonState.currentGameIndex) || 0;
+  const helper = window.CGM_SCHEDULE_WORKSPACE;
+  const tendencyHtml = helper && typeof helper.buildScheduleTendencyLinks === "function"
+    ? helper.buildScheduleTendencyLinks(opponentTendencyRows())
+    : `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>`;
 
   let bodyHtml;
   let selectedGame = null;
@@ -8352,14 +8356,19 @@ function renderScheduleWorkspace() {
       _id: `g${i}`, 0: r[0], 1: r[1], 2: r[2], 3: r[3], 4: r[4],
       _dateOrdinal: SEASON_DATE_LABELS.indexOf(r[0]) >= 0 ? SEASON_DATE_LABELS.indexOf(r[0]) : 99,
     }));
-    const selectedRow = rows.find((row) => row._id === state.selectedGameId) || rows[0] || null;
-    if (selectedRow) {
-      state.selectedGameId = selectedRow._id;
-      selectedGame = {
-        row: selectedRow,
-        context: scheduleRowToGameContext([selectedRow[0], selectedRow[1], selectedRow[2], selectedRow[3], selectedRow[4]], Number(String(selectedRow._id).replace("g", "")) || 0),
-        played: (Number(String(selectedRow._id).replace("g", "")) || 0) < played,
-      };
+    if (helper && typeof helper.buildSelectedScheduleGame === "function") {
+      selectedGame = helper.buildSelectedScheduleGame(state, rows, played, scheduleRowToGameContext);
+      if (selectedGame && selectedGame.selectedGameId) state.selectedGameId = selectedGame.selectedGameId;
+    } else {
+      const selectedRow = rows.find((row) => row._id === state.selectedGameId) || rows[0] || null;
+      if (selectedRow) {
+        state.selectedGameId = selectedRow._id;
+        selectedGame = {
+          row: selectedRow,
+          context: scheduleRowToGameContext([selectedRow[0], selectedRow[1], selectedRow[2], selectedRow[3], selectedRow[4]], Number(String(selectedRow._id).replace("g", "")) || 0),
+          played: (Number(String(selectedRow._id).replace("g", "")) || 0) < played,
+        };
+      }
     }
     bodyHtml = DG.renderDataGrid({
       columns: cols, rows, rowKey: (r) => r._id, sort: state.sort,
@@ -8383,19 +8392,22 @@ function renderScheduleWorkspace() {
       { controls: [`<select data-tactical-profile><option ${data.seasonState && data.seasonState.tacticalProfile === "Aggressive" ? "selected" : ""}>Aggressive</option><option ${(!data.seasonState || data.seasonState.tacticalProfile === "Balanced" || !data.seasonState.tacticalProfile) ? "selected" : ""}>Balanced</option><option ${data.seasonState && data.seasonState.tacticalProfile === "Conservative" ? "selected" : ""}>Conservative</option></select>`] },
     ],
   });
+  const selectedInspector = selectedGame && helper && typeof helper.buildScheduleSelectedInspector === "function"
+    ? helper.buildScheduleSelectedInspector(selectedGame, tendencyHtml)
+    : null;
   const inspector = DG.renderInspector({
-    title: selectedGame ? selectedGame.context.opponent : "Opponent Scout",
-    sub: selectedGame
+    title: selectedInspector ? selectedInspector.title : selectedGame ? selectedGame.context.opponent : "Opponent Scout",
+    sub: selectedInspector ? selectedInspector.sub : selectedGame
       ? `${selectedGame.context.weekLabel} · ${selectedGame.context.away ? "Away" : "Home"} · ${selectedGame.played ? "Played" : "Upcoming"}`
       : data.seasonState && data.seasonState.lastResultSummary || "No result yet",
-    sections: selectedGame
+    sections: selectedInspector ? selectedInspector.sections : selectedGame
       ? [
           { label: "Game Context", html: `<div class="data-list"><div class="data-row"><span>Week</span><span>${selectedGame.context.weekLabel}</span></div><div class="data-row"><span>Opponent</span><span>${selectedGame.context.opponent}</span></div><div class="data-row"><span>Site</span><span>${selectedGame.context.away ? "Away" : "Home"}</span></div><div class="data-row"><span>Opponent quality</span><span class="rating">${selectedGame.context.opponentQuality}</span></div><div class="data-row"><span>Status</span><span>${selectedGame.played ? selectedGame.row[4] || "Played" : selectedGame.row[4] || "Scheduled"}</span></div></div>` },
           { label: "Next Step", html: `<div class="decision-actions"><button data-schedule-tab="why">Open Why View</button><button data-open-view="analytics">Open Analytics</button><button data-open-view="rankings">Open Rankings</button></div>` },
-          { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+          { label: "Tendencies", html: tendencyHtml },
         ]
       : [
-          { label: "Tendencies", html: `<div class="data-list">${opponentTendencyRows().slice(1, 6).map((r) => `<button class="data-row clickable-row" data-open-view="analytics"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
+          { label: "Tendencies", html: tendencyHtml },
           { label: "Last Box", html: `<div class="data-list">${recentBoxScoresRows().slice(1, 4).map((r) => `<button class="data-row clickable-row" data-open-view="schedule"><span>${r[0]}</span><span class="rating">${r[1]}</span></button>`).join("")}</div>` },
         ],
   });
