@@ -6005,11 +6005,36 @@ function saveCurrentView(state, name, keys) {
   const record = {};
   keys.forEach((key) => {
     const value = state[key];
-    record[key] = Array.isArray(value) ? value.slice() : value;
+    record[key] = Array.isArray(value)
+      ? value.map((entry) => (isRecord(entry) ? { ...entry } : entry))
+      : isRecord(value)
+        ? { ...value }
+        : value;
   });
   record.name = safeName;
   state.savedViews = [record, ...state.savedViews.filter((v) => v.name !== safeName)].slice(0, 8);
   persistUiState();
+  return true;
+}
+
+function renderSavedViewControl(savedViews, dataAttr, placeholder) {
+  const helper = window.CGM_SAVED_VIEWS;
+  if (helper && typeof helper.renderSavedViewSelect === "function") {
+    return helper.renderSavedViewSelect(savedViews, dataAttr, placeholder);
+  }
+  return "";
+}
+
+function applySavedViewState(targetState, savedView) {
+  const helper = window.CGM_SAVED_VIEWS;
+  if (helper && typeof helper.applySavedView === "function") {
+    return helper.applySavedView(targetState, savedView);
+  }
+  if (!isRecord(targetState) || !isRecord(savedView)) return false;
+  Object.keys(savedView).forEach((key) => {
+    if (key === "name") return;
+    targetState[key] = Array.isArray(savedView[key]) ? savedView[key].slice() : savedView[key];
+  });
   return true;
 }
 
@@ -6118,12 +6143,14 @@ function rosterFilterControls(state) {
   const posOpts = positions.map((p) => `<option value="${p}" ${p === state.posFilter ? "selected" : ""}>${p === "all" ? "All Pos" : p}</option>`).join("");
   const classOpts = classes.map((c) => `<option value="${c}" ${c === state.classFilter ? "selected" : ""}>${c === "all" ? "All Class" : c}</option>`).join("");
   const viewOpts = ROSTER_VIEWS.map((v) => `<option value="${v.id}" ${v.id === state.view ? "selected" : ""}>${v.label}</option>`).join("");
+  const savedViewSelect = renderSavedViewControl(state.savedViews, "roster", "Load Saved View");
   return [
     `<select data-roster-control="view">${viewOpts}</select>`,
     `<select data-roster-control="pos">${posOpts}</select>`,
     `<select data-roster-control="class">${classOpts}</select>`,
     `<input type="search" placeholder="Search players" value="${state.search.replace(/"/g, "&quot;")}" data-roster-control="search" />`,
-  ];
+    savedViewSelect,
+  ].filter(Boolean);
 }
 
 function rosterPlayerInspector(player) {
@@ -6304,12 +6331,14 @@ function recruitingControls(state) {
   const posOpts = positions.map((p) => `<option value="${p}" ${p === state.posFilter ? "selected" : ""}>${p === "all" ? "All Pos" : p}</option>`).join("");
   const starOpts = stars.map((s) => `<option value="${s}" ${s === state.starsFilter ? "selected" : ""}>${s === "all" ? "All Stars" : `${s}★`}</option>`).join("");
   const statusOpts = statuses.map((s) => `<option value="${s}" ${s === state.statusFilter ? "selected" : ""}>${s === "all" ? "All Status" : s}</option>`).join("");
+  const savedViewSelect = renderSavedViewControl(state.savedViews, "recruiting", "Load Saved View");
   return [
     `<select data-recruiting-control="pos">${posOpts}</select>`,
     `<select data-recruiting-control="stars">${starOpts}</select>`,
     `<select data-recruiting-control="status">${statusOpts}</select>`,
     `<input type="search" placeholder="Search prospects" value="${state.search.replace(/"/g, "&quot;")}" data-recruiting-control="search" />`,
-  ];
+    savedViewSelect,
+  ].filter(Boolean);
 }
 
 function recruitingProspectInspector(prospect) {
@@ -12970,6 +12999,30 @@ content.addEventListener("change", (event) => {
     else if (key === "search") ui.search = v;
     persistUiState();
     renderView("recruiting");
+    return;
+  }
+
+  const savedViewPicker = event.target.closest("[data-saved-view]");
+  if (savedViewPicker) {
+    const scope = savedViewPicker.dataset.savedView;
+    const index = Number(savedViewPicker.value);
+    if (scope === "roster") {
+      const ui = ensureRosterUiState();
+      const savedView = Array.isArray(ui.savedViews) ? ui.savedViews[index] : null;
+      if (savedView && applySavedViewState(ui, savedView)) {
+        persistUiState();
+        setBootstrapStatus(`Loaded saved roster view: ${savedView.name}.`);
+        renderView("roster");
+      }
+    } else if (scope === "recruiting") {
+      const ui = ensureRecruitingUiState();
+      const savedView = Array.isArray(ui.savedViews) ? ui.savedViews[index] : null;
+      if (savedView && applySavedViewState(ui, savedView)) {
+        persistUiState();
+        setBootstrapStatus(`Loaded saved recruiting view: ${savedView.name}.`);
+        renderView("recruiting");
+      }
+    }
     return;
   }
 
