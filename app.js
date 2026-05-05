@@ -5963,7 +5963,7 @@ const ROSTER_VIEWS = [
 const ROSTER_VIEW_PRESETS = {
   general: ["name", "position", "year", "ovr", "pot", "morale", "transferRisk", "redshirtIntent", "devCurve"],
   attributes: ["name", "position", "year", "ovr", "pot", "throwing", "decisions", "pace", "strength", "agility", "tackling", "coverage"],
-  eligibility: ["name", "position", "year", "ovr", "seasonsPlayed", "remaining", "redshirt", "academic"],
+  eligibility: ["name", "position", "year", "ovr", "gamesThisSeason", "seasonsPlayed", "remaining", "redshirtAvailable", "academic"],
   nil: ["name", "position", "year", "ovr", "morale", "transferRisk"],
   development: ["name", "position", "year", "ovr", "pot", "devCurve", "potentialGrade", "developmentFocus"],
 };
@@ -6070,10 +6070,11 @@ function rosterColumnsForView(view) {
     return [
       ...baseCols,
       { id: "ovr", label: "OVR", accessor: (r) => r.ovr, cellType: "rating", width: 60 },
+      { id: "gamesThisSeason", label: "GP", accessor: (r) => r.eligibility && r.eligibility.gamesPlayedThisSeason, width: 60, align: "center" },
       { id: "seasonsPlayed", label: "Seasons", accessor: (r) => r.eligibility && r.eligibility.seasonsPlayed, width: 80 },
       { id: "remaining", label: "Remaining", accessor: (r) => r.eligibility && r.eligibility.remainingSeasons, width: 100 },
-      { id: "redshirt", label: "Redshirt", accessor: (r) => r.redshirtIntent, cellType: "badge", width: 110,
-        badgeMap: { "Preserve": "info", "No Redshirt": "", "Used": "warning" } },
+      { id: "redshirtAvailable", label: "RS Avail", accessor: (r) => (r.eligibility && r.eligibility.redshirtUsed) ? "N" : "Y", cellType: "badge", width: 90,
+        badgeMap: { "Y": "good", "N": "warning" } },
       { id: "academic", label: "Academic", accessor: (r) => r.academicStatus, width: 130 },
     ];
   }
@@ -12036,7 +12037,7 @@ content.addEventListener("click", (event) => {
   const rosterRow = event.target.closest("[data-roster-row]");
   if (rosterRow) {
     selectedPlayerId = rosterRow.dataset.rosterRow;
-    renderView("roster");
+    renderView("player");
     return;
   }
   // Recruiting workspace
