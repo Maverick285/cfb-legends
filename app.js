@@ -8046,6 +8046,10 @@ function renderProgramHomeWorkspace() {
 }
 
 function deskSeverityFromNotification(n) {
+  const helper = window.CGM_DESK_WORKSPACE;
+  if (helper && typeof helper.deskSeverityFromNotification === "function") {
+    return helper.deskSeverityFromNotification(n);
+  }
   if (n.blocking) return "blocker";
   if (n.severity === "Deadline") return "deadline";
   if (n.severity === "Action Recommended" || n.severity === "Decision") return "decision";
@@ -8053,6 +8057,10 @@ function deskSeverityFromNotification(n) {
 }
 
 function programItemHtml(n, selectedId) {
+  const helper = window.CGM_DESK_WORKSPACE;
+  if (helper && typeof helper.programItemHtml === "function") {
+    return helper.programItemHtml(n, selectedId);
+  }
   const sev = deskSeverityFromNotification(n);
   const meta = `${(n.department || "general").toUpperCase()} · ${n.deadline || "No deadline"}`;
   const sel = n.id === selectedId ? "selected" : "";
@@ -8175,6 +8183,7 @@ function renderProgramDeskWorkspace() {
   ensureDeskUiState();
   const state = window.CGM_UI_STATE.desk;
   const myProgram = programById(career.programId);
+  const helper = window.CGM_DESK_WORKSPACE;
   const event = currentEvent();
   const readiness = continueReadinessSnapshot();
   const blockers = readiness.blockers;
@@ -8265,14 +8274,14 @@ function renderProgramDeskWorkspace() {
 
   let inspectorHtml;
   if (selected) {
-    const sev = deskSeverityFromNotification(selected);
-    const sevLabel = sev === "blocker" ? "Blocker" : sev === "deadline" ? "Deadline" : sev === "decision" ? "Decision" : "FYI";
-    const sevBadge = sev === "blocker" ? "danger" : sev === "deadline" ? "warning" : sev === "decision" ? "info" : "good";
-    inspectorHtml = window.CGM_DATAGRID.renderInspector({
+    const inspectorConfig = helper && typeof helper.buildDeskSelectedInspector === "function"
+      ? helper.buildDeskSelectedInspector(selected)
+      : null;
+    inspectorHtml = window.CGM_DATAGRID.renderInspector(inspectorConfig || {
       title: selected.title || "Item",
       sub: `${(selected.department || "General").toUpperCase()} · ${selected.deadline || "No deadline"}`,
       sections: [
-        { label: "Status", html: `<span class="inspector-badge ${sevBadge}">${sevLabel}</span>` },
+        { label: "Status", html: `<span class="inspector-badge good">FYI</span>` },
         { label: "Why It Matters", html: `<p style="margin:0">${selected.body || "No additional detail."}</p>` },
         { label: "Linked Workspace", html: `<p style="margin:0;color:var(--text-secondary)">${selected.linked || "—"}</p>` },
       ],
@@ -8282,7 +8291,10 @@ function renderProgramDeskWorkspace() {
       ],
     });
   } else {
-    inspectorHtml = window.CGM_DATAGRID.renderInspector({
+    const inspectorConfig = helper && typeof helper.buildDeskReadinessInspector === "function"
+      ? helper.buildDeskReadinessInspector(blockers, decisions, data.agenda || [])
+      : null;
+    inspectorHtml = window.CGM_DATAGRID.renderInspector(inspectorConfig || {
       title: "Continue Readiness",
       sub: blockers.length ? `${blockers.length} blocker(s)` : "Ready to advance",
       sections: [
