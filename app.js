@@ -7492,11 +7492,15 @@ function computeHcHotSeat() {
 // ── UI-RESCUE wave 2: Program Desk command center per spec 08 ──────────────
 function ensureDeskUiState() {
   const helper = window.CGM_WORKSPACE_UI_STATE;
+  const defaults = { selectedItemId: null, inboxFilter: "All" };
   if (helper && typeof helper.ensureWorkspaceUiState === "function") {
-    return helper.ensureWorkspaceUiState("desk", { selectedItemId: null });
+    return helper.ensureWorkspaceUiState("desk", defaults);
   }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
-  if (!isRecord(window.CGM_UI_STATE.desk)) window.CGM_UI_STATE.desk = { selectedItemId: null };
+  if (!isRecord(window.CGM_UI_STATE.desk)) window.CGM_UI_STATE.desk = defaults;
+  if (!Object.prototype.hasOwnProperty.call(window.CGM_UI_STATE.desk, "inboxFilter")) {
+    window.CGM_UI_STATE.desk.inboxFilter = "All";
+  }
   return window.CGM_UI_STATE.desk;
 }
 
@@ -8178,6 +8182,7 @@ function renderProgramDeskWorkspace() {
   const fyi = readiness.unresolved.filter((n) => !n.blocking && n.severity !== "Action Recommended" && n.severity !== "Decision").slice(0, 4);
   const pulse = ensurePulseState().snapshot;
   const tempLabel = pulse ? `${pulse.temperature.label} · ${pulse.temperature.score}` : "—";
+  const deskInboxFilter = state.inboxFilter || "All";
 
   const selected = state.selectedItemId
     ? (data.notifications || []).find((n) => n.id === state.selectedItemId)
@@ -8251,6 +8256,11 @@ function renderProgramDeskWorkspace() {
   <div class="fm-desk-section">
     <div class="fm-desk-section-header"><h3>Watchlist</h3></div>
     ${deskWatchlist()}
+  </div>
+  <div class="fm-desk-section">
+    <div class="fm-desk-section-header"><h3>Inbox Flow</h3><span class="count">${(data.inboxEvents || []).filter((evt) => !evt.resolved && (deskInboxFilter === "All" || evt.category === deskInboxFilter)).length}</span></div>
+    ${inboxSummaryPanel()}
+    ${inboxEventList(deskInboxFilter, 4)}
   </div>`;
 
   let inspectorHtml;
@@ -11396,10 +11406,12 @@ function inboxSummaryPanel() {
   (data.inboxEvents || []).filter((e) => !e.resolved).forEach((e) => {
     cats[e.category] = (cats[e.category] || 0) + 1;
   });
-  const catButtons = INBOX_EVENT_CATS.map((cat) => {
+  const filterButtons = [`<button class="small-action secondary" data-inbox-filter="All">All <small>(${unresolved})</small></button>`];
+  INBOX_EVENT_CATS.forEach((cat) => {
     const n = cats[cat] || 0;
-    return n > 0 ? `<button class="small-action secondary" data-inbox-filter="${cat}">${cat} <small>(${n})</small></button>` : "";
-  }).filter(Boolean).join("");
+    if (n > 0) filterButtons.push(`<button class="small-action secondary" data-inbox-filter="${cat}">${cat} <small>(${n})</small></button>`);
+  });
+  const catButtons = filterButtons.join("");
   return `<div class="agenda-list">
     <div class="agenda-item">
       <time>Inbox Status</time>
@@ -13127,6 +13139,8 @@ content.addEventListener("click", (event) => {
 
   const inboxFilter = event.target.closest("[data-inbox-filter]");
   if (inboxFilter) {
+    const ui = ensureDeskUiState();
+    ui.inboxFilter = inboxFilter.dataset.inboxFilter || "All";
     renderView("desk");
     return;
   }
