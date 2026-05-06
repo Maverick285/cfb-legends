@@ -7492,12 +7492,15 @@ function computeHcHotSeat() {
 // ── UI-RESCUE wave 2: Program Desk command center per spec 08 ──────────────
 function ensureDeskUiState() {
   const helper = window.CGM_WORKSPACE_UI_STATE;
-  const defaults = { selectedItemId: null, inboxFilter: "All" };
+  const defaults = { selectedItemId: null, selectedInboxEventId: null, inboxFilter: "All" };
   if (helper && typeof helper.ensureWorkspaceUiState === "function") {
     return helper.ensureWorkspaceUiState("desk", defaults);
   }
   if (!isRecord(window.CGM_UI_STATE)) window.CGM_UI_STATE = {};
   if (!isRecord(window.CGM_UI_STATE.desk)) window.CGM_UI_STATE.desk = defaults;
+  if (!Object.prototype.hasOwnProperty.call(window.CGM_UI_STATE.desk, "selectedInboxEventId")) {
+    window.CGM_UI_STATE.desk.selectedInboxEventId = null;
+  }
   if (!Object.prototype.hasOwnProperty.call(window.CGM_UI_STATE.desk, "inboxFilter")) {
     window.CGM_UI_STATE.desk.inboxFilter = "All";
   }
@@ -8196,6 +8199,9 @@ function renderProgramDeskWorkspace() {
   const selected = state.selectedItemId
     ? (data.notifications || []).find((n) => n.id === state.selectedItemId)
     : null;
+  const selectedInboxEvent = state.selectedInboxEventId
+    ? (data.inboxEvents || []).find((evt) => evt.id === state.selectedInboxEventId)
+    : null;
 
   const headerHtml = `<header class="obj-header">
     <h2>Program Desk</h2>
@@ -8269,7 +8275,7 @@ function renderProgramDeskWorkspace() {
   <div class="fm-desk-section">
     <div class="fm-desk-section-header"><h3>Inbox Flow</h3><span class="count">${(data.inboxEvents || []).filter((evt) => !evt.resolved && (deskInboxFilter === "All" || evt.category === deskInboxFilter)).length}</span></div>
     ${inboxSummaryPanel()}
-    ${inboxEventList(deskInboxFilter, 4)}
+    ${inboxEventList(deskInboxFilter, 4, state.selectedInboxEventId)}
   </div>`;
 
   let inspectorHtml;
@@ -8288,6 +8294,20 @@ function renderProgramDeskWorkspace() {
       actions: [
         ...(selected.targetView ? [{ label: `Open ${selected.linked || selected.targetView}`, action: `desk-open:${selected.targetView}`, primary: true }] : []),
         { label: "Mark Resolved", action: `desk-resolve:${selected.id}` },
+      ],
+    });
+  } else if (selectedInboxEvent) {
+    const inspectorConfig = helper && typeof helper.buildDeskInboxInspector === "function"
+      ? helper.buildDeskInboxInspector(selectedInboxEvent)
+      : null;
+    inspectorHtml = window.CGM_DATAGRID.renderInspector(inspectorConfig || {
+      title: selectedInboxEvent.subject || "Inbox Event",
+      sub: `${selectedInboxEvent.category || "General"} · ${selectedInboxEvent.priority || "Info"} · ${selectedInboxEvent.week || "This week"}`,
+      sections: [
+        { label: "Situation", html: `<p style="margin:0">${selectedInboxEvent.body || "No detail provided."}</p>` },
+      ],
+      actions: [
+        ...(selectedInboxEvent.targetView && selectedInboxEvent.targetView !== "desk" ? [{ label: `Open ${selectedInboxEvent.targetView}`, action: `desk-open:${selectedInboxEvent.targetView}`, primary: true }] : []),
       ],
     });
   } else {
@@ -11352,8 +11372,9 @@ function panel(title, meta, span, body) {
 }
 
 // ── Inbox Event Renderer ───────────────────────────────────────────────────
-function inboxEventCard(evt) {
+function inboxEventCard(evt, selectedId) {
   const resolved = evt.resolved ? " ie-resolved" : "";
+  const selected = evt.id === selectedId ? " selected" : "";
   const catClass = {
     Recruiting: "cat-recruit", Staff: "cat-staff", Roster: "cat-roster",
     GameWeek: "cat-gameweek", Finance: "cat-finance", World: "cat-world",
@@ -11380,10 +11401,10 @@ function inboxEventCard(evt) {
   }
 
   const openBtn = evt.targetView && evt.targetView !== "desk"
-    ? `<button class="small-action secondary" data-open-view="${evt.targetView}">Open ${evt.targetView}</button>`
+    ? `<button class="small-action secondary" data-inbox-open="${evt.targetView}" data-inbox-id="${evt.id}">Open ${evt.targetView}</button>`
     : "";
 
-  return `<div class="inbox-event-card${resolved} ${catClass}">
+  return `<div class="inbox-event-card${resolved}${selected} ${catClass}" data-desk-inbox-item="${evt.id}">
     <div class="ie-header">
       <div>
         <span class="ie-category">${evt.category}</span>
@@ -11397,7 +11418,7 @@ function inboxEventCard(evt) {
   </div>`;
 }
 
-function inboxEventList(filterCat, limit = 8) {
+function inboxEventList(filterCat, limit = 8, selectedId = null) {
   ensureInboxEvents();
   let events = data.inboxEvents || [];
   if (filterCat && filterCat !== "All") {
@@ -11407,7 +11428,7 @@ function inboxEventList(filterCat, limit = 8) {
   if (!events.length) {
     return `<div class="agenda-item"><strong>No events</strong><p>Inbox is clear for this category.</p></div>`;
   }
-  return `<div class="inbox-event-list">${events.map(inboxEventCard).join("")}</div>`;
+  return `<div class="inbox-event-list">${events.map((evt) => inboxEventCard(evt, selectedId)).join("")}</div>`;
 }
 
 function inboxSummaryPanel() {
@@ -12797,6 +12818,7 @@ content.addEventListener("click", (event) => {
     }
     const ui = ensureDeskUiState();
     if (ui.selectedItemId === id) ui.selectedItemId = null;
+    if (ui.selectedInboxEventId === id) ui.selectedInboxEventId = null;
     renderView("desk");
     return;
   }
@@ -12810,6 +12832,7 @@ content.addEventListener("click", (event) => {
   if (deskItemBtn) {
     const ui = ensureDeskUiState();
     ui.selectedItemId = deskItemBtn.dataset.deskItem;
+    ui.selectedInboxEventId = null;
     renderView("desk");
     return;
   }
@@ -13127,11 +13150,22 @@ content.addEventListener("click", (event) => {
   }
 
   // Inbox event actions
+  const deskInboxItem = event.target.closest("[data-desk-inbox-item]");
+  if (deskInboxItem && !event.target.closest("button")) {
+    const ui = ensureDeskUiState();
+    ui.selectedInboxEventId = deskInboxItem.dataset.deskInboxItem;
+    ui.selectedItemId = null;
+    renderView("desk");
+    return;
+  }
+
   const inboxAction = event.target.closest("[data-inbox-action]");
   if (inboxAction) {
     const evtId = inboxAction.dataset.inboxId;
     const actionId = inboxAction.dataset.inboxAction;
     if (evtId && actionId) {
+      const ui = ensureDeskUiState();
+      ui.selectedInboxEventId = evtId;
       resolveInboxEvent(evtId, actionId);
       markDirty();
       autoSaveCareer();
@@ -13142,6 +13176,8 @@ content.addEventListener("click", (event) => {
 
   const inboxAck = event.target.closest("[data-inbox-ack]");
   if (inboxAck) {
+    const ui = ensureDeskUiState();
+    ui.selectedInboxEventId = inboxAck.dataset.inboxAck;
     resolveInboxEvent(inboxAck.dataset.inboxAck, "acknowledged");
     markDirty();
     autoSaveCareer();
@@ -13149,10 +13185,20 @@ content.addEventListener("click", (event) => {
     return;
   }
 
+  const inboxOpen = event.target.closest("[data-inbox-open]");
+  if (inboxOpen) {
+    const ui = ensureDeskUiState();
+    ui.selectedInboxEventId = inboxOpen.dataset.inboxId || null;
+    const target = inboxOpen.dataset.inboxOpen;
+    if (target && views[target]) renderView(target);
+    return;
+  }
+
   const inboxFilter = event.target.closest("[data-inbox-filter]");
   if (inboxFilter) {
     const ui = ensureDeskUiState();
     ui.inboxFilter = inboxFilter.dataset.inboxFilter || "All";
+    ui.selectedInboxEventId = null;
     renderView("desk");
     return;
   }

@@ -45,6 +45,22 @@
     };
   }
 
+  function buildDeskInboxInspector(selected) {
+    return {
+      title: selected.subject || "Inbox Event",
+      sub: `${selected.category || "General"} · ${selected.priority || "Info"} · ${selected.week || "This week"}`,
+      sections: [
+        { label: "Situation", html: `<p style="margin:0">${selected.body || "No detail provided."}</p>` },
+        { label: "Staff Read", html: (selected.staffOpinions || []).length ? (selected.staffOpinions || []).map((opinion) => `<div class="data-row"><span>${opinion.role}</span><span>${opinion.opinion}</span></div>`).join("") : '<p style="margin:0;color:var(--text-muted);font-size:var(--text-sm)">No staff notes attached.</p>' },
+        { label: "Status", html: selected.resolved ? `<span class="inspector-badge good">Resolved: ${selected.chosenAction || "acknowledged"}</span>` : `<span class="inspector-badge info">Awaiting decision</span>` },
+      ],
+      actions: [
+        ...(selected.targetView && selected.targetView !== "desk" ? [{ label: `Open ${selected.targetView}`, action: `desk-open:${selected.targetView}`, primary: true }] : []),
+        ...(!selected.resolved ? [{ label: "Acknowledge", action: `inbox-ack:${selected.id}` }] : []),
+      ],
+    };
+  }
+
   function buildDeskReadinessInspector(blockers, decisions, agenda) {
     return {
       title: "Continue Readiness",
@@ -72,6 +88,7 @@
     deskSeverityFromNotification,
     programItemHtml,
     buildDeskSelectedInspector,
+    buildDeskInboxInspector,
     buildDeskReadinessInspector,
   };
 })(window);
