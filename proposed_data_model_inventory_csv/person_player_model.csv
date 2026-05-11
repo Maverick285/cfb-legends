@@ -1,0 +1,68 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Person,people,personId,Person Id,id,person_2031_000123,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,firstName,First Name,string,Darius,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,lastName,Last Name,string,McClain,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,displayName,Display Name,string,Darius McClain,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,dateOfBirth,Date Of Birth,date,2012-04-18,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,age,Age,computed-integer,18,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,hometownCity,Hometown City,string,Tulsa,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,hometownState,Hometown State,enum,OK,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,regionId,Region Id,foreign-key,region_southern_plains,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,nationality,Nationality,string,USA,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,createdBy,Created By,enum,generated,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,isRetired,Is Retired,boolean,false,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Person,people,archived,Archived,boolean,false,,world,Basic people/live people separation,FM-derived architecture,M0,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,personId,Person Id,foreign-key,person_2031_000123,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,primaryPositionId,Primary Position Id,foreign-key,pos_qb,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,secondaryPositionIds,Secondary Position Ids,array<foreign-key>,pos_ath,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,heightInches,Height Inches,integer,74,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,weightPounds,Weight Pounds,integer,196,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,handedness,Handedness,enum,right,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,bodyProfileId,Body Profile Id,foreign-key,body_long_frame,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,frameGrowthRemaining,Frame Growth Remaining,integer 0-100,42,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,currentAbility,Current Ability,integer 1-100,69,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,potentialAbility,Potential Ability,integer 1-100,88,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,developmentCurveId,Development Curve Id,foreign-key,late_developer,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Athlete Profile,athlete_profiles,personalityProfileId,Personality Profile Id,foreign-key,personality_competitor,Person,world,Player-specific live profile attached to person,planning-doc,M1,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,snapshotId,Snapshot Id,id,rating_snap_0001,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,personId,Person Id,foreign-key,person_2031_000123,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,seasonId,Season Id,foreign-key,season_2031,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,weekId,Week Id,foreign-key,week_2031_04,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,source,Source,enum,true_current,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,ratingSetId,Rating Set Id,foreign-key,rating_set_qb_v1,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,overall,Overall,integer 1-100,78,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,positionOverall,Position Overall,json,"{QB:78, ATH:74}",Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,attributesJson,Attributes Json,json,"{throwPower:82, processing:61}",Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,certainty,Certainty,integer 0-100,100,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Rating Snapshot,player_rating_snapshots,createdAt,Created At,datetime,,Athlete Profile,history/snapshot,PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,assignmentId,Assignment Id,id,trait_asg_0001,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,personId,Person Id,foreign-key,person_2031_000123,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,traitId,Trait Id,foreign-key,trait_film_junkie,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,intensity,Intensity,integer 1-5,4,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,visibility,Visibility,enum,scouted,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,sourceSnapshotId,Source Snapshot Id,foreign-key,scout_snap_003,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,startWeekId,Start Week Id,foreign-key,week_2031_01,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Player Trait Assignment,player_trait_assignments,endWeekId,End Week Id,nullable foreign-key,,Person,relationship,"Trait/knowledge as attached records, not separate entity sibling",domain-design,M2,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,membershipId,Membership Id,id,ppm_0001,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,personId,Person Id,foreign-key,person_2031_000123,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,programId,Program Id,foreign-key,program_vanderbilt,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,seasonId,Season Id,foreign-key,season_2031,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,classYear,Class Year,enum,FR,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,eligibilityYearsRemaining,Eligibility Years Remaining,integer,4,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,redshirtStatus,Redshirt Status,enum,available,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,scholarshipStatus,Scholarship Status,enum,scholarship,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,jerseyNumber,Jersey Number,integer,12,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,rosterStatus,Roster Status,enum,active,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,joinedVia,Joined Via,enum,recruiting,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,startDate,Start Date,date,2031-01-10,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Roster Membership,player_program_memberships,endDate,End Date,nullable date,,Person,relationship,Playing history/current club separated by membership,FM-derived architecture,M1,,,No,Yes,,pending-review
+Player State,player_weekly_state,stateId,State Id,id,pstate_0001,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,personId,Person Id,foreign-key,person_2031_000123,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,weekId,Week Id,foreign-key,week_2031_04,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,morale,Morale,integer 0-100,72,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,confidence,Confidence,integer 0-100,68,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,fatigue,Fatigue,integer 0-100,31,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,healthStatus,Health Status,enum,available,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,academicStatus,Academic Status,enum,good_standing,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,practiceLoad,Practice Load,enum,normal,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review
+Player State,player_weekly_state,playingTimeExpectation,Playing Time Expectation,enum,rotation,Roster Membership,snapshot,Current status snapshots feed player/profile tables,planning-doc,M2,,,No,Yes,,pending-review

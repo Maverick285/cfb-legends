@@ -1,0 +1,19 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Program Finance,program_finances,financeId,Finance Id,id,finance_vandy_2031,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,programId,Program Id,foreign-key,program_vanderbilt,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,seasonId,Season Id,foreign-key,season_2031,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,athleticBudget,Athletic Budget,currency,42000000,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,recruitingBudget,Recruiting Budget,currency,3000000,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,staffBudget,Staff Budget,currency,6500000,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,nilBudget,Nil Budget,currency,4500000,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,monthlyIncome,Monthly Income,currency,510000,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Finance,program_finances,monthlyExpenses,Monthly Expenses,currency,390000,,world/finance,CLUB_FINANCE analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+NIL Deal,nil_deals,nilDealId,Nil Deal Id,id,nil_0001,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,personId,Person Id,foreign-key,person_2031_000123,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,programId,Program Id,foreign-key,program_vanderbilt,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,collectiveId,Collective Id,foreign-key,collective_vandy,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,annualValue,Annual Value,currency,45000,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,status,Status,enum,active,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,riskScore,Risk Score,integer 0-100,18,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,startWeekId,Start Week Id,foreign-key,week_2031_01,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review
+NIL Deal,nil_deals,endWeekId,End Week Id,nullable foreign-key,,Person,relationship/finance,Money-like changes as transactions,planning-doc,M4,,,No,Yes,,pending-review

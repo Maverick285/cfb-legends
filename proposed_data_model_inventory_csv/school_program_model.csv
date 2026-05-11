@@ -1,0 +1,35 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+School,schools,schoolId,School Id,id,school_vanderbilt,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,schoolName,School Name,string,Vanderbilt University,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,shortName,Short Name,string,Vanderbilt,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,nickname,Nickname,string,Commodores,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,city,City,string,Nashville,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,state,State,enum,TN,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,regionId,Region Id,foreign-key,region_southeast,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,academicPrestige,Academic Prestige,integer 1-100,91,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,campusAppeal,Campus Appeal,integer 1-100,82,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,brandReach,Brand Reach,integer 1-100,63,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+School,schools,tradition,Tradition,integer 1-100,48,,world,Static school/base database separated from save state,planning-doc,M0,,,No,Yes,,pending-review
+Program,programs,programId,Program Id,id,program_vanderbilt,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,schoolId,School Id,foreign-key,school_vanderbilt,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,sport,Sport,enum,football,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,currentConferenceId,Current Conference Id,foreign-key,conf_sec,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,prestige,Prestige,integer 1-100,54,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,fanConfidence,Fan Confidence,integer 0-100,62,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,boosterSupport,Booster Support,integer 0-100,55,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,mediaExpectation,Media Expectation,enum,bowl_push,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,playoffExpectation,Playoff Expectation,enum,none,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program,programs,coachTrust,Coach Trust,integer 0-100,67,School,world,Program current state separated from school identity,domain-design,M0,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,snapshotId,Snapshot Id,id,prog_snap_0001,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,programId,Program Id,foreign-key,program_vanderbilt,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,weekId,Week Id,foreign-key,week_2031_04,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,wins,Wins,integer,2,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,losses,Losses,integer,1,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,conferenceWins,Conference Wins,integer,0,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,conferenceLosses,Conference Losses,integer,0,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,rank,Rank,nullable integer,,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,offenseRating,Offense Rating,integer 1-100,76,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,defenseRating,Defense Rating,integer 1-100,71,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,specialTeamsRating,Special Teams Rating,integer 1-100,69,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,teamMorale,Team Morale,integer 0-100,70,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Snapshot,program_weekly_snapshots,teamChemistry,Team Chemistry,integer 0-100,66,Program,history/snapshot,Weekly snapshots for long-term memory,FM-derived architecture,M2,,,No,Yes,,pending-review

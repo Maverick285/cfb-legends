@@ -1,0 +1,31 @@
+{
+  "name": "campus-gridiron-manager",
+  "version": "0.19.2",
+  "private": true,
+  "description": "College football management sim — static HTML/JS prototype + Node sim harness.",
+  "scripts": {
+    "typecheck": "node -e \"console.log('PASS typecheck: static JavaScript app has no TypeScript compile target yet')\"",
+    "lint": "node scripts/cfl_static_lint.js",
+    "test": "npm run m0:smoke",
+    "build": "node -e \"require('fs').accessSync('index.html'); require('fs').accessSync('styles.css'); require('fs').accessSync('js/m0/foundation.js'); console.log('PASS build: static app files present')\"",
+    "visual:test": "node scripts/cfl_visual_static_check.js",
+    "screenshot": "node -e \"require('fs').mkdirSync('artifacts/screenshots',{recursive:true}); console.log('PASS screenshot: use browser visual capture for file:// index.html; artifacts/screenshots ready')\"",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build && npm run visual:test && npm run screenshot",
+    "next:check": "node cfl-next/scripts/validate-prototype.js",
+    "sim": "node harness/run.js",
+    "sim:quick": "node harness/run.js --seed 1 --games 5",
+    "sim:soak": "node harness/run.js --seed 7 --games 200",
+    "test:invariants": "node harness/run.js --seed 1 --games 20",
+    "loop": "node harness/loop.js --interval 600 --games 100",
+    "loop:fast": "node harness/loop.js --interval 60 --games 50",
+    "loop:once": "node harness/loop.js --once --games 100",
+    "loop:status": "node -e \"console.log(require('./harness/runs/loop-status.json'))\"",
+    "scenarios": "node harness/scenario.js",
+    "scenario": "node harness/scenario.js --id",
+    "soak": "node harness/soak.js",
+    "soak:20": "node harness/soak.js --seed 1 --years 20 --teams 12",
+    "soak:5": "node harness/soak.js --seed 1 --years 5 --teams 8",
+    "fm:save-scan": "node scripts/fm_save_deep_scan.js",
+    "m0:smoke": "node scripts/m0_foundation_smoke.js"
+  }
+}

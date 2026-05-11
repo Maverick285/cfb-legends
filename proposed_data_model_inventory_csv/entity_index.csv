@@ -1,0 +1,17 @@
+﻿Entity Name,Entity Type,Description,Parent Entity,Primary Table / Store,Key Relationships,FM-Inspired Pattern,Build Phase,Notes,Approval Status
+Person,core entity,"Base human identity for players, recruits, coaches, staff, and created people.",,people,"athlete_profiles, recruiting_profiles, coach_profiles",people/basic people split,M0,Review table rows before approval.,pending-review
+Athlete Profile,facet,Football/body/current ability facet attached to Person.,Person,athlete_profiles,"player_rating_snapshots, roster_memberships",live player record plus snapshots,M1,Review table rows before approval.,pending-review
+Recruiting Profile,facet,Recruiting lifecycle facet attached to a Person.,Person,recruiting_profiles,"recruit_program_interest, official_visits, scholarship_allocations",scouted person and offers,M3,Review table rows before approval.,pending-review
+Coach Profile,facet,Non-player football staff identity attached to Person.,Person,coach_profiles,"coach_program_contracts, staff_assignments",non-player profile/history split,M2,Review table rows before approval.,pending-review
+School,core entity,Static institution identity.,,schools,"programs, school_brands, stadiums",base database record,M0,Review table rows before approval.,pending-review
+Program,core entity,Football program state for a school.,School,programs,"memberships, schedule, finances, snapshots",club/team current state,M0,Review table rows before approval.,pending-review
+Conference,core entity,Competition container and membership/rule source.,,conferences,"conference_memberships, competition_rules",competition hierarchy/rules,M1,Review table rows before approval.,pending-review
+Season,core entity,Yearly world container.,,seasons,"weeks, games, rulesets",date/season boundary records,M0,Review table rows before approval.,pending-review
+Week,core entity,Advance unit and action availability boundary.,Season,weeks,"calendar_events, action_windows",calendar phase system,M0,Review table rows before approval.,pending-review
+Game,core entity,Scheduled and completed football contest.,Week,scheduled_games,"game_results, play_events, stats",fixture/result split,M2,Review table rows before approval.,pending-review
+Ruleset,definition/rules,Versioned game law and constraints.,,rulesets,"rule_constraints, windows, competition_rules",fixture/squad/transfer rules,M0,Review table rows before approval.,pending-review
+Scheme,definition,Football tactical vocabulary and skill fit definitions.,,scheme_definitions,"play_concepts, coach_profiles",tactical training data,M2,Review table rows before approval.,pending-review
+Event,event/log,Durable fact emitted by action or simulation.,,event_log,"inbox_items, news_items, histories",EVENT/report routing,M0,Review table rows before approval.,pending-review
+Transaction,transaction,"Offer, negotiation, money, move, or pending future change.",,transactions,"future_moves, contracts, scholarships, NIL",active/completed/failed transfer offer stores,M3,Review table rows before approval.,pending-review
+History,history/index,Append-only long-term memory and query index.,,person_history,"history_indexes, snapshots",history id/index/data split,M2,Review table rows before approval.,pending-review
+UI Resource,resource,Workspace/action/column/menu contract.,,workspace_definitions,"action_definitions, column_definitions",actions/menus/panels/resources,M0,Review table rows before approval.,pending-review

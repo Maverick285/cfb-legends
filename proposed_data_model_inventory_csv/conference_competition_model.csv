@@ -1,0 +1,24 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Conference,conferences,conferenceId,Conference Id,id,conf_sec,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference,conferences,name,Name,string,Southeastern Conference,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference,conferences,shortName,Short Name,string,SEC,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference,conferences,tier,Tier,enum,P4,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference,conferences,prestige,Prestige,integer 1-100,92,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference,conferences,mediaDealStrength,Media Deal Strength,integer 1-100,95,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference,conferences,playoffAccess,Playoff Access,enum,auto_possible,,definition/world,Competition database/rule-group pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,membershipId,Membership Id,id,conf_mem_0001,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,conferenceId,Conference Id,foreign-key,conf_sec,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,programId,Program Id,foreign-key,program_vanderbilt,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,startSeasonId,Start Season Id,foreign-key,season_2031,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,endSeasonId,End Season Id,nullable foreign-key,,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,divisionId,Division Id,nullable foreign-key,,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,podId,Pod Id,nullable foreign-key,,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Conference Membership,conference_memberships,status,Status,enum,active,Conference,relationship,Parent/child competition links and memberships,FM-derived architecture,M1,,,No,Yes,,pending-review
+Competition Rule,competition_rules,competitionRuleId,Competition Rule Id,id,comp_rule_sec_2031,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,conferenceId,Conference Id,foreign-key,conf_sec,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,rulesetId,Ruleset Id,foreign-key,ruleset_modern_2026,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,conferenceGames,Conference Games,integer,8,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,championshipFormat,Championship Format,enum,top_two,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,tiebreakerRuleId,Tiebreaker Rule Id,foreign-key,tiebreaker_sec_v1,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,scheduleRuleId,Schedule Rule Id,foreign-key,sched_sec_v1,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review
+Competition Rule,competition_rules,revenueShareModel,Revenue Share Model,enum,equal,Conference,ruleset,Fixture rules/sorting rules/team count data,FM-derived architecture,M3,,,No,Yes,,pending-review

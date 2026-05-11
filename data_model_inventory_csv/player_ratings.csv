@@ -1,0 +1,112 @@
+﻿Entity,Field Name,Display Label,Data Type,Example Value,Source Status,Source File,Source Line / Location,Required?,Nullable?,Default Value,Enum / Allowed Values,Current Usage,Used On Screens,Editable By User?,Dynamic / Computed?,Persistence Needed?,Notes,Recommendation,Approval Status
+Player Rating,throwing,Throwing,string,,spec-only,ai-pack/CFB_FM_HOSTS_AND_CALLERS_PACK/61_CALL_IN_SHOW_PERSONALITY_LIBRARY.md,445,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,decisions,Decisions,string,,spec-only,ai-pack/26_FM26_UI_RESEARCH_AND_CFBFM_LAYOUT_SPEC.md,187,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,anticipation,Anticipation,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1020,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,composure,Composure,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,190,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,concentration,Concentration,string,,spec-only,ai-pack/CFB_FM_BUILD_SUPERPACK/09_SCOPE_NOTES_COMPILER.md,97,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,technique,Technique,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,104,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,vision,Vision,string,,spec-only,ai-pack/26_FM26_UI_RESEARCH_AND_CFBFM_LAYOUT_SPEC.md,79,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,ballCarrying,Ball Carrying,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,catching,Catching,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,routeRunning,Route Running,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,firstTouch,First Touch,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,passBlocking,Pass Blocking,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,runBlocking,Run Blocking,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,passRush,Pass Rush,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,tackling,Tackling,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1129,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,coverage,Coverage,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,1225,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,strength,Strength,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,169,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,positioning,Positioning,string,,spec-only,ai-pack/CFB_FM_NEXT_CORE_IMPLEMENTATION_SPECS/CFB_FM_NEXT_CORE_IMPLEMENTATION_SPECS/29_ATTRIBUTE_TO_OUTCOME_AND_PLAYER_MATCHUP_SPEC.md,294,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,determination,Determination,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,aggression,Aggression,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,191,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,jumping,Jumping,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,970,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,stamina,Stamina,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,1346,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pace,Pace,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,1354,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,acceleration,Acceleration,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,278,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,agility,Agility,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,237,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,balance,Balance,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,737,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,injuryProneness,Injury Proneness,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,consistency,Consistency,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,146,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,importantGames,Important Games,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,workRate,Work Rate,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT_PART_II.md,169,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,teamwork,Teamwork,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,999,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,bravery,Bravery,string,,spec-only,docs/archive/2026-05-pre-rebuild-research/DECISION_LOG.md,315,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,leadership,Leadership,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,193,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,adaptability,Adaptability,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,804,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,professionalism,Professionalism,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1004,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,sportsmanship,Sportsmanship,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,arm strength,Arm Strength,string,,spec-only,ai-pack/CFB_FM_PLAYER_COMPS_PACK/71_PLAYER_COMPS_FEATURE_IMPLEMENTATION_SPEC.md,325,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,short accuracy,Short Accuracy,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1040,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,intermediate accuracy,Intermediate Accuracy,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,429,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,deep accuracy,Deep Accuracy,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1042,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,timing,Timing,string,,spec-only,ai-pack/CFB_FM_BUILD_SUPERPACK/06_PACKETS_11_30.md,443,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pocket movement,Pocket Movement,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,433,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pressure response,Pressure Response,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1056,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pre-snap ID,Pre Snap Id,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,435,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,post-snap processing,Post Snap Processing,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,436,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,RPO read,Rpo Read,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,437,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,option mesh,Option Mesh,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,438,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,progression discipline,Progression Discipline,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,439,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,scramble instinct,Scramble Instinct,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1048,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,ball security,Ball Security,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1049,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,burst,Burst,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1061,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,top speed,Top Speed,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,contact balance,Contact Balance,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1062,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,power,Power,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,379,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,patience,Patience,string,,spec-only,ai-pack/26_FM26_UI_RESEARCH_AND_CFBFM_LAYOUT_SPEC.md,816,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,one-cut ability,One Cut Ability,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,451,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,gap discipline,Gap Discipline,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1127,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,receiving,Receiving,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1067,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,release,Release,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1045,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,leverage understanding,Leverage Understanding,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,465,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,hands,Hands,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1078,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,contested catch,Contested Catch,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1084,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,YAC,Yac,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1085,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,blocking,Blocking,string,,spec-only,ai-pack/26_FM26_UI_RESEARCH_AND_CFBFM_LAYOUT_SPEC.md,16,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,option-route intelligence,Option Route Intelligence,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,470,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,vertical speed,Vertical Speed,string,,spec-only,ai-pack/CFB_FM_PLAYER_COMPS_PACK/70_COLLEGE_PLAYER_COMPS_LIBRARY.md,1528,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,spacing discipline,Spacing Discipline,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,472,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,red zone feel,Red Zone Feel,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,run block power,Run Block Power,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,477,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,zone footwork,Zone Footwork,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,478,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,combo timing,Combo Timing,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,479,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,reach block,Reach Block,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,480,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pull ability,Pull Ability,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,481,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pass set,Pass Set,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,482,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,anchor,Anchor,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1106,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,blitz pickup,Blitz Pickup,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1033,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,stunt recognition,Stunt Recognition,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,485,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,communication,Communication,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,1335,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,penalty discipline,Penalty Discipline,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT_PART_II.md,434,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,get-off,Get Off,string,,spec-only,ai-pack/CFB_FM_PLAYER_COMPS_PACK/70_COLLEGE_PLAYER_COMPS_LIBRARY.md,346,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,bend,Bend,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,239,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,hand usage,Hand Usage,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1124,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,block destruction,Block Destruction,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,497,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pass rush plan,Pass Rush Plan,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,498,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,contain discipline,Contain Discipline,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,499,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,motor,Motor,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1132,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,run fit strength,Run Fit Strength,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,501,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,run fit,Run Fit,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,379,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,block shed,Block Shed,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,506,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,pursuit angle,Pursuit Angle,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,507,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,zone drop,Zone Drop,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,509,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,man coverage,Man Coverage,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,1225,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,blitz timing,Blitz Timing,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,511,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,play recognition,Play Recognition,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,291,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,eye discipline,Eye Discipline,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,513,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,RPO discipline,Rpo Discipline,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,514,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,zone coverage,Zone Coverage,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1155,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,match coverage,Match Coverage,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,520,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,press,Press,string,,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,999,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,off technique,Off Technique,string,,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,522,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,ball skills,Ball Skills,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1158,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,run support,Run Support,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1167,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,route recognition,Route Recognition,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1035,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,recovery speed,Recovery Speed,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1157,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,kick power,Kick Power,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1173,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,kick accuracy,Kick Accuracy,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1174,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,punt power,Punt Power,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1181,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,punt accuracy,Punt Accuracy,string,,spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,1182,,,,,Present in docs/spec/stub pack.,,,,TBD,,Review/approve field,pending-review
+Player Rating,long snapping,Long Snapping,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,return vision,Return Vision,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review
+Player Rating,return ball security,Return Ball Security,,,missing-but-needed,,,,,,,,,,,TBD,Not found as a current field in scanned code/data; included from requested inventory scope or implied game concept.,Recommended future review item,pending-review

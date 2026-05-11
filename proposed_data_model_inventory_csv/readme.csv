@@ -1,0 +1,13 @@
+﻿Topic,Details
+Date generated,2026-05-09T14:41:52
+Repo path inspected,C:\Users\joshu\OneDrive\Desktop\FM Game
+Purpose,"Proposed future data model inventory for a new independent College Football Legends game, informed by planning docs and FM-derived architecture research."
+Important scope note,This is not current-code inventory and does not implement game functionality.
+How to read Logical Entity,"Top-level product concept such as Person, Program, Season, Event, Transaction, or Ruleset."
+How to read Table / Store,Concrete proposed table/store name. Facets and relationship tables are intentionally separate from core entities.
+How to read Entity Layer,"world, facet, relationship, history, snapshot, transaction, definition, resource, ruleset, event, or simulation."
+How to read FM-Inspired Pattern,"Architecture-level pattern derived from FM research, not copied schema/content."
+How to read Source Basis,"FM-derived architecture, planning-doc, domain-design, current-overlap, or recommended."
+Approval Status,All rows default to pending-review for human approval/rejection/revision.
+Sources reviewed,docs/START_HERE.md; docs/BUILD_PLAN.md; docs/PROJECT_STATUS.md; docs/archive/2026-05-pre-rebuild-research/CGM_DOMAIN_RESOURCE_ARCHITECTURE.md; docs/archive/2026-05-pre-rebuild-research/FM_SAVE_DEEP_SCAN_REPORT.md; docs/archive/2026-05-pre-rebuild-research/FM_SAVE_PASS3_CGM_GAP_AUDIT.md; docs/archive/2026-05-pre-rebuild-research/FM_SAVE_PASS4_DOMAIN_SPINE_IMPLEMENTATION_PLAN.md; docs/archive/2026-05-pre-rebuild-research/FM2020_OVERLAP_FEATURE_CATALOG.md; ai-pack/CFB_FM_BUILD_SUPERPACK/08_DATA_MODELS_V1.md; ai-pack/CFB_FM_BUILD_SUPERPACK/02_ENGINE_ARCHITECTURE_SPEC.md; ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md; ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md; ai-pack/football_sim_engine_realism_roadmap.md
+Next step,"Review Entity Index first, then approve/revise table groups before any new-game coding starts."

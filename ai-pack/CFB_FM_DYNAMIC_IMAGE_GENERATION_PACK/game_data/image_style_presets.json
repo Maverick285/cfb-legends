@@ -1,0 +1,71 @@
+{
+  "presets": [
+    {
+      "id": "sports_media_photo",
+      "label": "Sports Media Photo",
+      "promptSuffix": "professional college football photography, realistic action shot, editorial sports magazine quality, dramatic but believable",
+      "negativePromptAdditions": [
+        "cartoon",
+        "anime",
+        "low quality",
+        "wrong sport"
+      ],
+      "width": 1280,
+      "height": 720,
+      "autoGenerateMinTier": 3
+    },
+    {
+      "id": "scrapbook_archive",
+      "label": "Program Scrapbook Archive",
+      "promptSuffix": "archival sports photograph, nostalgic program-history feel, dramatic but grounded, suitable for a college football scrapbook",
+      "negativePromptAdditions": [
+        "fake newspaper text",
+        "readable brand text",
+        "watermark"
+      ],
+      "width": 1280,
+      "height": 720,
+      "autoGenerateMinTier": 4
+    },
+    {
+      "id": "media_guide_portrait",
+      "label": "Media Guide Portrait",
+      "promptSuffix": "clean college football media guide portrait, neutral background, professional team photo style",
+      "negativePromptAdditions": [
+        "action pose",
+        "crowd",
+        "readable text",
+        "real logo"
+      ],
+      "width": 768,
+      "height": 1024,
+      "autoGenerateMinTier": 4
+    },
+    {
+      "id": "newspaper_clipping_photo",
+      "label": "Newspaper Clipping Photo",
+      "promptSuffix": "local newspaper sports photograph style, slightly grainy, grounded, realistic, no readable newspaper text",
+      "negativePromptAdditions": [
+        "readable text",
+        "real newspaper logo",
+        "watermark"
+      ],
+      "width": 1280,
+      "height": 720,
+      "autoGenerateMinTier": 3
+    },
+    {
+      "id": "recruit_commitment_card",
+      "label": "Recruit Commitment Image",
+      "promptSuffix": "recruit commitment scene, campus backdrop, respectful sports recruiting photo style, no readable text, no real logos",
+      "negativePromptAdditions": [
+        "real logo",
+        "readable text",
+        "brand marks"
+      ],
+      "width": 1280,
+      "height": 720,
+      "autoGenerateMinTier": 3
+    }
+  ]
+}

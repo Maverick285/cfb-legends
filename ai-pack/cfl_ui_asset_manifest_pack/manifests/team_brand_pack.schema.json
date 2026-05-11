@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "College Football Legends Team Brand Pack",
+  "type": "object",
+  "required": ["id", "schoolName", "nickname", "abbreviation", "colors", "logos"],
+  "properties": {
+    "id": { "type": "string" },
+    "schoolName": { "type": "string" },
+    "nickname": { "type": "string" },
+    "abbreviation": { "type": "string", "maxLength": 5 },
+    "conference": { "type": "string" },
+    "colors": {
+      "type": "object",
+      "required": ["primary", "secondary", "accent", "dark", "light"],
+      "properties": {
+        "primary": { "type": "string" },
+        "secondary": { "type": "string" },
+        "accent": { "type": "string" },
+        "dark": { "type": "string" },
+        "light": { "type": "string" },
+        "success": { "type": "string" },
+        "warning": { "type": "string" },
+        "danger": { "type": "string" }
+      }
+    },
+    "logos": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": { "type": "string" },
+        "secondary": { "type": "string" },
+        "wordmark": { "type": "string" },
+        "helmetDecal": { "type": "string" },
+        "fieldLogo": { "type": "string" },
+        "scoreboardIcon": { "type": "string" }
+      }
+    },
+    "uniformDefaults": { "type": "object" },
+    "stadiumDefaults": { "type": "object" }
+  }
+}

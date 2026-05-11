@@ -1,0 +1,19 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Person History,person_history,historyId,History Id,id,hist_0001,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,personId,Person Id,foreign-key,person_2031_000123,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,historyType,History Type,enum,joined_program,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,seasonId,Season Id,foreign-key,season_2031,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,weekId,Week Id,foreign-key,week_2031_01,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,programId,Program Id,nullable foreign-key,program_vanderbilt,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,relatedObjectType,Related Object Type,nullable enum,scholarship,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,relatedObjectId,Related Object Id,nullable id,sch_0001,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,summary,Summary,text,,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Person History,person_history,sourceEventId,Source Event Id,foreign-key,event_0001,,history,PERSON_HISTORY/PLAYING_HISTORY,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,indexId,Index Id,id,hist_idx_0001,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,historyId,History Id,foreign-key,hist_0001,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,subjectType,Subject Type,enum,person,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,subjectId,Subject Id,id,person_2031_000123,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,programId,Program Id,nullable foreign-key,program_vanderbilt,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,seasonId,Season Id,foreign-key,season_2031,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,weekId,Week Id,foreign-key,week_2031_01,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review
+History Index,history_indexes,eventTypeId,Event Type Id,foreign-key,joined_program,Person History,index,history id/index/data split,FM-derived architecture,M2,,,No,Yes,,pending-review

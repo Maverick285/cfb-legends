@@ -1,0 +1,28 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+School Brand,school_brands,brandId,Brand Id,id,brand_vandy,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,schoolId,School Id,foreign-key,school_vanderbilt,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,primaryColor,Primary Color,color,#000000,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,secondaryColor,Secondary Color,color,#A28D5B,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,accentColor,Accent Color,color,#FFFFFF,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,logoAssetId,Logo Asset Id,foreign-key,asset_logo_vandy,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,wordmarkAssetId,Wordmark Asset Id,foreign-key,asset_wordmark_vandy,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,numberFontId,Number Font Id,foreign-key,font_block_serif,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+School Brand,school_brands,stripePatternId,Stripe Pattern Id,foreign-key,stripe_classic,School,definition/resource,Static resource/overlay data,planning-doc,M1,,,No,Yes,,pending-review
+Stadium,stadiums,stadiumId,Stadium Id,id,stadium_vandy,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,schoolId,School Id,foreign-key,school_vanderbilt,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,name,Name,string,FirstBank Stadium,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,capacity,Capacity,integer,40143,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,surfaceType,Surface Type,enum,grass,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,atmosphere,Atmosphere,integer 1-100,56,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,homeFieldAdvantage,Home Field Advantage,integer 1-100,52,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,noiseRating,Noise Rating,integer 1-100,47,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Stadium,stadiums,expansionPotential,Expansion Potential,integer 1-100,35,School,world/facility,STADIUM_DATE/resource pattern,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,uniformSetId,Uniform Set Id,id,uniform_vandy_home_2031,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,schoolId,School Id,foreign-key,school_vanderbilt,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,seasonId,Season Id,foreign-key,season_2031,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,setType,Set Type,enum,home,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,helmetColor,Helmet Color,color,#000000,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,jerseyColor,Jersey Color,color,#000000,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,pantsColor,Pants Color,color,#FFFFFF,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,numberColor,Number Color,color,#A28D5B,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review
+Uniform Set,uniform_sets,decalAssetId,Decal Asset Id,foreign-key,asset_v_logo,School Brand,resource,Patchable visual/resource definition,planning-doc,M4,,,No,Yes,,pending-review

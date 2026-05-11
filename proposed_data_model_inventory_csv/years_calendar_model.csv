@@ -1,0 +1,33 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Season,seasons,seasonId,Season Id,id,season_2031,,calendar,DATE_IN_YEAR and season boundary pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Season,seasons,year,Year,integer,2031,,calendar,DATE_IN_YEAR and season boundary pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Season,seasons,rulesetId,Ruleset Id,foreign-key,ruleset_modern_2026,,calendar,DATE_IN_YEAR and season boundary pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Season,seasons,startDate,Start Date,date,2031-01-01,,calendar,DATE_IN_YEAR and season boundary pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Season,seasons,endDate,End Date,date,2031-12-31,,calendar,DATE_IN_YEAR and season boundary pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Season,seasons,currentStatus,Current Status,enum,active,,calendar,DATE_IN_YEAR and season boundary pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,weekId,Week Id,id,week_2031_04,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,seasonId,Season Id,foreign-key,season_2031,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,weekNumber,Week Number,integer,4,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,phaseId,Phase Id,foreign-key,regular_season,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,startDate,Start Date,date,2031-09-15,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,endDate,End Date,date,2031-09-21,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,isAdvanceLocked,Is Advance Locked,boolean,false,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Week,weeks,requiredDecisionCount,Required Decision Count,integer,1,Season,calendar,Rule-driven week/phase calendar,FM-derived architecture,M0,,,No,Yes,,pending-review
+Calendar Event,calendar_events,calendarEventId,Calendar Event Id,id,cal_0001,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,eventTypeId,Event Type Id,foreign-key,evt_visit_weekend,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,seasonId,Season Id,foreign-key,season_2031,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,weekId,Week Id,foreign-key,week_2031_04,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,date,Date,date,2031-09-19,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,status,Status,enum,scheduled,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,subjectType,Subject Type,enum,recruit,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,subjectId,Subject Id,foreign-key,person_2032_000234,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,programId,Program Id,foreign-key,program_vanderbilt,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,blocksAdvance,Blocks Advance,boolean,false,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Calendar Event,calendar_events,resultEventId,Result Event Id,nullable foreign-key,,,calendar,TEAM_FUTURE_FIXTURE/deadlines/windows,FM-derived architecture,M2,,,No,Yes,,pending-review
+Action Window,action_windows,windowId,Window Id,id,window_recruiting_contact_2031_01,,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Action Window,action_windows,rulesetId,Ruleset Id,foreign-key,ruleset_modern_2026,,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Action Window,action_windows,windowType,Window Type,enum,recruiting_contact,,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Action Window,action_windows,startWeekId,Start Week Id,foreign-key,week_2031_01,,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Action Window,action_windows,endWeekId,End Week Id,foreign-key,week_2031_12,,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Action Window,action_windows,allowedActionIds,Allowed Action Ids,array<foreign-key>,"contact_recruit,offer_scholarship",,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review
+Action Window,action_windows,restrictionNotes,Restriction Notes,text,,,ruleset/calendar,TRANSFER_WINDOW/TRANSFER_DEADLINE_DAY analogue,FM-derived architecture,M3,,,No,Yes,,pending-review

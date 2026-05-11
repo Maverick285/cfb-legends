@@ -1,0 +1,24 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Workspace Definition,workspace_definitions,workspaceId,Workspace Id,id,roster,,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Workspace Definition,workspace_definitions,objectType,Object Type,enum,program,,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Workspace Definition,workspace_definitions,defaultRoute,Default Route,string,/program/:programId/roster,,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Workspace Definition,workspace_definitions,primaryTableDefinitionId,Primary Table Definition Id,foreign-key,table_roster_players,,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Workspace Definition,workspace_definitions,tabIds,Tab Ids,array<foreign-key>,"overview,depth_chart,development",,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Workspace Definition,workspace_definitions,actionIds,Action Ids,array<foreign-key>,"open_player,set_development_focus",,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Workspace Definition,workspace_definitions,inspectorDefinitionId,Inspector Definition Id,foreign-key,inspector_player_summary,,resource/ui,FM panels/menus/actions/resources,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,actionId,Action Id,id,set_development_focus,,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,label,Label,string,Set Development Focus,,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,subjectType,Subject Type,enum,player,,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,commandType,Command Type,enum,SET_PLAYER_DEVELOPMENT_FOCUS,,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,enabledWhenJson,Enabled When Json,json,,,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,writesJson,Writes Json,json,"player_development_plans,action_log,event_log",,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,visibleInWorkspaceIds,Visible In Workspace Ids,array<foreign-key>,"roster,player_profile",,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Action Definition,action_definitions,iconId,Icon Id,foreign-key,cfl-practice,,resource/action,Action registry/menu event IDs,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,columnId,Column Id,id,player_overall,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,entityType,Entity Type,enum,player,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,label,Label,string,OVR,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,valueSelector,Value Selector,string,latestRating.overall,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,format,Format,enum,integer,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,sortable,Sortable,boolean,true,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,filterable,Filterable,boolean,true,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Column Definition,column_definitions,visibleByDefault,Visible By Default,boolean,true,,resource/ui,Reusable property/table resource pattern,FM-derived architecture,M0,,,No,Yes,,pending-review

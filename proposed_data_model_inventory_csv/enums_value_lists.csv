@@ -1,0 +1,82 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+PersonRoleType,enum_values,athlete,Athlete,enum-value,athlete,PersonRoleType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PersonRoleType,enum_values,recruit,Recruit,enum-value,recruit,PersonRoleType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PersonRoleType,enum_values,coach,Coach,enum-value,coach,PersonRoleType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PersonRoleType,enum_values,staff,Staff,enum-value,staff,PersonRoleType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PersonRoleType,enum_values,created_person,Created Person,enum-value,created_person,PersonRoleType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,QB,Qb,enum-value,QB,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,RB,Rb,enum-value,RB,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,WR,Wr,enum-value,WR,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,TE,Te,enum-value,TE,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,OT,Ot,enum-value,OT,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,OG,Og,enum-value,OG,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,C,C,enum-value,C,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,EDGE,Edge,enum-value,EDGE,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,DL,Dl,enum-value,DL,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,LB,Lb,enum-value,LB,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,CB,Cb,enum-value,CB,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,S,S,enum-value,S,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,K,K,enum-value,K,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,P,P,enum-value,P,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,LS,Ls,enum-value,LS,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+Position,enum_values,ATH,Ath,enum-value,ATH,Position,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,FR,Fr,enum-value,FR,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,SO,So,enum-value,SO,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,JR,Jr,enum-value,JR,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,SR,Sr,enum-value,SR,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,RS-FR,Rs Fr,enum-value,RS-FR,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,RS-SO,Rs So,enum-value,RS-SO,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,RS-JR,Rs Jr,enum-value,RS-JR,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+PlayerClass,enum_values,RS-SR,Rs Sr,enum-value,RS-SR,PlayerClass,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,offseason,Offseason,enum-value,offseason,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,spring_practice,Spring Practice,enum-value,spring_practice,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,summer_recruiting,Summer Recruiting,enum-value,summer_recruiting,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,preseason,Preseason,enum-value,preseason,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,regular_season,Regular Season,enum-value,regular_season,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,rivalry_week,Rivalry Week,enum-value,rivalry_week,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,conference_championship,Conference Championship,enum-value,conference_championship,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,postseason,Postseason,enum-value,postseason,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,signing_window,Signing Window,enum-value,signing_window,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,portal_window,Portal Window,enum-value,portal_window,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+SeasonPhase,enum_values,winter_development,Winter Development,enum-value,winter_development,SeasonPhase,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+RecruitStatus,enum_values,open,Open,enum-value,open,RecruitStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+RecruitStatus,enum_values,verbal_commit,Verbal Commit,enum-value,verbal_commit,RecruitStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+RecruitStatus,enum_values,soft_verbal,Soft Verbal,enum-value,soft_verbal,RecruitStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+RecruitStatus,enum_values,signed,Signed,enum-value,signed,RecruitStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+RecruitStatus,enum_values,decommitted,Decommitted,enum-value,decommitted,RecruitStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+RecruitStatus,enum_values,withdrawn,Withdrawn,enum-value,withdrawn,RecruitStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,draft,Draft,enum-value,draft,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,active,Active,enum-value,active,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,accepted,Accepted,enum-value,accepted,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,rejected,Rejected,enum-value,rejected,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,withdrawn,Withdrawn,enum-value,withdrawn,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,failed,Failed,enum-value,failed,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,completed,Completed,enum-value,completed,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+TransactionStatus,enum_values,expired,Expired,enum-value,expired,TransactionStatus,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,roster,Roster,enum-value,roster,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,recruiting,Recruiting,enum-value,recruiting,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,game,Game,enum-value,game,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,staff,Staff,enum-value,staff,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,nil,Nil,enum-value,nil,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,finance,Finance,enum-value,finance,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,injury,Injury,enum-value,injury,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,development,Development,enum-value,development,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,media,Media,enum-value,media,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EventCategory,enum_values,rules,Rules,enum-value,rules,EventCategory,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+ActionWindowType,enum_values,recruiting_contact,Recruiting Contact,enum-value,recruiting_contact,ActionWindowType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+ActionWindowType,enum_values,official_visit,Official Visit,enum-value,official_visit,ActionWindowType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+ActionWindowType,enum_values,portal_entry,Portal Entry,enum-value,portal_entry,ActionWindowType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+ActionWindowType,enum_values,staff_hiring,Staff Hiring,enum-value,staff_hiring,ActionWindowType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+ActionWindowType,enum_values,depth_chart_lock,Depth Chart Lock,enum-value,depth_chart_lock,ActionWindowType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+ActionWindowType,enum_values,game_plan_lock,Game Plan Lock,enum-value,game_plan_lock,ActionWindowType,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,world,World,enum-value,world,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,facet,Facet,enum-value,facet,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,relationship,Relationship,enum-value,relationship,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,history,History,enum-value,history,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,snapshot,Snapshot,enum-value,snapshot,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,transaction,Transaction,enum-value,transaction,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,definition,Definition,enum-value,definition,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,resource,Resource,enum-value,resource,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,ruleset,Ruleset,enum-value,ruleset,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,event,Event,enum-value,event,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review
+EntityLayer,enum_values,simulation,Simulation,enum-value,simulation,EntityLayer,definition,Versioned static vocabulary,domain-design,M0,,,No,Yes,,pending-review

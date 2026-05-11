@@ -1,0 +1,17 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Scheme Definition,scheme_definitions,schemeId,Scheme Id,id,scheme_spread_option,,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Scheme Definition,scheme_definitions,sideOfBall,Side Of Ball,enum,offense,,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Scheme Definition,scheme_definitions,name,Name,string,Spread Option,,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Scheme Definition,scheme_definitions,description,Description,text,,,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Scheme Definition,scheme_definitions,requiredSkillWeightsJson,Required Skill Weights Json,json,,,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Scheme Definition,scheme_definitions,preferredPersonnelGroups,Preferred Personnel Groups,array<foreign-key>,"11,10",,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Scheme Definition,scheme_definitions,riskProfile,Risk Profile,enum,medium,,definition,Tactical training/squad role data as definitions,planning-doc,M2,,,No,Yes,,pending-review
+Play Concept,play_concepts,conceptId,Concept Id,id,concept_inside_zone_glance,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,schemeId,Scheme Id,foreign-key,scheme_spread_option,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,playType,Play Type,enum,RPO,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,formationFamilyId,Formation Family Id,foreign-key,formation_trips,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,personnelGroupId,Personnel Group Id,foreign-key,personnel_11,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,stressedDefender,Stressed Defender,enum,apex,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,requiredSkillsJson,Required Skills Json,json,{QB.processing:high},Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,countersJson,Counters Json,json,,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review
+Play Concept,play_concepts,situationFitJson,Situation Fit Json,json,,Scheme Definition,definition,Tactical training data plus play resolver needs,planning-doc,M5,,,No,Yes,,pending-review

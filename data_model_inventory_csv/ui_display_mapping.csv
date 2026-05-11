@@ -1,0 +1,93 @@
+﻿Screen Name,Section / Component,Entity,Field Name,Display Label,Required On Screen?,Optional?,Editable?,Sortable?,Filterable?,Visible By Default?,Detail Only?,Notes,Approval Status
+Dashboard,Primary data surface,Program,name,Name,Yes,TBD,No,,,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Dashboard,Primary data surface,Program,record,Record,Yes,TBD,No,,,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Dashboard,Primary data surface,Ranking,rank,Rank,Yes,TBD,No,,,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Dashboard,Primary data surface,Team,overall rating,Overall Rating,Yes,TBD,No,,,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Dashboard,Primary data surface,Schedule,opponent,Opponent,Yes,TBD,No,,,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Dashboard,Primary data surface,News Event,title,Title,Yes,TBD,No,,,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Team Hub,Primary data surface,Program,name,Name,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Team Hub,Primary data surface,Team,record,Record,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Team Hub,Primary data surface,Team,offense rating,Offense Rating,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Team Hub,Primary data surface,Team,defense rating,Defense Rating,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Team Hub,Primary data surface,Team,special teams rating,Special Teams Rating,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,name,Name,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,position,Position,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,classYear,Class Year,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,overall,Overall,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,potential,Potential,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,morale,Morale,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Roster,Primary data surface,Player,status,Status,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Player Profile,Primary data surface,Player,name,Name,Yes,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Player Profile,Primary data surface,Player,position,Position,Yes,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Player Profile,Primary data surface,Player,developmentFocus,Development Focus,Yes,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Player Profile,Primary data surface,Player,morale,Morale,Yes,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Player Profile,Primary data surface,Player Rating,attrs,Attrs,Yes,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Depth Chart,Primary data surface,Player,position,Position,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Depth Chart,Primary data surface,Player,depth chart role,Depth Chart Role,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Depth Chart,Primary data surface,Player,overall,Overall,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Depth Chart,Primary data surface,Player,fatigue,Fatigue,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Depth Chart,Primary data surface,Player,injury status,Injury Status,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Recruiting Board,Primary data surface,Recruit,name,Name,TBD,TBD,No,Yes,Yes,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Recruiting Board,Primary data surface,Recruit,position,Position,TBD,TBD,No,Yes,Yes,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Recruiting Board,Primary data surface,Recruit,stars,Stars,TBD,TBD,No,Yes,Yes,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Recruiting Board,Primary data surface,Recruit,interest,Interest,TBD,TBD,No,Yes,Yes,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Recruiting Board,Primary data surface,Recruit,status,Status,TBD,TBD,No,Yes,Yes,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Prospect Detail,Primary data surface,Recruit,name,Name,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Prospect Detail,Primary data surface,Recruit,scheme fit,Scheme Fit,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Prospect Detail,Primary data surface,Recruit,NIL demand,Nil Demand,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Prospect Detail,Primary data surface,Recruit,visit,Visit,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Prospect Detail,Primary data surface,Recruit,scouting grade,Scouting Grade,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Budget,Primary data surface,NIL,NIL budget total,Nil Budget Total,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Budget,Primary data surface,NIL,spent,Spent,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Budget,Primary data surface,NIL,committed,Committed,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Budget,Primary data surface,NIL,available,Available,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Management,Primary data surface,NIL,player NIL value,Player Nil Value,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Management,Primary data surface,NIL,recruit NIL demand,Recruit Nil Demand,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Management,Primary data surface,NIL,offer amount,Offer Amount,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+NIL Management,Primary data surface,NIL,risk,Risk,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Coach Profile,Primary data surface,Coach,name,Name,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Coach Profile,Primary data surface,Coach,role,Role,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Coach Profile,Primary data surface,Coach,offensive philosophy,Offensive Philosophy,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Coach Profile,Primary data surface,Coach,defensive philosophy,Defensive Philosophy,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Coach Profile,Primary data surface,Coach,traits,Traits,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Staff Management,Primary data surface,Staff,role,Role,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Staff Management,Primary data surface,Staff,confidence,Confidence,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Staff Management,Primary data surface,Staff,notes,Notes,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Stadium Builder,Primary data surface,Stadium,capacity,Capacity,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Stadium Builder,Primary data surface,Stadium,expansion options,Expansion Options,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Stadium Builder,Primary data surface,Stadium,upgrade costs,Upgrade Costs,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Stadium Builder,Primary data surface,Stadium,homeFieldAdvantage,Home Field Advantage,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Uniform Creator,Primary data surface,Uniform,helmet shell color,Helmet Shell Color,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Uniform Creator,Primary data surface,Uniform,jersey base color,Jersey Base Color,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Uniform Creator,Primary data surface,Uniform,pants color,Pants Color,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Uniform Creator,Primary data surface,Uniform,stripe style,Stripe Style,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+School Creator,Primary data surface,School Brand,schoolName,School Name,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+School Creator,Primary data surface,School Brand,nickname,Nickname,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+School Creator,Primary data surface,School Brand,primaryColor,Primary Color,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+School Creator,Primary data surface,School Brand,secondaryColor,Secondary Color,TBD,TBD,TBD,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Planning,Primary data surface,Playbook / Scheme,offensive scheme,Offensive Scheme,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Planning,Primary data surface,Playbook / Scheme,defensive scheme,Defensive Scheme,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Planning,Primary data surface,Simulation,passRate,Pass Rate,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Planning,Primary data surface,Simulation,blitzRate,Blitz Rate,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Scouting Report,Primary data surface,Coach,opponentAnalysis,Opponent Analysis,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Scouting Report,Primary data surface,Simulation,personnel,Personnel,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Scouting Report,Primary data surface,Simulation,formation,Formation,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Scouting Report,Primary data surface,Simulation,coverage,Coverage,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Schedule,Primary data surface,Schedule,week,Week,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Schedule,Primary data surface,Schedule,opponent,Opponent,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Schedule,Primary data surface,Schedule,date,Date,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Schedule,Primary data surface,Schedule,status,Status,Yes,TBD,No,Yes,Yes,Yes,No,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Rankings,Primary data surface,Ranking,rank,Rank,TBD,TBD,No,Yes,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Rankings,Primary data surface,Ranking,record,Record,TBD,TBD,No,Yes,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Rankings,Primary data surface,Ranking,conference,Conference,TBD,TBD,No,Yes,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Report Card,Primary data surface,Game,final score,Final Score,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Report Card,Primary data surface,Game,summary,Summary,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Report Card,Primary data surface,Simulation,yards gained,Yards Gained,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Game Report Card,Primary data surface,Simulation,turnover probability,Turnover Probability,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Postgame Box Score,Primary data surface,Game,homeScore,Home Score,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Postgame Box Score,Primary data surface,Game,awayScore,Away Score,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Postgame Box Score,Primary data surface,Game,quarter scores,Quarter Scores,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Postgame Box Score,Primary data surface,Simulation,players,Players,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Skill Tree / Coaching Upgrades,Primary data surface,Coach,player development,Player Development,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Skill Tree / Coaching Upgrades,Primary data surface,Coach,recruiting ability,Recruiting Ability,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review
+Skill Tree / Coaching Upgrades,Primary data surface,Coach,play calling,Play Calling,TBD,TBD,No,,,Yes,TBD,Seed mapping for human review; screen implementation may not exist yet.,pending-review

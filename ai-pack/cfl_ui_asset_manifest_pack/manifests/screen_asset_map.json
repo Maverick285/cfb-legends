@@ -1,0 +1,74 @@
+[
+  {
+    "screen_id": "S001",
+    "screen_name": "Dashboard / Team Hub",
+    "template_family": "dashboard_grid",
+    "required_assets": "A001,A006,A007,A008,A009,A024,A028,A029",
+    "dynamic_regions": "team,record,rank,next_opponent,schedule,standings,recruiting,staff,ticker",
+    "reference_image": "specs/reference-images/dashboard.png",
+    "notes": "Main weekly command center."
+  },
+  {
+    "screen_id": "S002",
+    "screen_name": "Recruiting Board",
+    "template_family": "table_with_detail_panel",
+    "required_assets": "A006,A007,A012,A018,A019,A020,A021,A023,A030,A031",
+    "dynamic_regions": "prospects,selected_prospect,top_schools,interest,attributes",
+    "reference_image": "specs/reference-images/recruiting_board.png",
+    "notes": "Table-heavy. Right panel updates from selected row."
+  },
+  {
+    "screen_id": "S003",
+    "screen_name": "Stadium Builder",
+    "template_family": "builder_workbench",
+    "required_assets": "A001,A006,A009,A015,A035,A036,A037",
+    "dynamic_regions": "stadium,budget,capacity,seating,expansion_options",
+    "reference_image": "specs/reference-images/stadium_builder.png",
+    "notes": "Preview-dominant builder workflow."
+  },
+  {
+    "screen_id": "S004",
+    "screen_name": "Uniform Creator",
+    "template_family": "builder_workbench",
+    "required_assets": "A001,A006,A015,A038,A039,A040,A041",
+    "dynamic_regions": "uniform_sets,colors,equipment_options,logos,decals",
+    "reference_image": "specs/reference-images/uniform_creator.png",
+    "notes": "Live preview from layered data."
+  },
+  {
+    "screen_id": "S005",
+    "screen_name": "School Creator",
+    "template_family": "wizard_creator",
+    "required_assets": "A001,A007,A009,A015,A042,A043",
+    "dynamic_regions": "wizard_step,identity,colors,logo,uniform_preview,stadium_preview",
+    "reference_image": "specs/reference-images/school_creator.png",
+    "notes": "Form + live preview."
+  },
+  {
+    "screen_id": "S006",
+    "screen_name": "NIL Management",
+    "template_family": "dashboard_business",
+    "required_assets": "A006,A007,A009,A026,A027,A034",
+    "dynamic_regions": "budget,top_earners,partners,activities,brand_health,activity_feed",
+    "reference_image": "specs/reference-images/nil_management.png",
+    "notes": "Athletic department business dashboard."
+  },
+  {
+    "screen_id": "S007",
+    "screen_name": "Coaching Upgrades",
+    "template_family": "progression_skill_tree",
+    "required_assets": "A006,A009,A015,A044,A045,A046",
+    "dynamic_regions": "coach,points,categories,skills,selected_skill",
+    "reference_image": "specs/reference-images/coaching_upgrades.png",
+    "notes": "RPG progression screen."
+  },
+  {
+    "screen_id": "S008",
+    "screen_name": "Game Report Card",
+    "template_family": "postgame_report",
+    "required_assets": "A006,A008,A009,A025,A048,A049",
+    "dynamic_regions": "teams,score,line_score,grades,stats,performers,impact,next_opponent",
+    "reference_image": "specs/reference-images/game_report_card.png",
+    "notes": "Postgame consequences and grades."
+  }
+]

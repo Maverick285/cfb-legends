@@ -1,0 +1,19 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Ruleset,rulesets,rulesetId,Ruleset Id,id,ruleset_modern_2026,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,name,Name,string,Modern College Football,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,version,Version,integer,1,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,baseYear,Base Year,integer,2026,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,calendarRuleId,Calendar Rule Id,foreign-key,calendar_modern_2026,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,rosterRuleId,Roster Rule Id,foreign-key,roster_fbs_85,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,eligibilityRuleId,Eligibility Rule Id,foreign-key,eligibility_ncaa_v1,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,nilRuleId,Nil Rule Id,foreign-key,nil_modern_v1,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,transferRuleId,Transfer Rule Id,foreign-key,portal_modern_v1,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Ruleset,rulesets,postseasonRuleId,Postseason Rule Id,foreign-key,cfp_12_v1,,ruleset,Fixture/squad/transfer/rule data versioning,FM-derived architecture,M0,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,constraintId,Constraint Id,id,constraint_scholarship_max,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,rulesetId,Ruleset Id,foreign-key,ruleset_modern_2026,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,constraintType,Constraint Type,enum,roster_limit,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,subjectType,Subject Type,enum,program,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,field,Field,string,scholarshipCount,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,operator,Operator,enum,less_or_equal,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,value,Value,number,85,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review
+Rule Constraint,rule_constraints,severity,Severity,enum,blocker,Ruleset,ruleset/invariant,SQUAD_SELECTION_RULES analogue,FM-derived architecture,M1,,,No,Yes,,pending-review

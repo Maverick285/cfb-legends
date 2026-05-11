@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="Main navigation">
+      <aside class="sidebar" aria-label="Main navigation" data-testid="sidebar-nav">
         <div class="club-lockup">
           <div class="crest" aria-hidden="true">
             <span id="crestLabel">LC</span>
@@ -45,7 +45,7 @@
       </aside>
 
       <main class="workspace">
-        <header class="topbar">
+        <header class="topbar" data-testid="app-header">
           <div class="topbar-navcluster" aria-label="Navigation controls">
             <button class="icon-button" id="backButton" title="Back" aria-label="Back">
               <span class="top-icon" aria-hidden="true">
@@ -113,7 +113,7 @@
         </header>
 
         <section class="workspace-area">
-          <section class="content-grid" id="content" aria-live="polite"></section>
+          <section class="content-grid" id="content" aria-live="polite" data-testid="main-content"></section>
         </section>
       </main>
     </div>
@@ -276,69 +276,8 @@
       <article class="panel"></article>
     </template>
 
-    <script src="data/demo-world.js?v=wave19"></script>
-    <script src="data/fbs-world.js?v=wave20c"></script>
-    <!-- js/sim modules: ordered so each consumer loads after its dependencies. -->
-    <script src="js/ui/datagrid.js?v=wave20"></script>
-    <script src="js/sim/test-runner.js"></script>
-    <script src="js/sim/matchup/attribute-registry.js"></script>
-    <script src="js/sim/matchup/matchup.js"></script>
-    <script src="js/sim/events/play-event.js"></script>
-    <script src="js/sim/dev/dev-engine.js"></script>
-    <script src="js/sim/persistence/event-log.js?v=wave19"></script>
-    <script src="js/sim/persistence/action-log.js"></script>
-    <script src="js/sim/persistence/state-hash.js"></script>
-    <script src="js/sim/persistence/replay.js"></script>
-    <script src="js/sim/persistence/reducers.js"></script>
-    <script src="js/sim/staff/coaching-carousel.js"></script>
-    <script src="js/sim/portal/portal-v2.js"></script>
-    <script src="js/sim/media/voices-engine.js"></script>
-    <script src="js/sim/ai/ai-school.js"></script>
-    <script src="js/sim/ai/ai-nil-bidding.js"></script>
-    <script src="js/sim/qc/invariants.js"></script>
-    <script src="js/sim/recruiting/recruiting-v2.js"></script>
-    <script src="js/sim/recruiting/ai-recruiting.js"></script>
-    <script src="js/sim/pulse/campus-pulse.js"></script>
-    <script src="js/sim/nil/nil-engine.js"></script>
-    <script src="js/sim/draft/draft-engine.js"></script>
-    <script src="js/sim/stats/stat-taxonomy.js"></script>
-    <script src="js/sim/stats/stat-accumulator.js"></script>
-    <script src="js/sim/stats/player-stat-accumulator.js"></script>
-    <script src="js/sim/playgen/game-state.js?v=wave12"></script>
-    <script src="js/sim/playgen/play-selector.js?v=wave12"></script>
-    <script src="js/sim/playgen/play-resolver.js?v=wave12"></script>
-    <script src="js/sim/playgen/drive-engine.js?v=wave12"></script>
-    <script src="js/sim/playgen/game-engine.js?v=wave12"></script>
-    <script src="js/sim/playgen/extras-engine.js?v=wave12"></script>
-    <script src="js/sim/scrapbook/scrapbook-engine.js"></script>
-    <script src="js/sim/injury/injury-engine.js"></script>
-    <script src="js/sim/realignment/realignment-engine.js"></script>
-    <script src="js/sim/awards/awards-engine.js"></script>
-    <script src="js/sim/archive/alumni-archive.js"></script>
-    <script src="js/sim/tests/matchup-tests.js"></script>
-    <script src="js/sim/tests/play-event-tests.js"></script>
-    <script src="js/sim/tests/dev-engine-tests.js"></script>
-    <script src="js/sim/tests/stat-tests.js"></script>
-    <script src="js/sim/tests/playgen-tests.js"></script>
-    <script src="js/sim/tests/player-stat-tests.js"></script>
-    <script src="js/sim/tests/persistence-tests.js"></script>
-    <script src="js/sim/tests/persist2-tests.js"></script>
-    <script src="js/sim/tests/coaching-carousel-tests.js"></script>
-    <script src="js/sim/tests/portal-v2-tests.js"></script>
-    <script src="js/sim/tests/voices-tests.js"></script>
-    <script src="js/sim/tests/extras-tests.js"></script>
-    <script src="js/sim/tests/scrapbook-tests.js"></script>
-    <script src="js/sim/tests/reducers-tests.js"></script>
-    <script src="js/sim/tests/ai-nil-tests.js"></script>
-    <script src="js/sim/tests/injury-tests.js"></script>
-    <script src="js/sim/tests/realignment-tests.js"></script>
-    <script src="js/sim/tests/awards-tests.js"></script>
-    <script src="js/sim/tests/alumni-tests.js"></script>
-    <script src="js/sim/tests/ai-school-tests.js"></script>
-    <script src="js/sim/tests/invariants-tests.js"></script>
-    <script src="js/sim/tests/m18-tests.js"></script>
-    <script src="runtime/sim-core.js?v=wave18"></script>
-    <script src="runtime/hardening-core.js"></script>
-    <script src="app.js?v=wave23-ai-carousel-schedule"></script>
+    <script src="data/demo-world.js?v=m0"></script>
+    <script src="data/fbs-world.js?v=m0"></script>
+    <script src="js/m0/foundation.js?v=m0c"></script>
   </body>
 </html>

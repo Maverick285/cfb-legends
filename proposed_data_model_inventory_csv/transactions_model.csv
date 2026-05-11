@@ -1,0 +1,18 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Transaction,transactions,transactionId,Transaction Id,id,txn_0001,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,transactionType,Transaction Type,enum,scholarship_offer,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,status,Status,enum,active,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,sourceProgramId,Source Program Id,nullable foreign-key,program_vanderbilt,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,targetPersonId,Target Person Id,nullable foreign-key,person_2032_000234,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,amount,Amount,nullable currency,,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,createdWeekId,Created Week Id,foreign-key,week_2031_04,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,resolvedWeekId,Resolved Week Id,nullable foreign-key,,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Transaction,transactions,failureReasonId,Failure Reason Id,nullable foreign-key,,,transaction,active/completed/failed offers and negotiations,FM-derived architecture,M3,,,No,Yes,,pending-review
+Future Move,future_moves,futureMoveId,Future Move Id,id,move_0001,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,personId,Person Id,foreign-key,person_2032_000234,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,fromProgramId,From Program Id,nullable foreign-key,,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,toProgramId,To Program Id,foreign-key,program_vanderbilt,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,moveType,Move Type,enum,signed_recruit,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,effectiveWeekId,Effective Week Id,foreign-key,week_2032_01,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,transactionId,Transaction Id,foreign-key,txn_0001,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review
+Future Move,future_moves,status,Status,enum,pending,Transaction,transaction/calendar,STARTING_FUTURE_TRANSFER,FM-derived architecture,M4,,,No,Yes,,pending-review

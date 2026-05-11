@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Original stadium thumbnail">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2e2b25"/>
+      <stop offset="1" stop-color="#0f1512"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <circle cx="1040" cy="126" r="90" fill="#c7a45b" opacity="0.34"/>
+  <path d="M0 344c218-95 453-130 706-104 220 23 411-2 574-76v162c-191 61-392 80-604 57-232-25-457 11-676 108Z" fill="#202720"/>
+  <path d="M0 493c211-50 421-72 631-66 222 7 438-22 649-86v379H0Z" fill="#17301f"/>
+  <g stroke="#d7e6ce" opacity="0.38">
+    <path d="M0 580h1280" stroke-width="4"/>
+    <path d="M160 520l-58 200M350 492l-22 228M640 478v242M930 492l22 228M1120 520l58 200" stroke-width="3"/>
+  </g>
+  <g opacity="0.55" stroke="#c7a45b">
+    <path d="M118 294h1044" stroke-width="4"/>
+    <path d="M176 250h928M248 216h784" stroke-width="2"/>
+  </g>
+  <rect width="1280" height="720" fill="#000" opacity="0.18"/>
+</svg>

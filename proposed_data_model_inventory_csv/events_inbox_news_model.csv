@@ -1,0 +1,27 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Event Log,event_log,eventId,Event Id,id,event_0001,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,eventTypeId,Event Type Id,foreign-key,evt_recruit_interest_shift,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,category,Category,enum,recruiting,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,priority,Priority,enum,normal,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,createdWeekId,Created Week Id,foreign-key,week_2031_04,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,subjectType,Subject Type,enum,recruit,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,subjectId,Subject Id,foreign-key,person_2032_000234,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,actorJson,Actor Json,json,{programId:'program_vanderbilt'},,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,sourceActionId,Source Action Id,nullable foreign-key,action_0001,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,visibility,Visibility,enum,user_program,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Event Log,event_log,resolved,Resolved,boolean,false,,event/log,EVENT and report/news routing pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Inbox Item,inbox_items,inboxItemId,Inbox Item Id,id,inbox_0001,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,eventId,Event Id,foreign-key,event_0001,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,programId,Program Id,foreign-key,program_vanderbilt,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,assignedToRoleId,Assigned To Role Id,nullable foreign-key,role_head_coach,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,status,Status,enum,unread,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,blocksAdvance,Blocks Advance,boolean,false,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,dueWeekId,Due Week Id,nullable foreign-key,,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+Inbox Item,inbox_items,primaryActionId,Primary Action Id,foreign-key,action_open_recruit,Event Log,event/ui,Events become inbox/news/report channels,FM-derived architecture,M2,,,No,Yes,,pending-review
+News Item,news_items,newsItemId,News Item Id,id,news_0001,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review
+News Item,news_items,eventId,Event Id,foreign-key,event_0001,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review
+News Item,news_items,scope,Scope,enum,conference,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review
+News Item,news_items,headlineTemplateId,Headline Template Id,foreign-key,headline_recruit_commit,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review
+News Item,news_items,bodyTemplateId,Body Template Id,foreign-key,body_recruit_commit,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review
+News Item,news_items,publishedWeekId,Published Week Id,foreign-key,week_2031_04,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review
+News Item,news_items,relatedObjectRefJson,Related Object Ref Json,json,,Event Log,event/media,Report variants tied to events,FM-derived architecture,M3,,,No,Yes,,pending-review

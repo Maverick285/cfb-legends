@@ -1,0 +1,25 @@
+# Generated review artifacts
+/artifacts/
+/tmp/
+/runtime/
+/harness/runs/
+__pycache__/
+*.pyc
+
+# Local editor/agent state
+/.claude/
+
+# Keep raw/processed data folders as placeholders unless real source data is reviewed for sharing.
+/data_raw/*
+!/data_raw/.gitkeep
+/data_processed/*
+!/data_processed/.gitkeep
+/game_data/*
+!/game_data/.gitkeep
+
+# Image reference library is large. Track only the curated Top Choices set.
+/Screens for game/*
+!/Screens for game/AI Game Screens/
+/Screens for game/AI Game Screens/*
+!/Screens for game/AI Game Screens/Top Choices/
+!/Screens for game/AI Game Screens/Top Choices/**

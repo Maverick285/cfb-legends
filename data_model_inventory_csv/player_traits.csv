@@ -1,0 +1,18 @@
+﻿Trait Name,Category,Description,Positive / Negative / Mixed,Affects Simulation?,Affects Recruiting?,Affects Development?,Affects Morale?,Example Impact,Source Status,Source File,Source Line / Location,Approval Status
+clutch,Mental,Improves execution in high-leverage moments.,Positive,Yes,No,No,Yes,Higher late-game composure.,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,208,pending-review
+volatile confidence,Mental,Performance swings sharply after success or failure.,Mixed,Yes,No,Yes,Yes,Can snowball hot or cold stretches.,missing-but-needed,,,pending-review
+film junkie,Development,Extra preparation improves recognition and learning.,Positive,Yes,Yes,Yes,No,Faster processing growth.,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,153,pending-review
+poor practice habits,Development,Practice quality limits improvement.,Negative,No,No,Yes,Yes,Lower weekly development.,missing-but-needed,,,pending-review
+high football IQ,Mental,"Reads leverage, rotations, and assignments quickly.",Positive,Yes,Yes,Yes,No,Better assignment execution.,missing-but-needed,,,pending-review
+raw athlete,Development,High tools with slower skill polish.,Mixed,Yes,Yes,Yes,No,"High ceiling, early mistakes.",spec-only,ai-pack/CFB_FM_CORE_SYSTEMS_BLOWOUT.md,365,pending-review
+injury prone,Medical,Elevated injury risk.,Negative,Yes,No,Yes,Yes,Higher missed-time probability.,missing-but-needed,,,pending-review
+locker room leader,Leadership,Improves morale and chemistry.,Positive,No,No,No,Yes,Raises unit morale.,missing-but-needed,,,pending-review
+transfer risk,Roster,More likely to leave after unmet expectations.,Negative,No,Yes,No,Yes,Requires playing-time management.,existing-code,app.js,5953,pending-review
+NIL-driven,Recruiting,Responds strongly to NIL offers.,Mixed,No,Yes,No,Yes,Higher NIL sensitivity.,spec-only,ai-pack/CFB_FM_DEPTH_AND_BUILD_GOVERNANCE_PACK/CFB_FM_DEPTH_AND_BUILD_GOVERNANCE_PACK/01_DEPTH_GATE_AND_ACCEPTANCE_PROTOCOL.md,373,pending-review
+loyal,Roster,Less likely to transfer or decommit.,Positive,No,Yes,No,Yes,Retains through adversity.,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,338,pending-review
+competitor,Mental,Responds well to depth chart pressure.,Positive,Yes,Yes,Yes,Yes,Better battle outcomes.,spec-only,ai-pack/24_TRAIT_ARCHETYPES_CREATORS_AND_ADVANCED_IDENTITY_SYSTEMS.md,200,pending-review
+poor discipline,Mental,Penalty and off-field risk.,Negative,Yes,Yes,No,Yes,Higher penalty/risk events.,spec-only,ai-pack/CFB_FM_HOSTS_AND_CALLERS_PACK/61_CALL_IN_SHOW_PERSONALITY_LIBRARY.md,1597,pending-review
+high motor,Physical/Mental,Sustains effort through play and game.,Positive,Yes,Yes,Yes,No,Better pursuit and finish.,missing-but-needed,,,pending-review
+coachable,Development,Gets more from staff feedback.,Positive,No,Yes,Yes,No,Higher development multiplier.,missing-but-needed,,,pending-review
+slow learner,Development,Slower scheme and skill absorption.,Negative,Yes,No,Yes,No,Limits complex-role growth.,spec-only,ai-pack/football_sim_engine_realism_roadmap.md,545,pending-review
+big game performer,Mental,"Raises floor in rivalry, ranked, and postseason games.",Positive,Yes,Yes,No,Yes,Improves important-game output.,missing-but-needed,,,pending-review

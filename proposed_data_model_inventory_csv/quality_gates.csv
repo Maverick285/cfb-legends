@@ -1,0 +1,10 @@
+﻿Gate,Applies To,Required Check,Failure Means,Automation Candidate,Approval Status
+Schema validation,All tables,Every record validates against schema and required FK fields.,Model is not safe to implement.,zod/drizzle validation,pending-review
+No dangling IDs,Relationships/history/transactions,Every foreign key resolves or is explicitly nullable.,Clickthrough and history will break.,invariant test,pending-review
+Action log writes,Actions,Every command writes an action log record.,The game cannot explain user decisions.,action unit tests,pending-review
+Event provenance,Inbox/news/history,Every inbox/news/history row has source event or source action.,UI can invent fake text again.,event invariant,pending-review
+Save/load roundtrip,World save,"Serialized save reloads equal IDs, relations, ruleset, current route.",Persistence cannot be trusted.,roundtrip test,pending-review
+World tick contract,Calendar/advanceWeek,"Each tick returns state patch, events, history, metrics, warnings.",Continue will become random mutation.,scenario runner,pending-review
+Rating distribution bounds,Player generation/development,Ratings stay within ruleset bands over 20-year soak.,Future sims get wild.,soak test,pending-review
+UI resource coverage,Workspaces,Visible buttons/tables map to action/column/workspace definitions.,Clickthrough will be inconsistent.,static UI contract test,pending-review
+Screen selector purity,Selectors,Selectors do not mutate world state.,Screens become sources of truth.,unit tests,pending-review

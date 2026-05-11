@@ -1,0 +1,73 @@
+{
+  "screen_category": "",
+  "secondary_categories": [],
+  "screen_purpose": "",
+  "overall_style": "",
+  "mood": [],
+  "layout": {
+    "app_shell": "",
+    "primary_regions": [
+      {
+        "region_name": "",
+        "location": "",
+        "purpose": "",
+        "contents": []
+      }
+    ],
+    "grid_structure": "",
+    "density": "",
+    "scan_pattern": ""
+  },
+  "components": [
+    {
+      "component_type": "",
+      "component_role": "",
+      "visual_description": "",
+      "importance": "primary"
+    }
+  ],
+  "visual_design": {
+    "theme": "",
+    "color_palette": {
+      "background": [],
+      "surfaces": [],
+      "accents": [],
+      "text": [],
+      "status_colors": []
+    },
+    "typography": {
+      "headline_style": "",
+      "section_label_style": "",
+      "body_style": "",
+      "numeric_stat_style": "",
+      "button_label_style": ""
+    },
+    "surface_treatment": [],
+    "spacing_and_density": "",
+    "polish_level": ""
+  },
+  "hierarchy": {
+    "primary_focus": [],
+    "secondary_focus": [],
+    "tertiary_focus": [],
+    "grouping_logic": "",
+    "navigation_clarity": ""
+  },
+  "sports_game_identity": {
+    "sporting_cues": [],
+    "management_simulation_cues": [],
+    "commercial_game_polish_cues": [],
+    "tone": ""
+  },
+  "implementation_notes": {
+    "reusable_layout_patterns": [],
+    "reusable_component_patterns": [],
+    "page_template_candidates": [],
+    "design_system_token_candidates": [],
+    "what_makes_it_professional": [],
+    "what_to_avoid": []
+  },
+  "style_prompt_terms": [],
+  "negative_prompt_terms": [],
+  "one_paragraph_summary": ""
+}

@@ -1,0 +1,23 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Depth Chart Assignment,depth_chart_assignments,assignmentId,Assignment Id,id,dc_0001,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,programId,Program Id,foreign-key,program_vanderbilt,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,seasonId,Season Id,foreign-key,season_2031,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,weekId,Week Id,foreign-key,week_2031_04,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,positionId,Position Id,foreign-key,pos_qb,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,slot,Slot,integer,1,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,personId,Person Id,foreign-key,person_2031_000123,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Depth Chart Assignment,depth_chart_assignments,status,Status,enum,active,,relationship,Squad selection/lineup as records,FM-derived architecture,M2,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,rivalryId,Rivalry Id,id,rivalry_vandy_tennessee,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,programAId,Program Aid,foreign-key,program_vanderbilt,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,programBId,Program Bid,foreign-key,program_tennessee,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,rivalryName,Rivalry Name,string,,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,intensity,Intensity,integer 1-100,72,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,protectedGame,Protected Game,boolean,true,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Program Rivalry,program_rivalries,startSeasonId,Start Season Id,foreign-key,season_1900,,relationship,RIVALRY,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,scholarshipId,Scholarship Id,id,sch_0001,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,programId,Program Id,foreign-key,program_vanderbilt,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,personId,Person Id,foreign-key,person_2032_000234,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,seasonId,Season Id,foreign-key,season_2031,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,status,Status,enum,offered,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,offerWeekId,Offer Week Id,foreign-key,week_2031_04,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review
+Scholarship Allocation,scholarship_allocations,acceptedWeekId,Accepted Week Id,nullable foreign-key,,,relationship/transaction,CONTRACT_OFFER analogue for scholarships,domain-design,M3,,,No,Yes,,pending-review

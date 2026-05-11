@@ -1,0 +1,19 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Scouting Report,scouting_reports,reportId,Report Id,id,scout_0001,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,subjectType,Subject Type,enum,person,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,subjectId,Subject Id,foreign-key,person_2032_000234,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,programId,Program Id,foreign-key,program_vanderbilt,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,scoutCoachId,Scout Coach Id,foreign-key,coach_004,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,createdWeekId,Created Week Id,foreign-key,week_2031_04,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,freshness,Freshness,integer 0-100,92,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,overallGrade,Overall Grade,string,B+,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,certainty,Certainty,integer 0-100,41,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,biasProfileId,Bias Profile Id,foreign-key,bias_qb_arm_strength,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Scouting Report,scouting_reports,summaryTemplateId,Summary Template Id,foreign-key,scout_summary_qb_v1,,scouting/knowledge,SCOUTED_PERSON/SCOUTED_TEAM_INFO,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,knowledgeSnapshotId,Knowledge Snapshot Id,id,know_0001,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,reportId,Report Id,foreign-key,scout_0001,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,fieldPath,Field Path,string,ratings.throwPower,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,estimatedLow,Estimated Low,number,72,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,estimatedHigh,Estimated High,number,86,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,trueValueVisible,True Value Visible,boolean,false,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review
+Knowledge Snapshot,knowledge_snapshots,confidence,Confidence,integer 0-100,45,Scouting Report,snapshot,Attribute snapshots with certainty,FM-derived architecture,M3,,,No,Yes,,pending-review

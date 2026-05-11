@@ -1,0 +1,35 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Simulation Run,simulation_runs,simRunId,Sim Run Id,id,simrun_0001,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,runType,Run Type,enum,game,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,seed,Seed,string,sim-2031-0042,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,rulesetId,Ruleset Id,foreign-key,ruleset_modern_2026,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,startedAt,Started At,datetime,,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,completedAt,Completed At,datetime,,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,status,Status,enum,complete,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Simulation Run,simulation_runs,invariantSummaryJson,Invariant Summary Json,json,,,simulation/log,Headless/debug world sim affordances,FM-derived architecture,M3,,,No,Yes,,pending-review
+Play Event,play_events,playEventId,Play Event Id,id,play_0001,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,gameId,Game Id,foreign-key,game_2031_0042,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,driveId,Drive Id,foreign-key,drive_0001,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,quarter,Quarter,integer,1,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,clock,Clock,string,12:44,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,down,Down,integer,2,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,distance,Distance,integer,7,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,fieldPosition,Field Position,integer,38,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,offenseProgramId,Offense Program Id,foreign-key,program_vanderbilt,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,defenseProgramId,Defense Program Id,foreign-key,program_kentucky,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,personnelGroupId,Personnel Group Id,foreign-key,personnel_11,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,formationId,Formation Id,foreign-key,formation_trips,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,conceptId,Concept Id,foreign-key,concept_inside_zone_glance,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,defensiveCallId,Defensive Call Id,foreign-key,def_call_quarters,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,yardsGained,Yards Gained,integer,14,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,resultType,Result Type,enum,complete_pass,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Event,play_events,explanation,Explanation,text,,Simulation Run,simulation/history,Match event tables with probability/explanation hooks,planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,conflictId,Conflict Id,id,conflict_0001,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,playEventId,Play Event Id,foreign-key,play_0001,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,conflictType,Conflict Type,enum,apex_read,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,offensePersonId,Offense Person Id,nullable foreign-key,person_2031_000123,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,defensePersonId,Defense Person Id,nullable foreign-key,person_2031_000987,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,relevantAttributeIds,Relevant Attribute Ids,array<foreign-key>,"processing,eye_discipline",Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,winProbability,Win Probability,number,0.58,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,winnerSide,Winner Side,enum,offense,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review
+Play Conflict,play_conflicts,creditBlameJson,Credit Blame Json,json,,Play Event,simulation/history,"Sim decisive conflicts, not 22 full agents first",planning-doc,M5,,,No,Yes,,pending-review

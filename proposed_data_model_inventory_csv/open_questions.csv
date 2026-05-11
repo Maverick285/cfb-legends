@@ -1,0 +1,7 @@
+﻿Question,Affected Entity / Table,Why It Matters,Default Recommendation,Decision Needed By,Approval Status
+Should Coach and Staff be separate profile facets or one non-player profile with role definitions?,"coach_profiles, staff_assignments",Affects hiring/staff carousel shape.,Use Person + CoachProfile + role/assignment tables.,Before M2,pending-review
+Should recruits become athlete_profiles immediately or only after enrollment?,"recruiting_profiles, athlete_profiles",Affects true ratings and profile pages.,"Create Person + AthleteProfile early, gate roster membership until enrollment.",Before M3,pending-review
+How much true rating data should exist before scouting?,"rating snapshots, knowledge snapshots",Affects generation and scouting uncertainty.,Always generate true ratings; expose only knowledge snapshots.,Before M3,pending-review
+Should real schools be base data or optional content pack?,"schools, programs",Legal/modding/product direction.,Keep schema neutral; load school packs separately.,Before content build,pending-review
+How strict should first ruleset be about NCAA details?,"rulesets, constraints",Complexity vs realism.,Create simplified modern ruleset with explicit version.,Before M1,pending-review
+What is the initial database target?,all tables,Static JSON vs SQLite affects implementation.,"Prototype with TypeScript schemas and JSON seed, design table names as SQLite-ready.",Before coding new game,pending-review

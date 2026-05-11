@@ -1,0 +1,29 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Scheduled Game,scheduled_games,gameId,Game Id,id,game_2031_0042,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,seasonId,Season Id,foreign-key,season_2031,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,weekId,Week Id,foreign-key,week_2031_04,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,homeProgramId,Home Program Id,foreign-key,program_vanderbilt,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,awayProgramId,Away Program Id,foreign-key,program_kentucky,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,siteType,Site Type,enum,home,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,stadiumId,Stadium Id,foreign-key,stadium_vandy,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,kickoffTime,Kickoff Time,datetime,2031-09-20T19:30:00,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,isConferenceGame,Is Conference Game,boolean,true,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,isRivalryGame,Is Rivalry Game,boolean,false,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,tvNetworkId,Tv Network Id,nullable foreign-key,network_sec,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Scheduled Game,scheduled_games,status,Status,enum,scheduled,,calendar/world,FIXTURE/TEAM_FUTURE_FIXTURE/FIXTURE_TO_PLAY,FM-derived architecture,M2,,,No,Yes,,pending-review
+Game Result,game_results,resultId,Result Id,id,result_0001,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,gameId,Game Id,foreign-key,game_2031_0042,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,homeScore,Home Score,integer,27,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,awayScore,Away Score,integer,24,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,quarterScoresJson,Quarter Scores Json,json,,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,winnerProgramId,Winner Program Id,foreign-key,program_vanderbilt,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,playedAt,Played At,datetime,,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,simRunId,Sim Run Id,foreign-key,simrun_0001,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Game Result,game_results,resultSummaryEventId,Result Summary Event Id,foreign-key,event_0044,Scheduled Game,history,FIXTURE_RESULT/FIXTURE_RECORD,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,statLineId,Stat Line Id,id,pgs_0001,Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,gameId,Game Id,foreign-key,game_2031_0042,Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,personId,Person Id,foreign-key,person_2031_000123,Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,programId,Program Id,foreign-key,program_vanderbilt,Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,positionId,Position Id,foreign-key,pos_qb,Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,statCategory,Stat Category,enum,passing,Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review
+Player Game Stat,player_game_stats,statsJson,Stats Json,json,"{yards:244,td:2,int:1}",Game Result,history/stat,PLAYER_STATS_HISTORY,FM-derived architecture,M5,,,No,Yes,,pending-review

@@ -1,0 +1,39 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+Coach Profile,coach_profiles,personId,Person Id,foreign-key,person_coach_001,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,primaryRoleId,Primary Role Id,foreign-key,role_head_coach,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,age,Age,integer,48,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,reputation,Reputation,integer 0-100,74,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,offensivePhilosophyId,Offensive Philosophy Id,foreign-key,scheme_spread_option,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,defensivePhilosophyId,Defensive Philosophy Id,foreign-key,scheme_425,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,personalityId,Personality Id,foreign-key,coach_detail_oriented,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,ambition,Ambition,integer 1-20,15,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,loyalty,Loyalty,integer 1-20,11,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Profile,coach_profiles,pressureHandling,Pressure Handling,integer 1-20,14,Person,facet,NON_PLAYER live profile attached to person,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,snapshotId,Snapshot Id,id,coach_attr_0001,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,personId,Person Id,foreign-key,person_coach_001,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,weekId,Week Id,foreign-key,week_2031_04,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,recruiting,Recruiting,integer 1-20,16,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,playerDevelopment,Player Development,integer 1-20,13,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,playCalling,Play Calling,integer 1-20,15,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,scouting,Scouting,integer 1-20,12,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,motivation,Motivation,integer 1-20,14,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,discipline,Discipline,integer 1-20,10,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,nilInfluence,Nil Influence,integer 1-20,9,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Attribute Snapshot,coach_attribute_snapshots,certainty,Certainty,integer 0-100,100,Coach Profile,history/snapshot,NON_PLAYER_ATTRIBUTE_SNAPSHOT,FM-derived architecture,M2,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,contractId,Contract Id,id,coach_contract_0001,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,personId,Person Id,foreign-key,person_coach_001,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,programId,Program Id,foreign-key,program_vanderbilt,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,roleId,Role Id,foreign-key,role_oc,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,startSeasonId,Start Season Id,foreign-key,season_2031,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,endSeasonId,End Season Id,foreign-key,season_2033,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,salary,Salary,currency,850000,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,buyout,Buyout,currency,300000,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,status,Status,enum,active,Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Coach Contract,coach_program_contracts,responsibilityJson,Responsibility Json,json,{recruitingRegion:'TX'},Coach Profile,relationship/transaction,FULL_CONTRACT/CONTRACT_OFFER pattern,FM-derived architecture,M3,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,assignmentId,Assignment Id,id,staff_asg_0001,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,coachContractId,Coach Contract Id,foreign-key,coach_contract_0001,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,assignmentType,Assignment Type,enum,recruiting_region,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,targetId,Target Id,foreign-key,region_texas,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,priority,Priority,integer 1-5,4,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,startWeekId,Start Week Id,foreign-key,week_2031_01,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review
+Staff Assignment,staff_assignments,endWeekId,End Week Id,nullable foreign-key,,Coach Contract,relationship,STAFFING_POLICY,FM-derived architecture,M4,,,No,Yes,,pending-review

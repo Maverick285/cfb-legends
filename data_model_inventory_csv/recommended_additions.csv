@@ -1,0 +1,138 @@
+﻿Entity,Recommended Field,Data Type,Why Needed,Screen Usage,Simulation Usage,Priority,Approval Status
+Player,last name,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Player,year/class,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Player,NIL status,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Player,captain status,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Player,playing time expectation,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Player Rating,ballCarrying,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,catching,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,routeRunning,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,firstTouch,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,passBlocking,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,runBlocking,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,passRush,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,determination,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,injuryProneness,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,importantGames,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,sportsmanship,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,top speed,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,red zone feel,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,long snapping,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,return vision,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Rating,return ball security,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Development,learning speed,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Development,training load,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Development,injuryProneness,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Development,importantGames,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Player Development,determination,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Recruit,offer amount,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Recruit,scouting grade,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Coach,offensive philosophy,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Coach,defensive philosophy,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Coach,recruiting ability,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Coach,previous schools,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Staff,NIL director,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Team,school id,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,offense rating,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,defense rating,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,special teams rating,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,facilities grade,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,academic grade,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,NIL collective grade,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Team,scholarships available,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Program,headCoachProfileId,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,schoolProfileId,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,stadiumProfileId,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,basePrestige,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,baseFanConfidence,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,baseDonorConfidence,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,baseAcademicStability,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,booster support,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,athletic budget,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,facilities level,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,stadium level,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,academic reputation,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,pipeline states,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,historical wins,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,bowl history,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,playoff expectations,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Program,historicalRecords,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,accentColor,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,darkNeutral,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,lightNeutral,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,headerStart,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,headerEnd,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,buttonStart,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,buttonEnd,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,mascot type,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,primary logo,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,alternate logo,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,helmet decal,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,field logo,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,jersey wordmark,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,scoreboard logo,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+School Brand,stripe pattern,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,last renovation,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,surface quality,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,home field advantage,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,noise rating,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,seating tiers,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,club seats,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,scoreboard type,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,atmosphere rating,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,expansion options,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Stadium,upgrade completion date,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,uniform set name,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,helmet model,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,helmet shell color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,facemask color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,jersey base color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,jersey number color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,sleeve stripe,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,pants color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,pants stripe,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,socks color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,gloves color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,cleats color,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Uniform,home/away/alternate/rivalry designation,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+NIL,NIL budget total,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+NIL,collective name,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+NIL,recruit NIL demand,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+NIL,offer amount,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+NIL,social following,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Game,home team,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Game,kickoff time,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Game,bowl/playoff flag,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Game,ourScore,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Game,oppScore,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Schedule,schedule id,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Schedule,ranked opponent,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Schedule,dateLabel,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Schedule,weekLabel,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Schedule,nextEvent,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Schedule,linkedRoute,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Ranking,teamGrade,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Ranking,strengthOfSchedule,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Simulation,play id,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,read defender,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,primary conflict,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,turnover probability,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,penalty probability,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,responsible players,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,explanation note,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,driveIndex,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,gameIndex,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,homeTendencies,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,homeGamePlan,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,tacticalProfile,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Simulation,injuryCadencePercent,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,High,pending-review
+Playbook / Scheme,personnel grouping,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,play tag,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,run/pass/RPO/play-action/screen,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,required skills,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,stressed defenders,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,situation preferences,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,red zone suitability,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,short-yardage suitability,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,explosive potential,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review
+Playbook / Scheme,risk level,TBD,Included in requested review scope but not found as an active field.,TBD,TBD,Medium,pending-review

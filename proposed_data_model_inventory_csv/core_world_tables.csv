@@ -1,0 +1,25 @@
+﻿Logical Entity,Table / Store,Field Name,Display Label,Data Type,Example Value,Parent Entity,Entity Layer,FM-Inspired Pattern,Source Basis,Build Phase,Screen Usage,Simulation Usage,Editable By User?,Persistence Needed?,Notes,Approval Status
+World Save,world_saves,worldId,World Id,id,world_0001,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,saveSchemaVersion,Save Schema Version,integer,1,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,baseWorldVersion,Base World Version,string,cfl_base_2026_01,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,rulesetId,Ruleset Id,foreign-key,ruleset_modern_2026,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,worldSeed,World Seed,string,lakeview-2031-001,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,userProgramId,User Program Id,foreign-key,program_vanderbilt,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,currentSeasonId,Current Season Id,foreign-key,season_2031,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,currentWeekId,Current Week Id,foreign-key,week_2031_04,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,currentPhaseId,Current Phase Id,foreign-key,regular_season,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,createdAt,Created At,datetime,2031-01-01T00:00:00Z,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+World Save,world_saves,updatedAt,Updated At,datetime,2031-09-18T12:00:00Z,,world,WORLD store with versioned save metadata,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,objectRefId,Object Ref Id,id,ref_player_123,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,objectType,Object Type,enum,player,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,objectId,Object Id,id,person_123,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,parentType,Parent Type,enum,program,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,parentId,Parent Id,id,program_vanderbilt,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,sourceWorkspaceId,Source Workspace Id,foreign-key,roster,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Object Reference,object_refs,intent,Intent,enum,open_profile,,resource,Object link/action target pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Migration,schema_migrations,migrationId,Migration Id,id,migration_0001,,persistence,Database version and patch overlay pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Migration,schema_migrations,fromVersion,From Version,integer,1,,persistence,Database version and patch overlay pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Migration,schema_migrations,toVersion,To Version,integer,2,,persistence,Database version and patch overlay pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Migration,schema_migrations,subsystem,Subsystem,string,recruiting,,persistence,Database version and patch overlay pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Migration,schema_migrations,appliedAt,Applied At,datetime,,,persistence,Database version and patch overlay pattern,FM-derived architecture,M0,,,No,Yes,,pending-review
+Migration,schema_migrations,notes,Notes,text,,,persistence,Database version and patch overlay pattern,FM-derived architecture,M0,,,No,Yes,,pending-review

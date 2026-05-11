@@ -1,0 +1,51 @@
+asset_id,file_name,category,screen_family,description,recommended_format,base_size,static_dynamic,priority,states_variants,dynamic_slots,notes
+A001,game_logo_full_light.svg,branding,global,"Full College Football Legends logo, light/white version",SVG,display 240-340w,static,P0,,,Vector preferred.
+A002,game_logo_full_gold.svg,branding,global,Full logo gold/prestige version,SVG,display 240-340w,static,P0,,,Use on premium/signing screens.
+A003,game_logo_compact_light.svg,branding,global,Compact mark for tight headers,SVG,display 120-180w,static,P0,,,
+A004,game_logo_sidebar.svg,branding,global,Sidebar logo lockup,SVG,display 140-220w,static,P0,,,
+A005,bg_app_texture_dark_tile_512x512.webp,background,global,Subtle dark reusable app background texture tile,WebP,512x512,static,P0,,,Tileable; very subtle.
+A006,shell_header_bg_neutral_1920x120.png,shell,global,Neutral dark top header background,PNG or CSS,1920x120,hybrid,P0,neutral/team/gold,team tint optional,Prefer CSS if possible.
+A007,shell_sidebar_bg_256x1080.png,shell,global,Left sidebar dark background,PNG or CSS,256x1080,hybrid,P0,,active nav color,Can be CSS gradient.
+A008,shell_footer_ticker_bg_1920x48.png,shell,global,Bottom ticker/controller hint strip,PNG or CSS,1920x48,hybrid,P0,ticker/controller,ticker text,
+A009,panel_standard_bg_640x360.png,panel,global,Standard scalable panel/card skin,9-slice PNG or CSS,640x360,hybrid,P0,standard/selected/disabled,content data,Prefer 9-slice/CSS.
+A010,panel_summary_bg_420x220.png,panel,global,Medium summary card skin,9-slice PNG or CSS,420x220,hybrid,P0,normal/highlighted,content data,
+A011,panel_detail_right_420x760.png,panel,global,Right detail panel skin,9-slice PNG or CSS,420x760,hybrid,P0,normal/selected,profile data,
+A012,panel_table_bg_1280x720.png,panel,global,Large table container background,9-slice PNG or CSS,1280x720,hybrid,P0,,table data,
+A013,divider_horizontal_subtle_1024x2.png,divider,global,Subtle horizontal divider,PNG/SVG/CSS,1024x2,static,P0,subtle/gold/team,,
+A014,accent_corner_tl.svg,accent,global,Decorative panel corner bracket,SVG,scalable,static,P1,tl/tr/bl/br,,
+A015,btn_primary_team_idle_260x48.png,button,global,Primary CTA button skin,9-slice PNG or CSS,260x48,hybrid,P0,idle/hover/pressed/disabled,button label,Prefer tintable.
+A016,btn_primary_gold_idle_260x48.png,button,global,Gold CTA button skin,9-slice PNG or CSS,260x48,hybrid,P0,idle/hover/pressed,button label,
+A017,icon_family_core.svg,icons,global,SVG icon family: nav/features/actions,SVG,16/20/24/32/48,static,P0,inactive/active maybe via CSS,color token,Use separate SVGs or symbol sprite.
+A018,rating_ring_frame.svg,widget,global,Circular rating/progress ring frame,SVG,96x96 scalable,hybrid,P0,ovr/off/def/st,"value, progress, color",Progress arc should be code-rendered.
+A019,star_full_gold.svg,widget,global,Gold full star icon,SVG,20x20,static,P0,full/half/empty,,
+A020,grade_badge_frame.svg,widget,global,Grade badge frame for A-F grades,SVG/CSS,80x80,hybrid,P0,A/B/C/D/F color states,grade text,
+A021,progress_bar_frame_240x12.png,widget,global,Progress bar background/frame,PNG/CSS,240x12,hybrid,P0,success/warning/danger/team,percent value,Fill in code.
+A022,status_pill_bg.svg,widget,global,Status pill shape,SVG/CSS,auto,hybrid,P0,success/warning/danger/neutral,label,
+A023,row_selected_highlight_team.png,table,global,Selected table/list row highlight,PNG/CSS,variable x 72,hybrid,P0,team/gold,selection state,Prefer CSS.
+A024,matchup_banner_full_980x180.png,widget,dashboard/postgame,Two-team matchup banner frame,PNG/SVG/CSS,980x180,hybrid,P1,upcoming/final/rivalry,"teams, logos, records, score",
+A025,score_banner_postgame_1280x180.png,widget,postgame,Postgame score banner frame,PNG/SVG/CSS,1280x180,hybrid,P1,final/ranked/rivalry,"teams, score, line score",
+A026,chart_donut_frame.svg,chart,nil/recruiting,Donut chart frame/background,SVG/CSS,220x220,hybrid,P1,,"segments, labels",Chart segments in code.
+A027,chart_line_container_320x180.png,chart,nil/program,Trend chart container,PNG/CSS,320x180,hybrid,P2,,points/labels,Line in code.
+A028,dashboard_teamhub_hero_frame_820x280.png,screen,dashboard,Hero image frame for team hub card,PNG/CSS,820x280,hybrid,P1,,"hero image, stats",
+A029,dashboard_stats_strip_820x88.png,screen,dashboard,Wide stat strip below hero,PNG/CSS,820x88,hybrid,P1,,stat labels/values,
+A030,recruiting_detail_header_bg_420x120.png,screen,recruiting,Prospect detail panel header graphic,PNG/CSS,420x120,hybrid,P1,,prospect name/rank/position,
+A031,recruiting_attribute_bar_bg_240x12.png,screen,recruiting,Attribute bar background,PNG/CSS,240x12,hybrid,P1,,attribute value,
+A032,signingday_hero_bg_1920x1080.webp,screen,signing_day,Cinematic Signing Day background,WebP,1920x1080,static,P3,,,Can be generated art.
+A033,signingday_signed_stamp.png,screen,signing_day,SIGNED stamp overlay,PNG,400x180,static,P2,,,Transparent background.
+A034,nil_budget_card_bg_420x220.png,screen,nil,NIL budget card frame,PNG/CSS,420x220,hybrid,P2,,budget numbers,Likely standard panel variant.
+A035,stadium_builder_preview_frame_960x420.png,screen,stadium_builder,Large stadium preview viewport frame,PNG/CSS,960x420,hybrid,P1,,stadium image,
+A036,stadium_builder_seating_diagram_base.svg,screen,stadium_builder,Top-down seating diagram base,SVG,520x260,hybrid,P1,,section fills/counts,Base geometry static; colors dynamic.
+A037,stadium_builder_option_card_280x140.png,screen,stadium_builder,Expansion option card frame,PNG/CSS,280x140,hybrid,P1,normal/selected/disabled,"cost, seats, impact",
+A038,uniform_creator_preview_stage_860x560.png,screen,uniform_creator,Uniform preview stage frame,PNG/CSS,860x560,hybrid,P1,,uniform model layers,
+A039,uniform_mannequin_base_front.png,content,uniform_creator,Base uniform mannequin front view,PNG,source 1024x1536,hybrid,P2,,colors/layers/decals,Consider 3D later.
+A040,uniform_mannequin_base_side.png,content,uniform_creator,Base uniform mannequin side view,PNG,source 1024x1536,hybrid,P2,,colors/layers/decals,
+A041,uniform_mannequin_base_back.png,content,uniform_creator,Base uniform mannequin back view,PNG,source 1024x1536,hybrid,P2,,colors/layers/decals,
+A042,school_creator_stepper_bg_960x48.png,screen,school_creator,Wizard stepper background,PNG/CSS,960x48,hybrid,P1,,step state,
+A043,school_creator_identity_preview_card_360x220.png,screen,school_creator,Identity preview card frame,PNG/CSS,360x220,hybrid,P1,,name/logo/colors,
+A044,skilltree_node_locked.svg,screen,coaching_upgrades,Skill node locked state,SVG,64x64,hybrid,P1,locked/unlocked/selected/maxed,skill icon/level,
+A045,skilltree_connector_active.svg,screen,coaching_upgrades,Skill connector active line,SVG/CSS,variable,hybrid,P1,active/inactive,,
+A046,skilltree_detail_panel_360x420.png,screen,coaching_upgrades,Selected skill detail panel,PNG/CSS,360x420,hybrid,P1,,skill data,
+A047,macrohub_tile_bg_320x180.png,screen,macro_hub,Large hub navigation tile,PNG/CSS,320x180,hybrid,P1,normal/selected/disabled,icon/title/description,
+A048,postgame_grade_card_280x180.png,screen,postgame,Postgame grade card frame,PNG/CSS,280x180,hybrid,P1,A/B/C/D/F,"grade, stats, text",
+A049,postgame_keymoments_panel_420x240.png,screen,postgame,Key moments panel frame,PNG/CSS,420x240,hybrid,P1,,moment list,
+A050,campus_facility_node_frame.svg,screen,campus_map,Facility node label frame,SVG/CSS,220x72,hybrid,P2,normal/hover/selected,"icon,title,subtitle",

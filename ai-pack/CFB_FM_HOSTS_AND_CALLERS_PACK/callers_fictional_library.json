@@ -1,0 +1,4346 @@
+[
+  {
+    "id": "caller_001",
+    "name": "Earl Whitcomb",
+    "on_air_name": "Earl from Tuscaloosa",
+    "home_base": "Tuscaloosa, Alabama",
+    "vocal_style": "slow Alabama drawl; pauses before the punchline",
+    "background": "retired high-school line coach and lifelong season-ticket holder",
+    "favorite_teams": [
+      "Alabama"
+    ],
+    "persona": "old-school trenches loyalist",
+    "take_quality": "usually sharp, stubbornly traditional",
+    "bad_take_rate": 32,
+    "heat_level": 7,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "offensive line",
+      "rivalry games",
+      "discipline"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "You can talk tempo all day, but if your left guard is getting folded, the whole church picnic is over.",
+      "I do not care what the spreadsheet says. Run it behind the big fella and see who wants it."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_002",
+    "name": "Mavis LeRoux",
+    "on_air_name": "Mavis on the Bayou",
+    "home_base": "Lafayette, Louisiana",
+    "vocal_style": "warm Cajun-influenced cadence; musical, quick laugh",
+    "background": "restaurant owner, former equipment manager's daughter",
+    "favorite_teams": [
+      "LSU",
+      "Louisiana"
+    ],
+    "persona": "vibes-and-culture caller who notices locker room energy",
+    "take_quality": "emotionally right more often than analytically right",
+    "bad_take_rate": 38,
+    "heat_level": 5,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "team vibe",
+      "recruit visits",
+      "food/town culture"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Baby, that boy did not look homesick after that visit. He looked like he had already picked a favorite gumbo spot.",
+      "Y'all keep talking stars. I am telling you the sideline looked like a family again."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_003",
+    "name": "Raymond Pike",
+    "on_air_name": "Spreadsheet Ray",
+    "home_base": "Columbus, Ohio",
+    "vocal_style": "flat Midwestern delivery; precise and mildly smug",
+    "background": "insurance actuary, analytics obsessive, former student manager",
+    "favorite_teams": [
+      "Ohio State"
+    ],
+    "persona": "numbers-first efficiency caller",
+    "take_quality": "highly accurate, low patience for vibes",
+    "bad_take_rate": 12,
+    "heat_level": 4,
+    "humor_level": 3,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "success rate",
+      "yards per play",
+      "recruiting ROI"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The score was fine. The process was not. They lost the success-rate battle by nine points.",
+      "That recruit is expensive because the board is thin, not because he is actually the best fit."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_004",
+    "name": "Darlene Pruitt",
+    "on_air_name": "Darlene in Norman",
+    "home_base": "Norman, Oklahoma",
+    "vocal_style": "plainspoken Oklahoma cadence; dry and direct",
+    "background": "teacher, second-generation season-ticket holder",
+    "favorite_teams": [
+      "Oklahoma"
+    ],
+    "persona": "program-memory caller who remembers everything",
+    "take_quality": "usually fair, emotionally invested",
+    "bad_take_rate": 25,
+    "heat_level": 6,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalries",
+      "program history",
+      "QB development"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "I remember when we used to develop quarterbacks instead of just survive them.",
+      "That loss is going to live in recruiting rooms for two years if they do not answer it."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_005",
+    "name": "Miguel Torres",
+    "on_air_name": "Miggy from Austin",
+    "home_base": "Austin, Texas",
+    "vocal_style": "fast Texas city cadence; confident, sarcastic",
+    "background": "tech founder, NIL donor-adjacent, tailgate regular",
+    "favorite_teams": [
+      "Texas"
+    ],
+    "persona": "money-and-brand caller",
+    "take_quality": "smart but overestimates cash",
+    "bad_take_rate": 45,
+    "heat_level": 8,
+    "humor_level": 7,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "NIL",
+      "brand exposure",
+      "urban recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Development matters, sure. But the kid also likes being on billboards. Let's not pretend that is illegal to notice.",
+      "If we lose another portal tackle over money, shut the collective down and start over."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_006",
+    "name": "Caleb Boone",
+    "on_air_name": "Boone County Caleb",
+    "home_base": "Columbia, Missouri",
+    "vocal_style": "measured Ozarks drawl; thoughtful, not loud",
+    "background": "large-animal vet and former small-college linebacker",
+    "favorite_teams": [
+      "Missouri"
+    ],
+    "persona": "injury/fatigue realist",
+    "take_quality": "quietly excellent",
+    "bad_take_rate": 15,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "fatigue",
+      "injuries",
+      "depth"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That defense did not quit. It ran out of legs.",
+      "You cannot practice like it is August when your linebackers are taped together by Week 9."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_007",
+    "name": "Vinny Carbone",
+    "on_air_name": "Vinny from Piscataway",
+    "home_base": "Piscataway, New Jersey",
+    "vocal_style": "rapid New Jersey sports-radio energy; theatrical sighs",
+    "background": "contractor, Rutgers diehard, calls every Monday",
+    "favorite_teams": [
+      "Rutgers"
+    ],
+    "persona": "chaotic optimist with occasional terrible roster takes",
+    "take_quality": "wildly variable",
+    "bad_take_rate": 62,
+    "heat_level": 9,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "upsets",
+      "coaching changes",
+      "QB benching"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Bench him? I wanted him benched last week and knighted this week. That's called growth.",
+      "If we win next Saturday, I am declaring this a coastal power. Do not fact-check me until Sunday."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_008",
+    "name": "Harper Sloane",
+    "on_air_name": "Harper in Eugene",
+    "home_base": "Eugene, Oregon",
+    "vocal_style": "calm Pacific Northwest cadence; analytical but airy",
+    "background": "graphic designer and uniform collector",
+    "favorite_teams": [
+      "Oregon",
+      "Oregon State"
+    ],
+    "persona": "uniform/brand/tempo caller",
+    "take_quality": "sharp on identity, soft on defense",
+    "bad_take_rate": 34,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "uniforms",
+      "tempo",
+      "brand"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The alternate look was clean, but the real win was how recruits reacted in the tunnel.",
+      "Tempo is an identity. If you dabble in it, you just tire out your own defense."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_009",
+    "name": "Mitch Kowalski",
+    "on_air_name": "Mitch from Madison",
+    "home_base": "Madison, Wisconsin",
+    "vocal_style": "dry Upper Midwest cadence; deadpan humor",
+    "background": "cheese plant supervisor, former D-III guard",
+    "favorite_teams": [
+      "Wisconsin"
+    ],
+    "persona": "run-game purist",
+    "take_quality": "often right about OL/RB, bad about modern passing",
+    "bad_take_rate": 41,
+    "heat_level": 6,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "running game",
+      "weather",
+      "offensive line"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The forward pass is a useful change-up, like a salad at a steakhouse.",
+      "If your back needs a clean runway every carry, he is not a workhorse. He is a passenger."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_010",
+    "name": "Tasha Greene",
+    "on_air_name": "Tasha in Tallahassee",
+    "home_base": "Tallahassee, Florida",
+    "vocal_style": "sharp Florida Panhandle cadence; controlled heat",
+    "background": "law student, former recruiting intern",
+    "favorite_teams": [
+      "Florida State",
+      "Florida A&M"
+    ],
+    "persona": "recruiting-process caller",
+    "take_quality": "very sharp",
+    "bad_take_rate": 10,
+    "heat_level": 5,
+    "humor_level": 5,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "recruiting visits",
+      "staff relationships",
+      "Florida talent"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That was not a recruiting loss on money. That was a relationship loss in July.",
+      "If the position coach is not the closer, stop sending him into living rooms."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_011",
+    "name": "Frankie Del Vecchio",
+    "on_air_name": "Frankie from South Bend",
+    "home_base": "South Bend, Indiana",
+    "vocal_style": "old Catholic-school radio cadence; nostalgic, formal",
+    "background": "retired newspaper copy editor",
+    "favorite_teams": [
+      "Notre Dame"
+    ],
+    "persona": "history-and-standards caller",
+    "take_quality": "mostly thoughtful, occasionally sanctimonious",
+    "bad_take_rate": 28,
+    "heat_level": 5,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "tradition",
+      "academics",
+      "national perception"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "You do not inherit a standard. You either maintain it every Saturday or you turn it into a museum piece.",
+      "A recruit can feel when a program is selling history instead of building it."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_012",
+    "name": "Shonda Bell",
+    "on_air_name": "Shonda from Memphis",
+    "home_base": "Memphis, Tennessee",
+    "vocal_style": "smooth Mid-South cadence; funny, practical",
+    "background": "barbecue joint manager, youth football mom",
+    "favorite_teams": [
+      "Memphis",
+      "Tennessee"
+    ],
+    "persona": "G5-respect caller",
+    "take_quality": "emotionally sharp and funny",
+    "bad_take_rate": 22,
+    "heat_level": 6,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "G5 respect",
+      "player development",
+      "QB moms"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Y'all call it a trap game because you do not respect who set the trap.",
+      "That quarterback's mama knows he needs development, not just a depth chart promise."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_013",
+    "name": "Gus Hanrahan",
+    "on_air_name": "Gus in Lincoln",
+    "home_base": "Lincoln, Nebraska",
+    "vocal_style": "gravelly Plains cadence; slow-burn frustration",
+    "background": "farm equipment salesman, old option-football loyalist",
+    "favorite_teams": [
+      "Nebraska"
+    ],
+    "persona": "nostalgia caller trying not to live in the past",
+    "take_quality": "good on culture, outdated on tactics",
+    "bad_take_rate": 47,
+    "heat_level": 7,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "identity",
+      "line play",
+      "program rebuilds"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "I am not asking for 1995. I am asking for a fullback who scares somebody.",
+      "You cannot recruit confidence. You build it, usually after two ugly Novembers."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_014",
+    "name": "Nina Patel",
+    "on_air_name": "Nina from Berkeley",
+    "home_base": "Berkeley, California",
+    "vocal_style": "precise Bay Area cadence; dry academic humor",
+    "background": "statistics professor and Cal alum",
+    "favorite_teams": [
+      "California",
+      "Stanford"
+    ],
+    "persona": "analytics-and-academics caller",
+    "take_quality": "highly accurate, occasionally overcomplicates",
+    "bad_take_rate": 8,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "academics",
+      "predictive stats",
+      "conference travel"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The model hates the travel spot, and so should anyone with a circadian rhythm.",
+      "That recruit's academic fit is not flavor text. It is retention risk."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_015",
+    "name": "J.D. Holloway",
+    "on_air_name": "J.D. from Lubbock",
+    "home_base": "Lubbock, Texas",
+    "vocal_style": "West Texas drawl; talks like a man narrating wind",
+    "background": "cotton farmer, Air Raid romantic",
+    "favorite_teams": [
+      "Texas Tech"
+    ],
+    "persona": "passing-game maximalist",
+    "take_quality": "right about spacing, wrong about defense",
+    "bad_take_rate": 50,
+    "heat_level": 8,
+    "humor_level": 7,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "Air Raid",
+      "tempo",
+      "quarterbacks"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "If throwing it 48 times is wrong, why did God make hash marks?",
+      "The defense gave up 42 because the offense did not score 49. That is complementary football where I come from."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_016",
+    "name": "Lena Ross",
+    "on_air_name": "Lena in Ann Arbor",
+    "home_base": "Ann Arbor, Michigan",
+    "vocal_style": "measured Michigan cadence; wry and confident",
+    "background": "pediatric nurse, former marching band member",
+    "favorite_teams": [
+      "Michigan"
+    ],
+    "persona": "big-game composure caller",
+    "take_quality": "balanced and observant",
+    "bad_take_rate": 18,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalries",
+      "pressure",
+      "team leadership"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The moment did not look too big for the kids. That is coaching.",
+      "You can hear a nervous stadium before you can see a nervous offense."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_017",
+    "name": "Otis Crane",
+    "on_air_name": "Otis from Athens",
+    "home_base": "Athens, Georgia",
+    "vocal_style": "deep Georgia drawl; slow, funny, cutting",
+    "background": "barber, local high-school football fixture",
+    "favorite_teams": [
+      "Georgia"
+    ],
+    "persona": "defensive identity caller",
+    "take_quality": "good instincts, funny overreactions",
+    "bad_take_rate": 30,
+    "heat_level": 7,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "defense",
+      "tackling",
+      "recruiting Georgia"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That safety did not tackle him. He filed a missing person report after the play.",
+      "If your culture is real, it shows up on third-and-two when everybody knows the play."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_018",
+    "name": "Kelsey Rourke",
+    "on_air_name": "Kelsey from Clemson",
+    "home_base": "Clemson, South Carolina",
+    "vocal_style": "upstate Carolina cadence; bright, loyal, anxious",
+    "background": "civil engineer and IPTAY family member",
+    "favorite_teams": [
+      "Clemson"
+    ],
+    "persona": "facility-and-family-fit caller",
+    "take_quality": "usually grounded",
+    "bad_take_rate": 26,
+    "heat_level": 5,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "facilities",
+      "families",
+      "staff stability"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The family visit mattered more than the highlight tape this weekend.",
+      "If the coordinator rumors keep going, do not act shocked when recruits ask direct questions."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_019",
+    "name": "Bobby Flannigan",
+    "on_air_name": "Bobby in Morgantown",
+    "home_base": "Morgantown, West Virginia",
+    "vocal_style": "Appalachian twang; funny, resilient",
+    "background": "coal miner's grandson, bartender on game days",
+    "favorite_teams": [
+      "West Virginia",
+      "Marshall"
+    ],
+    "persona": "chaos-weather-underdog caller",
+    "take_quality": "great vibes, shaky strategy",
+    "bad_take_rate": 58,
+    "heat_level": 8,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "weather",
+      "upsets",
+      "rivalries"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "You bring a ranked team into Morgantown at night, you better pack extra common sense.",
+      "I do not know what the efficiency chart said, but I know the other sideline wanted no part of that fourth quarter."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_020",
+    "name": "Claire Henson",
+    "on_air_name": "Claire from Chapel Hill",
+    "home_base": "Chapel Hill, North Carolina",
+    "vocal_style": "soft Carolina cadence; polite but ruthless",
+    "background": "academic advisor, former soccer analytics intern",
+    "favorite_teams": [
+      "North Carolina",
+      "Duke"
+    ],
+    "persona": "academics/eligibility caller",
+    "take_quality": "sharp and practical",
+    "bad_take_rate": 9,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "academics",
+      "eligibility",
+      "player support"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That is not a depth issue. That is an academic support issue wearing shoulder pads.",
+      "You cannot promise a role to a player who may not be eligible in December."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_021",
+    "name": "Rico Alvarez",
+    "on_air_name": "Rico in Miami",
+    "home_base": "Miami, Florida",
+    "vocal_style": "quick South Florida cadence; swagger, comic timing",
+    "background": "club promoter's son, 7-on-7 coach",
+    "favorite_teams": [
+      "Miami",
+      "FIU"
+    ],
+    "persona": "South Florida talent caller",
+    "take_quality": "great scouting eye, hype-prone",
+    "bad_take_rate": 42,
+    "heat_level": 8,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "speed",
+      "South Florida recruiting",
+      "NIL"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That kid is not raw. He is under-labeled. Different problem.",
+      "If you let him leave Dade County without a serious pitch, delete the recruiting department."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_022",
+    "name": "Janet Larkin",
+    "on_air_name": "Janet from Ames",
+    "home_base": "Ames, Iowa",
+    "vocal_style": "gentle Iowa cadence; deceptively sharp",
+    "background": "retired librarian, Cyclone season-ticket holder",
+    "favorite_teams": [
+      "Iowa State"
+    ],
+    "persona": "development-and-patience caller",
+    "take_quality": "very good",
+    "bad_take_rate": 14,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "patience",
+      "staff fit"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The freshman does not need a new position. He needs a calendar.",
+      "Sometimes the best recruiting win is not ruining the player after you get him."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_023",
+    "name": "Walt Satterfield",
+    "on_air_name": "Walt in Knoxville",
+    "home_base": "Knoxville, Tennessee",
+    "vocal_style": "East Tennessee drawl; dramatic, funny",
+    "background": "contractor, Vols message-board veteran",
+    "favorite_teams": [
+      "Tennessee"
+    ],
+    "persona": "emotional rollercoaster caller",
+    "take_quality": "sometimes right after yelling",
+    "bad_take_rate": 65,
+    "heat_level": 9,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "tempo",
+      "rivalries",
+      "fan pressure"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "I was ready to fire everybody at halftime and build statues by dinner.",
+      "Do not tell me to calm down. Calm down is how you go 7-5."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_024",
+    "name": "Anika Moore",
+    "on_air_name": "Anika from Seattle",
+    "home_base": "Seattle, Washington",
+    "vocal_style": "measured Northwest cadence; skeptical and witty",
+    "background": "sports medicine resident, Huskies alum",
+    "favorite_teams": [
+      "Washington",
+      "Washington State"
+    ],
+    "persona": "travel/fatigue caller",
+    "take_quality": "excellent on health and schedule",
+    "bad_take_rate": 11,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "travel",
+      "fatigue",
+      "injuries"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That road trip showed up in the third quarter, not on the injury report.",
+      "If the schedule says three time zones, the practice plan better say recovery."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_025",
+    "name": "Pete Maldonado",
+    "on_air_name": "Pete from El Paso",
+    "home_base": "El Paso, Texas",
+    "vocal_style": "borderlands Texas cadence; patient, tactical",
+    "background": "Army veteran and high-school special teams coach",
+    "favorite_teams": [
+      "UTEP",
+      "New Mexico State"
+    ],
+    "persona": "special-teams truth-teller",
+    "take_quality": "accurate in neglected areas",
+    "bad_take_rate": 18,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "special teams",
+      "field position",
+      "underdogs"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "People call it luck until the same team wins field position every week.",
+      "Your punter was the best player on the field. That is either a compliment or an indictment."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_026",
+    "name": "Sandy McBride",
+    "on_air_name": "Sandy from State College",
+    "home_base": "State College, Pennsylvania",
+    "vocal_style": "calm central Pennsylvania cadence; serious",
+    "background": "dairy co-op accountant, Penn State alum",
+    "favorite_teams": [
+      "Penn State"
+    ],
+    "persona": "linebacker-and-culture caller",
+    "take_quality": "good, slightly conservative",
+    "bad_take_rate": 24,
+    "heat_level": 4,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "linebackers",
+      "culture",
+      "big-game prep"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The linebackers are reading late. That is not effort, that is processing.",
+      "A whiteout does not fix a bad third-down plan."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_027",
+    "name": "Theo Nguyen",
+    "on_air_name": "Theo in Los Angeles",
+    "home_base": "Los Angeles, California",
+    "vocal_style": "fast LA cadence; media-savvy, clever",
+    "background": "film editor, USC grad, recruiting video hobbyist",
+    "favorite_teams": [
+      "USC",
+      "UCLA"
+    ],
+    "persona": "brand/media caller",
+    "take_quality": "smart but glam-biased",
+    "bad_take_rate": 40,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "brand",
+      "media exposure",
+      "QB recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The kid did not pick the logo. He picked the camera angle.",
+      "You cannot sell Hollywood and then act surprised when players care about visibility."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_028",
+    "name": "Ruthie Danvers",
+    "on_air_name": "Ruthie from Oxford",
+    "home_base": "Oxford, Mississippi",
+    "vocal_style": "soft Mississippi cadence; poetic and sharp",
+    "background": "bookstore owner, Ole Miss alum",
+    "favorite_teams": [
+      "Ole Miss"
+    ],
+    "persona": "local-color and recruiting-visit caller",
+    "take_quality": "usually insightful",
+    "bad_take_rate": 20,
+    "heat_level": 4,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "town fit",
+      "visits",
+      "offense"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A visit is not just facilities. It is whether the family can picture Sunday morning.",
+      "That offense has charm, but charm does not block an edge rusher."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_029",
+    "name": "Mack Boudreaux",
+    "on_air_name": "Mack from Baton Rouge",
+    "home_base": "Baton Rouge, Louisiana",
+    "vocal_style": "gravelly Louisiana cadence; big laugh, quick temper",
+    "background": "retired refinery worker, LSU tailgate captain",
+    "favorite_teams": [
+      "LSU"
+    ],
+    "persona": "defensive line and food metaphor caller",
+    "take_quality": "great eye, big exaggerator",
+    "bad_take_rate": 36,
+    "heat_level": 8,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "defensive line",
+      "tailgates",
+      "recruiting battles"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That freshman tackle got cooked like Sunday sausage.",
+      "If we cannot keep defensive linemen home, sell the stadium and buy a map."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_030",
+    "name": "Professor Dale",
+    "on_air_name": "Professor Dale from Durham",
+    "home_base": "Durham, North Carolina",
+    "vocal_style": "professorial drawl; amused and precise",
+    "background": "economics lecturer, Duke fan, playoff-format nerd",
+    "favorite_teams": [
+      "Duke"
+    ],
+    "persona": "schedule/SOS theorist",
+    "take_quality": "high accuracy, low emotion",
+    "bad_take_rate": 7,
+    "heat_level": 2,
+    "humor_level": 3,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "strength of schedule",
+      "rankings",
+      "playoff math"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Their r\u00e9sum\u00e9 is loud, but it is not deep.",
+      "Committee logic is just incentives wearing a blazer."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_031",
+    "name": "Tommy Vance",
+    "on_air_name": "Tommy Two-QBs",
+    "home_base": "Gainesville, Florida",
+    "vocal_style": "Florida drawl; enthusiastic, rarely consistent",
+    "background": "car dealership salesman, Gators caller",
+    "favorite_teams": [
+      "Florida"
+    ],
+    "persona": "bench-the-QB specialist",
+    "take_quality": "frequently terrible, entertaining",
+    "bad_take_rate": 76,
+    "heat_level": 9,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "QB controversy",
+      "rivalries",
+      "hot takes"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "If you have two quarterbacks, you actually have three problems: both of them and the coach.",
+      "I am not saying bench him forever. I am saying forever starts Saturday."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_032",
+    "name": "Marisol Vega",
+    "on_air_name": "Marisol from Orlando",
+    "home_base": "Orlando, Florida",
+    "vocal_style": "clear central Florida cadence; upbeat but practical",
+    "background": "hotel manager, UCF alum",
+    "favorite_teams": [
+      "UCF"
+    ],
+    "persona": "new-power believer",
+    "take_quality": "solid, sometimes defensive",
+    "bad_take_rate": 27,
+    "heat_level": 5,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "program growth",
+      "realignment",
+      "recruiting Florida"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "People keep calling us new like the recruits were born in 1985.",
+      "The brand is not old, but the opportunity is real."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_033",
+    "name": "Hank Driscoll",
+    "on_air_name": "Hank from Boise",
+    "home_base": "Boise, Idaho",
+    "vocal_style": "dry Mountain West cadence; laconic",
+    "background": "truck dispatcher, Boise State lifer",
+    "favorite_teams": [
+      "Boise State"
+    ],
+    "persona": "G5 giant-killer caller",
+    "take_quality": "good on underdog strategy",
+    "bad_take_rate": 21,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "G5 playoffs",
+      "field position",
+      "identity"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "If you need permission from the committee to be good, you already lost.",
+      "Development is how you turn a Tuesday recruit into a Saturday problem."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_034",
+    "name": "Carmen Ortiz",
+    "on_air_name": "Carmen in Tucson",
+    "home_base": "Tucson, Arizona",
+    "vocal_style": "warm desert Southwest cadence; observant",
+    "background": "teacher, Arizona alum, weather obsessive",
+    "favorite_teams": [
+      "Arizona",
+      "Arizona State"
+    ],
+    "persona": "weather/desert-travel caller",
+    "take_quality": "underrated accuracy",
+    "bad_take_rate": 19,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "weather",
+      "travel",
+      "Pac/Mountain recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "People think heat is a storyline until their pass rush disappears in the fourth.",
+      "The desert does not care about your preseason poll."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_035",
+    "name": "Ned Carver",
+    "on_air_name": "Ned from Iowa City",
+    "home_base": "Iowa City, Iowa",
+    "vocal_style": "deadpan Iowa cadence; impossibly serious about punting",
+    "background": "postal worker, Iowa fan",
+    "favorite_teams": [
+      "Iowa"
+    ],
+    "persona": "punting evangelist",
+    "take_quality": "great on field position, bad on offense",
+    "bad_take_rate": 44,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "punting",
+      "defense",
+      "field position"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A punt is just a pass to your defense.",
+      "You people want fireworks. I want a 42-yard net and spiritual peace."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_036",
+    "name": "Priya Desai",
+    "on_air_name": "Priya in Tempe",
+    "home_base": "Tempe, Arizona",
+    "vocal_style": "fast, dry, sunny sarcasm",
+    "background": "startup lawyer, ASU alum",
+    "favorite_teams": [
+      "Arizona State"
+    ],
+    "persona": "NIL/compliance realist",
+    "take_quality": "very sharp",
+    "bad_take_rate": 12,
+    "heat_level": 5,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "NIL",
+      "clearinghouse",
+      "compliance"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That deal was not illegal in spirit. It was stupid in paperwork.",
+      "If the clearinghouse has questions, your answer cannot be 'because the booster felt generous.'"
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_037",
+    "name": "Owen Madsen",
+    "on_air_name": "Owen from Minneapolis",
+    "home_base": "Minneapolis, Minnesota",
+    "vocal_style": "soft Minnesota cadence; polite but cutting",
+    "background": "youth hockey coach and Gophers fan",
+    "favorite_teams": [
+      "Minnesota"
+    ],
+    "persona": "cold-weather development caller",
+    "take_quality": "solid",
+    "bad_take_rate": 23,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "weather",
+      "development",
+      "line play"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A November practice plan up here is not the same sport as September in Texas.",
+      "The kid did not regress. He finally played teams that tackle."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_038",
+    "name": "Dee Jackson",
+    "on_air_name": "Dee from Detroit",
+    "home_base": "Detroit, Michigan",
+    "vocal_style": "quick Detroit cadence; direct, funny",
+    "background": "auto plant supervisor, Michigan State alum",
+    "favorite_teams": [
+      "Michigan State"
+    ],
+    "persona": "toughness and staff-accountability caller",
+    "take_quality": "good, occasionally harsh",
+    "bad_take_rate": 35,
+    "heat_level": 7,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "toughness",
+      "staff",
+      "portal"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That was not a talent gap. That was a meeting-room gap.",
+      "If the portal is your whole personality, do not complain when nobody feels loyal."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_039",
+    "name": "Ellis Crowe",
+    "on_air_name": "Ellis in Blacksburg",
+    "home_base": "Blacksburg, Virginia",
+    "vocal_style": "Southwest Virginia cadence; thoughtful, understated",
+    "background": "forester, Virginia Tech alum",
+    "favorite_teams": [
+      "Virginia Tech"
+    ],
+    "persona": "special-teams and atmosphere caller",
+    "take_quality": "good",
+    "bad_take_rate": 17,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "atmosphere",
+      "special teams",
+      "rivalries"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That entrance still matters, but you have to give the crowd something by the second quarter.",
+      "A blocked punt changes a game because it changes belief."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_040",
+    "name": "Lori Kim",
+    "on_air_name": "Lori from Honolulu",
+    "home_base": "Honolulu, Hawaii",
+    "vocal_style": "relaxed island cadence; friendly, sharp on travel",
+    "background": "airline operations manager, Hawai'i fan",
+    "favorite_teams": [
+      "Hawaii"
+    ],
+    "persona": "travel/logistics caller",
+    "take_quality": "excellent on scheduling",
+    "bad_take_rate": 13,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "travel",
+      "time zones",
+      "underdogs"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Everybody says they want to play in paradise until they try to defend tempo after a five-hour flight.",
+      "Schedule math is roster math when your bodies are on airplanes."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_041",
+    "name": "Red McElroy",
+    "on_air_name": "Red from Stillwater",
+    "home_base": "Stillwater, Oklahoma",
+    "vocal_style": "raspy Oklahoma drawl; teasing and tribal",
+    "background": "rancher, Oklahoma State lifer",
+    "favorite_teams": [
+      "Oklahoma State"
+    ],
+    "persona": "rivalry troll with occasional wisdom",
+    "take_quality": "mixed",
+    "bad_take_rate": 57,
+    "heat_level": 8,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalries",
+      "underdog psychology",
+      "RBs"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "I hate to compliment them, so I will say their offensive line accidentally looked competent.",
+      "You do not beat your rival by pretending they are just another game. That is loser meditation."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_042",
+    "name": "Bonnie Sykes",
+    "on_air_name": "Bonnie from Fort Worth",
+    "home_base": "Fort Worth, Texas",
+    "vocal_style": "north Texas cadence; composed and booster-aware",
+    "background": "oil-and-gas accountant, TCU alum",
+    "favorite_teams": [
+      "TCU",
+      "SMU"
+    ],
+    "persona": "donor/NIL strategy caller",
+    "take_quality": "smart, slightly cynical",
+    "bad_take_rate": 22,
+    "heat_level": 5,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "boosters",
+      "NIL",
+      "private school recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Money is not the plan. Money funds the plan. Those are different sentences.",
+      "If the donor wants influence, ask if he also wants to learn blitz pickup."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_043",
+    "name": "Eli Rosen",
+    "on_air_name": "Eli in Philadelphia",
+    "home_base": "Philadelphia, Pennsylvania",
+    "vocal_style": "fast Philly cadence; impatient, funny",
+    "background": "public defender, Temple fan",
+    "favorite_teams": [
+      "Temple",
+      "Penn State"
+    ],
+    "persona": "big-city G5 chip-on-shoulder caller",
+    "take_quality": "fun and sometimes right",
+    "bad_take_rate": 49,
+    "heat_level": 8,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "G5 disrespect",
+      "defense",
+      "coaching"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "You call it ugly football. I call it budget efficiency.",
+      "If our coach wins eight games, half the country calls him a genius and the other half hires him."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_044",
+    "name": "June Calloway",
+    "on_air_name": "June from Waco",
+    "home_base": "Waco, Texas",
+    "vocal_style": "gentle central Texas cadence; church-social warmth",
+    "background": "nurse, Baylor alum",
+    "favorite_teams": [
+      "Baylor"
+    ],
+    "persona": "player-welfare and culture caller",
+    "take_quality": "very grounded",
+    "bad_take_rate": 11,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "team culture",
+      "player meetings",
+      "academics"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That young man did not need a benching. He needed somebody to tell him the truth kindly.",
+      "Culture is not a poster. It is what happens when a backup is disappointed and still practices."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_045",
+    "name": "Artie Mancuso",
+    "on_air_name": "Artie from Chestnut Hill",
+    "home_base": "Chestnut Hill, Massachusetts",
+    "vocal_style": "Boston sports cadence; dry and skeptical",
+    "background": "union electrician, Boston College fan",
+    "favorite_teams": [
+      "Boston College"
+    ],
+    "persona": "defensive cynic",
+    "take_quality": "decent, very grouchy",
+    "bad_take_rate": 39,
+    "heat_level": 7,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "defense",
+      "coaching",
+      "ACC chaos"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "I have seen seafood with better gap integrity.",
+      "If your plan needs the quarterback to be perfect, it is not a plan. It is a candlelight vigil."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_046",
+    "name": "Sarah Beth Clay",
+    "on_air_name": "Sarah Beth from Auburn",
+    "home_base": "Auburn, Alabama",
+    "vocal_style": "Alabama plains cadence; warm but sharp",
+    "background": "real estate agent, Auburn alum",
+    "favorite_teams": [
+      "Auburn"
+    ],
+    "persona": "chaos-acceptance caller",
+    "take_quality": "unpredictably insightful",
+    "bad_take_rate": 48,
+    "heat_level": 8,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalry chaos",
+      "boosters",
+      "QB nerves"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "At Auburn, momentum is just anxiety with a marching band.",
+      "You cannot build a stable program if everybody with a checkbook thinks they are offensive coordinator."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_047",
+    "name": "Drew Nakamura",
+    "on_air_name": "Drew from San Jose",
+    "home_base": "San Jose, California",
+    "vocal_style": "calm Silicon Valley cadence; spreadsheet meets surfer",
+    "background": "data engineer, San Jose State fan",
+    "favorite_teams": [
+      "San Jose State",
+      "Stanford"
+    ],
+    "persona": "underdog analytics caller",
+    "take_quality": "accurate",
+    "bad_take_rate": 9,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "analytics",
+      "G5",
+      "QB efficiency"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The upset was not magic. It was red-zone variance and a quarterback who stopped throwing hero balls.",
+      "If your model ignores travel, your model has never been on a bus."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_048",
+    "name": "Gloria Ames",
+    "on_air_name": "Gloria from Syracuse",
+    "home_base": "Syracuse, New York",
+    "vocal_style": "upstate New York cadence; weathered and witty",
+    "background": "snowplow dispatcher, Syracuse fan",
+    "favorite_teams": [
+      "Syracuse"
+    ],
+    "persona": "weather-and-old-Big-East caller",
+    "take_quality": "solid",
+    "bad_take_rate": 29,
+    "heat_level": 5,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "weather",
+      "basketball-school jokes",
+      "defense"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A dome does not make you soft. It just means you own a roof.",
+      "That linebacker read the screen like he had seen the script."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_049",
+    "name": "Kenny Yates",
+    "on_air_name": "Kenny from Lexington",
+    "home_base": "Lexington, Kentucky",
+    "vocal_style": "Kentucky drawl; self-deprecating, sly",
+    "background": "horse farm mechanic, Kentucky fan",
+    "favorite_teams": [
+      "Kentucky"
+    ],
+    "persona": "underdog SEC realist",
+    "take_quality": "good",
+    "bad_take_rate": 26,
+    "heat_level": 5,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "SEC depth",
+      "development",
+      "expectations"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "We do not need to be Alabama. We need to stop acting surprised when we recruit like Kentucky and play like Kentucky.",
+      "The portal is not a miracle. It is a pawn shop for roster mistakes."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_050",
+    "name": "Monica Reyes",
+    "on_air_name": "Monica from San Antonio",
+    "home_base": "San Antonio, Texas",
+    "vocal_style": "smooth South Texas cadence; confident, relational",
+    "background": "high-school counselor, UTSA fan",
+    "favorite_teams": [
+      "UTSA",
+      "Texas A&M"
+    ],
+    "persona": "family/recruiting fit caller",
+    "take_quality": "very sharp",
+    "bad_take_rate": 12,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "family influence",
+      "Texas recruiting",
+      "academics"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The family visit was the real official visit.",
+      "If you ignore the mom's question about development, you lose before the NIL number comes out."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_051",
+    "name": "Chip Harrington",
+    "on_air_name": "Chip in Nashville",
+    "home_base": "Nashville, Tennessee",
+    "vocal_style": "polished southern business cadence",
+    "background": "music publisher, Vanderbilt fan",
+    "favorite_teams": [
+      "Vanderbilt"
+    ],
+    "persona": "academic/private-school realist",
+    "take_quality": "sharp, dry",
+    "bad_take_rate": 18,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "academics",
+      "private schools",
+      "smart recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "You do not recruit the same pool. Stop pretending you do.",
+      "Our margin is evaluation. If we miss there, the math gets rude."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_052",
+    "name": "Jasmine Brooks",
+    "on_air_name": "Jasmine from Houston",
+    "home_base": "Houston, Texas",
+    "vocal_style": "quick Houston cadence; energetic and practical",
+    "background": "AAU organizer, Houston fan",
+    "favorite_teams": [
+      "Houston"
+    ],
+    "persona": "urban talent and NIL caller",
+    "take_quality": "good, sometimes hype",
+    "bad_take_rate": 33,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "Houston talent",
+      "NIL",
+      "speed"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "There are three future starters within an hour of campus, and somehow we are arguing about a kid in Arizona.",
+      "If your pitch ignores the city, you are leaving half the offer on the table."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_053",
+    "name": "Warren Pope",
+    "on_air_name": "Warren from Pullman",
+    "home_base": "Pullman, Washington",
+    "vocal_style": "slow rural Washington cadence; dry and loyal",
+    "background": "wheat farmer, Washington State fan",
+    "favorite_teams": [
+      "Washington State"
+    ],
+    "persona": "small-town fit caller",
+    "take_quality": "thoughtful",
+    "bad_take_rate": 20,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "small towns",
+      "QB development",
+      "underdogs"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Some kids do not want lights. They want people who know their truck.",
+      "Pullman is not for everybody. That is the advantage and the problem."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_054",
+    "name": "Brianna Cole",
+    "on_air_name": "Bri from College Park",
+    "home_base": "College Park, Maryland",
+    "vocal_style": "DMV cadence; quick, skeptical, funny",
+    "background": "communications director, Maryland fan",
+    "favorite_teams": [
+      "Maryland"
+    ],
+    "persona": "uniforms/recruiting/brand caller",
+    "take_quality": "mixed but entertaining",
+    "bad_take_rate": 40,
+    "heat_level": 6,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "uniforms",
+      "DMV recruiting",
+      "brand"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The uniforms were loud, but the defensive calls were louder and worse.",
+      "If you recruit the DMV like an afterthought, do not be shocked when the best kids treat you like one."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_055",
+    "name": "Lou Rinaldi",
+    "on_air_name": "Lou from Storrs",
+    "home_base": "Storrs, Connecticut",
+    "vocal_style": "New England deadpan; absurdly loyal",
+    "background": "small-town diner owner, UConn football defender",
+    "favorite_teams": [
+      "UConn"
+    ],
+    "persona": "independent/G5 survival caller",
+    "take_quality": "fun, pessimistic",
+    "bad_take_rate": 52,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "independents",
+      "scheduling",
+      "survival"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "We are not irrelevant. We are selectively visible.",
+      "A win is a win, unless the schedule maker is your enemy, which ours appears to be."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_056",
+    "name": "Hector Salazar",
+    "on_air_name": "Hector from Fresno",
+    "home_base": "Fresno, California",
+    "vocal_style": "Central Valley cadence; blunt and proud",
+    "background": "produce distributor, Fresno State fan",
+    "favorite_teams": [
+      "Fresno State"
+    ],
+    "persona": "development factory caller",
+    "take_quality": "good",
+    "bad_take_rate": 19,
+    "heat_level": 5,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "California recruiting",
+      "G5 grit"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A three-star with work ethic is not a consolation prize. It is a business model.",
+      "We do not lose recruits because of stars. We lose them when we stop knowing who we are."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_057",
+    "name": "Evelyn Turner",
+    "on_air_name": "Evelyn in Charlottesville",
+    "home_base": "Charlottesville, Virginia",
+    "vocal_style": "soft Virginia cadence; thoughtful, slightly academic",
+    "background": "historian, Virginia fan",
+    "favorite_teams": [
+      "Virginia"
+    ],
+    "persona": "program identity historian",
+    "take_quality": "accurate, low heat",
+    "bad_take_rate": 11,
+    "heat_level": 2,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "history",
+      "academics",
+      "slow builds"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A program can be patient without being passive.",
+      "Tradition is useful only if it tells you what to do next."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_058",
+    "name": "Duke Lawson",
+    "on_air_name": "Duke from Fayetteville",
+    "home_base": "Fayetteville, Arkansas",
+    "vocal_style": "Arkansas drawl; funny, tortured",
+    "background": "poultry plant supervisor, Razorbacks fan",
+    "favorite_teams": [
+      "Arkansas"
+    ],
+    "persona": "rivalry pain caller",
+    "take_quality": "emotionally true, strategically erratic",
+    "bad_take_rate": 59,
+    "heat_level": 8,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalries",
+      "line play",
+      "coach patience"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Our fans do not need therapy. We need third-down stops, which is cheaper.",
+      "If hope had a depth chart, we would still be thin at safety."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_059",
+    "name": "Mina Cho",
+    "on_air_name": "Mina from Champaign",
+    "home_base": "Champaign, Illinois",
+    "vocal_style": "calm central Illinois cadence; analytical",
+    "background": "graduate researcher, Illinois fan",
+    "favorite_teams": [
+      "Illinois",
+      "Northwestern"
+    ],
+    "persona": "quiet analytics caller",
+    "take_quality": "very good",
+    "bad_take_rate": 8,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "scheme fit",
+      "analytics"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The staff is recruiting athletes for a system they do not actually run.",
+      "Their best player is not misused. He is being used in a role from a different roster."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_060",
+    "name": "Alonzo Reed",
+    "on_air_name": "Zo from Atlanta",
+    "home_base": "Atlanta, Georgia",
+    "vocal_style": "smooth Atlanta cadence; confident, witty",
+    "background": "7-on-7 organizer, Georgia Tech sympathizer",
+    "favorite_teams": [
+      "Georgia Tech",
+      "Georgia State"
+    ],
+    "persona": "metro recruiting caller",
+    "take_quality": "sharp eye, high swagger",
+    "bad_take_rate": 30,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "Atlanta recruiting",
+      "scheme fit",
+      "athletes"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Everybody recruits Atlanta. The question is who actually knows which coach to call.",
+      "That kid is not a tweener. He is a position change waiting for a smart staff."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_061",
+    "name": "Paula McGee",
+    "on_air_name": "Paula from Provo",
+    "home_base": "Provo, Utah",
+    "vocal_style": "clean Mountain West cadence; measured, family-focused",
+    "background": "family therapist, BYU fan",
+    "favorite_teams": [
+      "BYU",
+      "Utah"
+    ],
+    "persona": "family/culture caller",
+    "take_quality": "very good",
+    "bad_take_rate": 13,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "family fit",
+      "culture",
+      "travel"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Some recruits are choosing the staff dinner more than the stadium.",
+      "Culture fit is not soft. It is retention math."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_062",
+    "name": "Rex Sandoval",
+    "on_air_name": "Rex in Albuquerque",
+    "home_base": "Albuquerque, New Mexico",
+    "vocal_style": "dry high-desert cadence; understated humor",
+    "background": "paramedic, New Mexico fan",
+    "favorite_teams": [
+      "New Mexico"
+    ],
+    "persona": "chaos underdog caller",
+    "take_quality": "fun, modestly accurate",
+    "bad_take_rate": 45,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "underdogs",
+      "weather",
+      "defense"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "We do not need a miracle. We need two turnovers and a kicker with no imagination.",
+      "At altitude, depth is not a luxury. It is oxygen with a jersey."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_063",
+    "name": "Cora Whitfield",
+    "on_air_name": "Cora from East Lansing",
+    "home_base": "East Lansing, Michigan",
+    "vocal_style": "firm Michigan cadence; pragmatic",
+    "background": "school principal, Michigan State alum",
+    "favorite_teams": [
+      "Michigan State"
+    ],
+    "persona": "discipline/culture caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 16,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "discipline",
+      "locker room",
+      "staff"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That was not passion. That was poor discipline wearing a helmet.",
+      "If the captains are quiet, the coach is doing too much of the talking."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_064",
+    "name": "Terry O'Neil",
+    "on_air_name": "Terry from Cincinnati",
+    "home_base": "Cincinnati, Ohio",
+    "vocal_style": "Ohio River cadence; fast, funny, chip-on-shoulder",
+    "background": "firefighter, Cincinnati fan",
+    "favorite_teams": [
+      "Cincinnati"
+    ],
+    "persona": "realignment resentment caller",
+    "take_quality": "good and salty",
+    "bad_take_rate": 35,
+    "heat_level": 7,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "realignment",
+      "G5/P4",
+      "defense"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "They only call you a Cinderella when they do not want to admit you recruit.",
+      "Respect is just a ranking with better manners."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_065",
+    "name": "Aunt Jo",
+    "on_air_name": "Aunt Jo from Starkville",
+    "home_base": "Starkville, Mississippi",
+    "vocal_style": "Mississippi auntie cadence; warm but devastating",
+    "background": "retired cafeteria manager, Mississippi State fan",
+    "favorite_teams": [
+      "Mississippi State"
+    ],
+    "persona": "common-sense caller",
+    "take_quality": "often exactly right",
+    "bad_take_rate": 18,
+    "heat_level": 4,
+    "humor_level": 9,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "team vibe",
+      "QB confidence",
+      "recruiting families"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That boy needs a hug and a private conversation, not a depth chart leak.",
+      "You cannot sell family and then treat backups like furniture."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_066",
+    "name": "Blaine Mercer",
+    "on_air_name": "Blaine from Manhattan",
+    "home_base": "Manhattan, Kansas",
+    "vocal_style": "Kansas plains cadence; steady and dry",
+    "background": "grain elevator operator, Kansas State fan",
+    "favorite_teams": [
+      "Kansas State"
+    ],
+    "persona": "development-and-coaching caller",
+    "take_quality": "excellent",
+    "bad_take_rate": 10,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "underdog systems",
+      "coaching"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The difference between clever and cute is whether the left tackle can block it.",
+      "A good program makes a four-year plan for a player everybody else wanted for one weekend."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_067",
+    "name": "Renee Batiste",
+    "on_air_name": "Renee from New Orleans",
+    "home_base": "New Orleans, Louisiana",
+    "vocal_style": "New Orleans cadence; witty, musical, a little theatrical",
+    "background": "jazz club booker, Tulane fan",
+    "favorite_teams": [
+      "Tulane",
+      "LSU"
+    ],
+    "persona": "city identity caller",
+    "take_quality": "good, funny",
+    "bad_take_rate": 27,
+    "heat_level": 5,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "city fit",
+      "G5 pride",
+      "NIL local business"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Some schools sell facilities. We sell a city that knows how to make a Saturday feel expensive.",
+      "That recruit did not decommit. He got re-recruited by somebody with a better closer."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_068",
+    "name": "Harold Finch",
+    "on_air_name": "Harold from West Lafayette",
+    "home_base": "West Lafayette, Indiana",
+    "vocal_style": "quiet Indiana cadence; engineer precision",
+    "background": "retired mechanical engineer, Purdue fan",
+    "favorite_teams": [
+      "Purdue"
+    ],
+    "persona": "spoiler math caller",
+    "take_quality": "accurate, low emotion",
+    "bad_take_rate": 14,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "upsets",
+      "QBs",
+      "efficiency"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The upset was visible by the second drive if you were watching pressure rate.",
+      "This team does not need more magic. It needs a second corner who can turn his hips."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_069",
+    "name": "Lacey Monroe",
+    "on_air_name": "Lacey from Lawrence",
+    "home_base": "Lawrence, Kansas",
+    "vocal_style": "friendly Kansas cadence; newly optimistic",
+    "background": "coffee shop owner, Kansas fan",
+    "favorite_teams": [
+      "Kansas"
+    ],
+    "persona": "hopeful rebuild caller",
+    "take_quality": "balanced, emotionally invested",
+    "bad_take_rate": 23,
+    "heat_level": 4,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rebuilds",
+      "basketball-school jokes",
+      "momentum"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "When a fanbase learns to expect competent football, that is a dangerous week.",
+      "Do not laugh. Hope is a scheme if you recruit to it."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_070",
+    "name": "Ramon Ellis",
+    "on_air_name": "Ramon from Las Vegas",
+    "home_base": "Las Vegas, Nevada",
+    "vocal_style": "smooth Vegas cadence; odds-aware but not gambling-branded",
+    "background": "hotel security manager, UNLV fan",
+    "favorite_teams": [
+      "UNLV"
+    ],
+    "persona": "market/flash caller",
+    "take_quality": "mixed but insightful on brand",
+    "bad_take_rate": 38,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "market",
+      "brand",
+      "stadium atmosphere"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The city can sell the visit. The staff still has to sell the plan.",
+      "Flash gets him on campus. Fit gets him to sign."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_071",
+    "name": "Debbie Knox",
+    "on_air_name": "Debbie from Hattiesburg",
+    "home_base": "Hattiesburg, Mississippi",
+    "vocal_style": "piney-woods Mississippi cadence; direct, maternal",
+    "background": "church secretary, Southern Miss fan",
+    "favorite_teams": [
+      "Southern Miss"
+    ],
+    "persona": "local pipeline caller",
+    "take_quality": "good",
+    "bad_take_rate": 16,
+    "heat_level": 4,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "local recruiting",
+      "development",
+      "G5 pride"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "You do not need to win every living room. Win the ones where your name already means something.",
+      "A local kid who wants to be there is worth more than a rental with better stars."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_072",
+    "name": "Seth Aranda",
+    "on_air_name": "Seth from San Diego",
+    "home_base": "San Diego, California",
+    "vocal_style": "laid-back coastal cadence; sneaky tactical",
+    "background": "surf shop owner, SDSU fan",
+    "favorite_teams": [
+      "San Diego State"
+    ],
+    "persona": "defense and weather-comfort caller",
+    "take_quality": "good",
+    "bad_take_rate": 20,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "defense",
+      "West Coast recruiting",
+      "stadium"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The best recruiting pitch is sometimes 72 degrees and a depth chart opening.",
+      "That defense does not wow you. It just keeps asking if you are sure."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_073",
+    "name": "Imani Price",
+    "on_air_name": "Imani from Louisville",
+    "home_base": "Louisville, Kentucky",
+    "vocal_style": "quick Kentucky city cadence; sharp, funny",
+    "background": "sports-radio producer, Louisville fan",
+    "favorite_teams": [
+      "Louisville"
+    ],
+    "persona": "media narrative caller",
+    "take_quality": "sharp but spicy",
+    "bad_take_rate": 31,
+    "heat_level": 6,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "media",
+      "coaching",
+      "rivalries"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The headline writes itself when the coach refuses to adjust.",
+      "Fans are not mad about losing. They are mad because it looked familiar."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_074",
+    "name": "Carl Benedetti",
+    "on_air_name": "Carl from Reno",
+    "home_base": "Reno, Nevada",
+    "vocal_style": "dry Nevada cadence; gambler's patience without betting talk",
+    "background": "casino maintenance supervisor, Nevada fan",
+    "favorite_teams": [
+      "Nevada"
+    ],
+    "persona": "variance caller",
+    "take_quality": "better than he sounds",
+    "bad_take_rate": 33,
+    "heat_level": 5,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "variance",
+      "QB development",
+      "upsets"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Volatility is not chaos if you recruit players who can live in it.",
+      "A close loss is data. Three close losses is a personality."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_075",
+    "name": "Yolanda Harris",
+    "on_air_name": "Yolanda from Birmingham",
+    "home_base": "Birmingham, Alabama",
+    "vocal_style": "firm Birmingham cadence; seasoned, no nonsense",
+    "background": "youth mentor, UAB fan, Alabama family ties",
+    "favorite_teams": [
+      "UAB",
+      "Alabama"
+    ],
+    "persona": "player-welfare and local-talent caller",
+    "take_quality": "excellent",
+    "bad_take_rate": 9,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "player support",
+      "local recruiting",
+      "development"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That kid needs structure, not slogans.",
+      "If you recruit the city only when desperate, the city remembers."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_076",
+    "name": "Trevor Pike",
+    "on_air_name": "Trevor from Logan",
+    "home_base": "Logan, Utah",
+    "vocal_style": "Mountain West cadence; optimistic, scout-like",
+    "background": "ski shop tech, Utah State fan",
+    "favorite_teams": [
+      "Utah State"
+    ],
+    "persona": "hidden-gem hunter",
+    "take_quality": "good but hopeful",
+    "bad_take_rate": 24,
+    "heat_level": 4,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "hidden gems",
+      "development",
+      "G5"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "He is not a two-star. He is a late body with early film.",
+      "Give me a kid who wants the weight room and a staff that knows what to do with him."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_077",
+    "name": "Phyllis Grant",
+    "on_air_name": "Phyllis from Winston-Salem",
+    "home_base": "Winston-Salem, North Carolina",
+    "vocal_style": "gentle but incisive Carolina cadence",
+    "background": "retired administrator, Wake Forest fan",
+    "favorite_teams": [
+      "Wake Forest"
+    ],
+    "persona": "small-school development caller",
+    "take_quality": "very good",
+    "bad_take_rate": 12,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "academics",
+      "fit"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The margin is fit. If you miss that, stars will not save you.",
+      "A small program cannot afford to be confused about its own identity."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_078",
+    "name": "Damon Krieger",
+    "on_air_name": "Damon from Boulder",
+    "home_base": "Boulder, Colorado",
+    "vocal_style": "Colorado cadence; philosophical and occasionally smug",
+    "background": "outdoor gear marketer, Colorado fan",
+    "favorite_teams": [
+      "Colorado",
+      "Colorado State"
+    ],
+    "persona": "brand/altitude caller",
+    "take_quality": "mixed",
+    "bad_take_rate": 43,
+    "heat_level": 6,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "brand",
+      "altitude",
+      "media"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The attention is not the problem. The problem is pretending attention is a depth chart.",
+      "Altitude is a real advantage, but it does not cover busted coverage."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_079",
+    "name": "Nickie Wade",
+    "on_air_name": "Nickie from Denton",
+    "home_base": "Denton, Texas",
+    "vocal_style": "North Texas artsy cadence; fast and funny",
+    "background": "music venue booker, North Texas fan",
+    "favorite_teams": [
+      "North Texas"
+    ],
+    "persona": "tempo and vibes caller",
+    "take_quality": "good on offense, loose elsewhere",
+    "bad_take_rate": 36,
+    "heat_level": 5,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "tempo",
+      "G5 offense",
+      "crowd"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That offense is a mixtape with a snap count.",
+      "If you are going to play fast, recruit linemen who do not need a nap after drive three."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_080",
+    "name": "Russell Tang",
+    "on_air_name": "Russ from Honolulu via Provo",
+    "home_base": "Salt Lake City, Utah",
+    "vocal_style": "measured, precise, soft island influence",
+    "background": "logistics analyst, follows Utah/BYU/Hawaii",
+    "favorite_teams": [
+      "Utah",
+      "BYU",
+      "Hawaii"
+    ],
+    "persona": "travel-and-fit national caller",
+    "take_quality": "highly accurate",
+    "bad_take_rate": 8,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "travel",
+      "conference scheduling",
+      "player fit"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Conference maps are cute until your freshman tackle is crossing two time zones every other week.",
+      "Travel turns depth from a spreadsheet category into a medical report."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_081",
+    "name": "Maeve Donnelly",
+    "on_air_name": "Maeve from Evanston",
+    "home_base": "Evanston, Illinois",
+    "vocal_style": "suburban Chicago cadence; dry academic sarcasm",
+    "background": "law professor, Northwestern fan",
+    "favorite_teams": [
+      "Northwestern"
+    ],
+    "persona": "academics and institutional patience caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 11,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "academics",
+      "institutional fit",
+      "coach patience"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "At some schools, the hardest opponent is the admissions office.",
+      "A rebuild at a place like this has to be honest or it will be short."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_082",
+    "name": "Bo Redding",
+    "on_air_name": "Bo from College Station",
+    "home_base": "College Station, Texas",
+    "vocal_style": "Aggie cadence; earnest, intense, ritual-heavy",
+    "background": "civil contractor, Texas A&M fan",
+    "favorite_teams": [
+      "Texas A&M"
+    ],
+    "persona": "resources-and-expectations caller",
+    "take_quality": "smart but pressure-blind",
+    "bad_take_rate": 46,
+    "heat_level": 8,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "boosters",
+      "facilities",
+      "expectations"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Money does not buy patience. Sometimes it buys the opposite in bulk.",
+      "If the facilities are top five, the excuses better be bottom five."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_083",
+    "name": "Iris Campbell",
+    "on_air_name": "Iris from Orlando",
+    "home_base": "Orlando, Florida",
+    "vocal_style": "bright central Florida cadence; recruiting-news speed",
+    "background": "theme-park operations lead, UCF fan",
+    "favorite_teams": [
+      "UCF"
+    ],
+    "persona": "visitor-experience caller",
+    "take_quality": "good",
+    "bad_take_rate": 22,
+    "heat_level": 4,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "visits",
+      "campus experience",
+      "brand"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A visit weekend is operations. If the family waits around confused, you lost points nobody tracks.",
+      "The kid liked the offense. The parents liked the plan. That is how you close."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_084",
+    "name": "Quentin Moss",
+    "on_air_name": "Q from Norfolk",
+    "home_base": "Norfolk, Virginia",
+    "vocal_style": "Tidewater cadence; quick, serious about athletes",
+    "background": "naval shipyard worker, Old Dominion fan",
+    "favorite_teams": [
+      "Old Dominion",
+      "Virginia Tech"
+    ],
+    "persona": "Tidewater talent caller",
+    "take_quality": "good scout",
+    "bad_take_rate": 25,
+    "heat_level": 5,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "Virginia recruiting",
+      "athletes",
+      "G5"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "You cannot call this area underrated if everybody keeps rating it and leaving with players.",
+      "That safety is one good position coach from being a problem on Sundays."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_085",
+    "name": "Linda Park",
+    "on_air_name": "Linda from Bloomington",
+    "home_base": "Bloomington, Indiana",
+    "vocal_style": "soft Indiana cadence; wry, patient",
+    "background": "music teacher, Indiana fan",
+    "favorite_teams": [
+      "Indiana"
+    ],
+    "persona": "basketball-school football believer",
+    "take_quality": "balanced",
+    "bad_take_rate": 21,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "program building",
+      "fan belief",
+      "QB play"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The hardest thing to recruit here is belief, and winning helps.",
+      "A competent Saturday changes more in town than people think."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_086",
+    "name": "Rafael Cruz",
+    "on_air_name": "Rafa from Tampa",
+    "home_base": "Tampa, Florida",
+    "vocal_style": "Tampa cadence; direct, talent-focused",
+    "background": "personal trainer, USF fan",
+    "favorite_teams": [
+      "South Florida",
+      "Florida"
+    ],
+    "persona": "athletic-traits caller",
+    "take_quality": "good but trait-obsessed",
+    "bad_take_rate": 35,
+    "heat_level": 6,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "speed",
+      "strength",
+      "Florida recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That kid has track speed and football brakes. Teach him the rest.",
+      "You cannot coach slow into fast, but you can coach fast into the wrong gap."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_087",
+    "name": "Eddie Barlow",
+    "on_air_name": "Eddie from Missoula",
+    "home_base": "Missoula, Montana",
+    "vocal_style": "Northern Rockies cadence; calm outdoorsman",
+    "background": "fly-fishing guide, FCS respecter",
+    "favorite_teams": [
+      "Montana",
+      "Boise State"
+    ],
+    "persona": "small-program toughness caller",
+    "take_quality": "good",
+    "bad_take_rate": 17,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "small programs",
+      "weather"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A cold-weather road game tests whether your culture packed a jacket.",
+      "Some of these so-called cupcakes have teeth."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_088",
+    "name": "Alicia Benton",
+    "on_air_name": "Alicia from Dallas",
+    "home_base": "Dallas, Texas",
+    "vocal_style": "polished Dallas cadence; businesslike and sharp",
+    "background": "corporate recruiter, SMU alum",
+    "favorite_teams": [
+      "SMU",
+      "TCU"
+    ],
+    "persona": "NIL market and private-school caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 18,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "NIL",
+      "market",
+      "private school recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A strong market gets you in the conversation. A clear role gets the signature.",
+      "If the deal looks inflated, you better have a brand story to justify it."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_089",
+    "name": "Curtis Lane",
+    "on_air_name": "Curtis from Jonesboro",
+    "home_base": "Jonesboro, Arkansas",
+    "vocal_style": "Delta cadence; understated and dry",
+    "background": "rice farmer, Arkansas State fan",
+    "favorite_teams": [
+      "Arkansas State"
+    ],
+    "persona": "Sun Belt chaos caller",
+    "take_quality": "fun, decent",
+    "bad_take_rate": 34,
+    "heat_level": 5,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "Sun Belt",
+      "upsets",
+      "travel"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The Sun Belt is where preseason confidence goes to lose a fender.",
+      "If you schedule us for a cheap win, bring expensive humility."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_090",
+    "name": "Molly Keane",
+    "on_air_name": "Molly from Amherst",
+    "home_base": "Amherst, Massachusetts",
+    "vocal_style": "New England college-town cadence; self-aware",
+    "background": "bookstore clerk, UMass fan",
+    "favorite_teams": [
+      "UMass"
+    ],
+    "persona": "independent survival humor caller",
+    "take_quality": "funny, bleak",
+    "bad_take_rate": 55,
+    "heat_level": 5,
+    "humor_level": 8,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "independents",
+      "scheduling",
+      "hope"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "We are building character at a rate that should concern engineers.",
+      "An open date is our best defensive performance some weeks."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_091",
+    "name": "DeAndre Hill",
+    "on_air_name": "Dee Hill from Jackson",
+    "home_base": "Jackson, Mississippi",
+    "vocal_style": "Jackson cadence; smooth, serious",
+    "background": "community organizer, Jackson State/SEC recruiting watcher",
+    "favorite_teams": [
+      "Jackson State",
+      "Mississippi State",
+      "Ole Miss"
+    ],
+    "persona": "Mississippi talent and HBCU respect caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 15,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "HBCUs",
+      "Mississippi recruiting",
+      "development"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "If you only notice a kid after somebody else offers, that is not scouting. That is following.",
+      "Development is respect with a weight room."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_092",
+    "name": "Tucker Bell",
+    "on_air_name": "Tucker from Bozeman",
+    "home_base": "Bozeman, Montana",
+    "vocal_style": "Mountain cadence; humble, dry humor",
+    "background": "ski patrol, Montana State fan",
+    "favorite_teams": [
+      "Montana State",
+      "Wyoming"
+    ],
+    "persona": "cold-weather grind caller",
+    "take_quality": "good",
+    "bad_take_rate": 20,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "weather",
+      "defense",
+      "underdogs"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Some teams play November football like they packed for July.",
+      "You learn a lot about a quarterback when his hands are cold and the pocket is loud."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_093",
+    "name": "Simone Carter",
+    "on_air_name": "Simone from Atlanta",
+    "home_base": "Atlanta, Georgia",
+    "vocal_style": "smooth Atlanta cadence; media-aware and funny",
+    "background": "sports marketing grad student, follows national recruiting",
+    "favorite_teams": [
+      "Georgia",
+      "Georgia Tech"
+    ],
+    "persona": "brand plus development caller",
+    "take_quality": "very sharp",
+    "bad_take_rate": 16,
+    "heat_level": 5,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "brand",
+      "development",
+      "recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The brand got him to answer. The development plan got him to listen.",
+      "A visit weekend should not feel like a commercial. It should feel like a future."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_094",
+    "name": "Nolan Briggs",
+    "on_air_name": "Nolan from Huntington",
+    "home_base": "Huntington, West Virginia",
+    "vocal_style": "Appalachian cadence; earnest and funny",
+    "background": "paramedic, Marshall fan",
+    "favorite_teams": [
+      "Marshall",
+      "West Virginia"
+    ],
+    "persona": "rivalry and underdog caller",
+    "take_quality": "solid",
+    "bad_take_rate": 28,
+    "heat_level": 5,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalries",
+      "underdogs",
+      "G5"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A rivalry game does not care what conference you printed on the media guide.",
+      "We do not need national respect. We need a left tackle and three red-zone stops."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_095",
+    "name": "Gina Martel",
+    "on_air_name": "Gina from Fort Collins",
+    "home_base": "Fort Collins, Colorado",
+    "vocal_style": "easy Colorado cadence; tactical and outdoorsy",
+    "background": "brewery manager, Colorado State fan",
+    "favorite_teams": [
+      "Colorado State"
+    ],
+    "persona": "facility/town-fit caller",
+    "take_quality": "good",
+    "bad_take_rate": 19,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "town fit",
+      "facilities",
+      "development"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A recruit either feels Fort Collins or he does not. Pretending otherwise wastes visits.",
+      "You cannot sell lifestyle if the development plan is a napkin."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_096",
+    "name": "Marcus Wynn",
+    "on_air_name": "Marcus from Atlanta's Westside",
+    "home_base": "Atlanta, Georgia",
+    "vocal_style": "direct Atlanta cadence; former-player clarity",
+    "background": "former FCS corner, trainer",
+    "favorite_teams": [
+      "Georgia State",
+      "Auburn"
+    ],
+    "persona": "DB technique caller",
+    "take_quality": "excellent",
+    "bad_take_rate": 9,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "DBs",
+      "technique",
+      "hips"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That corner has speed, but his hips are sending postcards after every break.",
+      "Man coverage is not confidence. It is footwork plus consequences."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_097",
+    "name": "Pat O'Day",
+    "on_air_name": "Pat from Spokane",
+    "home_base": "Spokane, Washington",
+    "vocal_style": "dry inland Northwest cadence",
+    "background": "radio engineer, Washington State sympathizer",
+    "favorite_teams": [
+      "Washington State",
+      "Idaho"
+    ],
+    "persona": "radio/meta caller",
+    "take_quality": "funny and observant",
+    "bad_take_rate": 24,
+    "heat_level": 3,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "radio shows",
+      "small markets",
+      "weather"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The best call-in shows are just weather reports with linebackers.",
+      "You can hear a program panic by how fast the callers start naming coordinators."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_098",
+    "name": "Cheryl Baines",
+    "on_air_name": "Cheryl from Laramie",
+    "home_base": "Laramie, Wyoming",
+    "vocal_style": "high plains cadence; calm, tough",
+    "background": "school bus driver, Wyoming fan",
+    "favorite_teams": [
+      "Wyoming"
+    ],
+    "persona": "weather/toughness caller",
+    "take_quality": "good",
+    "bad_take_rate": 18,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "weather",
+      "toughness",
+      "G5"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "If the wind changes your whole offense, your offense was a brochure.",
+      "A kid who chooses Laramie usually knows exactly who he is."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_099",
+    "name": "Omar Wallace",
+    "on_air_name": "Omar from Charlotte",
+    "home_base": "Charlotte, North Carolina",
+    "vocal_style": "urban Carolina cadence; businesslike, recruiting-savvy",
+    "background": "financial analyst, Charlotte fan",
+    "favorite_teams": [
+      "Charlotte",
+      "North Carolina"
+    ],
+    "persona": "market-building caller",
+    "take_quality": "solid",
+    "bad_take_rate": 22,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "new programs",
+      "market",
+      "recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A market is not a program, but it is a tool. Use it or stop mentioning it.",
+      "You cannot build a city brand with a rural recruiting plan."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_100",
+    "name": "Faye Thompson",
+    "on_air_name": "Faye from Toledo",
+    "home_base": "Toledo, Ohio",
+    "vocal_style": "Midwestern blue-collar cadence; clipped and funny",
+    "background": "union steward, Toledo fan",
+    "favorite_teams": [
+      "Toledo",
+      "Bowling Green"
+    ],
+    "persona": "MACtion caller",
+    "take_quality": "fun, right about chaos",
+    "bad_take_rate": 37,
+    "heat_level": 6,
+    "humor_level": 8,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "MAC",
+      "weekday games",
+      "upsets"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Tuesday night football is where rankings go to cough.",
+      "If you do not respect the MAC, the MAC will respect you horizontally."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_101",
+    "name": "Ethan Price",
+    "on_air_name": "Ethan from Dallas",
+    "home_base": "Dallas, Texas",
+    "vocal_style": "young Dallas sports-podcast cadence",
+    "background": "college student, recruiting TikTok addict",
+    "favorite_teams": [
+      "Texas",
+      "Oklahoma",
+      "SMU"
+    ],
+    "persona": "young recruiting hype caller",
+    "take_quality": "fast, often wrong but funny",
+    "bad_take_rate": 67,
+    "heat_level": 8,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "stars",
+      "commits",
+      "NIL hype"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "If he posts the eyes emoji, I am counting it as a silent commit until my lawyer says otherwise.",
+      "Three crystal balls and a playlist change? He is ours. Probably. Maybe."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_102",
+    "name": "Barbara Quinn",
+    "on_air_name": "Barb from Happy Valley",
+    "home_base": "State College, Pennsylvania",
+    "vocal_style": "calm Pennsylvania cadence; maternal and principled",
+    "background": "retired school counselor, Penn State fan",
+    "favorite_teams": [
+      "Penn State"
+    ],
+    "persona": "player support caller",
+    "take_quality": "excellent",
+    "bad_take_rate": 10,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "player welfare",
+      "development",
+      "academics"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The young man looks overwhelmed, and no spreadsheet fixes overwhelmed.",
+      "Good coaches know when to push and when to sit down with the kid."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_103",
+    "name": "Andre Baptiste",
+    "on_air_name": "Andre from Lafayette",
+    "home_base": "Lafayette, Louisiana",
+    "vocal_style": "Cajun-influenced Louisiana cadence; quick and tactical",
+    "background": "offensive analyst at a high school, Louisiana fan",
+    "favorite_teams": [
+      "Louisiana",
+      "LSU"
+    ],
+    "persona": "scheme-fit caller",
+    "take_quality": "very good",
+    "bad_take_rate": 12,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "scheme fit",
+      "QB/RB",
+      "Louisiana recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That recruit is not a bad take. He is a bad take for that offense.",
+      "Fit is not an excuse for lower talent. It is how lower talent beats you."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_104",
+    "name": "Wayne Pritchard",
+    "on_air_name": "Wayne from Tallahassee",
+    "home_base": "Tallahassee, Florida",
+    "vocal_style": "grumpy Panhandle cadence; extremely online",
+    "background": "retired state worker, FSU fan",
+    "favorite_teams": [
+      "Florida State"
+    ],
+    "persona": "message-board meltdown caller",
+    "take_quality": "terrible but hilarious when angry",
+    "bad_take_rate": 78,
+    "heat_level": 9,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "hot seats",
+      "QB benching",
+      "rivalries"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Fire the play sheet. Not the coach. The play sheet.",
+      "If the backup is not better, why have my dreams invested so much in him?"
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_105",
+    "name": "Maya Singh",
+    "on_air_name": "Maya from New Brunswick",
+    "home_base": "New Brunswick, New Jersey",
+    "vocal_style": "clear Jersey cadence; thoughtful, data-aware",
+    "background": "medical student, Rutgers fan",
+    "favorite_teams": [
+      "Rutgers"
+    ],
+    "persona": "player health and expectations caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 11,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "health",
+      "expectations",
+      "Big Ten travel"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "There is a difference between tough and exhausted. This team crossed it after the bye somehow.",
+      "Development plans need sleep and calories, not just slogans."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_106",
+    "name": "Jimmy Calder",
+    "on_air_name": "Jimmy from Conway",
+    "home_base": "Conway, South Carolina",
+    "vocal_style": "coastal Carolina cadence; sunny, mischievous",
+    "background": "boat mechanic, Coastal Carolina fan",
+    "favorite_teams": [
+      "Coastal Carolina",
+      "South Carolina"
+    ],
+    "persona": "fun-belt schemer",
+    "take_quality": "good on creative offense",
+    "bad_take_rate": 32,
+    "heat_level": 5,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "Sun Belt",
+      "schemes",
+      "uniforms"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That play was either genius or illegal in three counties.",
+      "A little weird is good. A lot weird needs a better left tackle."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_107",
+    "name": "Dr. Harlan Cho",
+    "on_air_name": "Dr. Cho from Palo Alto",
+    "home_base": "Palo Alto, California",
+    "vocal_style": "measured academic cadence; polite and devastating",
+    "background": "computer science professor, Stanford fan",
+    "favorite_teams": [
+      "Stanford"
+    ],
+    "persona": "modeling and academics caller",
+    "take_quality": "high accuracy, low heat",
+    "bad_take_rate": 5,
+    "heat_level": 2,
+    "humor_level": 3,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "academics",
+      "modeling",
+      "player fit"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The model is not pessimistic. The model is refusing to lie.",
+      "Academic fit is a retention variable, not a brochure line."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_108",
+    "name": "Tonya Reed",
+    "on_air_name": "Tonya from Columbia",
+    "home_base": "Columbia, South Carolina",
+    "vocal_style": "Columbia cadence; confident, a little spicy",
+    "background": "small business owner, South Carolina fan",
+    "favorite_teams": [
+      "South Carolina"
+    ],
+    "persona": "rivalry-energy caller",
+    "take_quality": "mixed but entertaining",
+    "bad_take_rate": 42,
+    "heat_level": 7,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "rivalries",
+      "fan energy",
+      "defense"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A rivalry win buys patience. A rivalry loss charges interest.",
+      "The crowd gave them a chance. The third-down defense gave it back."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_109",
+    "name": "Samir Khan",
+    "on_air_name": "Samir from Dallas",
+    "home_base": "Dallas, Texas",
+    "vocal_style": "calm analytical Dallas cadence",
+    "background": "sports medicine data consultant, national CFB sicko",
+    "favorite_teams": [
+      "Neutral",
+      "SMU"
+    ],
+    "persona": "national systems caller",
+    "take_quality": "very accurate",
+    "bad_take_rate": 6,
+    "heat_level": 2,
+    "humor_level": 4,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "injury models",
+      "tempo",
+      "depth"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Tempo without depth is a dare your own roster eventually accepts.",
+      "The injury rate is not bad luck if the practice plan keeps pointing at it."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_110",
+    "name": "Nora Feld",
+    "on_air_name": "Nora from Madison",
+    "home_base": "Madison, Wisconsin",
+    "vocal_style": "wry Wisconsin cadence; charmingly stern",
+    "background": "graduate student, Wisconsin fan",
+    "favorite_teams": [
+      "Wisconsin"
+    ],
+    "persona": "student-section and tradition caller",
+    "take_quality": "solid",
+    "bad_take_rate": 21,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "student energy",
+      "tradition",
+      "run game"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The student section was late, but so was the safety help.",
+      "Tradition is best when it makes the fourth quarter louder, not the playbook smaller."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_111",
+    "name": "Clay Dobson",
+    "on_air_name": "Clay from College Station",
+    "home_base": "College Station, Texas",
+    "vocal_style": "earnest Texas drawl; booster-adjacent optimism",
+    "background": "construction firm partner, Aggies fan",
+    "favorite_teams": [
+      "Texas A&M"
+    ],
+    "persona": "money solves it caller",
+    "take_quality": "often terrible but revealing",
+    "bad_take_rate": 69,
+    "heat_level": 8,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "boosters",
+      "NIL",
+      "facilities"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "If the problem is development, build a bigger development center.",
+      "I am not saying money fixes everything. I am saying we should test it thoroughly."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_112",
+    "name": "Stella Marino",
+    "on_air_name": "Stella from Boca",
+    "home_base": "Boca Raton, Florida",
+    "vocal_style": "South Florida coastal cadence; sharp, amused",
+    "background": "real estate agent, FAU fan",
+    "favorite_teams": [
+      "Florida Atlantic",
+      "Miami"
+    ],
+    "persona": "Florida underdog recruiter caller",
+    "take_quality": "good",
+    "bad_take_rate": 24,
+    "heat_level": 4,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "Florida speed",
+      "G5 recruiting",
+      "portal"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "There are portal receivers down here like palm trees. If you cannot find one, stop scouting from a chair.",
+      "Speed is not rare here. Knowing what to do with it is."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_113",
+    "name": "Gordon Mills",
+    "on_air_name": "Gordon from Provo",
+    "home_base": "Provo, Utah",
+    "vocal_style": "gentle Mountain West cadence; wise and slightly stern",
+    "background": "retired seminary teacher, BYU fan",
+    "favorite_teams": [
+      "BYU"
+    ],
+    "persona": "culture/mission/fit caller",
+    "take_quality": "strong",
+    "bad_take_rate": 13,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "culture",
+      "fit",
+      "retention"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Some players need the right room more than the biggest room.",
+      "A bad fit becomes a portal story by November."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_114",
+    "name": "Kiki Wallace",
+    "on_air_name": "Kiki from Boulder",
+    "home_base": "Boulder, Colorado",
+    "vocal_style": "energetic Colorado student cadence; playful",
+    "background": "student photographer, Colorado fan",
+    "favorite_teams": [
+      "Colorado"
+    ],
+    "persona": "vibes-and-media caller",
+    "take_quality": "fun, sometimes shallow",
+    "bad_take_rate": 54,
+    "heat_level": 7,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "media",
+      "uniforms",
+      "student energy"
+    ],
+    "bias_triggers": [
+      "rivalry losses",
+      "QB controversy",
+      "staff rumors"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "The vibes were undefeated until the second half started.",
+      "If you are going to be loud, the defense has to be louder than the Instagram."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_115",
+    "name": "Ralphie Simms",
+    "on_air_name": "Ralphie from Annapolis",
+    "home_base": "Annapolis, Maryland",
+    "vocal_style": "crisp Mid-Atlantic cadence; disciplined",
+    "background": "retired Navy officer, Navy fan",
+    "favorite_teams": [
+      "Navy"
+    ],
+    "persona": "option/discipline caller",
+    "take_quality": "excellent on option",
+    "bad_take_rate": 10,
+    "heat_level": 3,
+    "humor_level": 4,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "option",
+      "discipline",
+      "service academies"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The option is not old. It is honest.",
+      "You beat bigger teams by making them defend rules they forgot existed."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_116",
+    "name": "Bianca Lowell",
+    "on_air_name": "Bianca from Boston",
+    "home_base": "Boston, Massachusetts",
+    "vocal_style": "Boston cadence; funny, skeptical",
+    "background": "sports bar manager, BC/UMass watcher",
+    "favorite_teams": [
+      "Boston College",
+      "UMass"
+    ],
+    "persona": "Northeast football defender",
+    "take_quality": "mixed but fun",
+    "bad_take_rate": 39,
+    "heat_level": 6,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "Northeast recruiting",
+      "weather",
+      "media"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "If you think football stops north of Pennsylvania, come tackle in November.",
+      "The recruit did not hate the weather. He hated the pitch."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_117",
+    "name": "Darius King",
+    "on_air_name": "DK from Birmingham",
+    "home_base": "Birmingham, Alabama",
+    "vocal_style": "smooth Birmingham cadence; former-player bluntness",
+    "background": "former JUCO safety, trainer",
+    "favorite_teams": [
+      "UAB",
+      "Auburn"
+    ],
+    "persona": "DB and JUCO eye caller",
+    "take_quality": "excellent",
+    "bad_take_rate": 8,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "JUCO",
+      "DBs",
+      "player development"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That safety is not late. The evaluation is late.",
+      "A good staff sees a corner. A great staff sees a nickel before anybody else does."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_118",
+    "name": "Heidi Larson",
+    "on_air_name": "Heidi from Fargo",
+    "home_base": "Fargo, North Dakota",
+    "vocal_style": "Upper Plains cadence; dry and unbothered",
+    "background": "grain buyer, NDSU/FBS watcher",
+    "favorite_teams": [
+      "North Dakota State",
+      "Minnesota"
+    ],
+    "persona": "small-program dynasty caller",
+    "take_quality": "very good",
+    "bad_take_rate": 14,
+    "heat_level": 3,
+    "humor_level": 6,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "development",
+      "dynasties",
+      "cold weather"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A dynasty is not built on one class. It is built on everyone knowing Tuesday matters.",
+      "Some programs recruit stars. Some recruit Tuesdays."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_119",
+    "name": "Marco Bellini",
+    "on_air_name": "Marco from Providence",
+    "home_base": "Providence, Rhode Island",
+    "vocal_style": "New England Italian-American cadence; dramatic and funny",
+    "background": "restaurant owner, Big East nostalgist",
+    "favorite_teams": [
+      "Boston College",
+      "UConn"
+    ],
+    "persona": "nostalgia and scheduling caller",
+    "take_quality": "fun, sometimes outdated",
+    "bad_take_rate": 50,
+    "heat_level": 6,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "old rivalries",
+      "independents",
+      "scheduling"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Bring back the old rivalries and half the country will remember how to hate properly.",
+      "A schedule without grudges is just travel."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_120",
+    "name": "Tina Alvarez",
+    "on_air_name": "Tina from San Marcos",
+    "home_base": "San Marcos, Texas",
+    "vocal_style": "Hill Country Texas cadence; practical, upbeat",
+    "background": "school athletic secretary, Texas State fan",
+    "favorite_teams": [
+      "Texas State"
+    ],
+    "persona": "local pipeline and parent perspective caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 15,
+    "heat_level": 4,
+    "humor_level": 6,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "parents",
+      "local recruiting",
+      "G5"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The parents are not asking for promises. They are asking if you know their kid.",
+      "A staff that remembers the little brother's name is not being cute. It is recruiting."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_121",
+    "name": "Oscar Bell",
+    "on_air_name": "Oscar from Athens, Ohio",
+    "home_base": "Athens, Ohio",
+    "vocal_style": "Appalachian Ohio cadence; soft, clever",
+    "background": "music professor, Ohio Bobcats fan",
+    "favorite_teams": [
+      "Ohio"
+    ],
+    "persona": "MAC philosopher",
+    "take_quality": "surprisingly good",
+    "bad_take_rate": 18,
+    "heat_level": 3,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "MAC",
+      "culture",
+      "development"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "Every program has a ceiling until somebody builds a ladder out of three-stars.",
+      "The prettiest win is still one where your backups know where to line up."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_122",
+    "name": "Camille Porter",
+    "on_air_name": "Camille from Atlanta",
+    "home_base": "Atlanta, Georgia",
+    "vocal_style": "polished Atlanta cadence; sponsor/NIL aware",
+    "background": "brand strategist, national CFB follower",
+    "favorite_teams": [
+      "Neutral",
+      "Georgia Tech"
+    ],
+    "persona": "brand strategy caller",
+    "take_quality": "accurate",
+    "bad_take_rate": 13,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "brand",
+      "NIL",
+      "media"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A player brand without production is just a photo shoot.",
+      "The best NIL pitch is believable because the football part is believable."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_123",
+    "name": "Ronnie Dale",
+    "on_air_name": "Ronnie from Monroe",
+    "home_base": "Monroe, Louisiana",
+    "vocal_style": "north Louisiana drawl; funny, blunt",
+    "background": "truck stop owner, ULM fan",
+    "favorite_teams": [
+      "ULM",
+      "Louisiana Tech"
+    ],
+    "persona": "budget-ball caller",
+    "take_quality": "fun and realistic",
+    "bad_take_rate": 29,
+    "heat_level": 5,
+    "humor_level": 8,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "budget",
+      "G5",
+      "upsets"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "We do not have a war chest. We have a tackle box and a prayer.",
+      "If you cannot buy depth, you better develop it and punt well."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_124",
+    "name": "Ashley Ward",
+    "on_air_name": "Ashley from Raleigh",
+    "home_base": "Raleigh, North Carolina",
+    "vocal_style": "clean Raleigh cadence; sharp but calm",
+    "background": "software PM, NC State fan",
+    "favorite_teams": [
+      "NC State"
+    ],
+    "persona": "process-and-fan-expectation caller",
+    "take_quality": "solid",
+    "bad_take_rate": 20,
+    "heat_level": 4,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "expectations",
+      "QB development",
+      "rivalries"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The fans are not wrong to expect more. They are wrong to expect it without a left tackle.",
+      "Every season has a moment where process either becomes belief or gets booed."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_125",
+    "name": "Dom Reyes",
+    "on_air_name": "Dom from Albuquerque",
+    "home_base": "Albuquerque, New Mexico",
+    "vocal_style": "New Mexico cadence; funny and weather-aware",
+    "background": "line cook, New Mexico fan",
+    "favorite_teams": [
+      "New Mexico",
+      "New Mexico State"
+    ],
+    "persona": "underdog chaos caller",
+    "take_quality": "mixed",
+    "bad_take_rate": 47,
+    "heat_level": 6,
+    "humor_level": 8,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "altitude",
+      "upsets",
+      "weather"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": true,
+    "sample_lines": [
+      "Our home-field advantage is that nobody believes the air is real until the fourth quarter.",
+      "If the offense is going to be bad, at least be weird."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_126",
+    "name": "Eliza Stone",
+    "on_air_name": "Eliza from Oxford, Ohio",
+    "home_base": "Oxford, Ohio",
+    "vocal_style": "small-college Midwest cadence; cheerful and precise",
+    "background": "admissions counselor, Miami (OH) fan",
+    "favorite_teams": [
+      "Miami (OH)",
+      "Cincinnati"
+    ],
+    "persona": "academics/small-program caller",
+    "take_quality": "good",
+    "bad_take_rate": 13,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "academics",
+      "development",
+      "MAC"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A recruit who values structure is not boring. He is retainable.",
+      "The best small programs know exactly which kids they cannot afford to miss."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_127",
+    "name": "Freddie Cole",
+    "on_air_name": "Freddie from New Orleans",
+    "home_base": "New Orleans, Louisiana",
+    "vocal_style": "New Orleans street-radio cadence; rhythmic and comic",
+    "background": "brass band drummer, Tulane/LSU fan",
+    "favorite_teams": [
+      "Tulane",
+      "LSU"
+    ],
+    "persona": "atmosphere and rhythm caller",
+    "take_quality": "fun, often insightful",
+    "bad_take_rate": 28,
+    "heat_level": 5,
+    "humor_level": 9,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "atmosphere",
+      "tempo",
+      "local culture"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "That offense had rhythm until the third quarter started playing in another key.",
+      "A good crowd is a drummer. A bad offense is a tuba with a flat tire."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_128",
+    "name": "Colleen Murphy",
+    "on_air_name": "Colleen from South Bend",
+    "home_base": "South Bend, Indiana",
+    "vocal_style": "Midwest Catholic cadence; warm, exacting",
+    "background": "campus tour guide supervisor, Notre Dame fan",
+    "favorite_teams": [
+      "Notre Dame"
+    ],
+    "persona": "visit-experience caller",
+    "take_quality": "sharp",
+    "bad_take_rate": 11,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "visits",
+      "families",
+      "tradition"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A campus visit should make the family feel the plan, not just see the buildings.",
+      "Tradition works when it feels alive. Otherwise it is a gift shop."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_129",
+    "name": "Benny Wu",
+    "on_air_name": "Benny from Las Vegas",
+    "home_base": "Las Vegas, Nevada",
+    "vocal_style": "fast, dry Vegas cadence; analytical jokester",
+    "background": "sportsbook-adjacent data guy but avoids gambling talk",
+    "favorite_teams": [
+      "UNLV",
+      "USC"
+    ],
+    "persona": "variance and media caller",
+    "take_quality": "good",
+    "bad_take_rate": 25,
+    "heat_level": 5,
+    "humor_level": 7,
+    "frequency": "recurring",
+    "preferred_topics": [
+      "variance",
+      "media",
+      "tempo"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "The result was surprising. The volatility was not.",
+      "You cannot build your whole identity on chaos and then act offended by variance."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  },
+  {
+    "id": "caller_130",
+    "name": "Miriam Fox",
+    "on_air_name": "Miriam from Eugene",
+    "home_base": "Eugene, Oregon",
+    "vocal_style": "gentle Oregon cadence; environmental and observant",
+    "background": "campus facilities planner, Oregon State sympathizer",
+    "favorite_teams": [
+      "Oregon State",
+      "Oregon"
+    ],
+    "persona": "facilities/campus caller",
+    "take_quality": "good",
+    "bad_take_rate": 18,
+    "heat_level": 3,
+    "humor_level": 5,
+    "frequency": "occasional",
+    "preferred_topics": [
+      "facilities",
+      "campus appeal",
+      "recruiting"
+    ],
+    "bias_triggers": [
+      "player development",
+      "recruiting fit",
+      "program identity"
+    ],
+    "can_have_terrible_takes": false,
+    "sample_lines": [
+      "A facility is a promise about how the player will spend Tuesday.",
+      "The campus sold the visit better than the staff did, and that is both good and concerning."
+    ],
+    "safe_use_notes": "Use as a fictional caller. Do not impersonate real broadcasters, coaches, players, or private individuals."
+  }
+]

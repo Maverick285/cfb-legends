@@ -1,0 +1,15 @@
+﻿Topic,Details
+Date generated,2026-05-09T14:41:48
+Repo path inspected,C:\Users\joshu\OneDrive\Desktop\FM Game
+Files scanned,2041 text/source files
+Folders scanned,".claude, AGENTS.md, README.md, ai-pack, app.js, cfl_agent_repo_pack, data, docs, harness, index.html, js, package.json, runtime, scripts"
+Folders/files excluded,".git, .venv, node_modules, artifacts, tmp, Screens for game, *.svg/images"
+Source Status: existing-code,"Field/key found in active app, runtime, harness, scripts, or root source files."
+Source Status: mock-only,"Field/key found only in data packs, generated sample data, CSV/JSON run output, or mocks."
+Source Status: spec-only,"Field/key found in docs, planning packs, stubs, or specs but not active app code."
+Source Status: inferred,"Field was included because the game concept or requested inventory implies it, but it was not verified in current code/data."
+Source Status: missing-but-needed,Field is recommended/needed for the target concept but was not found as current code/data.
+Source Status: duplicate/unclear,Field appears in inconsistent or ambiguous contexts.
+Approval Status,"All rows default to pending-review. Change to approved, rejected, or revise during human review."
+Warning,Do not treat inferred/spec-only/missing rows as implemented game fields.
+Next step,"Review tabs by entity, update Approval Status and Recommendation, then decide which fields map to each screen."

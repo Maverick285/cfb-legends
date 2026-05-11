@@ -1,0 +1,7 @@
+﻿Phase,Goal,Tables Required,Selectors / Actions Required,Quality Gate,Approval Status
+M0,"New project skeleton and domain contracts, no feature breadth.","world_saves, people, schools, programs, seasons, weeks, rulesets, event_log, resources","object-router, action registry, basic selectors","save/load roundtrip, no dangling IDs, one object click path",pending-review
+M1,Start Career creates a real minimum world.,"athlete_profiles, roster_memberships, school_brands, conference_memberships","world factory, program desk selector",new career creates IDs/relations; save reloads same state,pending-review
+M2,Player/person object loop.,"rating snapshots, weekly state, depth chart assignments, person_history","roster selector, profile selector, set development focus",action writes log/history and selector refreshes,pending-review
+M3,Recruiting and calendar slice.,"recruiting_profiles, recruit_program_interest, scouting_reports, transactions, action_windows",scout/contact/offer/schedule visit actions,calendar/inbox/recruit profile all read same records,pending-review
+M4,Preseason systems.,"official_visits, promises, staff assignments, NIL deals, stadium/uniform/facility data",advance week with blockers/windows,phase rules and invariants gate Continue,pending-review
+M5,First game slice.,"scheduled_games, game_results, play_events, play_conflicts, player_game_stats","game preview, sim runner, postgame selectors",result appears on schedule/program/player histories,pending-review
