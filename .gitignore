@@ -3,6 +3,9 @@
 /tmp/
 /runtime/
 /harness/runs/
+/cfl-app/node_modules/
+/cfl-app/dist/
+*.tsbuildinfo
 __pycache__/
 *.pyc
 

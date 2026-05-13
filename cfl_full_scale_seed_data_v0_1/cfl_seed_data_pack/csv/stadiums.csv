@@ -1,0 +1,139 @@
+stadiumId,schoolId,stadiumName,city,state,capacity,currentCapacity,targetCapacity,yearBuilt,lastRenovation,fieldType,surfaceQuality,fanExperience,homeFieldAdvantage,noiseRating,clubSeats,suites
+stadium_boston_college,school_boston_college,Boston College Stadium,Chestnut Hill,MA,73513,73513,73513,1945,2025,Artificial Turf,68,71,84,69,5759,1394
+stadium_california,school_california,California Stadium,Berkeley,CA,67095,67095,67095,1957,2025,Artificial Turf,56,61,78,73,3177,442
+stadium_clemson,school_clemson,Clemson Stadium,Clemson,SC,71953,71953,71953,2001,2022,Natural Grass,99,82,70,93,2297,813
+stadium_duke,school_duke,Duke Stadium,Durham,NC,75259,75259,75259,1948,2009,Artificial Turf,65,64,75,74,5834,1011
+stadium_florida_state,school_florida_state,Florida State Stadium,Tallahassee,FL,68917,68917,68917,2012,2013,Natural Grass,96,83,89,71,4166,618
+stadium_georgia_tech,school_georgia_tech,Georgia Tech Stadium,Atlanta,GA,64134,64134,64134,2013,2020,Natural Grass,75,61,75,77,5567,532
+stadium_louisville,school_louisville,Louisville Stadium,Louisville,KY,89907,89907,89907,1990,2012,Natural Grass,87,99,87,91,2866,1043
+stadium_miami_fl,school_miami_fl,Miami (FL) Stadium,Miami Gardens,FL,85105,85105,85105,1965,2018,Artificial Turf,70,90,70,53,3055,1110
+stadium_nc_state,school_nc_state,NC State Stadium,Raleigh,NC,92652,92652,92652,1941,2018,Artificial Turf,61,46,73,76,2791,1186
+stadium_north_carolina,school_north_carolina,North Carolina Stadium,Chapel Hill,NC,88140,88140,88140,1926,2023,Artificial Turf,57,77,94,99,3067,768
+stadium_pittsburgh,school_pittsburgh,Pittsburgh Stadium,Pittsburgh,PA,80441,80441,80441,2005,2025,Artificial Turf,84,47,81,76,5411,1307
+stadium_smu,school_smu,SMU Stadium,Dallas,TX,87155,87155,87155,1937,2013,Natural Grass,92,66,84,88,3716,1033
+stadium_stanford,school_stanford,Stanford Stadium,Stanford,CA,71488,71488,71488,1921,2008,Natural Grass,72,92,69,77,3728,1147
+stadium_syracuse,school_syracuse,Syracuse Stadium,Syracuse,NY,84305,84305,84305,1940,2010,Artificial Turf,87,74,57,97,6587,1878
+stadium_virginia,school_virginia,Virginia Stadium,Charlottesville,VA,71157,71157,71157,1928,2013,Artificial Turf,75,62,61,86,6144,519
+stadium_virginia_tech,school_virginia_tech,Virginia Tech Stadium,Blacksburg,VA,86388,86388,86388,1920,2021,Natural Grass,66,72,63,59,4218,1897
+stadium_wake_forest,school_wake_forest,Wake Forest Stadium,Winston-Salem,NC,74106,74106,74106,1994,2024,Artificial Turf,79,56,72,72,6230,1550
+stadium_illinois,school_illinois,Illinois Stadium,Champaign,IL,69220,69220,69220,1998,2007,Artificial Turf,55,76,73,86,4129,683
+stadium_indiana,school_indiana,Indiana Stadium,Bloomington,IN,92573,92573,92573,1976,2024,Artificial Turf,74,82,62,92,5413,942
+stadium_iowa,school_iowa,Iowa Stadium,Iowa City,IA,92803,92803,92803,2008,2009,Natural Grass,90,86,69,77,3935,1243
+stadium_maryland,school_maryland,Maryland Stadium,College Park,MD,79890,79890,79890,1963,2026,Artificial Turf,78,73,54,99,4956,1848
+stadium_michigan,school_michigan,Michigan Stadium,Ann Arbor,MI,100174,100174,100174,1930,2020,Natural Grass,97,93,99,94,3417,2418
+stadium_michigan_state,school_michigan_state,Michigan State Stadium,East Lansing,MI,75097,75097,75097,1959,2023,Artificial Turf,66,50,76,83,5079,528
+stadium_minnesota,school_minnesota,Minnesota Stadium,Minneapolis,MN,87356,87356,87356,2001,2019,Natural Grass,62,85,86,75,6856,1377
+stadium_nebraska,school_nebraska,Nebraska Stadium,Lincoln,NE,90879,90879,90879,1947,2016,Artificial Turf,80,72,99,82,2781,2177
+stadium_northwestern,school_northwestern,Northwestern Stadium,Evanston,IL,74736,74736,74736,1967,2020,Artificial Turf,51,75,57,84,3456,749
+stadium_ohio_state,school_ohio_state,Ohio State Stadium,Columbus,OH,91098,91098,91098,1921,2022,Natural Grass,95,84,99,70,3423,2037
+stadium_oregon,school_oregon,Oregon Stadium,Eugene,OR,110000,110000,110000,2000,2026,Natural Grass,99,99,99,93,4938,1777
+stadium_penn_state,school_penn_state,Penn State Stadium,University Park,PA,90992,90992,90992,1942,2022,Natural Grass,89,99,99,89,2907,979
+stadium_purdue,school_purdue,Purdue Stadium,West Lafayette,IN,58515,58515,58515,1938,2007,Natural Grass,73,78,69,52,2768,438
+stadium_rutgers,school_rutgers,Rutgers Stadium,Piscataway,NJ,67645,67645,67645,1942,2020,Artificial Turf,68,83,72,60,4025,461
+stadium_ucla,school_ucla,UCLA Stadium,Los Angeles,CA,98067,98067,98067,1961,2008,Artificial Turf,82,53,94,70,5660,596
+stadium_usc,school_usc,USC Stadium,Los Angeles,CA,104381,104381,104381,1948,2008,Artificial Turf,97,99,90,99,4959,1994
+stadium_washington,school_washington,Washington Stadium,Seattle,WA,81925,81925,81925,1956,2014,Artificial Turf,91,74,73,85,6207,1027
+stadium_wisconsin,school_wisconsin,Wisconsin Stadium,Madison,WI,93993,93993,93993,1932,2019,Natural Grass,81,70,81,81,6512,760
+stadium_arizona,school_arizona,Arizona Stadium,Tucson,AZ,83776,83776,83776,1949,2007,Artificial Turf,89,69,70,66,3349,920
+stadium_arizona_state,school_arizona_state,Arizona State Stadium,Tempe,AZ,86870,86870,86870,1979,2025,Artificial Turf,75,61,82,90,4105,1384
+stadium_baylor,school_baylor,Baylor Stadium,Waco,TX,82622,82622,82622,1957,2014,Natural Grass,81,64,64,83,5878,1643
+stadium_byu,school_byu,BYU Stadium,Provo,UT,69775,69775,69775,1931,2014,Artificial Turf,70,78,71,89,6160,1089
+stadium_cincinnati,school_cincinnati,Cincinnati Stadium,Cincinnati,OH,77003,77003,77003,1921,2013,Natural Grass,55,74,62,54,6109,1833
+stadium_colorado,school_colorado,Colorado Stadium,Boulder,CO,90534,90534,90534,1983,2008,Natural Grass,76,80,94,69,7873,1713
+stadium_houston,school_houston,Houston Stadium,Houston,TX,86285,86285,86285,1966,2008,Artificial Turf,39,57,58,76,3571,642
+stadium_iowa_state,school_iowa_state,Iowa State Stadium,Ames,IA,80190,80190,80190,1996,2005,Artificial Turf,83,82,73,85,3245,1461
+stadium_kansas,school_kansas,Kansas Stadium,Lawrence,KS,57616,57616,57616,1984,2012,Natural Grass,55,32,52,49,3952,323
+stadium_kansas_state,school_kansas_state,Kansas State Stadium,Manhattan,KS,77784,77784,77784,1997,2018,Natural Grass,83,87,79,70,4906,1735
+stadium_oklahoma_state,school_oklahoma_state,Oklahoma State Stadium,Stillwater,OK,92711,92711,92711,1931,2018,Natural Grass,84,72,87,87,8102,1505
+stadium_tcu,school_tcu,TCU Stadium,Fort Worth,TX,81194,81194,81194,1991,2016,Natural Grass,80,76,59,84,7183,1734
+stadium_texas_tech,school_texas_tech,Texas Tech Stadium,Lubbock,TX,94895,94895,94895,2004,2017,Natural Grass,83,87,94,78,4071,1271
+stadium_ucf,school_ucf,UCF Stadium,Orlando,FL,69720,69720,69720,1947,2021,Natural Grass,64,67,75,62,4295,778
+stadium_utah,school_utah,Utah Stadium,Salt Lake City,UT,89111,89111,89111,2010,2012,Artificial Turf,99,91,83,82,7598,1982
+stadium_west_virginia,school_west_virginia,West Virginia Stadium,Morgantown,WV,71429,71429,71429,1930,2017,Artificial Turf,78,74,66,75,4856,1115
+stadium_alabama,school_alabama,Alabama Stadium,Tuscaloosa,AL,96296,96296,96296,2002,2025,Artificial Turf,99,78,94,95,5443,1064
+stadium_arkansas,school_arkansas,Arkansas Stadium,Fayetteville,AR,61274,61274,61274,1925,2019,Natural Grass,63,63,81,72,2218,1408
+stadium_auburn,school_auburn,Auburn Stadium,Auburn,AL,84239,84239,84239,2006,2024,Natural Grass,87,66,88,85,5955,899
+stadium_florida,school_florida,Florida Stadium,Gainesville,FL,94782,94782,94782,2014,2026,Natural Grass,74,80,78,80,3868,879
+stadium_georgia,school_georgia,Georgia Stadium,Athens,GA,78437,78437,78437,1943,2024,Natural Grass,94,91,82,99,6916,1350
+stadium_kentucky,school_kentucky,Kentucky Stadium,Lexington,KY,88501,88501,88501,1937,2013,Natural Grass,61,62,58,71,7146,1949
+stadium_lsu,school_lsu,LSU Stadium,Baton Rouge,LA,75314,75314,75314,1969,2007,Artificial Turf,93,99,99,99,3774,596
+stadium_mississippi_state,school_mississippi_state,Mississippi State Stadium,Starkville,MS,73855,73855,73855,1950,2018,Artificial Turf,70,86,74,49,5016,1218
+stadium_missouri,school_missouri,Missouri Stadium,Columbia,MO,79948,79948,79948,1980,2006,Artificial Turf,84,75,97,78,4052,1571
+stadium_oklahoma,school_oklahoma,Oklahoma Stadium,Norman,OK,95873,95873,95873,1945,2006,Artificial Turf,99,99,92,99,4333,1923
+stadium_ole_miss,school_ole_miss,Ole Miss Stadium,Oxford,MS,88210,88210,88210,1967,2021,Artificial Turf,86,63,95,89,6998,1403
+stadium_south_carolina,school_south_carolina,South Carolina Stadium,Columbia,SC,72633,72633,72633,1985,2026,Natural Grass,61,76,68,52,2330,460
+stadium_tennessee,school_tennessee,Tennessee Stadium,Knoxville,TN,100600,100600,100600,2003,2013,Natural Grass,90,87,94,99,8532,739
+stadium_texas,school_texas,Texas Stadium,Austin,TX,85310,85310,85310,1958,2010,Natural Grass,89,96,78,98,3270,1775
+stadium_texas_a_m,school_texas_a_m,Texas A&M Stadium,College Station,TX,86241,86241,86241,1960,2025,Natural Grass,64,84,64,99,6624,1534
+stadium_vanderbilt,school_vanderbilt,Vanderbilt Stadium,Nashville,TN,67372,67372,67372,1936,2025,Artificial Turf,58,63,63,56,4368,567
+stadium_army,school_army,Army Stadium,West Point,NY,74066,74066,74066,1981,2012,Artificial Turf,56,61,69,62,4373,672
+stadium_charlotte,school_charlotte,Charlotte Stadium,Charlotte,NC,67155,67155,67155,1932,2006,Artificial Turf,65,80,49,28,5650,1428
+stadium_east_carolina,school_east_carolina,East Carolina Stadium,Greenville,NC,67264,67264,67264,1965,2006,Natural Grass,53,72,66,40,3171,347
+stadium_florida_atlantic,school_florida_atlantic,Florida Atlantic Stadium,Boca Raton,FL,45877,45877,45877,1999,2026,Natural Grass,45,45,45,14,2911,564
+stadium_memphis,school_memphis,Memphis Stadium,Memphis,TN,72180,72180,72180,1998,2014,Artificial Turf,52,63,49,65,4222,384
+stadium_navy,school_navy,Navy Stadium,Annapolis,MD,47382,47382,47382,1968,2009,Natural Grass,46,77,54,50,2313,380
+stadium_north_texas,school_north_texas,North Texas Stadium,Denton,TX,59533,59533,59533,1942,2019,Artificial Turf,46,55,72,45,4656,612
+stadium_rice,school_rice,Rice Stadium,Houston,TX,55013,55013,55013,1970,2016,Natural Grass,47,51,63,50,3110,557
+stadium_temple,school_temple,Temple Stadium,Philadelphia,PA,57148,57148,57148,1932,2018,Artificial Turf,52,48,53,52,3601,1347
+stadium_tulane,school_tulane,Tulane Stadium,New Orleans,LA,79733,79733,79733,1924,2017,Artificial Turf,64,76,86,75,2571,874
+stadium_tulsa,school_tulsa,Tulsa Stadium,Tulsa,OK,59759,59759,59759,2011,2010,Natural Grass,56,36,39,48,2422,1322
+stadium_uab,school_uab,UAB Stadium,Birmingham,AL,81514,81514,81514,2012,2023,Natural Grass,64,65,77,68,4721,667
+stadium_usf,school_usf,USF Stadium,Tampa,FL,74028,74028,74028,2005,2011,Natural Grass,53,44,62,44,4566,905
+stadium_utsa,school_utsa,UTSA Stadium,San Antonio,TX,56859,56859,56859,1978,2023,Natural Grass,59,39,50,55,2573,287
+stadium_delaware,school_delaware,Delaware Stadium,Newark,DE,57915,57915,57915,1968,2019,Artificial Turf,33,57,36,30,4008,692
+stadium_fiu,school_fiu,FIU Stadium,Miami,FL,53993,53993,53993,2012,2008,Natural Grass,50,48,31,46,1670,492
+stadium_jacksonville_state,school_jacksonville_state,Jacksonville State Stadium,Jacksonville,AL,60489,60489,60489,2013,2023,Artificial Turf,26,31,45,32,4994,1494
+stadium_kennesaw_state,school_kennesaw_state,Kennesaw State Stadium,Kennesaw,GA,61890,61890,61890,1939,2014,Artificial Turf,63,60,68,55,5041,488
+stadium_liberty,school_liberty,Liberty Stadium,Lynchburg,VA,79498,79498,79498,1968,2026,Natural Grass,74,63,70,48,5050,1159
+stadium_middle_tennessee,school_middle_tennessee,Middle Tennessee Stadium,Murfreesboro,TN,65364,65364,65364,1965,2014,Artificial Turf,73,49,84,42,4794,1322
+stadium_missouri_state,school_missouri_state,Missouri State Stadium,Springfield,MO,82580,82580,82580,1949,2017,Natural Grass,33,48,44,39,6548,2009
+stadium_new_mexico_state,school_new_mexico_state,New Mexico State Stadium,Las Cruces,NM,53850,53850,53850,1949,2007,Natural Grass,68,72,59,45,3769,933
+stadium_sam_houston,school_sam_houston,Sam Houston Stadium,Huntsville,TX,63452,63452,63452,1939,2012,Natural Grass,47,47,40,71,2204,1534
+stadium_western_kentucky,school_western_kentucky,Western Kentucky Stadium,Bowling Green,KY,55243,55243,55243,1930,2020,Artificial Turf,40,45,43,87,4623,1291
+stadium_akron,school_akron,Akron Stadium,Akron,OH,58595,58595,58595,1958,2010,Natural Grass,27,35,38,30,3107,1159
+stadium_ball_state,school_ball_state,Ball State Stadium,Muncie,IN,73663,73663,73663,1968,2018,Natural Grass,76,55,47,78,5737,1418
+stadium_bowling_green,school_bowling_green,Bowling Green Stadium,Bowling Green,OH,56570,56570,56570,1931,2010,Artificial Turf,28,45,38,42,2898,388
+stadium_buffalo,school_buffalo,Buffalo Stadium,Buffalo,NY,67056,67056,67056,1938,2007,Natural Grass,65,45,62,52,3024,665
+stadium_central_michigan,school_central_michigan,Central Michigan Stadium,Mount Pleasant,MI,79489,79489,79489,1961,2024,Natural Grass,52,59,50,65,5889,1403
+stadium_eastern_michigan,school_eastern_michigan,Eastern Michigan Stadium,Ypsilanti,MI,72211,72211,72211,1928,2018,Artificial Turf,38,63,64,56,3999,905
+stadium_kent_state,school_kent_state,Kent State Stadium,Kent,OH,60089,60089,60089,1941,2025,Natural Grass,39,45,33,25,2998,1257
+stadium_miami_oh,school_miami_oh,Miami (OH) Stadium,Oxford,OH,49212,49212,49212,1930,2008,Natural Grass,42,35,50,44,2504,342
+stadium_ohio,school_ohio,Ohio Stadium,Athens,OH,59853,59853,59853,1991,2018,Artificial Turf,62,73,68,78,3347,334
+stadium_toledo,school_toledo,Toledo Stadium,Toledo,OH,69345,69345,69345,2005,2020,Artificial Turf,62,43,48,47,5598,1202
+stadium_umass,school_umass,UMass Stadium,Amherst,MA,78633,78633,78633,1969,2018,Natural Grass,52,65,88,49,3176,655
+stadium_western_michigan,school_western_michigan,Western Michigan Stadium,Kalamazoo,MI,58483,58483,58483,1941,2007,Natural Grass,37,49,39,56,2767,1205
+stadium_sacramento_state,school_sacramento_state,Sacramento State Stadium,Sacramento,CA,63248,63248,63248,1958,2006,Artificial Turf,54,80,77,70,2342,1343
+stadium_air_force,school_air_force,Air Force Stadium,USAF Academy,CO,80923,80923,80923,1993,2013,Natural Grass,64,78,80,61,3774,1466
+stadium_hawaii,school_hawaii,Hawaii Stadium,Honolulu,HI,70781,70781,70781,1971,2021,Artificial Turf,53,37,47,64,4594,1583
+stadium_nevada,school_nevada,Nevada Stadium,Reno,NV,68947,68947,68947,1982,2015,Natural Grass,63,81,70,66,5913,562
+stadium_new_mexico,school_new_mexico,New Mexico Stadium,Albuquerque,NM,69109,69109,69109,2012,2012,Artificial Turf,43,36,66,52,2623,658
+stadium_san_jose_state,school_san_jose_state,San Jose State Stadium,San Jose,CA,72883,72883,72883,1937,2025,Natural Grass,55,73,65,53,3722,674
+stadium_unlv,school_unlv,UNLV Stadium,Las Vegas,NV,58690,58690,58690,1955,2025,Natural Grass,61,77,59,51,5075,324
+stadium_wyoming,school_wyoming,Wyoming Stadium,Laramie,WY,90513,90513,90513,1921,2016,Artificial Turf,74,81,83,54,6424,1833
+stadium_utep,school_utep,UTEP Stadium,El Paso,TX,70874,70874,70874,1988,2024,Natural Grass,61,72,54,61,5562,1114
+stadium_northern_illinois,school_northern_illinois,Northern Illinois Stadium,DeKalb,IL,67874,67874,67874,1921,2010,Artificial Turf,50,64,46,54,2716,511
+stadium_north_dakota_state,school_north_dakota_state,North Dakota State Stadium,Fargo,ND,68328,68328,68328,1983,2023,Natural Grass,69,81,87,84,5013,653
+stadium_boise_state,school_boise_state,Boise State Stadium,Boise,ID,95024,95024,95024,1929,2023,Artificial Turf,82,99,98,95,5791,562
+stadium_colorado_state,school_colorado_state,Colorado State Stadium,Fort Collins,CO,73101,73101,73101,1983,2011,Natural Grass,78,87,79,66,4982,1379
+stadium_fresno_state,school_fresno_state,Fresno State Stadium,Fresno,CA,85499,85499,85499,1986,2018,Artificial Turf,48,39,63,45,5833,1101
+stadium_oregon_state,school_oregon_state,Oregon State Stadium,Corvallis,OR,70870,70870,70870,1945,2009,Natural Grass,70,73,55,70,4404,1721
+stadium_san_diego_state,school_san_diego_state,San Diego State Stadium,San Diego,CA,79563,79563,79563,1926,2026,Artificial Turf,59,59,98,74,4545,1588
+stadium_texas_state,school_texas_state,Texas State Stadium,San Marcos,TX,82974,82974,82974,1945,2025,Artificial Turf,63,56,74,42,3099,1978
+stadium_utah_state,school_utah_state,Utah State Stadium,Logan,UT,49965,49965,49965,1981,2006,Natural Grass,58,57,64,66,3075,880
+stadium_washington_state,school_washington_state,Washington State Stadium,Pullman,WA,76865,76865,76865,1927,2020,Artificial Turf,74,23,75,69,5335,794
+stadium_appalachian_state,school_appalachian_state,Appalachian State Stadium,Boone,NC,91466,91466,91466,1992,2011,Artificial Turf,71,68,73,79,6045,493
+stadium_arkansas_state,school_arkansas_state,Arkansas State Stadium,Jonesboro,AR,66959,66959,66959,2010,2026,Artificial Turf,45,47,39,85,4951,919
+stadium_coastal_carolina,school_coastal_carolina,Coastal Carolina Stadium,Conway,SC,65690,65690,65690,1993,2017,Natural Grass,34,62,68,64,4491,465
+stadium_georgia_southern,school_georgia_southern,Georgia Southern Stadium,Statesboro,GA,53033,53033,53033,2008,2007,Artificial Turf,53,59,65,53,3922,1293
+stadium_georgia_state,school_georgia_state,Georgia State Stadium,Atlanta,GA,64929,64929,64929,1929,2015,Natural Grass,88,71,61,94,5758,763
+stadium_james_madison,school_james_madison,James Madison Stadium,Harrisonburg,VA,98971,98971,98971,1950,2008,Natural Grass,61,80,67,71,2991,668
+stadium_louisiana,school_louisiana,Louisiana Stadium,Lafayette,LA,66208,66208,66208,1968,2016,Natural Grass,70,55,67,55,3053,412
+stadium_louisiana_tech,school_louisiana_tech,Louisiana Tech Stadium,Ruston,LA,74560,74560,74560,1958,2007,Artificial Turf,75,51,36,62,5817,1383
+stadium_marshall,school_marshall,Marshall Stadium,Huntington,WV,84793,84793,84793,1928,2007,Artificial Turf,45,43,52,67,7209,444
+stadium_old_dominion,school_old_dominion,Old Dominion Stadium,Norfolk,VA,48702,48702,48702,1953,2017,Artificial Turf,50,54,66,72,3267,906
+stadium_south_alabama,school_south_alabama,South Alabama Stadium,Mobile,AL,79169,79169,79169,1976,2015,Artificial Turf,70,48,34,62,6714,1040
+stadium_southern_miss,school_southern_miss,Southern Miss Stadium,Hattiesburg,MS,74041,74041,74041,1927,2012,Natural Grass,31,60,50,43,5879,1118
+stadium_troy,school_troy,Troy Stadium,Troy,AL,85397,85397,85397,1947,2012,Natural Grass,64,54,49,56,6560,1737
+stadium_ulm,school_ulm,ULM Stadium,Monroe,LA,40837,40837,40837,1947,2019,Artificial Turf,30,18,34,42,2478,745
+stadium_notre_dame,school_notre_dame,Notre Dame Stadium,South Bend,IN,98630,98630,98630,1996,2017,Artificial Turf,76,85,76,68,4494,1318
+stadium_uconn,school_uconn,UConn Stadium,Storrs,CT,51178,51178,51178,1943,2014,Natural Grass,34,54,48,34,4337,1225

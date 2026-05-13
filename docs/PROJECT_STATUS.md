@@ -1,83 +1,106 @@
 # Project Status
 
-Date: 2026-05-07
+Date: 2026-05-12
 
 ## Current State
 
-The project is entering a focused rebuild phase.
+The project has moved to the new `cfl-app/` React + TypeScript + Vite path.
 
-Previous work produced many useful systems, but the active direction is now to stop expanding broad screen scaffolding and rebuild the app foundation before adding feature depth.
+`cfl-next/` remains the active visual prototype and screen reference. The old root static app, legacy `app.js`, `js/sim/`, `js/ui/`, and harness code are parts-bin/reference systems.
 
 ## Active Milestone
 
-M0 - App Foundation.
+R0 - React app foundation and seed-backed player object loop.
 
 ## Current Goal
 
-Prove the app has usable bones:
+Prove the real app path has usable bones:
 
 ```text
-boot -> start screen -> program desk -> route navigation -> one object row -> profile -> save/load
+seed pack -> validation report -> compact browser bundle -> start career -> dashboard -> 105-player roster -> player profile -> durable action -> save/load
 ```
 
-This comes before recruiting, portal, NIL, staff, or first-game feature depth.
+This comes before depth chart expansion, recruiting, NIL, staff, portal, or game simulation work.
 
-## Keep
+## Completed This Pass
 
-Existing modules remain useful as parts-bin systems:
+- Added `cfl-app/` as the new real app path.
+- Added React, TypeScript, and Vite config under `cfl-app/`.
+- Added `scripts/build_cfl_app_seed.js`.
+- Validated the full seed pack:
+  - 22 manifest tables.
+  - 138 programs.
+  - every rostered program has 105 roster rows.
+  - rostered athletes have people/profile/ratings rows.
+  - programs have NIL, stadium, brand, and uniform records.
+  - schedule references resolve.
+- Generated:
+  - `cfl-app/reports/seed-import-report.json`
+  - `cfl-app/public/seed/seed-import-report.json`
+  - `cfl-app/public/seed/seed-v0.1-demo.json`
+- Built a first Vanderbilt career slice from seed data.
+- Implemented:
+  - Start screen.
+  - App shell.
+  - Program Desk dashboard.
+  - 105-player roster table.
+  - Player profile route.
+  - Player hero component.
+  - Watchlist action.
+  - Development focus action.
+  - Local save/load persistence.
 
-- recruiting
-- portal
-- NIL
-- development
-- injuries
-- play generation
-- stats
-- campus pulse/media
-- action log
-- event log
-- reducers/replay
-- invariants
-- UI datagrid/workspace helpers
+## Verification
 
-## Quarantine
+- `npm run seed:build` passes.
+- `npm run app:typecheck` passes.
+- `npm run app:build` passes.
+- Browser smoke passes:
+  - Start Vanderbilt career.
+  - Roster renders 105 rows.
+  - Player row selection updates hero.
+  - Double-click opens player profile.
+  - Watchlist persists after reload.
+  - Development focus persists after reload.
 
-Do not expand these patterns:
+## Current App URL
 
-- screen-owned fake lists
-- actions that only change display text
-- calendar entries that are not durable records
-- news/inbox items not derived from events
-- broad UI screens that do not mutate/read shared state
-- one-off decorative graphics used to hide missing function
+Run:
+
+```bash
+npm run app:dev
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5173/
+```
 
 ## Next Implementation Step
 
-Start M0 from `docs/BUILD_PLAN.md`.
+Build the first real depth chart screen in `cfl-app/`.
 
-First code target:
+Acceptance target:
 
-- route registry
-- cohesive shell layout
-- app/domain state container
-- selectors for Program Desk and one object profile
-- save/load roundtrip
-- one deterministic smoke test
+- derive position rooms from the same 105-player roster records.
+- show starter/challenger comparison from seed ratings.
+- write a durable depth override action.
+- save/load preserves the override.
+- no visible depth-chart button exists unless it changes durable state.
 
-## M0 Progress
+## Keep
 
-- Legacy `app.js` is no longer loaded by `index.html`.
-- `js/m0/foundation.js` now owns boot, routing, career creation, state, save/load, and basic selectors.
-- The first screen is now rebuilt screen-by-screen: a full-screen main menu replaces the old bootstrap form, removes world seed/rules/advanced setup clutter, and only exposes wired career actions.
-- New Career now opens a minimal setup panel and creates a fictional Lakeview demo career from shared state; Continue activates only when a local save exists.
-- Visible active screens are Start, Dashboard, Roster, and Person Profile. Recruiting, calendar, inbox, settings/debug, skip, search, bookmarks, and other broad controls are hidden until they do real work.
-- `cfl_agent_repo_pack` has been adopted as the active discipline layer. The Dashboard now follows its Team Hub visual spec with matchup, team overview, schedule, recruiting, staff, rankings/news, bottom ticker, and a real Continue action that advances week state.
-- Added root `AGENTS.md` and static-app check scripts: `typecheck`, `lint`, `test`, `build`, `visual:test`, `screenshot`, and `check`.
-- One object route exists: `#/person/:personId`.
-- Added `npm run m0:smoke` for foundation wiring checks.
+- `cfl-next/` for visual/screen reference.
+- `cfl_full_scale_seed_data_v0_1/` as disposable full-scale seed source.
+- legacy sim and UI modules as parts-bin code only.
 
-## Archive
+## Quarantine
 
-Historical docs and research were moved to:
+Do not expand:
 
-- `docs/archive/2026-05-pre-rebuild-research/`
+- old root static app as the main path.
+- legacy `app.js`.
+- screen-owned fake data.
+- buttons that only change display text.
+- broad screens before the player/object/depth state loop is durable.

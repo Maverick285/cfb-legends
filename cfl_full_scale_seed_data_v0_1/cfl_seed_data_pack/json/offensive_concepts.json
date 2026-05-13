@@ -1,0 +1,222 @@
+[
+  {
+    "conceptId": "concept_inside_zone",
+    "name": "Inside Zone",
+    "type": "run",
+    "strengths": "soft_zone;single_high;weak_edge",
+    "weaknesses": "fast_pressure;robber;press_man",
+    "requiredSkills": "rb_vision;pass_pro;ol_combo",
+    "stressedDefenders": "safety;nickel;edge",
+    "riskLevel": "medium",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_outside_zone",
+    "name": "Outside Zone",
+    "type": "run",
+    "strengths": "aggressive_lb;slow_safety;soft_zone",
+    "weaknesses": "disciplined_apex;dominant_3tech;fast_pressure",
+    "requiredSkills": "edge_seal;pass_pro;qb_read",
+    "stressedDefenders": "mike;apex;safety",
+    "riskLevel": "low",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_duo",
+    "name": "Duo",
+    "type": "run",
+    "strengths": "man_coverage;soft_zone;slow_safety",
+    "weaknesses": "loaded_box;robber;dominant_3tech",
+    "requiredSkills": "ol_combo;qb_read;route_timing",
+    "stressedDefenders": "nickel;corner;mike",
+    "riskLevel": "high",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_power",
+    "name": "Power",
+    "type": "run",
+    "strengths": "aggressive_lb;weak_edge;poor_tackling",
+    "weaknesses": "fast_pressure;loaded_box;press_man",
+    "requiredSkills": "qb_read;edge_seal;wr_release",
+    "stressedDefenders": "corner;3tech;mike",
+    "riskLevel": "high",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_counter_gt",
+    "name": "Counter GT",
+    "type": "run",
+    "strengths": "single_high;slow_safety;light_box",
+    "weaknesses": "disciplined_apex;robber;loaded_box",
+    "requiredSkills": "route_timing;ol_combo;wr_release",
+    "stressedDefenders": "3tech;edge;apex",
+    "riskLevel": "medium",
+    "explosivePotential": "low"
+  },
+  {
+    "conceptId": "concept_pin_pull",
+    "name": "Pin-Pull",
+    "type": "run",
+    "strengths": "slow_safety;single_high;weak_edge",
+    "weaknesses": "cloud_corner;fast_pressure;disciplined_apex",
+    "requiredSkills": "ol_combo;wr_release;pass_pro",
+    "stressedDefenders": "3tech;edge;mike",
+    "riskLevel": "medium",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_split_zone",
+    "name": "Split Zone",
+    "type": "run",
+    "strengths": "single_high;poor_tackling;man_coverage",
+    "weaknesses": "disciplined_apex;cloud_corner;dominant_3tech",
+    "requiredSkills": "route_timing;rb_vision;edge_seal",
+    "stressedDefenders": "nickel;mike;edge",
+    "riskLevel": "high",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_speed_option",
+    "name": "Speed Option",
+    "type": "run",
+    "strengths": "weak_edge;light_box;poor_tackling",
+    "weaknesses": "loaded_box;fast_pressure;press_man",
+    "requiredSkills": "ol_combo;pass_pro;edge_seal",
+    "stressedDefenders": "safety;corner;apex",
+    "riskLevel": "medium",
+    "explosivePotential": "low"
+  },
+  {
+    "conceptId": "concept_stick",
+    "name": "Stick",
+    "type": "pass",
+    "strengths": "soft_zone;light_box;man_coverage",
+    "weaknesses": "press_man;loaded_box;dominant_3tech",
+    "requiredSkills": "qb_read;edge_seal;rb_vision",
+    "stressedDefenders": "safety;mike;edge",
+    "riskLevel": "high",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_spacing",
+    "name": "Spacing",
+    "type": "pass",
+    "strengths": "single_high;light_box;soft_zone",
+    "weaknesses": "press_man;cloud_corner;loaded_box",
+    "requiredSkills": "edge_seal;qb_read;ol_combo",
+    "stressedDefenders": "edge;corner;mike",
+    "riskLevel": "high",
+    "explosivePotential": "low"
+  },
+  {
+    "conceptId": "concept_mesh",
+    "name": "Mesh",
+    "type": "pass",
+    "strengths": "poor_tackling;aggressive_lb;light_box",
+    "weaknesses": "loaded_box;press_man;disciplined_apex",
+    "requiredSkills": "route_timing;wr_release;edge_seal",
+    "stressedDefenders": "3tech;corner;mike",
+    "riskLevel": "high",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_dagger",
+    "name": "Dagger",
+    "type": "pass",
+    "strengths": "light_box;soft_zone;poor_tackling",
+    "weaknesses": "cloud_corner;press_man;fast_pressure",
+    "requiredSkills": "rb_vision;wr_release;route_timing",
+    "stressedDefenders": "safety;corner;nickel",
+    "riskLevel": "high",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_y_cross",
+    "name": "Y-Cross",
+    "type": "pass",
+    "strengths": "light_box;slow_safety;aggressive_lb",
+    "weaknesses": "disciplined_apex;cloud_corner;loaded_box",
+    "requiredSkills": "route_timing;rb_vision;wr_release",
+    "stressedDefenders": "nickel;mike;3tech",
+    "riskLevel": "medium",
+    "explosivePotential": "low"
+  },
+  {
+    "conceptId": "concept_smash",
+    "name": "Smash",
+    "type": "pass",
+    "strengths": "poor_tackling;weak_edge;soft_zone",
+    "weaknesses": "cloud_corner;loaded_box;fast_pressure",
+    "requiredSkills": "pass_pro;wr_release;ol_combo",
+    "stressedDefenders": "edge;3tech;corner",
+    "riskLevel": "high",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_four_verticals",
+    "name": "Four Verticals",
+    "type": "pass",
+    "strengths": "light_box;soft_zone;weak_edge",
+    "weaknesses": "disciplined_apex;cloud_corner;press_man",
+    "requiredSkills": "edge_seal;pass_pro;wr_release",
+    "stressedDefenders": "mike;3tech;safety",
+    "riskLevel": "medium",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_flood",
+    "name": "Flood",
+    "type": "pass",
+    "strengths": "soft_zone;poor_tackling;aggressive_lb",
+    "weaknesses": "loaded_box;cloud_corner;disciplined_apex",
+    "requiredSkills": "qb_read;pass_pro;ol_combo",
+    "stressedDefenders": "edge;nickel;3tech",
+    "riskLevel": "high",
+    "explosivePotential": "low"
+  },
+  {
+    "conceptId": "concept_glance_rpo",
+    "name": "Glance RPO",
+    "type": "rpo",
+    "strengths": "slow_safety;aggressive_lb;single_high",
+    "weaknesses": "press_man;fast_pressure;dominant_3tech",
+    "requiredSkills": "wr_release;pass_pro;qb_read",
+    "stressedDefenders": "nickel;edge;corner",
+    "riskLevel": "medium",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_bubble_rpo",
+    "name": "Bubble RPO",
+    "type": "rpo",
+    "strengths": "light_box;soft_zone;man_coverage",
+    "weaknesses": "robber;fast_pressure;dominant_3tech",
+    "requiredSkills": "route_timing;pass_pro;edge_seal",
+    "stressedDefenders": "edge;safety;3tech",
+    "riskLevel": "medium",
+    "explosivePotential": "medium"
+  },
+  {
+    "conceptId": "concept_power_read",
+    "name": "Power Read",
+    "type": "rpo",
+    "strengths": "light_box;man_coverage;weak_edge",
+    "weaknesses": "robber;cloud_corner;dominant_3tech",
+    "requiredSkills": "route_timing;edge_seal;qb_read",
+    "stressedDefenders": "edge;3tech;nickel",
+    "riskLevel": "high",
+    "explosivePotential": "high"
+  },
+  {
+    "conceptId": "concept_pa_boot",
+    "name": "PA Boot",
+    "type": "play_action",
+    "strengths": "single_high;soft_zone;weak_edge",
+    "weaknesses": "dominant_3tech;fast_pressure;disciplined_apex",
+    "requiredSkills": "edge_seal;route_timing;ol_combo",
+    "stressedDefenders": "safety;apex;corner",
+    "riskLevel": "high",
+    "explosivePotential": "medium"
+  }
+]

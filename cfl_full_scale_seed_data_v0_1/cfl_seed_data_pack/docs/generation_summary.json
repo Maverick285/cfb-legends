@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-05-10T05:23:18.812080Z",
+  "teamCount": 138,
+  "rosterLimitPerProgram": 105,
+  "rosteredAthletes": 14490,
+  "coachStaffProfiles": 1932,
+  "recruits": 6000,
+  "recruitInterestRows": 30000,
+  "games": 828,
+  "positionDistribution": {
+    "QB": 5,
+    "RB": 7,
+    "WR": 14,
+    "TE": 6,
+    "OL": 18,
+    "DL": 10,
+    "EDGE": 7,
+    "LB": 11,
+    "CB": 9,
+    "S": 7,
+    "K": 2,
+    "P": 2,
+    "LS": 1,
+    "ATH": 6
+  }
+}

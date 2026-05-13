@@ -1,0 +1,21 @@
+conceptId,name,type,strengths,weaknesses,requiredSkills,stressedDefenders,riskLevel,explosivePotential
+concept_inside_zone,Inside Zone,run,soft_zone;single_high;weak_edge,fast_pressure;robber;press_man,rb_vision;pass_pro;ol_combo,safety;nickel;edge,medium,high
+concept_outside_zone,Outside Zone,run,aggressive_lb;slow_safety;soft_zone,disciplined_apex;dominant_3tech;fast_pressure,edge_seal;pass_pro;qb_read,mike;apex;safety,low,high
+concept_duo,Duo,run,man_coverage;soft_zone;slow_safety,loaded_box;robber;dominant_3tech,ol_combo;qb_read;route_timing,nickel;corner;mike,high,medium
+concept_power,Power,run,aggressive_lb;weak_edge;poor_tackling,fast_pressure;loaded_box;press_man,qb_read;edge_seal;wr_release,corner;3tech;mike,high,high
+concept_counter_gt,Counter GT,run,single_high;slow_safety;light_box,disciplined_apex;robber;loaded_box,route_timing;ol_combo;wr_release,3tech;edge;apex,medium,low
+concept_pin_pull,Pin-Pull,run,slow_safety;single_high;weak_edge,cloud_corner;fast_pressure;disciplined_apex,ol_combo;wr_release;pass_pro,3tech;edge;mike,medium,high
+concept_split_zone,Split Zone,run,single_high;poor_tackling;man_coverage,disciplined_apex;cloud_corner;dominant_3tech,route_timing;rb_vision;edge_seal,nickel;mike;edge,high,high
+concept_speed_option,Speed Option,run,weak_edge;light_box;poor_tackling,loaded_box;fast_pressure;press_man,ol_combo;pass_pro;edge_seal,safety;corner;apex,medium,low
+concept_stick,Stick,pass,soft_zone;light_box;man_coverage,press_man;loaded_box;dominant_3tech,qb_read;edge_seal;rb_vision,safety;mike;edge,high,medium
+concept_spacing,Spacing,pass,single_high;light_box;soft_zone,press_man;cloud_corner;loaded_box,edge_seal;qb_read;ol_combo,edge;corner;mike,high,low
+concept_mesh,Mesh,pass,poor_tackling;aggressive_lb;light_box,loaded_box;press_man;disciplined_apex,route_timing;wr_release;edge_seal,3tech;corner;mike,high,medium
+concept_dagger,Dagger,pass,light_box;soft_zone;poor_tackling,cloud_corner;press_man;fast_pressure,rb_vision;wr_release;route_timing,safety;corner;nickel,high,medium
+concept_y_cross,Y-Cross,pass,light_box;slow_safety;aggressive_lb,disciplined_apex;cloud_corner;loaded_box,route_timing;rb_vision;wr_release,nickel;mike;3tech,medium,low
+concept_smash,Smash,pass,poor_tackling;weak_edge;soft_zone,cloud_corner;loaded_box;fast_pressure,pass_pro;wr_release;ol_combo,edge;3tech;corner,high,high
+concept_four_verticals,Four Verticals,pass,light_box;soft_zone;weak_edge,disciplined_apex;cloud_corner;press_man,edge_seal;pass_pro;wr_release,mike;3tech;safety,medium,medium
+concept_flood,Flood,pass,soft_zone;poor_tackling;aggressive_lb,loaded_box;cloud_corner;disciplined_apex,qb_read;pass_pro;ol_combo,edge;nickel;3tech,high,low
+concept_glance_rpo,Glance RPO,rpo,slow_safety;aggressive_lb;single_high,press_man;fast_pressure;dominant_3tech,wr_release;pass_pro;qb_read,nickel;edge;corner,medium,medium
+concept_bubble_rpo,Bubble RPO,rpo,light_box;soft_zone;man_coverage,robber;fast_pressure;dominant_3tech,route_timing;pass_pro;edge_seal,edge;safety;3tech,medium,medium
+concept_power_read,Power Read,rpo,light_box;man_coverage;weak_edge,robber;cloud_corner;dominant_3tech,route_timing;edge_seal;qb_read,edge;3tech;nickel,high,high
+concept_pa_boot,PA Boot,play_action,single_high;soft_zone;weak_edge,dominant_3tech;fast_pressure;disciplined_apex,edge_seal;route_timing;ol_combo,safety;apex;corner,high,medium

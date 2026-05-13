@@ -1,0 +1,130 @@
+[
+  {
+    "defensiveCallId": "def_cover_1",
+    "name": "Cover 1",
+    "type": "coverage",
+    "strengths": "rpo_discipline;edge_contain;gap_control",
+    "weaknesses": "deep_shots;tempo;qb_run",
+    "requiredSkills": "lb_coverage;db_communication;safety_read"
+  },
+  {
+    "defensiveCallId": "def_cover_2",
+    "name": "Cover 2",
+    "type": "coverage",
+    "strengths": "rpo_discipline;edge_contain;run_support",
+    "weaknesses": "play_action;deep_shots;tempo",
+    "requiredSkills": "lb_coverage;nickel_discipline;db_communication"
+  },
+  {
+    "defensiveCallId": "def_tampa_2",
+    "name": "Tampa 2",
+    "type": "coverage",
+    "strengths": "run_support;rpo_discipline;edge_contain",
+    "weaknesses": "rpo_conflict;screens;tempo",
+    "requiredSkills": "db_communication;safety_read;pass_rush_plan"
+  },
+  {
+    "defensiveCallId": "def_cover_3",
+    "name": "Cover 3",
+    "type": "coverage",
+    "strengths": "rpo_discipline;edge_contain;disguise",
+    "weaknesses": "tempo;qb_run;quick_game",
+    "requiredSkills": "pass_rush_plan;nickel_discipline;db_communication"
+  },
+  {
+    "defensiveCallId": "def_quarters",
+    "name": "Quarters",
+    "type": "coverage",
+    "strengths": "pressure;gap_control;edge_contain",
+    "weaknesses": "qb_run;play_action;tempo",
+    "requiredSkills": "lb_coverage;gap_discipline;pass_rush_plan"
+  },
+  {
+    "defensiveCallId": "def_palms",
+    "name": "Palms",
+    "type": "coverage",
+    "strengths": "pressure;disguise;run_support",
+    "weaknesses": "rpo_conflict;qb_run;tempo",
+    "requiredSkills": "gap_discipline;nickel_discipline;pass_rush_plan"
+  },
+  {
+    "defensiveCallId": "def_cover_6",
+    "name": "Cover 6",
+    "type": "coverage",
+    "strengths": "run_support;vertical_match;edge_contain",
+    "weaknesses": "play_action;screens;tempo",
+    "requiredSkills": "db_communication;nickel_discipline;safety_read"
+  },
+  {
+    "defensiveCallId": "def_match_3",
+    "name": "Match 3",
+    "type": "coverage",
+    "strengths": "disguise;run_support;rpo_discipline",
+    "weaknesses": "play_action;rpo_conflict;screens",
+    "requiredSkills": "nickel_discipline;safety_read;pass_rush_plan"
+  },
+  {
+    "defensiveCallId": "def_fire_zone",
+    "name": "Fire Zone",
+    "type": "pressure",
+    "strengths": "gap_control;edge_contain;rpo_discipline",
+    "weaknesses": "screens;tempo;rpo_conflict",
+    "requiredSkills": "lb_coverage;pass_rush_plan;db_communication"
+  },
+  {
+    "defensiveCallId": "def_creeper",
+    "name": "Creeper",
+    "type": "pressure",
+    "strengths": "gap_control;disguise;pressure",
+    "weaknesses": "tempo;screens;rpo_conflict",
+    "requiredSkills": "gap_discipline;db_communication;nickel_discipline"
+  },
+  {
+    "defensiveCallId": "def_simulated_pressure",
+    "name": "Simulated Pressure",
+    "type": "pressure",
+    "strengths": "vertical_match;rpo_discipline;disguise",
+    "weaknesses": "rpo_conflict;screens;deep_shots",
+    "requiredSkills": "db_communication;lb_coverage;gap_discipline"
+  },
+  {
+    "defensiveCallId": "def_man_blitz",
+    "name": "Man Blitz",
+    "type": "pressure",
+    "strengths": "edge_contain;vertical_match;pressure",
+    "weaknesses": "deep_shots;qb_run;screens",
+    "requiredSkills": "lb_coverage;nickel_discipline;gap_discipline"
+  },
+  {
+    "defensiveCallId": "def_bear_front",
+    "name": "Bear Front",
+    "type": "front",
+    "strengths": "disguise;edge_contain;rpo_discipline",
+    "weaknesses": "rpo_conflict;deep_shots;screens",
+    "requiredSkills": "safety_read;lb_coverage;db_communication"
+  },
+  {
+    "defensiveCallId": "def_tite_front",
+    "name": "Tite Front",
+    "type": "front",
+    "strengths": "disguise;pressure;rpo_discipline",
+    "weaknesses": "rpo_conflict;qb_run;screens",
+    "requiredSkills": "pass_rush_plan;safety_read;gap_discipline"
+  },
+  {
+    "defensiveCallId": "def_4_2_5_over",
+    "name": "4-2-5 Over",
+    "type": "front",
+    "strengths": "edge_contain;gap_control;vertical_match",
+    "weaknesses": "quick_game;deep_shots;tempo",
+    "requiredSkills": "nickel_discipline;db_communication;gap_discipline"
+  },
+  {
+    "defensiveCallId": "def_3_3_5_stack",
+    "name": "3-3-5 Stack",
+    "type": "front",
+    "strengths": "pressure;disguise;run_support",
+    "weaknesses": "qb_run;screens;deep_shots",
+    "requiredSkills": "pass_rush_plan;safety_read;db_communication"
+  }
+]

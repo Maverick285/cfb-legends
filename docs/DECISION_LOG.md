@@ -117,3 +117,28 @@ Adopt `cfl_agent_repo_pack` as the project discipline layer. Start applying it t
 - Rebuilt the Dashboard toward `specs/screens/dashboard.visual-spec.md`: matchup, team overview, schedule, recruiting, staff, rankings/news, bottom ticker, and Continue CTA.
 - Continue now mutates durable career state by advancing the week and saving.
 - A future React/TypeScript migration can still replace this static harness, but the current app now has a concrete gate.
+
+## 2026-05-12 - Promote `cfl-app` as the Real App Path
+
+### Context
+
+The `cfl-next/` prototype is the newest and strongest visual direction, but it is still a static HTML-string prototype. The new full-scale seed pack provides enough table coverage to begin building from a real data spine instead of extending mock screens.
+
+### Decision
+
+Create `cfl-app/` as the real app path using React, TypeScript, and Vite. Keep `cfl-next/` as the visual/reference prototype. Treat the old root app, legacy `app.js`, `js/sim/`, `js/ui/`, and harness systems as parts-bin/reference code.
+
+### Consequences
+
+- The first backend is a local game data layer, not a server.
+- Seed import/validation must pass before UI expansion.
+- The first real slice is Vanderbilt from the seed pack: dashboard, 105-player roster, player profile, watchlist, development focus, and save/load.
+- Future screens should be built page by page in `cfl-app/`, starting with a durable depth chart.
+- React components now carry reusable screen structure instead of giant HTML strings.
+
+### References
+
+- `NEXT_BUILD_PLAN.md`
+- `docs/PROJECT_STATUS.md`
+- `cfl_full_scale_seed_data_v0_1/cfl_seed_data_pack/`
+- `cfl-app/`

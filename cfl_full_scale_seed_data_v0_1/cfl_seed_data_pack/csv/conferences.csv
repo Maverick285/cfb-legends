@@ -1,0 +1,12 @@
+conferenceId,conferenceName,level,memberCount,championshipGame,powerTier
+acc,ACC,FBS,17,True,Power
+big_ten,Big Ten,FBS,18,True,Power
+big_12,Big 12,FBS,16,True,Power
+sec,SEC,FBS,16,True,Power
+american,American,FBS,14,True,Group
+conference_usa,Conference USA,FBS,10,True,Group
+mac,MAC,FBS,13,True,Group
+mountain_west,Mountain West,FBS,10,True,Group
+pac_12,Pac-12,FBS,8,True,Major
+sun_belt,Sun Belt,FBS,14,True,Group
+independent,Independent,FBS,2,False,Group

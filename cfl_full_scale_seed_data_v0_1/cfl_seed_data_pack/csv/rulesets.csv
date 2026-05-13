@@ -1,0 +1,2 @@
+rulesetId,name,seasonYear,footballRosterLimit,footballScholarshipModel,scholarshipsAllowedUpToRosterLimit,maxScholarshipEquivalencies,sourceNote
+ruleset_modern_2026,Modern 2026 FBS Seed Rules,2026,105,"Post-House roster limit era; scholarship limits removed, roster cap used",True,105,NCAA DI implementation and public reporting identify football roster limit as 105 after House settlement.

@@ -1,0 +1,19 @@
+:root {
+  color-scheme: dark;
+  --bg: #070a08;
+  --panel: #101711;
+  --panel-2: #161f18;
+  --panel-3: #20291f;
+  --line: rgba(230, 220, 175, 0.16);
+  --line-strong: rgba(230, 220, 175, 0.34);
+  --text: #f4edd1;
+  --muted: #b6af97;
+  --gold: #e4c366;
+  --green: #76d17c;
+  --red: #e16767;
+  --orange: #e6a349;
+  --team-primary: #1c352d;
+  --team-secondary: #c9a75c;
+  --font-ui: "Arial Narrow", "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+  --font-body: "Segoe UI", Arial, sans-serif;
+}

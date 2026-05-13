@@ -1,0 +1,139 @@
+schoolId,schoolName,nickname,abbreviation,city,state,conferenceId,sourceStatus,activeFbs2026
+school_boston_college,Boston College,Eagles,BC,Chestnut Hill,MA,acc,real-school-synthetic-metadata,True
+school_california,California,Golden Bears,CAL,Berkeley,CA,acc,real-school-synthetic-metadata,True
+school_clemson,Clemson,Tigers,CLEM,Clemson,SC,acc,real-school-synthetic-metadata,True
+school_duke,Duke,Blue Devils,DUKE,Durham,NC,acc,real-school-synthetic-metadata,True
+school_florida_state,Florida State,Seminoles,FSU,Tallahassee,FL,acc,real-school-synthetic-metadata,True
+school_georgia_tech,Georgia Tech,Yellow Jackets,GT,Atlanta,GA,acc,real-school-synthetic-metadata,True
+school_louisville,Louisville,Cardinals,LOU,Louisville,KY,acc,real-school-synthetic-metadata,True
+school_miami_fl,Miami (FL),Hurricanes,MIA,Miami Gardens,FL,acc,real-school-synthetic-metadata,True
+school_nc_state,NC State,Wolfpack,NCSU,Raleigh,NC,acc,real-school-synthetic-metadata,True
+school_north_carolina,North Carolina,Tar Heels,UNC,Chapel Hill,NC,acc,real-school-synthetic-metadata,True
+school_pittsburgh,Pittsburgh,Panthers,PITT,Pittsburgh,PA,acc,real-school-synthetic-metadata,True
+school_smu,SMU,Mustangs,SMU,Dallas,TX,acc,real-school-synthetic-metadata,True
+school_stanford,Stanford,Cardinal,STAN,Stanford,CA,acc,real-school-synthetic-metadata,True
+school_syracuse,Syracuse,Orange,SYR,Syracuse,NY,acc,real-school-synthetic-metadata,True
+school_virginia,Virginia,Cavaliers,UVA,Charlottesville,VA,acc,real-school-synthetic-metadata,True
+school_virginia_tech,Virginia Tech,Hokies,VT,Blacksburg,VA,acc,real-school-synthetic-metadata,True
+school_wake_forest,Wake Forest,Demon Deacons,WAKE,Winston-Salem,NC,acc,real-school-synthetic-metadata,True
+school_illinois,Illinois,Fighting Illini,ILL,Champaign,IL,big_ten,real-school-synthetic-metadata,True
+school_indiana,Indiana,Hoosiers,IND,Bloomington,IN,big_ten,real-school-synthetic-metadata,True
+school_iowa,Iowa,Hawkeyes,IOWA,Iowa City,IA,big_ten,real-school-synthetic-metadata,True
+school_maryland,Maryland,Terrapins,MD,College Park,MD,big_ten,real-school-synthetic-metadata,True
+school_michigan,Michigan,Wolverines,MICH,Ann Arbor,MI,big_ten,real-school-synthetic-metadata,True
+school_michigan_state,Michigan State,Spartans,MSU,East Lansing,MI,big_ten,real-school-synthetic-metadata,True
+school_minnesota,Minnesota,Golden Gophers,MINN,Minneapolis,MN,big_ten,real-school-synthetic-metadata,True
+school_nebraska,Nebraska,Cornhuskers,NEB,Lincoln,NE,big_ten,real-school-synthetic-metadata,True
+school_northwestern,Northwestern,Wildcats,NU,Evanston,IL,big_ten,real-school-synthetic-metadata,True
+school_ohio_state,Ohio State,Buckeyes,OSU,Columbus,OH,big_ten,real-school-synthetic-metadata,True
+school_oregon,Oregon,Ducks,ORE,Eugene,OR,big_ten,real-school-synthetic-metadata,True
+school_penn_state,Penn State,Nittany Lions,PSU,University Park,PA,big_ten,real-school-synthetic-metadata,True
+school_purdue,Purdue,Boilermakers,PUR,West Lafayette,IN,big_ten,real-school-synthetic-metadata,True
+school_rutgers,Rutgers,Scarlet Knights,RUT,Piscataway,NJ,big_ten,real-school-synthetic-metadata,True
+school_ucla,UCLA,Bruins,UCLA,Los Angeles,CA,big_ten,real-school-synthetic-metadata,True
+school_usc,USC,Trojans,USC,Los Angeles,CA,big_ten,real-school-synthetic-metadata,True
+school_washington,Washington,Huskies,WASH,Seattle,WA,big_ten,real-school-synthetic-metadata,True
+school_wisconsin,Wisconsin,Badgers,WIS,Madison,WI,big_ten,real-school-synthetic-metadata,True
+school_arizona,Arizona,Wildcats,ARIZ,Tucson,AZ,big_12,real-school-synthetic-metadata,True
+school_arizona_state,Arizona State,Sun Devils,ASU,Tempe,AZ,big_12,real-school-synthetic-metadata,True
+school_baylor,Baylor,Bears,BAY,Waco,TX,big_12,real-school-synthetic-metadata,True
+school_byu,BYU,Cougars,BYU,Provo,UT,big_12,real-school-synthetic-metadata,True
+school_cincinnati,Cincinnati,Bearcats,CIN,Cincinnati,OH,big_12,real-school-synthetic-metadata,True
+school_colorado,Colorado,Buffaloes,COLO,Boulder,CO,big_12,real-school-synthetic-metadata,True
+school_houston,Houston,Cougars,HOU,Houston,TX,big_12,real-school-synthetic-metadata,True
+school_iowa_state,Iowa State,Cyclones,ISU,Ames,IA,big_12,real-school-synthetic-metadata,True
+school_kansas,Kansas,Jayhawks,KU,Lawrence,KS,big_12,real-school-synthetic-metadata,True
+school_kansas_state,Kansas State,Wildcats,KSU,Manhattan,KS,big_12,real-school-synthetic-metadata,True
+school_oklahoma_state,Oklahoma State,Cowboys,OKST,Stillwater,OK,big_12,real-school-synthetic-metadata,True
+school_tcu,TCU,Horned Frogs,TCU,Fort Worth,TX,big_12,real-school-synthetic-metadata,True
+school_texas_tech,Texas Tech,Red Raiders,TTU,Lubbock,TX,big_12,real-school-synthetic-metadata,True
+school_ucf,UCF,Knights,UCF,Orlando,FL,big_12,real-school-synthetic-metadata,True
+school_utah,Utah,Utes,UTAH,Salt Lake City,UT,big_12,real-school-synthetic-metadata,True
+school_west_virginia,West Virginia,Mountaineers,WVU,Morgantown,WV,big_12,real-school-synthetic-metadata,True
+school_alabama,Alabama,Crimson Tide,ALA,Tuscaloosa,AL,sec,real-school-synthetic-metadata,True
+school_arkansas,Arkansas,Razorbacks,ARK,Fayetteville,AR,sec,real-school-synthetic-metadata,True
+school_auburn,Auburn,Tigers,AUB,Auburn,AL,sec,real-school-synthetic-metadata,True
+school_florida,Florida,Gators,FLA,Gainesville,FL,sec,real-school-synthetic-metadata,True
+school_georgia,Georgia,Bulldogs,UGA,Athens,GA,sec,real-school-synthetic-metadata,True
+school_kentucky,Kentucky,Wildcats,UK,Lexington,KY,sec,real-school-synthetic-metadata,True
+school_lsu,LSU,Tigers,LSU,Baton Rouge,LA,sec,real-school-synthetic-metadata,True
+school_mississippi_state,Mississippi State,Bulldogs,MSST,Starkville,MS,sec,real-school-synthetic-metadata,True
+school_missouri,Missouri,Tigers,MIZ,Columbia,MO,sec,real-school-synthetic-metadata,True
+school_oklahoma,Oklahoma,Sooners,OU,Norman,OK,sec,real-school-synthetic-metadata,True
+school_ole_miss,Ole Miss,Rebels,MISS,Oxford,MS,sec,real-school-synthetic-metadata,True
+school_south_carolina,South Carolina,Gamecocks,SCAR,Columbia,SC,sec,real-school-synthetic-metadata,True
+school_tennessee,Tennessee,Volunteers,TENN,Knoxville,TN,sec,real-school-synthetic-metadata,True
+school_texas,Texas,Longhorns,TEX,Austin,TX,sec,real-school-synthetic-metadata,True
+school_texas_a_m,Texas A&M,Aggies,TAMU,College Station,TX,sec,real-school-synthetic-metadata,True
+school_vanderbilt,Vanderbilt,Commodores,VAN,Nashville,TN,sec,real-school-synthetic-metadata,True
+school_army,Army,Black Knights,ARMY,West Point,NY,american,real-school-synthetic-metadata,True
+school_charlotte,Charlotte,49ers,CLT,Charlotte,NC,american,real-school-synthetic-metadata,True
+school_east_carolina,East Carolina,Pirates,ECU,Greenville,NC,american,real-school-synthetic-metadata,True
+school_florida_atlantic,Florida Atlantic,Owls,FAU,Boca Raton,FL,american,real-school-synthetic-metadata,True
+school_memphis,Memphis,Tigers,MEM,Memphis,TN,american,real-school-synthetic-metadata,True
+school_navy,Navy,Midshipmen,NAVY,Annapolis,MD,american,real-school-synthetic-metadata,True
+school_north_texas,North Texas,Mean Green,UNT,Denton,TX,american,real-school-synthetic-metadata,True
+school_rice,Rice,Owls,RICE,Houston,TX,american,real-school-synthetic-metadata,True
+school_temple,Temple,Owls,TEMP,Philadelphia,PA,american,real-school-synthetic-metadata,True
+school_tulane,Tulane,Green Wave,TULN,New Orleans,LA,american,real-school-synthetic-metadata,True
+school_tulsa,Tulsa,Golden Hurricane,TLSA,Tulsa,OK,american,real-school-synthetic-metadata,True
+school_uab,UAB,Blazers,UAB,Birmingham,AL,american,real-school-synthetic-metadata,True
+school_usf,USF,Bulls,USF,Tampa,FL,american,real-school-synthetic-metadata,True
+school_utsa,UTSA,Roadrunners,UTSA,San Antonio,TX,american,real-school-synthetic-metadata,True
+school_delaware,Delaware,Fightin' Blue Hens,DEL,Newark,DE,conference_usa,real-school-synthetic-metadata,True
+school_fiu,FIU,Panthers,FIU,Miami,FL,conference_usa,real-school-synthetic-metadata,True
+school_jacksonville_state,Jacksonville State,Gamecocks,JVST,Jacksonville,AL,conference_usa,real-school-synthetic-metadata,True
+school_kennesaw_state,Kennesaw State,Owls,KENN,Kennesaw,GA,conference_usa,real-school-synthetic-metadata,True
+school_liberty,Liberty,Flames,LIB,Lynchburg,VA,conference_usa,real-school-synthetic-metadata,True
+school_middle_tennessee,Middle Tennessee,Blue Raiders,MTSU,Murfreesboro,TN,conference_usa,real-school-synthetic-metadata,True
+school_missouri_state,Missouri State,Bears,MOST,Springfield,MO,conference_usa,real-school-synthetic-metadata,True
+school_new_mexico_state,New Mexico State,Aggies,NMSU,Las Cruces,NM,conference_usa,real-school-synthetic-metadata,True
+school_sam_houston,Sam Houston,Bearkats,SHSU,Huntsville,TX,conference_usa,real-school-synthetic-metadata,True
+school_western_kentucky,Western Kentucky,Hilltoppers,WKU,Bowling Green,KY,conference_usa,real-school-synthetic-metadata,True
+school_akron,Akron,Zips,AKR,Akron,OH,mac,real-school-synthetic-metadata,True
+school_ball_state,Ball State,Cardinals,BALL,Muncie,IN,mac,real-school-synthetic-metadata,True
+school_bowling_green,Bowling Green,Falcons,BGSU,Bowling Green,OH,mac,real-school-synthetic-metadata,True
+school_buffalo,Buffalo,Bulls,BUFF,Buffalo,NY,mac,real-school-synthetic-metadata,True
+school_central_michigan,Central Michigan,Chippewas,CMU,Mount Pleasant,MI,mac,real-school-synthetic-metadata,True
+school_eastern_michigan,Eastern Michigan,Eagles,EMU,Ypsilanti,MI,mac,real-school-synthetic-metadata,True
+school_kent_state,Kent State,Golden Flashes,KENT,Kent,OH,mac,real-school-synthetic-metadata,True
+school_miami_oh,Miami (OH),RedHawks,M-OH,Oxford,OH,mac,real-school-synthetic-metadata,True
+school_ohio,Ohio,Bobcats,OHIO,Athens,OH,mac,real-school-synthetic-metadata,True
+school_toledo,Toledo,Rockets,TOL,Toledo,OH,mac,real-school-synthetic-metadata,True
+school_umass,UMass,Minutemen,UMASS,Amherst,MA,mac,real-school-synthetic-metadata,True
+school_western_michigan,Western Michigan,Broncos,WMU,Kalamazoo,MI,mac,real-school-synthetic-metadata,True
+school_sacramento_state,Sacramento State,Hornets,SAC,Sacramento,CA,mac,real-school-synthetic-metadata,True
+school_air_force,Air Force,Falcons,AFA,USAF Academy,CO,mountain_west,real-school-synthetic-metadata,True
+school_hawaii,Hawaii,Rainbow Warriors,HAW,Honolulu,HI,mountain_west,real-school-synthetic-metadata,True
+school_nevada,Nevada,Wolf Pack,NEV,Reno,NV,mountain_west,real-school-synthetic-metadata,True
+school_new_mexico,New Mexico,Lobos,UNM,Albuquerque,NM,mountain_west,real-school-synthetic-metadata,True
+school_san_jose_state,San Jose State,Spartans,SJSU,San Jose,CA,mountain_west,real-school-synthetic-metadata,True
+school_unlv,UNLV,Rebels,UNLV,Las Vegas,NV,mountain_west,real-school-synthetic-metadata,True
+school_wyoming,Wyoming,Cowboys,WYO,Laramie,WY,mountain_west,real-school-synthetic-metadata,True
+school_utep,UTEP,Miners,UTEP,El Paso,TX,mountain_west,real-school-synthetic-metadata,True
+school_northern_illinois,Northern Illinois,Huskies,NIU,DeKalb,IL,mountain_west,real-school-synthetic-metadata,True
+school_north_dakota_state,North Dakota State,Bison,NDSU,Fargo,ND,mountain_west,real-school-synthetic-metadata,True
+school_boise_state,Boise State,Broncos,BSU,Boise,ID,pac_12,real-school-synthetic-metadata,True
+school_colorado_state,Colorado State,Rams,CSU,Fort Collins,CO,pac_12,real-school-synthetic-metadata,True
+school_fresno_state,Fresno State,Bulldogs,FRES,Fresno,CA,pac_12,real-school-synthetic-metadata,True
+school_oregon_state,Oregon State,Beavers,ORST,Corvallis,OR,pac_12,real-school-synthetic-metadata,True
+school_san_diego_state,San Diego State,Aztecs,SDSU,San Diego,CA,pac_12,real-school-synthetic-metadata,True
+school_texas_state,Texas State,Bobcats,TXST,San Marcos,TX,pac_12,real-school-synthetic-metadata,True
+school_utah_state,Utah State,Aggies,USU,Logan,UT,pac_12,real-school-synthetic-metadata,True
+school_washington_state,Washington State,Cougars,WSU,Pullman,WA,pac_12,real-school-synthetic-metadata,True
+school_appalachian_state,Appalachian State,Mountaineers,APP,Boone,NC,sun_belt,real-school-synthetic-metadata,True
+school_arkansas_state,Arkansas State,Red Wolves,ARST,Jonesboro,AR,sun_belt,real-school-synthetic-metadata,True
+school_coastal_carolina,Coastal Carolina,Chanticleers,CCU,Conway,SC,sun_belt,real-school-synthetic-metadata,True
+school_georgia_southern,Georgia Southern,Eagles,GASO,Statesboro,GA,sun_belt,real-school-synthetic-metadata,True
+school_georgia_state,Georgia State,Panthers,GAST,Atlanta,GA,sun_belt,real-school-synthetic-metadata,True
+school_james_madison,James Madison,Dukes,JMU,Harrisonburg,VA,sun_belt,real-school-synthetic-metadata,True
+school_louisiana,Louisiana,Ragin' Cajuns,ULL,Lafayette,LA,sun_belt,real-school-synthetic-metadata,True
+school_louisiana_tech,Louisiana Tech,Bulldogs,LT,Ruston,LA,sun_belt,real-school-synthetic-metadata,True
+school_marshall,Marshall,Thundering Herd,MRSH,Huntington,WV,sun_belt,real-school-synthetic-metadata,True
+school_old_dominion,Old Dominion,Monarchs,ODU,Norfolk,VA,sun_belt,real-school-synthetic-metadata,True
+school_south_alabama,South Alabama,Jaguars,USA,Mobile,AL,sun_belt,real-school-synthetic-metadata,True
+school_southern_miss,Southern Miss,Golden Eagles,USM,Hattiesburg,MS,sun_belt,real-school-synthetic-metadata,True
+school_troy,Troy,Trojans,TROY,Troy,AL,sun_belt,real-school-synthetic-metadata,True
+school_ulm,ULM,Warhawks,ULM,Monroe,LA,sun_belt,real-school-synthetic-metadata,True
+school_notre_dame,Notre Dame,Fighting Irish,ND,South Bend,IN,independent,real-school-synthetic-metadata,True
+school_uconn,UConn,Huskies,UCONN,Storrs,CT,independent,real-school-synthetic-metadata,True

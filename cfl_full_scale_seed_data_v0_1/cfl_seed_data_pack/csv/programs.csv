@@ -1,0 +1,139 @@
+programId,schoolId,conferenceId,seasonYear,headCoachPersonId,programPrestige,coachTrust,boosterSupport,fanConfidence,athleticBudget,recruitingBudget,nilBudgetTotal,facilitiesGrade,academicGrade,brandExposure,rosterLimit,scholarshipsFunded,walkOnSlots,offensiveScheme,defensiveScheme,pipelineStates
+program_boston_college,school_boston_college,acc,2026,person_000001,68,62,68,76,24330000,2196000.0,22905000,67,92,53,105,105,0,RPO Spread,4-2-5,TX;GA;AL
+program_california,school_california,acc,2026,person_000120,70,66,69,81,26804000,3107000.0,19456000,75,77,53,105,105,0,West Coast,Quarters Match,CA;IL;GA
+program_clemson,school_clemson,acc,2026,person_000239,91,74,85,81,45594000,5335000.0,31815000,93,59,99,105,105,0,Pistol Option,4-3,SC;NC;LA
+program_duke,school_duke,acc,2026,person_000358,62,90,55,54,21990000,2629000.0,18712000,74,84,66,105,105,0,Power Run,Quarters Match,VA;AZ;IL
+program_florida_state,school_florida_state,acc,2026,person_000477,89,74,63,82,43806000,7275000.0,33222000,99,89,90,105,105,0,Veer & Shoot,Multiple,CA;PA;AZ
+program_georgia_tech,school_georgia_tech,acc,2026,person_000596,63,78,49,79,25370000,3269000.0,20923000,57,62,85,105,105,0,Veer & Shoot,3-4,FL;NC;GA
+program_louisville,school_louisville,acc,2026,person_000715,86,79,87,65,41530000,6283000.0,28163000,75,78,97,105,105,0,West Coast,Quarters Match,OK;CA;NC
+program_miami_fl,school_miami_fl,acc,2026,person_000834,86,76,87,88,40316000,6997000.0,31998000,91,91,78,105,105,0,West Coast,Nickel,AL;CA;MS
+program_nc_state,school_nc_state,acc,2026,person_000953,70,57,65,68,27586000,2713000.0,19257000,52,59,76,105,105,0,West Coast,Quarters Match,CA;FL;TX
+program_north_carolina,school_north_carolina,acc,2026,person_001072,77,89,74,99,33038000,4479000.0,24800000,69,86,83,105,105,0,Spread Option,Pressure Multiple,SC;FL;NJ
+program_pittsburgh,school_pittsburgh,acc,2026,person_001191,74,52,86,67,30353000,4185000.0,23053000,78,92,75,105,105,0,Pistol Option,Quarters Match,NJ;VA;AL
+program_smu,school_smu,acc,2026,person_001310,79,77,78,76,36715000,6171000.0,24132000,99,70,74,105,105,0,Power Run,Tite Front,MS;TX;PA
+program_stanford,school_stanford,acc,2026,person_001429,75,76,75,99,31339000,2666000.0,24427000,64,57,58,105,105,0,Spread Option,Multiple,OH;VA;LA
+program_syracuse,school_syracuse,acc,2026,person_001548,71,68,73,91,26556000,4410000.0,20729000,61,77,73,105,105,0,Air Raid,Multiple,SC;AZ;OH
+program_virginia,school_virginia,acc,2026,person_001667,70,89,86,88,27738000,4601000.0,18985000,73,84,92,105,105,0,Multiple,Tite Front,NC;SC;TX
+program_virginia_tech,school_virginia_tech,acc,2026,person_001786,69,47,68,81,29675000,4536000.0,19390000,75,75,37,105,105,0,Air Raid,Nickel,AL;VA;FL
+program_wake_forest,school_wake_forest,acc,2026,person_001905,69,87,60,77,29059000,3184000.0,19758000,76,79,78,105,105,0,Pro Style,Pressure Multiple,PA;IL;TX
+program_illinois,school_illinois,big_ten,2026,person_002024,67,77,78,57,24156000,2158000.0,18592000,56,70,63,105,105,0,Power Spread,4-3,TX;FL;NC
+program_indiana,school_indiana,big_ten,2026,person_002143,75,51,76,65,29172000,4680000.0,27676000,72,90,62,105,105,0,Power Spread,3-3-5,OK;OH;SC
+program_iowa,school_iowa,big_ten,2026,person_002262,81,78,71,71,36131000,4480000.0,29888000,82,73,82,105,105,0,Power Run,3-3-5,OH;SC;NC
+program_maryland,school_maryland,big_ten,2026,person_002381,77,81,76,78,30809000,3548000.0,28438000,77,81,53,105,105,0,Power Run,Quarters Match,NC;TN;SC
+program_michigan,school_michigan,big_ten,2026,person_002500,97,86,83,72,48272000,4739000.0,34136000,99,71,91,105,105,0,Multiple,Multiple,IL;VA;AZ
+program_michigan_state,school_michigan_state,big_ten,2026,person_002619,65,46,60,58,24199000,3082000.0,16960000,81,84,84,105,105,0,Veer & Shoot,Multiple,LA;CA;SC
+program_minnesota,school_minnesota,big_ten,2026,person_002738,77,81,84,80,31660000,3889000.0,27931000,69,78,93,105,105,0,Spread Option,Nickel,TN;CA;AZ
+program_nebraska,school_nebraska,big_ten,2026,person_002857,85,82,83,99,40779000,6650000.0,32714000,99,70,98,105,105,0,West Coast,Pressure Multiple,IL;NJ;TX
+program_northwestern,school_northwestern,big_ten,2026,person_002976,66,80,58,67,26189000,3787000.0,19844000,52,86,64,105,105,0,Veer & Shoot,3-4,IL;NC;PA
+program_ohio_state,school_ohio_state,big_ten,2026,person_003095,89,52,88,55,42221000,6292000.0,30871000,94,72,99,105,105,0,Pistol Option,Quarters Match,PA;CA;AL
+program_oregon,school_oregon,big_ten,2026,person_003214,95,63,90,80,46228000,4551000.0,36903000,97,58,95,105,105,0,Air Raid,3-3-5,IL;TN;GA
+program_penn_state,school_penn_state,big_ten,2026,person_003333,94,78,78,99,47073000,5166000.0,37933000,86,91,87,105,105,0,Pistol Option,4-2-5,CA;AL;MS
+program_purdue,school_purdue,big_ten,2026,person_003452,69,88,59,70,28614000,4553000.0,17761000,76,92,54,105,105,0,RPO Spread,3-3-5,SC;NC;OH
+program_rutgers,school_rutgers,big_ten,2026,person_003571,76,77,66,72,33256000,4649000.0,23000000,87,93,63,105,105,0,Veer & Shoot,4-2-5,GA;NC;TX
+program_ucla,school_ucla,big_ten,2026,person_003690,70,87,63,77,28296000,3428000.0,20343000,73,86,63,105,105,0,Power Run,4-2-5,OK;GA;NJ
+program_usc,school_usc,big_ten,2026,person_003809,96,73,96,87,51262000,6916000.0,38002000,99,86,90,105,105,0,Air Raid,4-2-5,NC;LA;PA
+program_washington,school_washington,big_ten,2026,person_003928,84,74,99,71,40241000,6929000.0,27241000,81,87,84,105,105,0,Air Raid,Tite Front,AZ;NJ;VA
+program_wisconsin,school_wisconsin,big_ten,2026,person_004047,83,69,85,99,37448000,3159000.0,29408000,83,79,64,105,105,0,RPO Spread,4-3,TN;FL;OH
+program_arizona,school_arizona,big_12,2026,person_004166,72,89,62,67,29760000,3359000.0,23872000,74,89,64,105,105,0,West Coast,Quarters Match,FL;GA;NC
+program_arizona_state,school_arizona_state,big_12,2026,person_004285,78,48,75,91,34141000,3228000.0,28473000,67,66,75,105,105,0,Pro Style,4-3,GA;IL;NC
+program_baylor,school_baylor,big_12,2026,person_004404,66,64,59,57,25679000,2697000.0,20675000,59,74,70,105,105,0,West Coast,3-3-5,NC;IL;MI
+program_byu,school_byu,big_12,2026,person_004523,78,63,79,68,35587000,5701000.0,28780000,79,71,86,105,105,0,Pro Style,3-3-5,FL;PA;OK
+program_cincinnati,school_cincinnati,big_12,2026,person_004642,69,75,78,80,26961000,4504000.0,24081000,67,62,64,105,105,0,Power Spread,Nickel,SC;MI;GA
+program_colorado,school_colorado,big_12,2026,person_004761,79,46,61,56,34166000,3854000.0,26299000,69,95,68,105,105,0,West Coast,Tite Front,AZ;CA;OH
+program_houston,school_houston,big_12,2026,person_004880,66,54,72,81,27707000,4526000.0,21973000,57,94,41,105,105,0,Spread Option,Multiple,AL;OK;MS
+program_iowa_state,school_iowa_state,big_12,2026,person_004999,78,58,70,63,32189000,2644000.0,27354000,80,63,69,105,105,0,Pistol Option,3-4,GA;AL;MS
+program_kansas,school_kansas,big_12,2026,person_005118,58,60,64,56,17945000,1912000.0,15279000,57,63,57,105,105,0,Air Raid,Bear Front,OK;MI;CA
+program_kansas_state,school_kansas_state,big_12,2026,person_005237,85,51,63,87,40701000,3555000.0,31543000,96,59,93,105,105,0,Pro Style,Tite Front,SC;NJ;IL
+program_oklahoma_state,school_oklahoma_state,big_12,2026,person_005356,84,66,67,91,38197000,5843000.0,28667000,76,75,68,105,105,0,Multiple,4-3,TN;GA;MS
+program_tcu,school_tcu,big_12,2026,person_005475,75,87,85,70,32571000,5589000.0,23154000,82,74,78,105,105,0,Multiple,3-3-5,MS;AL;OH
+program_texas_tech,school_texas_tech,big_12,2026,person_005594,74,83,56,98,33050000,3528000.0,19886000,67,66,71,105,105,0,Multiple,Multiple,TX;LA;OH
+program_ucf,school_ucf,big_12,2026,person_005713,70,65,72,52,28604000,2531000.0,20264000,75,94,72,105,105,0,Spread Option,3-3-5,VA;OK;AZ
+program_utah,school_utah,big_12,2026,person_005832,81,58,69,78,34265000,3211000.0,23528000,87,71,80,105,105,0,West Coast,Nickel,LA;OH;IL
+program_west_virginia,school_west_virginia,big_12,2026,person_005951,74,90,69,65,33190000,4000000.0,23059000,79,94,72,105,105,0,West Coast,Multiple,GA;AZ;CA
+program_alabama,school_alabama,sec,2026,person_006070,91,86,87,95,45350000,4292000.0,35585000,85,67,94,105,105,0,Air Raid,4-3,TN;OK;MS
+program_arkansas,school_arkansas,sec,2026,person_006189,69,77,79,76,25276000,2117000.0,20116000,64,60,76,105,105,0,Pistol Option,Pressure Multiple,MS;IL;OK
+program_auburn,school_auburn,sec,2026,person_006308,83,86,86,88,36152000,4475000.0,28844000,89,83,67,105,105,0,Multiple,Multiple,PA;IL;AZ
+program_florida,school_florida,sec,2026,person_006427,88,50,83,84,40981000,4712000.0,30400000,99,80,84,105,105,0,Pro Style,Pressure Multiple,GA;PA;IL
+program_georgia,school_georgia,sec,2026,person_006546,95,54,99,99,48025000,4328000.0,33241000,99,89,99,105,105,0,Spread Option,Multiple,OH;IL;SC
+program_kentucky,school_kentucky,sec,2026,person_006665,77,79,79,99,34411000,5452000.0,23214000,82,91,73,105,105,0,West Coast,Bear Front,PA;IL;AZ
+program_lsu,school_lsu,sec,2026,person_006784,92,73,90,99,44665000,5527000.0,32412000,89,69,99,105,105,0,Spread Option,Nickel,FL;IL;MI
+program_mississippi_state,school_mississippi_state,sec,2026,person_006903,65,53,66,49,26088000,3692000.0,21127000,66,68,64,105,105,0,Pro Style,Quarters Match,MS;AZ;CA
+program_missouri,school_missouri,sec,2026,person_007022,76,45,76,68,32323000,3932000.0,24317000,72,60,65,105,105,0,Power Run,Quarters Match,MS;SC;TX
+program_oklahoma,school_oklahoma,sec,2026,person_007141,98,66,99,99,53901000,6137000.0,40281000,87,84,80,105,105,0,West Coast,4-3,OH;GA;OK
+program_ole_miss,school_ole_miss,sec,2026,person_007260,81,48,80,89,36800000,3402000.0,30696000,75,78,70,105,105,0,West Coast,Nickel,NJ;LA;TN
+program_south_carolina,school_south_carolina,sec,2026,person_007379,70,87,67,85,26172000,3972000.0,20401000,75,83,81,105,105,0,Spread Option,Multiple,AZ;VA;FL
+program_tennessee,school_tennessee,sec,2026,person_007498,88,81,77,96,42758000,5344000.0,30816000,89,78,74,105,105,0,Pistol Option,4-3,MS;MI;IL
+program_texas,school_texas,sec,2026,person_007617,92,84,87,99,47064000,6077000.0,31924000,99,83,99,105,105,0,Pro Style,Bear Front,GA;NJ;MI
+program_texas_a_m,school_texas_a_m,sec,2026,person_007736,78,68,83,39,36067000,3353000.0,26595000,83,60,89,105,105,0,West Coast,Quarters Match,AZ;SC;GA
+program_vanderbilt,school_vanderbilt,sec,2026,person_007855,67,48,73,52,27074000,2989000.0,20430000,78,69,91,105,105,0,Multiple,Quarters Match,PA;GA;VA
+program_army,school_army,american,2026,person_007974,57,81,47,84,20077000,1769000.0,18939000,62,91,56,105,105,0,Pistol Option,Nickel,TX;TN;PA
+program_charlotte,school_charlotte,american,2026,person_008093,57,90,44,95,19867000,2276000.0,19098000,45,87,69,105,105,0,Power Run,3-3-5,NJ;NC;OK
+program_east_carolina,school_east_carolina,american,2026,person_008212,56,55,69,39,19303000,2507000.0,13068000,56,74,51,105,105,0,RPO Spread,Quarters Match,OK;NC;AL
+program_florida_atlantic,school_florida_atlantic,american,2026,person_008331,41,61,39,17,10529000,1228000.0,13786000,40,67,50,105,105,0,Multiple,Quarters Match,PA;GA;IL
+program_memphis,school_memphis,american,2026,person_008450,64,77,85,68,25751000,3898000.0,18203000,65,85,57,105,105,0,Power Run,4-3,NJ;SC;LA
+program_navy,school_navy,american,2026,person_008569,48,82,40,76,13439000,2247000.0,12058000,40,71,36,105,105,0,Pistol Option,Pressure Multiple,NC;FL;TN
+program_north_texas,school_north_texas,american,2026,person_008688,60,84,61,85,22442000,3447000.0,17310000,51,58,56,105,105,0,Power Run,Multiple,TN;MS;IL
+program_rice,school_rice,american,2026,person_008807,53,80,46,85,17113000,3050000.0,12672000,55,86,34,105,105,0,Multiple,Bear Front,MI;VA;PA
+program_temple,school_temple,american,2026,person_008926,53,79,44,51,16740000,1794000.0,17277000,64,61,41,105,105,0,Power Spread,4-2-5,MS;NC;SC
+program_tulane,school_tulane,american,2026,person_009045,68,86,76,99,28110000,3152000.0,20689000,56,60,47,105,105,0,Pistol Option,3-4,SC;FL;LA
+program_tulsa,school_tulsa,american,2026,person_009164,57,74,51,74,20056000,2595000.0,14259000,56,63,65,105,105,0,Power Spread,3-3-5,NJ;LA;OK
+program_uab,school_uab,american,2026,person_009283,66,65,79,77,26368000,2597000.0,20068000,71,70,74,105,105,0,Spread Option,Tite Front,IL;NC;OK
+program_usf,school_usf,american,2026,person_009402,59,52,74,38,21014000,2453000.0,18474000,43,69,60,105,105,0,Pro Style,Bear Front,MI;AZ;TN
+program_utsa,school_utsa,american,2026,person_009521,56,80,62,51,17198000,2299000.0,18428000,65,83,76,105,105,0,Air Raid,3-4,TN;GA;OK
+program_delaware,school_delaware,conference_usa,2026,person_009640,44,72,46,41,11293000,2026000.0,7656000,47,59,58,105,105,0,Veer & Shoot,Nickel,LA;OH;AZ
+program_fiu,school_fiu,conference_usa,2026,person_009759,43,53,42,33,13542000,1088000.0,11408000,50,89,44,105,105,0,RPO Spread,Quarters Match,IL;NC;MS
+program_jacksonville_state,school_jacksonville_state,conference_usa,2026,person_009878,41,83,20,28,9687000,1012000.0,10129000,40,57,34,105,105,0,Power Spread,4-2-5,OH;MS;PA
+program_kennesaw_state,school_kennesaw_state,conference_usa,2026,person_009997,54,62,77,67,19049000,3200000.0,13227000,65,82,45,105,105,0,Power Run,Bear Front,FL;MI;IL
+program_liberty,school_liberty,conference_usa,2026,person_010116,69,71,76,62,29523000,3079000.0,20625000,67,68,67,105,105,0,West Coast,Multiple,GA;AL;FL
+program_middle_tennessee,school_middle_tennessee,conference_usa,2026,person_010235,65,58,89,51,24668000,2263000.0,15416000,75,70,65,105,105,0,Pistol Option,3-4,IL;NC;NJ
+program_missouri_state,school_missouri_state,conference_usa,2026,person_010354,48,71,52,75,15630000,2409000.0,11189000,53,56,46,105,105,0,Pistol Option,Nickel,PA;OH;AL
+program_new_mexico_state,school_new_mexico_state,conference_usa,2026,person_010473,58,55,57,45,21935000,2062000.0,16140000,53,89,56,105,105,0,Spread Option,Quarters Match,FL;GA;SC
+program_sam_houston,school_sam_houston,conference_usa,2026,person_010592,53,45,63,39,19137000,1563000.0,10463000,51,72,43,105,105,0,Power Run,Nickel,LA;CA;MS
+program_western_kentucky,school_western_kentucky,conference_usa,2026,person_010711,52,59,46,77,16560000,1458000.0,15813000,65,57,51,105,105,0,Air Raid,Nickel,IL;SC;TN
+program_akron,school_akron,mac,2026,person_010830,45,62,41,50,15880000,2740000.0,11576000,46,89,42,105,105,0,Multiple,4-2-5,AL;OH;IL
+program_ball_state,school_ball_state,mac,2026,person_010949,63,67,73,68,21503000,3524000.0,18592000,55,93,80,105,105,0,RPO Spread,Multiple,TX;VA;OK
+program_bowling_green,school_bowling_green,mac,2026,person_011068,40,90,47,42,10294000,1225000.0,9288000,40,78,41,105,105,0,Veer & Shoot,Bear Front,MI;VA;CA
+program_buffalo,school_buffalo,mac,2026,person_011187,57,63,42,70,20477000,3122000.0,11975000,40,70,43,105,105,0,Pistol Option,Quarters Match,LA;IL;SC
+program_central_michigan,school_central_michigan,mac,2026,person_011306,58,57,58,51,22801000,1840000.0,17447000,59,80,50,105,105,0,Multiple,Bear Front,NJ;AZ;OH
+program_eastern_michigan,school_eastern_michigan,mac,2026,person_011425,56,62,60,43,19414000,1774000.0,14631000,45,89,50,105,105,0,Pro Style,Quarters Match,TX;OK;AL
+program_kent_state,school_kent_state,mac,2026,person_011544,52,70,58,21,18540000,3096000.0,14848000,48,81,32,105,105,0,Multiple,Quarters Match,GA;CA;NC
+program_miami_oh,school_miami_oh,mac,2026,person_011663,41,59,29,40,10232000,1413000.0,8554000,40,80,35,105,105,0,West Coast,Pressure Multiple,MS;OH;MI
+program_ohio,school_ohio,mac,2026,person_011782,61,49,49,53,23400000,2141000.0,16199000,77,76,50,105,105,0,Pro Style,3-4,MS;LA;SC
+program_toledo,school_toledo,mac,2026,person_011901,57,72,45,71,21016000,2114000.0,16839000,57,59,35,105,105,0,Pistol Option,3-3-5,SC;LA;MI
+program_umass,school_umass,mac,2026,person_012020,64,82,59,70,23975000,2201000.0,19991000,66,74,73,105,105,0,Pro Style,Quarters Match,IL;AZ;OH
+program_western_michigan,school_western_michigan,mac,2026,person_012139,47,73,32,28,13614000,2385000.0,10870000,41,79,48,105,105,0,Power Run,Quarters Match,TN;AZ;SC
+program_sacramento_state,school_sacramento_state,mac,2026,person_012258,56,77,57,61,20835000,3282000.0,16087000,59,78,37,105,105,0,West Coast,Quarters Match,AL;AZ;CA
+program_air_force,school_air_force,mountain_west,2026,person_012377,65,67,74,50,27057000,3323000.0,21068000,53,68,51,105,105,0,Spread Option,Pressure Multiple,MI;VA;LA
+program_hawaii,school_hawaii,mountain_west,2026,person_012496,60,90,62,55,21094000,3467000.0,14327000,66,80,44,105,105,0,Veer & Shoot,Nickel,IL;OK;GA
+program_nevada,school_nevada,mountain_west,2026,person_012615,65,74,55,49,22906000,3780000.0,21419000,68,82,53,105,105,0,Power Spread,Bear Front,VA;NJ;PA
+program_new_mexico,school_new_mexico,mountain_west,2026,person_012734,52,89,50,76,18109000,1995000.0,11661000,42,72,61,105,105,0,Air Raid,Multiple,LA;FL;IL
+program_san_jose_state,school_san_jose_state,mountain_west,2026,person_012853,59,89,56,65,18483000,3069000.0,12751000,55,69,46,105,105,0,RPO Spread,3-3-5,CA;SC;NJ
+program_unlv,school_unlv,mountain_west,2026,person_012972,61,88,57,52,23059000,3912000.0,18692000,63,63,61,105,105,0,RPO Spread,Multiple,AZ;NJ;OH
+program_wyoming,school_wyoming,mountain_west,2026,person_013091,65,78,60,59,24655000,2938000.0,17011000,55,70,48,105,105,0,West Coast,Nickel,CA;NC;TN
+program_utep,school_utep,mountain_west,2026,person_013210,62,49,58,72,20360000,3507000.0,18881000,63,80,45,105,105,0,Power Run,Nickel,AZ;IL;GA
+program_northern_illinois,school_northern_illinois,mountain_west,2026,person_013329,50,89,27,63,14055000,1460000.0,11852000,51,62,77,105,105,0,West Coast,Pressure Multiple,FL;PA;LA
+program_north_dakota_state,school_north_dakota_state,mountain_west,2026,person_013448,74,46,58,66,29370000,3888000.0,26137000,82,71,70,105,105,0,Air Raid,Bear Front,OK;MS;MI
+program_boise_state,school_boise_state,pac_12,2026,person_013567,86,45,86,99,38349000,4537000.0,33589000,98,57,99,105,105,0,Power Run,Nickel,NC;NJ;SC
+program_colorado_state,school_colorado_state,pac_12,2026,person_013686,64,63,66,66,25381000,2250000.0,22101000,56,84,72,105,105,0,Pistol Option,Tite Front,NC;OK;MI
+program_fresno_state,school_fresno_state,pac_12,2026,person_013805,58,87,46,74,17832000,1975000.0,18640000,65,81,91,105,105,0,West Coast,4-2-5,OH;VA;GA
+program_oregon_state,school_oregon_state,pac_12,2026,person_013924,67,87,61,77,23967000,2543000.0,19860000,66,75,78,105,105,0,Multiple,Multiple,OK;VA;NC
+program_san_diego_state,school_san_diego_state,pac_12,2026,person_014043,61,61,64,56,22191000,3567000.0,17410000,56,93,79,105,105,0,Spread Option,3-4,NJ;OH;GA
+program_texas_state,school_texas_state,pac_12,2026,person_014162,61,53,63,65,23481000,3712000.0,14378000,63,69,76,105,105,0,Multiple,3-3-5,VA;GA;TX
+program_utah_state,school_utah_state,pac_12,2026,person_014281,58,70,48,58,22634000,2776000.0,15908000,46,72,79,105,105,0,Veer & Shoot,Bear Front,OH;FL;NC
+program_washington_state,school_washington_state,pac_12,2026,person_014400,70,90,90,59,25664000,3297000.0,20859000,79,91,58,105,105,0,Pro Style,4-2-5,NJ;NC;TX
+program_appalachian_state,school_appalachian_state,sun_belt,2026,person_014519,75,59,50,57,29594000,3517000.0,26597000,99,66,60,105,105,0,Pro Style,3-4,NJ;MI;TX
+program_arkansas_state,school_arkansas_state,sun_belt,2026,person_014638,53,57,54,57,17828000,1743000.0,15483000,45,75,59,105,105,0,Pro Style,3-3-5,MS;MI;GA
+program_coastal_carolina,school_coastal_carolina,sun_belt,2026,person_014757,58,90,73,54,20482000,3541000.0,13735000,59,92,50,105,105,0,Pro Style,Nickel,PA;SC;OH
+program_georgia_southern,school_georgia_southern,sun_belt,2026,person_014876,53,49,40,56,17823000,1725000.0,16584000,79,60,61,105,105,0,Multiple,Bear Front,TX;VA;AL
+program_georgia_state,school_georgia_state,sun_belt,2026,person_014995,66,69,60,77,26916000,4384000.0,23143000,69,69,51,105,105,0,Pro Style,Bear Front,GA;FL;PA
+program_james_madison,school_james_madison,sun_belt,2026,person_015114,71,86,82,86,26465000,2533000.0,21762000,87,61,55,105,105,0,RPO Spread,Quarters Match,SC;VA;PA
+program_louisiana,school_louisiana,sun_belt,2026,person_015233,64,51,70,65,25509000,2785000.0,16511000,79,74,75,105,105,0,RPO Spread,Bear Front,TN;VA;GA
+program_louisiana_tech,school_louisiana_tech,sun_belt,2026,person_015352,62,87,64,52,21031000,3724000.0,14673000,71,92,63,105,105,0,RPO Spread,Quarters Match,AZ;TN;NC
+program_marshall,school_marshall,sun_belt,2026,person_015471,57,73,70,93,18254000,3235000.0,18223000,59,82,51,105,105,0,Air Raid,Nickel,AL;OH;VA
+program_old_dominion,school_old_dominion,sun_belt,2026,person_015590,60,71,51,66,23929000,3270000.0,17484000,63,92,61,105,105,0,Air Raid,Pressure Multiple,CA;PA;MI
+program_south_alabama,school_south_alabama,sun_belt,2026,person_015709,50,66,49,46,16820000,2145000.0,16712000,49,76,62,105,105,0,Veer & Shoot,Tite Front,VA;TN;CA
+program_southern_miss,school_southern_miss,sun_belt,2026,person_015828,53,48,59,45,18182000,2020000.0,17219000,52,87,36,105,105,0,Power Run,Pressure Multiple,TX;LA;AL
+program_troy,school_troy,sun_belt,2026,person_015947,58,68,47,59,18076000,3182000.0,14304000,47,77,60,105,105,0,Pro Style,Tite Front,GA;PA;TX
+program_ulm,school_ulm,sun_belt,2026,person_016066,38,56,39,37,9330000,982000.0,10985000,40,74,34,105,105,0,Veer & Shoot,Nickel,IL;MI;OK
+program_notre_dame,school_notre_dame,independent,2026,person_016185,93,63,92,99,49226000,4252000.0,35881000,99,72,92,105,105,0,Veer & Shoot,Tite Front,AL;OH;NC
+program_uconn,school_uconn,independent,2026,person_016304,50,90,21,76,13796000,1577000.0,14141000,49,69,43,105,105,0,West Coast,Multiple,MS;PA;LA

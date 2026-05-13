@@ -1,0 +1,90 @@
+[
+  {
+    "conferenceId": "acc",
+    "conferenceName": "ACC",
+    "level": "FBS",
+    "memberCount": 17,
+    "championshipGame": true,
+    "powerTier": "Power"
+  },
+  {
+    "conferenceId": "big_ten",
+    "conferenceName": "Big Ten",
+    "level": "FBS",
+    "memberCount": 18,
+    "championshipGame": true,
+    "powerTier": "Power"
+  },
+  {
+    "conferenceId": "big_12",
+    "conferenceName": "Big 12",
+    "level": "FBS",
+    "memberCount": 16,
+    "championshipGame": true,
+    "powerTier": "Power"
+  },
+  {
+    "conferenceId": "sec",
+    "conferenceName": "SEC",
+    "level": "FBS",
+    "memberCount": 16,
+    "championshipGame": true,
+    "powerTier": "Power"
+  },
+  {
+    "conferenceId": "american",
+    "conferenceName": "American",
+    "level": "FBS",
+    "memberCount": 14,
+    "championshipGame": true,
+    "powerTier": "Group"
+  },
+  {
+    "conferenceId": "conference_usa",
+    "conferenceName": "Conference USA",
+    "level": "FBS",
+    "memberCount": 10,
+    "championshipGame": true,
+    "powerTier": "Group"
+  },
+  {
+    "conferenceId": "mac",
+    "conferenceName": "MAC",
+    "level": "FBS",
+    "memberCount": 13,
+    "championshipGame": true,
+    "powerTier": "Group"
+  },
+  {
+    "conferenceId": "mountain_west",
+    "conferenceName": "Mountain West",
+    "level": "FBS",
+    "memberCount": 10,
+    "championshipGame": true,
+    "powerTier": "Group"
+  },
+  {
+    "conferenceId": "pac_12",
+    "conferenceName": "Pac-12",
+    "level": "FBS",
+    "memberCount": 8,
+    "championshipGame": true,
+    "powerTier": "Major"
+  },
+  {
+    "conferenceId": "sun_belt",
+    "conferenceName": "Sun Belt",
+    "level": "FBS",
+    "memberCount": 14,
+    "championshipGame": true,
+    "powerTier": "Group"
+  },
+  {
+    "conferenceId": "independent",
+    "conferenceName": "Independent",
+    "level": "FBS",
+    "memberCount": 2,
+    "championshipGame": false,
+    "powerTier": "Group"
+  }
+]

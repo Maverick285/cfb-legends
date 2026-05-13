@@ -1,0 +1,17 @@
+defensiveCallId,name,type,strengths,weaknesses,requiredSkills
+def_cover_1,Cover 1,coverage,rpo_discipline;edge_contain;gap_control,deep_shots;tempo;qb_run,lb_coverage;db_communication;safety_read
+def_cover_2,Cover 2,coverage,rpo_discipline;edge_contain;run_support,play_action;deep_shots;tempo,lb_coverage;nickel_discipline;db_communication
+def_tampa_2,Tampa 2,coverage,run_support;rpo_discipline;edge_contain,rpo_conflict;screens;tempo,db_communication;safety_read;pass_rush_plan
+def_cover_3,Cover 3,coverage,rpo_discipline;edge_contain;disguise,tempo;qb_run;quick_game,pass_rush_plan;nickel_discipline;db_communication
+def_quarters,Quarters,coverage,pressure;gap_control;edge_contain,qb_run;play_action;tempo,lb_coverage;gap_discipline;pass_rush_plan
+def_palms,Palms,coverage,pressure;disguise;run_support,rpo_conflict;qb_run;tempo,gap_discipline;nickel_discipline;pass_rush_plan
+def_cover_6,Cover 6,coverage,run_support;vertical_match;edge_contain,play_action;screens;tempo,db_communication;nickel_discipline;safety_read
+def_match_3,Match 3,coverage,disguise;run_support;rpo_discipline,play_action;rpo_conflict;screens,nickel_discipline;safety_read;pass_rush_plan
+def_fire_zone,Fire Zone,pressure,gap_control;edge_contain;rpo_discipline,screens;tempo;rpo_conflict,lb_coverage;pass_rush_plan;db_communication
+def_creeper,Creeper,pressure,gap_control;disguise;pressure,tempo;screens;rpo_conflict,gap_discipline;db_communication;nickel_discipline
+def_simulated_pressure,Simulated Pressure,pressure,vertical_match;rpo_discipline;disguise,rpo_conflict;screens;deep_shots,db_communication;lb_coverage;gap_discipline
+def_man_blitz,Man Blitz,pressure,edge_contain;vertical_match;pressure,deep_shots;qb_run;screens,lb_coverage;nickel_discipline;gap_discipline
+def_bear_front,Bear Front,front,disguise;edge_contain;rpo_discipline,rpo_conflict;deep_shots;screens,safety_read;lb_coverage;db_communication
+def_tite_front,Tite Front,front,disguise;pressure;rpo_discipline,rpo_conflict;qb_run;screens,pass_rush_plan;safety_read;gap_discipline
+def_4_2_5_over,4-2-5 Over,front,edge_contain;gap_control;vertical_match,quick_game;deep_shots;tempo,nickel_discipline;db_communication;gap_discipline
+def_3_3_5_stack,3-3-5 Stack,front,pressure;disguise;run_support,qb_run;screens;deep_shots,pass_rush_plan;safety_read;db_communication

@@ -1,0 +1,156 @@
+[
+  {
+    "table": "conferences",
+    "rows": 11,
+    "columns": 6,
+    "csv": "csv/conferences.csv",
+    "json": "json/conferences.json"
+  },
+  {
+    "table": "schools",
+    "rows": 138,
+    "columns": 9,
+    "csv": "csv/schools.csv",
+    "json": "json/schools.json"
+  },
+  {
+    "table": "programs",
+    "rows": 138,
+    "columns": 21,
+    "csv": "csv/programs.csv",
+    "json": "json/programs.json"
+  },
+  {
+    "table": "team_brands",
+    "rows": 138,
+    "columns": 12,
+    "csv": "csv/team_brands.csv",
+    "json": "json/team_brands.json"
+  },
+  {
+    "table": "stadiums",
+    "rows": 138,
+    "columns": 17,
+    "csv": "csv/stadiums.csv",
+    "json": "json/stadiums.json"
+  },
+  {
+    "table": "rulesets",
+    "rows": 1,
+    "columns": 8,
+    "csv": "csv/rulesets.csv",
+    "json": "json/rulesets.json"
+  },
+  {
+    "table": "people",
+    "rows": 22422,
+    "columns": 9,
+    "csv": "csv/people.csv",
+    "json": "json/people.json"
+  },
+  {
+    "table": "athlete_profiles",
+    "rows": 14490,
+    "columns": 16,
+    "csv": "csv/athlete_profiles.csv",
+    "json": "json/athlete_profiles.json"
+  },
+  {
+    "table": "player_ratings",
+    "rows": 14490,
+    "columns": 98,
+    "csv": "csv/player_ratings.csv",
+    "json": "json/player_ratings.json"
+  },
+  {
+    "table": "player_traits",
+    "rows": 29152,
+    "columns": 6,
+    "csv": "csv/player_traits.csv",
+    "json": "json/player_traits.json"
+  },
+  {
+    "table": "roster_memberships",
+    "rows": 14490,
+    "columns": 9,
+    "csv": "csv/roster_memberships.csv",
+    "json": "json/roster_memberships.json"
+  },
+  {
+    "table": "coach_profiles",
+    "rows": 1932,
+    "columns": 22,
+    "csv": "csv/coach_profiles.csv",
+    "json": "json/coach_profiles.json"
+  },
+  {
+    "table": "staff_assignments",
+    "rows": 1932,
+    "columns": 6,
+    "csv": "csv/staff_assignments.csv",
+    "json": "json/staff_assignments.json"
+  },
+  {
+    "table": "program_nil",
+    "rows": 138,
+    "columns": 11,
+    "csv": "csv/program_nil.csv",
+    "json": "json/program_nil.json"
+  },
+  {
+    "table": "athlete_nil",
+    "rows": 14490,
+    "columns": 7,
+    "csv": "csv/athlete_nil.csv",
+    "json": "json/athlete_nil.json"
+  },
+  {
+    "table": "uniforms",
+    "rows": 690,
+    "columns": 17,
+    "csv": "csv/uniforms.csv",
+    "json": "json/uniforms.json"
+  },
+  {
+    "table": "recruiting_profiles",
+    "rows": 6000,
+    "columns": 19,
+    "csv": "csv/recruiting_profiles.csv",
+    "json": "json/recruiting_profiles.json"
+  },
+  {
+    "table": "recruit_program_interest",
+    "rows": 30000,
+    "columns": 9,
+    "csv": "csv/recruit_program_interest.csv",
+    "json": "json/recruit_program_interest.json"
+  },
+  {
+    "table": "games",
+    "rows": 828,
+    "columns": 15,
+    "csv": "csv/games.csv",
+    "json": "json/games.json"
+  },
+  {
+    "table": "schedules",
+    "rows": 1656,
+    "columns": 9,
+    "csv": "csv/schedules.csv",
+    "json": "json/schedules.json"
+  },
+  {
+    "table": "offensive_concepts",
+    "rows": 20,
+    "columns": 9,
+    "csv": "csv/offensive_concepts.csv",
+    "json": "json/offensive_concepts.json"
+  },
+  {
+    "table": "defensive_calls",
+    "rows": 16,
+    "columns": 6,
+    "csv": "csv/defensive_calls.csv",
+    "json": "json/defensive_calls.json"
+  }
+]
