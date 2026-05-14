@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { compactNumber, feet, money, titleCase } from "../data/format";
-import { getPlayerProfile, getProgramRoster, getRosterOverview, keyRatingsForPosition, positionOptions } from "../data/selectors";
+import { getPlayerProfile, getProgramRoster, getRosterOverview, getStarterCountsByPosition, keyRatingsForPosition, positionOptions } from "../data/selectors";
 import type { CareerState, ProgramSeedBundle, RosterPlayerRecord, RosterSortKey } from "../data/types";
 
 const rosterColumns: Array<{ key: RosterSortKey; label: string }> = [
@@ -39,6 +39,7 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
   const topTrait = selectedPlayer?.traits[0];
   const watchlisted = Boolean(selectedPlayer && state.watchlistPersonIds.includes(selectedPlayer.person.personId));
   const developmentFocus = selectedPlayer ? state.developmentFocusByPersonId[selectedPlayer.person.personId] || "Unset" : "Unset";
+  const starterCounts = useMemo(() => getStarterCountsByPosition(bundle), [bundle]);
   const positionCounts = useMemo(() => {
     return ["QB", "RB", "WR", "TE", "OL", "DL", "EDGE", "LB", "CB", "S", "K", "P"]
       .filter((position) => overview.byPosition[position])
@@ -56,7 +57,8 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
               <span>{selectedPlayer.athlete.primaryPosition} / {titleCase(selectedPlayer.athlete.depthChartRole)}</span>
               <strong>{selectedPlayer.person.firstName}<br />{selectedPlayer.person.lastName}</strong>
             </div>
-            <div className="player-silhouette">{selectedPlayer.athlete.primaryPosition}</div>
+            <div className="player-card-number">{selectedPlayer.athlete.jerseyNumber}</div>
+            <div className="player-card-position">{selectedPlayer.athlete.primaryPosition}</div>
           </div>
 
           <div className="player-card-grid">
@@ -94,7 +96,7 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
             </div>
             <div>
               <span>Development</span>
-              <strong>{developmentFocus}</strong>
+              <strong>{developmentFocus === "Unset" ? "No Focus" : developmentFocus}</strong>
               <select value={developmentFocus} onChange={(event) => onDevelopmentFocus(selectedPlayer, event.target.value)}>
                 <option value="Unset">Unset</option>
                 {focusOptions.map((option) => <option key={option} value={option}>{option}</option>)}
@@ -103,10 +105,10 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
             <div>
               <span>NIL Value</span>
               <strong>{money(selectedPlayer.nil?.estimatedNilValue || 0)}</strong>
-              <em>{selectedPlayer.nil?.nilStatus || "standard"}</em>
+              <em>{titleCase(selectedPlayer.nil?.nilStatus || "standard")}</em>
             </div>
             <div>
-              <span>2026 Snapshot</span>
+              <span>{bundle.selectedProgram.program.seasonYear} Form</span>
               <strong>{selectedPlayer.ratings.confidence}</strong>
               <em>Confidence</em>
             </div>
@@ -153,14 +155,14 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
             <div className="health-snapshot">
               <span>Health Snapshot</span>
               <strong>{overview.teamHealth}%</strong>
-              <em>{overview.injured} injured / {overview.suspended} suspended</em>
+              <em>{overview.injured} elevated-risk players</em>
             </div>
           </div>
         </section>
 
         <section className="context-band">
           <h2>{activeTab}</h2>
-          <ContextContent tab={activeTab} bundle={bundle} overview={overview} />
+          <ContextContent tab={activeTab} bundle={bundle} overview={overview} starterCounts={starterCounts} />
         </section>
 
         <section className="roster-list-panel">
@@ -222,9 +224,9 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
             </table>
           </div>
           <footer className="roster-legend">
-            <span>Selected row updates the player card</span>
-            <span>Double-click opens the full profile</span>
-            <span>Roster rows: {roster.length}</span>
+            <span>{roster.length} rostered</span>
+            <span>{state.watchlistPersonIds.length} watched</span>
+            <span>{state.positionFilter === "ALL" ? "All positions" : state.positionFilter}</span>
           </footer>
         </section>
       </div>
@@ -253,7 +255,10 @@ function Breakdown({ title, values, order }: { title: string; values: Record<str
   );
 }
 
-function ContextContent({ tab, bundle, overview }: { tab: TeamTab; bundle: ProgramSeedBundle; overview: ReturnType<typeof getRosterOverview> }) {
+function ContextContent({ tab, bundle, overview, starterCounts }: { tab: TeamTab; bundle: ProgramSeedBundle; overview: ReturnType<typeof getRosterOverview>; starterCounts: Record<string, number> }) {
+  const headCoach = bundle.selectedProgram.staff.find((staff) => staff.assignment?.roleId === "head_coach");
+  const offensiveCoordinator = bundle.selectedProgram.staff.find((staff) => staff.assignment?.roleId === "offensive_coordinator");
+  const defensiveCoordinator = bundle.selectedProgram.staff.find((staff) => staff.assignment?.roleId === "defensive_coordinator");
   if (tab === "NIL/Budget") {
     return (
       <div className="context-grid">
@@ -267,30 +272,30 @@ function ContextContent({ tab, bundle, overview }: { tab: TeamTab; bundle: Progr
   if (tab === "Health") {
     return (
       <div className="context-grid">
-        <Metric label="Team Health" value={`${overview.teamHealth}%`} note="Roster average" />
-        <Metric label="Injured" value={overview.injured} note="By resistance risk" />
-        <Metric label="Suspended" value={overview.suspended} note="Current" />
-        <Metric label="Trainer Focus" value="Recovery" note="Default plan" />
+        <Metric label="Team Health" value={`${overview.teamHealth}%`} note="Availability" />
+        <Metric label="Elevated Risk" value={overview.injured} note="Injury resistance" />
+        <Metric label="High Stamina" value={bundle.selectedProgram.roster.filter((player) => player.ratings.stamina >= 80).length} note="80+" />
+        <Metric label="Low Stamina" value={bundle.selectedProgram.roster.filter((player) => player.ratings.stamina < 60).length} note="Under 60" />
       </div>
     );
   }
   if (tab === "Staff") {
     return (
       <div className="context-grid">
-        <Metric label="Staff Records" value={bundle.selectedProgram.staff.length} note="Imported" />
-        <Metric label="Offense" value={bundle.selectedProgram.program.offensiveScheme} note="Scheme" />
-        <Metric label="Defense" value={bundle.selectedProgram.program.defensiveScheme} note="Scheme" />
-        <Metric label="Trust" value={bundle.selectedProgram.program.coachTrust} note="Coach" />
+        <Metric label="Head Coach" value={headCoach?.person?.displayName || "Open"} note={headCoach?.coach ? `${headCoach.coach.reputation} rep` : "Staff"} />
+        <Metric label="Offense" value={offensiveCoordinator?.person?.displayName || bundle.selectedProgram.program.offensiveScheme} note={bundle.selectedProgram.program.offensiveScheme} />
+        <Metric label="Defense" value={defensiveCoordinator?.person?.displayName || bundle.selectedProgram.program.defensiveScheme} note={bundle.selectedProgram.program.defensiveScheme} />
+        <Metric label="Coach Trust" value={bundle.selectedProgram.program.coachTrust} note="Program" />
       </div>
     );
   }
   if (tab === "Depth Chart" || tab === "Formation Subs") {
     return (
       <div className="context-grid">
-        <Metric label="Starters" value={bundle.selectedProgram.roster.filter((player) => player.athlete.depthChartRole === "starter").length} note="Roster roles" />
-        <Metric label="Scheme" value={bundle.selectedProgram.program.offensiveScheme} note="Offense" />
-        <Metric label="Personnel" value="11/12/21" note="Install menu" />
-        <Metric label="Conflicts" value="0" note="Not checked yet" />
+        <Metric label="QB Starters" value={starterCounts.QB || 0} note="Roster roles" />
+        <Metric label="Skill Starters" value={(starterCounts.RB || 0) + (starterCounts.WR || 0) + (starterCounts.TE || 0)} note="RB/WR/TE" />
+        <Metric label="Front Seven" value={(starterCounts.DL || 0) + (starterCounts.EDGE || 0) + (starterCounts.LB || 0)} note="DL/EDGE/LB" />
+        <Metric label="Secondary" value={(starterCounts.CB || 0) + (starterCounts.S || 0)} note="CB/S" />
       </div>
     );
   }

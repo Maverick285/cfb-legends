@@ -14,6 +14,7 @@
   --orange: #e6a349;
   --team-primary: #1c352d;
   --team-secondary: #c9a75c;
-  --font-ui: "Arial Narrow", "Roboto Condensed", "Segoe UI", Arial, sans-serif;
-  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-display: "Bahnschrift Condensed", "DIN Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
+  --font-ui: "Bahnschrift", "Aptos", "Segoe UI", Arial, sans-serif;
+  --font-body: "Aptos", "Segoe UI", Arial, sans-serif;
 }

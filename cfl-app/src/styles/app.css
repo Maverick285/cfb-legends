@@ -12,6 +12,8 @@ body {
     var(--bg);
   color: var(--text);
   font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: 0;
 }
 
 button,
@@ -695,7 +697,7 @@ button {
 
 .program-lockup strong {
   font-size: 17px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.11em;
 }
 
 .program-lockup span,
@@ -765,7 +767,7 @@ button {
   font-family: var(--font-ui);
   font-size: 17px;
   font-weight: 900;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   box-shadow: 0 0 18px color-mix(in srgb, var(--team-secondary) 20%, transparent);
 }
@@ -783,7 +785,7 @@ button {
 /* Roster command layout */
 .team-room {
   display: grid;
-  height: calc(100vh - 128px);
+  height: calc(100vh - 132px);
   min-height: 720px;
   gap: 12px;
   overflow: hidden;
@@ -824,6 +826,14 @@ button {
     repeating-linear-gradient(105deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 38px);
 }
 
+.player-stage::after {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
 .stage-glow {
   position: absolute;
   inset: auto 8% 6% 18%;
@@ -835,10 +845,10 @@ button {
 .player-number {
   position: absolute;
   left: 24px;
-  top: 126px;
+  top: 116px;
   color: var(--team-secondary);
-  font-family: var(--font-ui);
-  font-size: 72px;
+  font-family: var(--font-display);
+  font-size: 88px;
   font-weight: 900;
   line-height: 0.8;
 }
@@ -871,33 +881,44 @@ button {
   display: block;
   margin-top: 8px;
   color: #f5efe1;
-  font-family: var(--font-ui);
-  font-size: clamp(42px, 4vw, 68px);
+  font-family: var(--font-display);
+  font-size: clamp(48px, 4.8vw, 76px);
   font-weight: 900;
-  line-height: 0.82;
-  letter-spacing: 0.01em;
+  line-height: 0.86;
+  letter-spacing: 0;
   text-transform: uppercase;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
 }
 
-.player-silhouette {
+.player-card-number {
   position: absolute;
-  right: 6%;
-  bottom: 0;
+  right: 7%;
+  top: 16%;
   z-index: 1;
-  color: color-mix(in srgb, var(--team-secondary) 24%, transparent);
-  font-family: var(--font-ui);
-  font-size: clamp(130px, 12vw, 210px);
+  color: color-mix(in srgb, var(--team-secondary) 18%, transparent);
+  font-family: var(--font-display);
+  font-size: clamp(150px, 16vw, 260px);
   font-weight: 900;
-  line-height: 0.8;
-  opacity: 0.8;
+  line-height: 0.72;
+}
+
+.player-card-position {
+  position: absolute;
+  right: 8%;
+  bottom: 12%;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-display);
+  font-size: clamp(54px, 5vw, 92px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
 }
 
 .player-card-grid {
   display: grid;
   grid-template-columns: 0.8fr 1fr 1.2fr;
   gap: 1px;
-  padding: 0 18px;
+  padding: 2px 20px 0;
 }
 
 .player-card-grid div,
@@ -918,8 +939,8 @@ button {
   display: block;
   margin-top: 5px;
   font-family: var(--font-ui);
-  font-size: 18px;
-  letter-spacing: 0.04em;
+  font-size: 16px;
+  letter-spacing: 0.01em;
 }
 
 .player-tags {
@@ -941,8 +962,8 @@ button {
   margin: 0;
   padding: 0 26px;
   color: #c8c1b5;
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.42;
 }
 
 .key-ratings-strip {
@@ -959,8 +980,8 @@ button {
 
 .key-ratings-strip strong {
   color: #f2eee5;
-  font-family: var(--font-ui);
-  font-size: 34px;
+  font-family: var(--font-display);
+  font-size: 38px;
   line-height: 1;
 }
 
@@ -996,8 +1017,8 @@ button {
   display: block;
   margin: 8px 0 3px;
   color: #f2eee5;
-  font-family: var(--font-ui);
-  font-size: 25px;
+  font-family: var(--font-display);
+  font-size: 27px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -1102,8 +1123,8 @@ button {
   display: block;
   margin-top: 5px;
   color: #e9e5dd;
-  font-family: var(--font-ui);
-  font-size: 30px;
+  font-family: var(--font-display);
+  font-size: 34px;
   line-height: 1;
 }
 
@@ -1215,7 +1236,8 @@ button {
 
 .roster-command-table {
   min-width: 1180px;
-  font-size: 13px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 .roster-command-table th {
@@ -1225,7 +1247,7 @@ button {
 .roster-command-table th,
 .roster-command-table td {
   border-bottom-color: rgba(255, 255, 255, 0.08);
-  padding: 6px 9px;
+  padding: 6px 10px;
 }
 
 .roster-command-table tr {
@@ -1245,7 +1267,7 @@ button {
 }
 
 .roster-command-table strong {
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
 }
 
 .roster-command-table small {

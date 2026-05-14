@@ -53,6 +53,19 @@ export function getNextGame(bundle: ProgramSeedBundle) {
   return bundle.selectedProgram.schedules.find((entry) => entry.game?.status === "scheduled") || bundle.selectedProgram.schedules[0];
 }
 
+export function getTeamRecord(bundle: ProgramSeedBundle) {
+  return bundle.selectedProgram.schedules.reduce(
+    (record, entry) => {
+      if (!entry.schedule?.result) return record;
+      const result = entry.schedule.result.toLowerCase();
+      if (result === "win" || result === "w") record.wins += 1;
+      if (result === "loss" || result === "l") record.losses += 1;
+      return record;
+    },
+    { wins: 0, losses: 0 },
+  );
+}
+
 export function getRosterOverview(bundle: ProgramSeedBundle) {
   const roster = bundle.selectedProgram.roster;
   const average = (reader: (player: RosterPlayerRecord) => number) => Math.round(roster.reduce((sum, player) => sum + reader(player), 0) / roster.length);
@@ -91,6 +104,14 @@ export function getRosterOverview(bundle: ProgramSeedBundle) {
     byClass,
     byPosition,
   };
+}
+
+export function getStarterCountsByPosition(bundle: ProgramSeedBundle) {
+  return bundle.selectedProgram.roster.reduce<Record<string, number>>((counts, player) => {
+    if (player.athlete.depthChartRole !== "starter") return counts;
+    counts[player.athlete.primaryPosition] = (counts[player.athlete.primaryPosition] || 0) + 1;
+    return counts;
+  }, {});
 }
 
 export function positionOptions(bundle: ProgramSeedBundle): string[] {

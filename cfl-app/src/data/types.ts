@@ -191,7 +191,40 @@ export type ProgramSeedBundle = {
       socialFollowing: number;
     };
     roster: RosterPlayerRecord[];
-    staff: unknown[];
+    staff: Array<{
+      assignment?: {
+        staffAssignmentId: string;
+        programId: string;
+        personId: string;
+        roleId: string;
+        seasonYear: number;
+        status: string;
+      };
+      person?: Person;
+      coach?: {
+        personId: string;
+        primaryRoleId: string;
+        reputation: number;
+        offensivePhilosophyId: string;
+        defensivePhilosophyId: string;
+        personalityId: string;
+        recruitingAbility: number;
+        playerDevelopment: number;
+        playCalling: number;
+        leadership: number;
+        motivation: number;
+        discipline: number;
+        adaptability: number;
+        scouting: number;
+        nilInfluence: number;
+        pipelineStrength: number;
+        ambition: number;
+        loyalty: number;
+        contractYears: number;
+        salary: number;
+        buyout: number;
+      };
+    }>;
     schedules: Array<{
       schedule?: {
         scheduleId: string;

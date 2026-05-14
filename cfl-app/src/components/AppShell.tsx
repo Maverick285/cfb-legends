@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
+import { BarChart3, ClipboardList, Home, Settings, ShieldPlus, UserRound, UsersRound } from "lucide-react";
 import { compactDate, money } from "../data/format";
-import { getNextGame, getRosterOverview } from "../data/selectors";
+import { getNextGame, getRosterOverview, getTeamRecord } from "../data/selectors";
 import type { CareerState, ProgramSeedBundle } from "../data/types";
 
 type AppShellProps = {
@@ -12,10 +13,10 @@ type AppShellProps = {
   children: ReactNode;
 };
 
-const navItems: Array<{ route: CareerState["route"]; label: string; icon: string }> = [
-  { route: "dashboard", label: "Home", icon: "H" },
-  { route: "roster", label: "Team", icon: "T" },
-  { route: "player", label: "Profile", icon: "P" },
+const navItems: Array<{ route: CareerState["route"]; label: string; icon: ReactNode }> = [
+  { route: "dashboard", label: "Home", icon: <Home size={23} strokeWidth={1.7} /> },
+  { route: "roster", label: "Team", icon: <UsersRound size={24} strokeWidth={1.7} /> },
+  { route: "player", label: "Profile", icon: <UserRound size={23} strokeWidth={1.7} /> },
 ];
 
 export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: AppShellProps) {
@@ -23,6 +24,7 @@ export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: 
   const brand = bundle.selectedProgram.brand;
   const overview = getRosterOverview(bundle);
   const nextGame = getNextGame(bundle);
+  const record = getTeamRecord(bundle);
   return (
     <div
       className="app-shell"
@@ -46,10 +48,10 @@ export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: 
               {item.icon}
             </button>
           ))}
-          <button type="button" disabled aria-label="Recruiting" title="Recruiting">R</button>
-          <button type="button" disabled aria-label="Scheme" title="Scheme">S</button>
-          <button type="button" disabled aria-label="Stats and News" title="Stats and News">N</button>
-          <button type="button" disabled aria-label="Settings" title="Settings">G</button>
+          <button type="button" disabled aria-label="Recruiting" title="Recruiting"><ShieldPlus size={23} strokeWidth={1.6} /></button>
+          <button type="button" disabled aria-label="Scheme" title="Scheme"><ClipboardList size={23} strokeWidth={1.6} /></button>
+          <button type="button" disabled aria-label="Stats and News" title="Stats and News"><BarChart3 size={23} strokeWidth={1.6} /></button>
+          <button type="button" disabled aria-label="Settings" title="Settings"><Settings size={23} strokeWidth={1.6} /></button>
         </nav>
         <div className="league-mark">CFBL</div>
       </aside>
@@ -66,7 +68,7 @@ export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: 
             <div><span>Team OVR</span><strong>{overview.teamOverall}</strong></div>
             <div><span>Budget</span><strong>{money(program.athleticBudget)}</strong></div>
             <div><span>NIL Value</span><strong>{money(overview.totalNil)}</strong></div>
-            <div><span>Record</span><strong>0-0</strong><em>{conference.conferenceName}</em></div>
+            <div><span>Record</span><strong>{record.wins}-{record.losses}</strong><em>{conference.conferenceName}</em></div>
           </div>
           <div className="top-actions">
             <div>
