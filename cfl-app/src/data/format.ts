@@ -15,3 +15,14 @@ export function titleCase(value: string): string {
     .replace(/[_-]/g, " ")
     .replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
 }
+
+export function compactDate(value: string): string {
+  const date = new Date(`${value}T12:00:00`);
+  return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(date);
+}
+
+export function compactNumber(value: number): string {
+  if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+  if (value >= 1000) return `${Math.round(value / 1000)}K`;
+  return String(value);
+}

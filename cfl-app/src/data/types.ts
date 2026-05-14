@@ -146,6 +146,8 @@ export type ProgramSeedBundle = {
       facilitiesGrade: number;
       academicGrade: number;
       brandExposure: number;
+      rosterLimit: number;
+      scholarshipsFunded: number;
       offensiveScheme: string;
       defensiveScheme: string;
       pipelineStates: string;
@@ -182,13 +184,53 @@ export type ProgramSeedBundle = {
       nilSpent: number;
       nilCommitted: number;
       nilAvailable: number;
+      monthlyIncome: number;
       collectiveName: string;
       donorInfluence: number;
       brandHealth: number;
+      socialFollowing: number;
     };
     roster: RosterPlayerRecord[];
     staff: unknown[];
-    schedules: unknown[];
+    schedules: Array<{
+      schedule?: {
+        scheduleId: string;
+        programId: string;
+        gameId: string;
+        seasonYear: number;
+        week: number;
+        opponentProgramId: string;
+        homeAwayNeutral: string;
+        result: string | null;
+        score: string | null;
+      };
+      game?: {
+        gameId: string;
+        seasonYear: number;
+        week: number;
+        date: string;
+        homeProgramId: string;
+        awayProgramId: string;
+        neutralSite: boolean;
+        stadiumId: string;
+        conferenceGame: boolean;
+        rivalryGame: boolean;
+        kickoffTime: string;
+        tvNetwork: string;
+        status: string;
+        homeScore: number | null;
+        awayScore: number | null;
+      };
+      opponent?: {
+        schoolId: string;
+        schoolName: string;
+        nickname: string;
+        abbreviation: string;
+        city: string;
+        state: string;
+        conferenceId: string;
+      };
+    }>;
   };
 };
 

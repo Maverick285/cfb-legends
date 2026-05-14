@@ -1,4 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
+import { compactDate, money } from "../data/format";
+import { getNextGame, getRosterOverview } from "../data/selectors";
 import type { CareerState, ProgramSeedBundle } from "../data/types";
 
 type AppShellProps = {
@@ -10,15 +12,17 @@ type AppShellProps = {
   children: ReactNode;
 };
 
-const navItems: Array<{ route: CareerState["route"]; label: string }> = [
-  { route: "dashboard", label: "Desk" },
-  { route: "roster", label: "Roster" },
-  { route: "player", label: "Player Profile" },
+const navItems: Array<{ route: CareerState["route"]; label: string; icon: string }> = [
+  { route: "dashboard", label: "Home", icon: "H" },
+  { route: "roster", label: "Team", icon: "T" },
+  { route: "player", label: "Profile", icon: "P" },
 ];
 
 export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: AppShellProps) {
   const { school, program, conference } = bundle.selectedProgram;
   const brand = bundle.selectedProgram.brand;
+  const overview = getRosterOverview(bundle);
+  const nextGame = getNextGame(bundle);
   return (
     <div
       className="app-shell"
@@ -28,13 +32,7 @@ export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: 
       } as CSSProperties}
     >
       <aside className="side-rail">
-        <div className="brand-lockup">
-          <div className="brand-mark">{school.abbreviation}</div>
-          <div>
-            <span>College Football</span>
-            <strong>Legends</strong>
-          </div>
-        </div>
+        <div className="brand-mark">{school.abbreviation}</div>
         <nav>
           {navItems.map((item) => (
             <button
@@ -42,32 +40,47 @@ export function AppShell({ bundle, state, onRoute, onSave, onReset, children }: 
               className={state.route === item.route ? "active" : ""}
               type="button"
               onClick={() => onRoute(item.route)}
+              aria-label={item.label}
+              title={item.label}
             >
-              {item.label}
+              {item.icon}
             </button>
           ))}
+          <button type="button" disabled aria-label="Recruiting" title="Recruiting">R</button>
+          <button type="button" disabled aria-label="Scheme" title="Scheme">S</button>
+          <button type="button" disabled aria-label="Stats and News" title="Stats and News">N</button>
+          <button type="button" disabled aria-label="Settings" title="Settings">G</button>
         </nav>
+        <div className="league-mark">CFBL</div>
       </aside>
       <main className="app-main">
         <header className="top-bar">
           <div className="program-lockup">
             <div className="program-logo">{school.abbreviation}</div>
             <div>
-              <span>{conference.conferenceName} / Week {state.currentWeek}</span>
-              <strong>{school.schoolName} {school.nickname}</strong>
+              <span>{school.schoolName}</span>
+              <strong>{school.nickname}</strong>
             </div>
+          </div>
+          <div className="top-metrics" aria-label="Program summary">
+            <div><span>Team OVR</span><strong>{overview.teamOverall}</strong></div>
+            <div><span>Budget</span><strong>{money(program.athleticBudget)}</strong></div>
+            <div><span>NIL Value</span><strong>{money(overview.totalNil)}</strong></div>
+            <div><span>Record</span><strong>0-0</strong><em>{conference.conferenceName}</em></div>
           </div>
           <div className="top-actions">
             <div>
-              <span>Prestige</span>
-              <strong>{program.programPrestige}</strong>
+              <span>Week</span>
+              <strong>{nextGame?.game?.week || state.currentWeek}</strong>
+              <em>{nextGame?.game?.date ? compactDate(nextGame.game.date) : state.currentDate}</em>
             </div>
             <div>
-              <span>Budget</span>
-              <strong>${Math.round(program.athleticBudget / 1000000)}M</strong>
+              <span>Next</span>
+              <strong>{nextGame?.opponent?.abbreviation || "TBD"}</strong>
+              <em>{nextGame?.game?.kickoffTime || "TBD"}</em>
             </div>
-            <button type="button" onClick={onSave}>Save</button>
-            <button type="button" onClick={onReset}>Reset</button>
+            <button className="continue-button" type="button" onClick={onSave}>Continue</button>
+            <button className="reset-button" type="button" onClick={onReset}>Reset</button>
           </div>
         </header>
         {children}

@@ -1,6 +1,6 @@
 # Project Status
 
-Date: 2026-05-12
+Date: 2026-05-14
 
 ## Current State
 
@@ -10,17 +10,17 @@ The project has moved to the new `cfl-app/` React + TypeScript + Vite path.
 
 ## Active Milestone
 
-R0 - React app foundation and seed-backed player object loop.
+R1 - Team room roster screen and shared roster-adjacent screen frame.
 
 ## Current Goal
 
-Prove the real app path has usable bones:
+Build the roster screen as the reusable team-room frame for roster-adjacent screens:
 
 ```text
-seed pack -> validation report -> compact browser bundle -> start career -> dashboard -> 105-player roster -> player profile -> durable action -> save/load
+top program bar -> left icon rail -> selected player profile -> team tabs -> overview band -> dense roster grid
 ```
 
-This comes before depth chart expansion, recruiting, NIL, staff, portal, or game simulation work.
+The same shell should support Depth Chart, Formation Subs, NIL/Budget, Health, and Staff without creating a separate visual language for each screen.
 
 ## Completed This Pass
 
@@ -45,10 +45,18 @@ This comes before depth chart expansion, recruiting, NIL, staff, portal, or game
   - Program Desk dashboard.
   - 105-player roster table.
   - Player profile route.
-  - Player hero component.
-  - Watchlist action.
-  - Development focus action.
-  - Local save/load persistence.
+- Player hero component.
+- Watchlist action.
+- Development focus action.
+- Local save/load persistence.
+- Reworked the active roster screen around the supplied May 13 visual references:
+  - persistent top program bar.
+  - narrow left icon rail.
+  - large selected-player profile panel.
+  - Overview / Depth Chart / Formation Subs / NIL/Budget / Health / Staff team tabs.
+  - roster overview metrics from seed data.
+  - class, position, NIL, and health summary bands.
+  - denser 105-player roster table with internal scrolling.
 
 ## Verification
 
@@ -62,6 +70,12 @@ This comes before depth chart expansion, recruiting, NIL, staff, portal, or game
   - Double-click opens player profile.
   - Watchlist persists after reload.
   - Development focus persists after reload.
+- Roster command screen visual smoke passes at 1920x1080:
+  - 105 rows render.
+  - no console errors.
+  - page body does not vertically or horizontally overflow.
+  - roster table scrolls inside its panel.
+  - team tabs render: Overview, Depth Chart, Formation Subs, NIL/Budget, Health, Staff.
 
 ## Current App URL
 
@@ -79,7 +93,7 @@ http://127.0.0.1:5173/
 
 ## Next Implementation Step
 
-Build the first real depth chart screen in `cfl-app/`.
+Build the first real depth chart mode inside the new team-room frame in `cfl-app/`.
 
 Acceptance target:
 
@@ -87,7 +101,7 @@ Acceptance target:
 - show starter/challenger comparison from seed ratings.
 - write a durable depth override action.
 - save/load preserves the override.
-- no visible depth-chart button exists unless it changes durable state.
+- the Depth Chart tab changes real depth state rather than showing a placeholder.
 
 ## Keep
 

@@ -142,3 +142,20 @@ Create `cfl-app/` as the real app path using React, TypeScript, and Vite. Keep `
 - `docs/PROJECT_STATUS.md`
 - `cfl_full_scale_seed_data_v0_1/cfl_seed_data_pack/`
 - `cfl-app/`
+
+## 2026-05-14 - Use Team Room as the Roster-Adjacent Screen Frame
+
+### Context
+
+The roster screen needed to follow the user's supplied visual layout: a persistent top bar, narrow left rail, large selected-player profile panel, team-section tabs, roster overview data, and a dense roster list. Depth Chart, Formation Subs, NIL/Budget, Health, and Staff are expected to be close variants of the same screen instead of separate visual experiments.
+
+### Decision
+
+Rebuild the active `cfl-app` roster screen as a team-room frame. Keep the screen backed by seed data and local state. Use the same page skeleton for the roster-adjacent tabs, with existing seed-backed summary content where available and durable-state work deferred to the next depth chart pass.
+
+### Consequences
+
+- `RosterScreen` is now the visual baseline for roster, depth chart, formation subs, NIL, health, and staff.
+- `AppShell` uses a tighter game-style top bar and icon rail instead of the earlier broad web sidebar.
+- The roster table scrolls inside the screen, preserving a fixed 1920x1080 management-game layout.
+- The next implementation should make the Depth Chart tab stateful and enforce one-player/one-starting-slot constraints.

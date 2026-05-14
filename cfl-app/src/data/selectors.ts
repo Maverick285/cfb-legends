@@ -49,6 +49,50 @@ export function getDashboardState(bundle: ProgramSeedBundle, state: CareerState)
   };
 }
 
+export function getNextGame(bundle: ProgramSeedBundle) {
+  return bundle.selectedProgram.schedules.find((entry) => entry.game?.status === "scheduled") || bundle.selectedProgram.schedules[0];
+}
+
+export function getRosterOverview(bundle: ProgramSeedBundle) {
+  const roster = bundle.selectedProgram.roster;
+  const average = (reader: (player: RosterPlayerRecord) => number) => Math.round(roster.reduce((sum, player) => sum + reader(player), 0) / roster.length);
+  const byClass = roster.reduce<Record<string, number>>((counts, player) => {
+    counts[player.athlete.classYear] = (counts[player.athlete.classYear] || 0) + 1;
+    return counts;
+  }, {});
+  const byPosition = roster.reduce<Record<string, number>>((counts, player) => {
+    counts[player.athlete.primaryPosition] = (counts[player.athlete.primaryPosition] || 0) + 1;
+    return counts;
+  }, {});
+  const scholarshipCount = roster.filter((player) => player.membership.scholarshipStatus === "scholarship").length;
+  const totalNil = roster.reduce((sum, player) => sum + (player.nil?.estimatedNilValue || 0), 0);
+  const healthy = roster.filter((player) => player.ratings.injuryResistance >= 62).length;
+  const injured = roster.length - healthy;
+  const offensePositions = new Set(["QB", "RB", "WR", "TE", "OL", "C", "G", "T"]);
+  const defensePositions = new Set(["DL", "EDGE", "LB", "CB", "S"]);
+  const specialPositions = new Set(["K", "P", "LS"]);
+  const groupAverage = (positions: Set<string>) => {
+    const players = roster.filter((player) => positions.has(player.athlete.primaryPosition) || positions.has(player.membership.positionGroup));
+    return Math.round(players.reduce((sum, player) => sum + player.ratings.overall, 0) / Math.max(players.length, 1));
+  };
+  return {
+    teamOverall: average((player) => player.ratings.overall),
+    offenseOverall: groupAverage(offensePositions),
+    defenseOverall: groupAverage(defensePositions),
+    specialTeamsOverall: groupAverage(specialPositions),
+    rosterSize: roster.length,
+    rosterLimit: bundle.selectedProgram.program.rosterLimit,
+    scholarshipCount,
+    scholarshipLimit: bundle.selectedProgram.program.scholarshipsFunded,
+    totalNil,
+    teamHealth: Math.round((healthy / roster.length) * 100),
+    injured,
+    suspended: 0,
+    byClass,
+    byPosition,
+  };
+}
+
 export function positionOptions(bundle: ProgramSeedBundle): string[] {
   return ["ALL", ...Array.from(new Set(bundle.selectedProgram.roster.map((player) => player.athlete.primaryPosition))).sort()];
 }
