@@ -1,20 +1,89 @@
 :root {
   color-scheme: dark;
-  --bg: #070a08;
-  --panel: #101711;
-  --panel-2: #161f18;
-  --panel-3: #20291f;
-  --line: rgba(230, 220, 175, 0.16);
-  --line-strong: rgba(230, 220, 175, 0.34);
-  --text: #f4edd1;
-  --muted: #b6af97;
-  --gold: #e4c366;
-  --green: #76d17c;
-  --red: #e16767;
-  --orange: #e6a349;
+
+  /* Core surface palette: tuned from the May 13 roster reference. */
+  --surface-0: #030505;
+  --surface-1: #070a0a;
+  --surface-2: #0b0f10;
+  --surface-3: #101516;
+  --surface-4: #171d1f;
+  --surface-glass: rgba(8, 11, 11, 0.9);
+  --surface-selected: rgba(255, 184, 28, 0.11);
+
+  --ink-0: #fff8e8;
+  --ink-1: #f1ead8;
+  --ink-2: #c8c1ae;
+  --ink-3: #8f897d;
+  --ink-disabled: rgba(200, 193, 174, 0.42);
+
+  --accent: #ffb81c;
+  --accent-soft: rgba(255, 184, 28, 0.18);
+  --accent-line: rgba(255, 184, 28, 0.58);
+  --success: #70e07a;
+  --warning: #e6b24a;
+  --danger: #df5858;
+  --info: #67a7e8;
+
+  --line-hair: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.13);
+  --line-strong: rgba(255, 255, 255, 0.22);
+  --line-accent: rgba(255, 184, 28, 0.64);
+
+  /* Backward-compatible aliases while older screens are migrated. */
+  --bg: var(--surface-0);
+  --panel: var(--surface-2);
+  --panel-2: var(--surface-3);
+  --panel-3: var(--surface-4);
+  --text: var(--ink-1);
+  --muted: var(--ink-2);
+  --gold: var(--accent);
+  --green: var(--success);
+  --red: var(--danger);
+  --orange: var(--warning);
+
   --team-primary: #1c352d;
   --team-secondary: #c9a75c;
+
+  /* Type scale. Display is condensed and only for names, scores, and key numerals. */
   --font-display: "Bahnschrift Condensed", "DIN Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
   --font-ui: "Bahnschrift", "Aptos", "Segoe UI", Arial, sans-serif;
   --font-body: "Aptos", "Segoe UI", Arial, sans-serif;
+  --type-xs: 11px;
+  --type-sm: 12px;
+  --type-md: 14px;
+  --type-lg: 16px;
+  --type-xl: 20px;
+  --type-2xl: 28px;
+  --type-3xl: 38px;
+  --type-hero: clamp(48px, 4.8vw, 76px);
+  --leading-tight: 0.9;
+  --leading-ui: 1.2;
+  --leading-body: 1.45;
+  --tracking-label: 0.14em;
+  --tracking-button: 0.1em;
+
+  /* 4px spacing grid. No arbitrary one-off spacing in new screens. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --rail-width: 70px;
+  --topbar-height: 72px;
+  --panel-gap: 8px;
+  --panel-pad: 14px;
+  --table-row-height: 34px;
+  --table-header-height: 34px;
+  --focus-ring: 0 0 0 1px var(--line-accent), inset 0 0 0 1px rgba(255, 184, 28, 0.24);
+
+  /* Asset slots. Player model source art should be 1024x1024 transparent PNG. */
+  --asset-player-model-w: 1024;
+  --asset-player-model-h: 1024;
+  --asset-card-bg-w: 1536;
+  --asset-card-bg-h: 864;
 }

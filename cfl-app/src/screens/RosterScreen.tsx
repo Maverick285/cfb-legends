@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { compactNumber, feet, money, titleCase } from "../data/format";
 import { getPlayerProfile, getProgramRoster, getRosterOverview, getStarterCountsByPosition, keyRatingsForPosition, positionOptions } from "../data/selectors";
 import type { CareerState, ProgramSeedBundle, RosterPlayerRecord, RosterSortKey } from "../data/types";
@@ -33,6 +33,7 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
   const [activeTab, setActiveTab] = useState<TeamTab>("Overview");
   const roster = getProgramRoster(bundle, state);
   const selectedPlayer = getPlayerProfile(bundle, state.selectedPersonId) || roster[0];
+  const [modelMissing, setModelMissing] = useState(false);
   const positions = positionOptions(bundle);
   const overview = getRosterOverview(bundle);
   const ratings = selectedPlayer ? keyRatingsForPosition(selectedPlayer) : [];
@@ -45,6 +46,10 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
       .filter((position) => overview.byPosition[position])
       .map((position) => [position, overview.byPosition[position]] as const);
   }, [overview.byPosition]);
+
+  useEffect(() => {
+    setModelMissing(false);
+  }, [selectedPlayer?.person.personId]);
 
   return (
     <section className="team-room roster-command-screen">
@@ -59,6 +64,14 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
             </div>
             <div className="player-card-number">{selectedPlayer.athlete.jerseyNumber}</div>
             <div className="player-card-position">{selectedPlayer.athlete.primaryPosition}</div>
+            {!modelMissing && (
+              <img
+                className="player-model-asset"
+                src={`/assets/player-models/${selectedPlayer.person.personId}.png`}
+                alt=""
+                onError={() => setModelMissing(true)}
+              />
+            )}
           </div>
 
           <div className="player-card-grid">

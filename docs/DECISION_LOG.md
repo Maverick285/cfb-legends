@@ -159,3 +159,21 @@ Rebuild the active `cfl-app` roster screen as a team-room frame. Keep the screen
 - `AppShell` uses a tighter game-style top bar and icon rail instead of the earlier broad web sidebar.
 - The roster table scrolls inside the screen, preserving a fixed 1920x1080 management-game layout.
 - The next implementation should make the Depth Chart tab stateful and enforce one-player/one-starting-slot constraints.
+
+## 2026-05-14 - Establish a Small Visual Design System Before More Screens
+
+### Context
+
+The roster screen direction is useful, but the app needs consistent rules before adding more team-room pages. Without fixed typography, spacing, panel, table, status, and asset-slot rules, each screen risks becoming another one-off mockup.
+
+### Decision
+
+Use the May 13 roster reference as the baseline visual system. Document the rules in `docs/VISUAL_DESIGN_SYSTEM.md`, expand app tokens in `cfl-app/src/styles/tokens.css`, and add stable asset intake folders for player models and card backgrounds.
+
+### Consequences
+
+- New screens must use the 1920x1080 desktop-first game shell until the core loop is stable.
+- Tables, panels, typography, and spacing now have explicit standards.
+- Player model assets have a deterministic folder and filename convention: `cfl-app/public/assets/player-models/<personId>.png`.
+- The roster card can display generated player models when present and falls back cleanly when missing.
+- Future work should push back before coding if a proposed layout violates the design system or would expose fake functionality.

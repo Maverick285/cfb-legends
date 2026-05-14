@@ -57,6 +57,16 @@ The same shell should support Depth Chart, Formation Subs, NIL/Budget, Health, a
   - roster overview metrics from seed data.
   - class, position, NIL, and health summary bands.
   - denser 105-player roster table with internal scrolling.
+- Established `docs/VISUAL_DESIGN_SYSTEM.md` from the May 13 roster reference:
+  - 1920x1080 desktop-first canvas.
+  - typography scale.
+  - 4px spacing grid.
+  - panel/table/status rules.
+  - player model and card background asset slots.
+- Added asset intake folders:
+  - `cfl-app/public/assets/player-models/`
+  - `cfl-app/public/assets/card-backgrounds/`
+- Wired the roster player card to load `/assets/player-models/<personId>.png` when available.
 
 ## Verification
 
@@ -93,7 +103,7 @@ http://127.0.0.1:5173/
 
 ## Next Implementation Step
 
-Build the first real depth chart mode inside the new team-room frame in `cfl-app/`.
+Apply the visual design system while building the first real depth chart mode inside the new team-room frame in `cfl-app/`.
 
 Acceptance target:
 

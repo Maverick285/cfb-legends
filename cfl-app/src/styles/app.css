@@ -914,6 +914,20 @@ button {
   letter-spacing: 0.06em;
 }
 
+.player-model-asset {
+  position: absolute;
+  right: -4%;
+  bottom: -7%;
+  z-index: 2;
+  width: min(58%, 430px);
+  height: auto;
+  max-height: 94%;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 24px 26px rgba(0, 0, 0, 0.62));
+  pointer-events: none;
+}
+
 .player-card-grid {
   display: grid;
   grid-template-columns: 0.8fr 1fr 1.2fr;
