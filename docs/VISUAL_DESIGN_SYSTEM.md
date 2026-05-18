@@ -199,6 +199,19 @@ Fallback rule:
 - New visual constants belong in `cfl-app/src/styles/tokens.css`.
 - Screen CSS should use tokens where possible.
 - Do not add one-off colors or spacing unless there is a documented reason.
+- New team-room screens should compose reusable components instead of owning shell/table/player layout directly.
+- Current reusable component boundaries:
+  - `components/shell/GameShell.tsx`
+  - `components/shell/LeftNavRail.tsx`
+  - `components/shell/TopProgramBar.tsx`
+  - `components/team-room/TeamRoomLayout.tsx`
+  - `components/team-room/TeamTabs.tsx`
+  - `components/team-room/MetricStrip.tsx`
+  - `components/team-room/RosterOverviewPanel.tsx`
+  - `components/team-room/RosterTable.tsx`
+  - `components/player/PlayerFeaturePanel.tsx`
+  - `components/player/AssetSlot.tsx`
+  - `components/data-table/DataTable.tsx`
 - Every new screen must have a Playwright screenshot at `1920x1080`.
 - A screen is not visually accepted if it has body overflow, text collisions, broken asset icons, or fake-looking visible controls.
 

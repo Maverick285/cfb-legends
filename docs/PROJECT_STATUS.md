@@ -74,6 +74,11 @@ The same shell should support Depth Chart, Formation Subs, NIL/Budget, Health, a
   - removed fake player-card/watch actions from the player feature panel.
   - player bio, details, ratings, and development controls now overlay the image surface.
   - added `placeholder-player.svg` until generated player PNG assets are available.
+- Refactored the roster room into reusable app components:
+  - shell: `GameShell`, `LeftNavRail`, `TopProgramBar`.
+  - team room: `TeamRoomLayout`, `TeamTabs`, `MetricStrip`, `RosterOverviewPanel`, `RosterTable`.
+  - player feature: `PlayerFeaturePanel`, `AssetSlot`.
+  - table primitive: `DataTable`.
 
 ## Verification
 
@@ -93,6 +98,7 @@ The same shell should support Depth Chart, Formation Subs, NIL/Budget, Health, a
   - page body does not vertically or horizontally overflow.
   - roster table scrolls inside its panel.
   - team tabs render: Overview, Depth Chart, Formation Subs, NIL/Budget, Health, Staff.
+  - selected roster row updates the right-side player feature panel through the modular component path.
 
 ## Current App URL
 

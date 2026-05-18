@@ -193,3 +193,19 @@ Put the data workspace on the left and the selected-player feature on the right.
 - The roster room better matches the intended direction: data grid left, player feature right.
 - Class breakdown is now four buckets: FR, SO, JR, SR.
 - Generated player PNGs remain the target, but the app now has a project-local placeholder player image until those assets exist.
+
+## 2026-05-18 - Refactor Roster Room Into Reusable Components
+
+### Context
+
+The roster page had the right direction, but too much layout and rendering responsibility still lived inside `RosterScreen`. That made the screen look like a one-off implementation instead of the first instance of a reusable game UI system.
+
+### Decision
+
+Extract shell, team-room, player-feature, metric, tab, and table primitives while keeping the current 1920x1080 roster layout behavior stable. `RosterScreen` now prepares data and composes reusable components rather than owning the whole page structure.
+
+### Consequences
+
+- Depth Chart, Formation Subs, NIL/Budget, Health, and Staff should reuse these components instead of creating new shells.
+- Future work can improve visual fidelity in the component layer and have those improvements carry across screens.
+- The roster screen still needs better art/logo assets, but its structure is now closer to a durable AAA-style UI foundation.
