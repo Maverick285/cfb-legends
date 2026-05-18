@@ -177,3 +177,19 @@ Use the May 13 roster reference as the baseline visual system. Document the rule
 - Player model assets have a deterministic folder and filename convention: `cfl-app/public/assets/player-models/<personId>.png`.
 - The roster card can display generated player models when present and falls back cleanly when missing.
 - Future work should push back before coding if a proposed layout violates the design system or would expose fake functionality.
+
+## 2026-05-18 - Keep Roster Data Workspace Left and Player Feature Right
+
+### Context
+
+The roster screen worked structurally, but the selected-player region read like a separate panel stack rather than an image-backed player feature. The class breakdown also split redshirt classes into separate buckets, which made the roster summary harder to scan.
+
+### Decision
+
+Put the data workspace on the left and the selected-player feature on the right. Treat redshirt players as their class year for summary counts. Remove fake player-card/watch actions from the feature panel. Overlay bio, details, ratings, NIL, development, and form information on the player image surface.
+
+### Consequences
+
+- The roster room better matches the intended direction: data grid left, player feature right.
+- Class breakdown is now four buckets: FR, SO, JR, SR.
+- Generated player PNGs remain the target, but the app now has a project-local placeholder player image until those assets exist.

@@ -792,7 +792,7 @@ button {
 }
 
 .roster-command-screen {
-  grid-template-columns: minmax(430px, 0.82fr) minmax(720px, 1.18fr);
+  grid-template-columns: minmax(720px, 1.18fr) minmax(430px, 0.82fr);
 }
 
 .roster-player-card,
@@ -804,9 +804,9 @@ button {
 }
 
 .roster-player-card {
-  display: grid;
-  grid-template-rows: minmax(300px, 1fr) auto auto auto auto auto;
-  gap: 10px;
+  order: 2;
+  display: block;
+  position: relative;
   min-height: 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
@@ -815,12 +815,17 @@ button {
   overflow: hidden;
 }
 
+.team-data-panel {
+  order: 1;
+}
+
 .player-stage {
   position: relative;
-  min-height: 335px;
+  height: 100%;
+  min-height: 720px;
   padding: 26px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.78)),
     linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 48%),
     radial-gradient(circle at 72% 30%, color-mix(in srgb, var(--team-secondary) 22%, transparent), transparent 34%),
     repeating-linear-gradient(105deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 38px);
@@ -845,7 +850,8 @@ button {
 .player-number {
   position: absolute;
   left: 24px;
-  top: 116px;
+  top: 104px;
+  z-index: 3;
   color: var(--team-secondary);
   font-family: var(--font-display);
   font-size: 88px;
@@ -856,8 +862,8 @@ button {
 .player-identity {
   position: absolute;
   left: 26px;
-  bottom: 34px;
-  z-index: 2;
+  bottom: 454px;
+  z-index: 4;
 }
 
 .player-identity span,
@@ -893,7 +899,7 @@ button {
 .player-card-number {
   position: absolute;
   right: 7%;
-  top: 16%;
+  top: 7%;
   z-index: 1;
   color: color-mix(in srgb, var(--team-secondary) 18%, transparent);
   font-family: var(--font-display);
@@ -905,7 +911,7 @@ button {
 .player-card-position {
   position: absolute;
   right: 8%;
-  bottom: 12%;
+  bottom: 42%;
   z-index: 1;
   color: rgba(255, 255, 255, 0.08);
   font-family: var(--font-display);
@@ -916,12 +922,12 @@ button {
 
 .player-model-asset {
   position: absolute;
-  right: -4%;
-  bottom: -7%;
+  right: -8%;
+  bottom: 22%;
   z-index: 2;
-  width: min(58%, 430px);
+  width: min(72%, 520px);
   height: auto;
-  max-height: 94%;
+  max-height: 78%;
   object-fit: contain;
   object-position: bottom right;
   filter: drop-shadow(0 24px 26px rgba(0, 0, 0, 0.62));
@@ -929,10 +935,17 @@ button {
 }
 
 .player-card-grid {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 364px;
+  z-index: 4;
   display: grid;
   grid-template-columns: 0.8fr 1fr 1.2fr;
   gap: 1px;
-  padding: 2px 20px 0;
+  padding: 0;
+  background: rgba(4, 5, 6, 0.28);
+  backdrop-filter: blur(3px);
 }
 
 .player-card-grid div,
@@ -958,10 +971,15 @@ button {
 }
 
 .player-tags {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 318px;
+  z-index: 4;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0 26px;
+  padding: 0;
 }
 
 .player-tags span {
@@ -973,18 +991,28 @@ button {
 }
 
 .player-summary {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 244px;
+  z-index: 4;
   margin: 0;
-  padding: 0 26px;
+  padding: 0;
   color: #c8c1b5;
   font-size: 13px;
   line-height: 1.42;
 }
 
 .key-ratings-strip {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 158px;
+  z-index: 4;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
-  padding: 4px 24px 8px;
+  padding: 0;
 }
 
 .key-ratings-strip div {
@@ -1014,10 +1042,15 @@ button {
 }
 
 .player-card-widgets {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 4;
   display: grid;
   grid-template-columns: 0.8fr 1.1fr 1.1fr 0.9fr;
   gap: 8px;
-  padding: 0 18px;
+  padding: 0;
 }
 
 .player-card-widgets div {
@@ -1050,13 +1083,6 @@ button {
   background: #080b0a;
   color: var(--text);
   padding: 7px;
-}
-
-.player-card-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 0 18px 18px;
 }
 
 .player-card-actions button,
@@ -1300,7 +1326,7 @@ button {
 
 @media (max-width: 1500px) {
   .roster-command-screen {
-    grid-template-columns: minmax(380px, 0.75fr) minmax(680px, 1.25fr);
+    grid-template-columns: minmax(680px, 1.25fr) minmax(380px, 0.75fr);
   }
 
   .top-metrics div,

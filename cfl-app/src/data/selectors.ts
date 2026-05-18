@@ -70,7 +70,8 @@ export function getRosterOverview(bundle: ProgramSeedBundle) {
   const roster = bundle.selectedProgram.roster;
   const average = (reader: (player: RosterPlayerRecord) => number) => Math.round(roster.reduce((sum, player) => sum + reader(player), 0) / roster.length);
   const byClass = roster.reduce<Record<string, number>>((counts, player) => {
-    counts[player.athlete.classYear] = (counts[player.athlete.classYear] || 0) + 1;
+    const normalizedClass = player.athlete.classYear.replace("RS ", "");
+    counts[normalizedClass] = (counts[normalizedClass] || 0) + 1;
     return counts;
   }, {});
   const byPosition = roster.reduce<Record<string, number>>((counts, player) => {

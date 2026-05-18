@@ -82,7 +82,6 @@ export default function App() {
           onSelectPlayer={(personId, openProfile = false) => update((current) => selectPlayer(current, personId, openProfile ? "player" : "roster"))}
           onPositionFilter={(position) => update((current) => setPositionFilter(current, position))}
           onSort={(sortKey: RosterSortKey) => update((current) => setRosterSort(current, sortKey))}
-          onToggleWatch={handleToggleWatch}
           onDevelopmentFocus={handleDevelopmentFocus}
         />
       )}

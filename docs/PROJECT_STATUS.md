@@ -67,6 +67,13 @@ The same shell should support Depth Chart, Formation Subs, NIL/Budget, Health, a
   - `cfl-app/public/assets/player-models/`
   - `cfl-app/public/assets/card-backgrounds/`
 - Wired the roster player card to load `/assets/player-models/<personId>.png` when available.
+- Adjusted the roster room based on review:
+  - team data/table panel is on the left.
+  - selected-player feature panel is on the right.
+  - redshirt players roll into their class year for class breakdown counts.
+  - removed fake player-card/watch actions from the player feature panel.
+  - player bio, details, ratings, and development controls now overlay the image surface.
+  - added `placeholder-player.svg` until generated player PNG assets are available.
 
 ## Verification
 

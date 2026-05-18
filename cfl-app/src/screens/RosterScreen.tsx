@@ -23,13 +23,12 @@ type RosterScreenProps = {
   onSelectPlayer: (personId: string, openProfile?: boolean) => void;
   onPositionFilter: (position: string) => void;
   onSort: (sortKey: RosterSortKey) => void;
-  onToggleWatch: (player: RosterPlayerRecord) => void;
   onDevelopmentFocus: (player: RosterPlayerRecord, focus: string) => void;
 };
 
 const focusOptions = ["Technique", "Strength", "Explosiveness", "Coverage", "Ball Security", "Film Study"];
 
-export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, onSort, onToggleWatch, onDevelopmentFocus }: RosterScreenProps) {
+export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, onSort, onDevelopmentFocus }: RosterScreenProps) {
   const [activeTab, setActiveTab] = useState<TeamTab>("Overview");
   const roster = getProgramRoster(bundle, state);
   const selectedPlayer = getPlayerProfile(bundle, state.selectedPersonId) || roster[0];
@@ -38,7 +37,6 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
   const overview = getRosterOverview(bundle);
   const ratings = selectedPlayer ? keyRatingsForPosition(selectedPlayer) : [];
   const topTrait = selectedPlayer?.traits[0];
-  const watchlisted = Boolean(selectedPlayer && state.watchlistPersonIds.includes(selectedPlayer.person.personId));
   const developmentFocus = selectedPlayer ? state.developmentFocusByPersonId[selectedPlayer.person.personId] || "Unset" : "Unset";
   const starterCounts = useMemo(() => getStarterCountsByPosition(bundle), [bundle]);
   const positionCounts = useMemo(() => {
@@ -58,78 +56,66 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
           <div className="player-stage">
             <div className="stage-glow" />
             <div className="player-number">{selectedPlayer.athlete.jerseyNumber}</div>
+            <div className="player-card-number">{selectedPlayer.athlete.jerseyNumber}</div>
+            <div className="player-card-position">{selectedPlayer.athlete.primaryPosition}</div>
+            <img
+              className="player-model-asset"
+              src={modelMissing ? "/assets/player-models/placeholder-player.svg" : `/assets/player-models/${selectedPlayer.person.personId}.png`}
+              alt=""
+              onError={() => setModelMissing(true)}
+            />
             <div className="player-identity">
               <span>{selectedPlayer.athlete.primaryPosition} / {titleCase(selectedPlayer.athlete.depthChartRole)}</span>
               <strong>{selectedPlayer.person.firstName}<br />{selectedPlayer.person.lastName}</strong>
             </div>
-            <div className="player-card-number">{selectedPlayer.athlete.jerseyNumber}</div>
-            <div className="player-card-position">{selectedPlayer.athlete.primaryPosition}</div>
-            {!modelMissing && (
-              <img
-                className="player-model-asset"
-                src={`/assets/player-models/${selectedPlayer.person.personId}.png`}
-                alt=""
-                onError={() => setModelMissing(true)}
-              />
-            )}
-          </div>
-
-          <div className="player-card-grid">
-            <div><span>Class</span><strong>{selectedPlayer.athlete.classYear}</strong></div>
-            <div><span>HT / WT</span><strong>{feet(selectedPlayer.athlete.heightInches)} / {selectedPlayer.athlete.weightPounds}</strong></div>
-            <div><span>Hometown</span><strong>{selectedPlayer.person.hometownCity}, {selectedPlayer.person.hometownState}</strong></div>
-          </div>
-
-          <div className="player-tags">
-            {selectedPlayer.athlete.captainStatus && <span>Captain</span>}
-            {topTrait && <span>{topTrait.traitName}</span>}
-            <span>Morale {selectedPlayer.ratings.morale}</span>
-          </div>
-
-          <p className="player-summary">
-            {selectedPlayer.person.displayName} is a {selectedPlayer.athlete.primaryPosition} with {selectedPlayer.ratings.overall} overall ability,
-            {selectedPlayer.ratings.potentialAbility} potential, and a {selectedPlayer.athlete.schemeFit} scheme fit in the current system.
-          </p>
-
-          <div className="key-ratings-strip">
-            {ratings.map(([label, value]) => (
-              <div key={label}>
-                <strong>{value}</strong>
-                <span>{label}</span>
-                <i style={{ width: `${Math.max(8, Math.min(100, value))}%` }} />
+            <div className="player-card-grid">
+              <div><span>Class</span><strong>{selectedPlayer.athlete.classYear.replace("RS ", "")}</strong></div>
+              <div><span>HT / WT</span><strong>{feet(selectedPlayer.athlete.heightInches)} / {selectedPlayer.athlete.weightPounds}</strong></div>
+              <div><span>Hometown</span><strong>{selectedPlayer.person.hometownCity}, {selectedPlayer.person.hometownState}</strong></div>
+            </div>
+            <div className="player-tags">
+              {selectedPlayer.athlete.captainStatus && <span>Captain</span>}
+              {topTrait && <span>{topTrait.traitName}</span>}
+              <span>Morale {selectedPlayer.ratings.morale}</span>
+            </div>
+            <p className="player-summary">
+              {selectedPlayer.person.displayName} is a {selectedPlayer.athlete.primaryPosition} with {selectedPlayer.ratings.overall} overall ability,
+              {selectedPlayer.ratings.potentialAbility} potential, and a {selectedPlayer.athlete.schemeFit} scheme fit in the current system.
+            </p>
+            <div className="key-ratings-strip">
+              {ratings.map(([label, value]) => (
+                <div key={label}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                  <i style={{ width: `${Math.max(8, Math.min(100, value))}%` }} />
+                </div>
+              ))}
+            </div>
+            <div className="player-card-widgets">
+              <div>
+                <span>Impact</span>
+                <strong>{selectedPlayer.ratings.overall}</strong>
+                <em>{selectedPlayer.athlete.depthChartRole}</em>
               </div>
-            ))}
-          </div>
-
-          <div className="player-card-widgets">
-            <div>
-              <span>Impact</span>
-              <strong>{selectedPlayer.ratings.overall}</strong>
-              <em>{selectedPlayer.athlete.depthChartRole}</em>
+              <div>
+                <span>Development</span>
+                <strong>{developmentFocus === "Unset" ? "No Focus" : developmentFocus}</strong>
+                <select value={developmentFocus} onChange={(event) => onDevelopmentFocus(selectedPlayer, event.target.value)}>
+                  <option value="Unset">Unset</option>
+                  {focusOptions.map((option) => <option key={option} value={option}>{option}</option>)}
+                </select>
+              </div>
+              <div>
+                <span>NIL Value</span>
+                <strong>{money(selectedPlayer.nil?.estimatedNilValue || 0)}</strong>
+                <em>{titleCase(selectedPlayer.nil?.nilStatus || "standard")}</em>
+              </div>
+              <div>
+                <span>{bundle.selectedProgram.program.seasonYear} Form</span>
+                <strong>{selectedPlayer.ratings.confidence}</strong>
+                <em>Confidence</em>
+              </div>
             </div>
-            <div>
-              <span>Development</span>
-              <strong>{developmentFocus === "Unset" ? "No Focus" : developmentFocus}</strong>
-              <select value={developmentFocus} onChange={(event) => onDevelopmentFocus(selectedPlayer, event.target.value)}>
-                <option value="Unset">Unset</option>
-                {focusOptions.map((option) => <option key={option} value={option}>{option}</option>)}
-              </select>
-            </div>
-            <div>
-              <span>NIL Value</span>
-              <strong>{money(selectedPlayer.nil?.estimatedNilValue || 0)}</strong>
-              <em>{titleCase(selectedPlayer.nil?.nilStatus || "standard")}</em>
-            </div>
-            <div>
-              <span>{bundle.selectedProgram.program.seasonYear} Form</span>
-              <strong>{selectedPlayer.ratings.confidence}</strong>
-              <em>Confidence</em>
-            </div>
-          </div>
-
-          <div className="player-card-actions">
-            <button type="button" onClick={() => onSelectPlayer(selectedPlayer.person.personId, true)}>View Player Card</button>
-            <button type="button" onClick={() => onToggleWatch(selectedPlayer)}>{watchlisted ? "Remove Watch" : "Add Watch"}</button>
           </div>
         </aside>
       )}
@@ -158,7 +144,7 @@ export function RosterScreen({ bundle, state, onSelectPlayer, onPositionFilter, 
             <Metric label="NIL Valuation" value={money(overview.totalNil)} note="Roster" />
           </div>
           <div className="overview-breakdowns">
-            <Breakdown title="Class Breakdown" values={overview.byClass} order={["FR", "RS FR", "SO", "RS SO", "JR", "RS JR", "SR", "RS SR"]} />
+            <Breakdown title="Class Breakdown" values={overview.byClass} order={["FR", "SO", "JR", "SR"]} />
             <div className="breakdown-card">
               <span>Position Breakdown</span>
               <div className="breakdown-values compact">
